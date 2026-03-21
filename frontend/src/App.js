@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import './App.css';
 
@@ -9,16 +9,13 @@ import ScrollToTop from './components/ScrollToTop';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import ProductsPage from './pages/ProductsPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import RiskLogisticsPage from './pages/RiskLogisticsPage';
-import SustainabilityPage from './pages/SustainabilityPage';
-import InsightsPage from './pages/InsightsPage';
-import InsightDetailPage from './pages/InsightDetailPage';
-import GlobalPresencePage from './pages/GlobalPresencePage';
+import CommoditiesPage from './pages/CommoditiesPage';
+import PartnersPage from './pages/PartnersPage';
+import ContactPage from './pages/ContactPage';
 import CareersPage from './pages/CareersPage';
 import JobDetailPage from './pages/JobDetailPage';
-import ContactPage from './pages/ContactPage';
+import InsightsPage from './pages/InsightsPage';
+import InsightDetailPage from './pages/InsightDetailPage';
 
 function App() {
   return (
@@ -30,16 +27,15 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/products/:slug" element={<ProductDetailPage />} />
-            <Route path="/risk-logistics" element={<RiskLogisticsPage />} />
-            <Route path="/sustainability" element={<SustainabilityPage />} />
-            <Route path="/insights" element={<InsightsPage />} />
-            <Route path="/insights/:id" element={<InsightDetailPage />} />
-            <Route path="/global-presence" element={<GlobalPresencePage />} />
+            <Route path="/about/:tab" element={<AboutPage />} />
+            <Route path="/commodities" element={<CommoditiesPage />} />
+            <Route path="/commodities/:tab" element={<CommoditiesPage />} />
+            <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/careers/:slug" element={<JobDetailPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/insights/:id" element={<InsightDetailPage />} />
           </Routes>
         </main>
         <Footer />

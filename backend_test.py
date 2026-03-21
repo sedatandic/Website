@@ -146,6 +146,30 @@ class GlobalAgriAPITester:
             print("   ✅ Validation working correctly")
         return success
 
+    def test_partners(self):
+        """Test partners endpoint"""
+        success, response = self.run_test("Get Partners", "GET", "api/partners", 200)
+        if success:
+            partners = response
+            print(f"   Found {len(partners)} partners")
+            if len(partners) > 0:
+                print("   ✅ Partners data available")
+            else:
+                print("   ⚠️  No partners found")
+        return success
+
+    def test_memberships(self):
+        """Test memberships endpoint"""
+        success, response = self.run_test("Get Memberships", "GET", "api/memberships", 200)
+        if success:
+            memberships = response
+            print(f"   Found {len(memberships)} memberships")
+            if len(memberships) > 0:
+                print("   ✅ Memberships data available")
+            else:
+                print("   ⚠️  No memberships found")
+        return success
+
     def test_pdf_download(self):
         """Test PDF download endpoint"""
         url = f"{self.base_url}/api/download/profile"
@@ -175,6 +199,8 @@ def main():
     # Run all tests
     tests = [
         tester.test_health,
+        tester.test_partners,
+        tester.test_memberships,
         tester.test_insights_list,
         tester.test_insights_filtering,
         tester.test_insight_detail,

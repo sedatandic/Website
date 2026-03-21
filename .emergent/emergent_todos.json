@@ -1,18 +1,34 @@
 [
   {
-    "content": "Phase 2: Backend - Models, endpoints, seed data, PDF generation",
+    "content": "Phase 3: Redesign to match Dome Agribusiness style - Backend updates (Partners, Memberships data)",
     "status": "completed"
   },
   {
-    "content": "Phase 2: Frontend - All pages (Home, About, Products, Risk, Sustainability, Insights, Global Presence, Careers, Contact)",
+    "content": "Phase 3: Redesign Header/Footer to match Dome style",
     "status": "completed"
   },
   {
-    "content": "Phase 2: All user stories covered in Development",
+    "content": "Phase 3: Redesign Homepage with hero carousel",
     "status": "completed"
   },
   {
-    "content": "Phase 2: End to End Testing using Testing Agent",
+    "content": "Phase 3: Redesign About section with tabs (Who We Are, Strengths, Key Facts, Memberships)",
     "status": "completed"
+  },
+  {
+    "content": "Phase 3: Redesign Products with tabbed image grid layout",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 3: Create Partners page with logo grid",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 3: Redesign Contact page with map + simpler form",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 3: End to End Testing",
+    "status": "in_progress"
   }
 ]

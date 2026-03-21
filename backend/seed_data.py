@@ -148,3 +148,29 @@ def seed_database(db):
         ]
         db.jobs.insert_many(jobs)
         print("Seeded jobs collection")
+
+    # ── Seed Partners ──
+    if db.partners.count_documents({}) == 0:
+        partners = [
+            {"name": "SGS", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/SGS_Logo.svg/200px-SGS_Logo.svg.png", "category": "Inspection"},
+            {"name": "Maersk", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Maersk_Group_Logo.svg/200px-Maersk_Group_Logo.svg.png", "category": "Shipping"},
+            {"name": "Intertek", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Intertek_logo.svg/200px-Intertek_logo.svg.png", "category": "Inspection"},
+            {"name": "CMA CGM", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/CMA_CGM_Company_Logo.svg/200px-CMA_CGM_Company_Logo.svg.png", "category": "Shipping"},
+            {"name": "MSC", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/MSC_Mediterranean_Shipping_Company_S.A._logo.svg/200px-MSC_Mediterranean_Shipping_Company_S.A._logo.svg.png", "category": "Shipping"},
+            {"name": "General Survey & Inspection", "logo": "", "category": "Inspection"},
+            {"name": "Bureau Veritas", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Bureau_Veritas_logo.svg/200px-Bureau_Veritas_logo.svg.png", "category": "Inspection"},
+            {"name": "Standard Chartered", "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/200px-Standard_Chartered_%282021%29.svg.png", "category": "Trade Finance"},
+        ]
+        db.partners.insert_many(partners)
+        print("Seeded partners collection")
+
+    # ── Seed Memberships ──
+    if db.memberships.count_documents({}) == 0:
+        memberships = [
+            {"name": "GAFTA", "full_name": "Grain and Feed Trade Association", "logo": ""},
+            {"name": "GPC", "full_name": "Global Pulse Confederation", "logo": ""},
+            {"name": "FOSFA International", "full_name": "Federation of Oils, Seeds and Fats Associations", "logo": ""},
+            {"name": "ICC", "full_name": "International Chamber of Commerce", "logo": ""},
+        ]
+        db.memberships.insert_many(memberships)
+        print("Seeded memberships collection")

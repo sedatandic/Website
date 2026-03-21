@@ -174,6 +174,18 @@ async def download_profile():
         filename="GlobalAgri_Company_Profile.pdf"
     )
 
+# ── Partners ──
+@app.get("/api/partners")
+async def get_partners():
+    partners = list(db.partners.find())
+    return [serialize_doc(p) for p in partners]
+
+# ── Memberships ──
+@app.get("/api/memberships")
+async def get_memberships():
+    memberships = list(db.memberships.find())
+    return [serialize_doc(m) for m in memberships]
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)

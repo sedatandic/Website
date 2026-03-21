@@ -1,179 +1,170 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Handshake, Award, Shield } from 'lucide-react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { ChevronRight, Shield, Award, Handshake, Globe, TrendingUp, Users, Briefcase, Building2, Ship, MapPin } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import PageHero from '../components/PageHero';
 import { FadeIn, FadeInStagger, FadeInItem } from '../components/FadeIn';
+import { getPartners, getMemberships } from '../lib/api';
+import { useEffect, useState } from 'react';
 
-const values = [
-  { icon: Shield, title: 'Integrity', desc: 'We honor our commitments and communicate openly.' },
-  { icon: Award, title: 'Expertise', desc: 'We combine market intelligence with operational excellence.' },
-  { icon: Handshake, title: 'Partnership', desc: 'We build relationships, not just transactions.' },
+const tabs = [
+  { id: 'who-we-are', label: 'Who We Are' },
+  { id: 'strengths', label: 'Strengths' },
+  { id: 'key-facts', label: 'Key Facts' },
+  { id: 'memberships', label: 'Memberships' },
 ];
 
-const leaders = [
-  {
-    name: 'Andreas Müller',
-    role: 'CEO & Founder',
-    bio: 'Over 20 years of experience in international commodity trading, with deep expertise in European and Black Sea grain markets. Previously held senior trading positions at major commodity houses.',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
-  {
-    name: 'Sarah Chen',
-    role: 'Head of Trading, Asia-Pacific',
-    bio: '15 years in agricultural commodity trading and risk management across Asian markets. Specializes in oilseeds and feed ingredients for the Southeast Asian market.',
-    image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
-  {
-    name: 'Omar Al-Rashid',
-    role: 'Head of Operations, Middle East & Africa',
-    bio: 'Extensive experience in commodity logistics, chartering, and trade finance across MENA and East African markets. Based in Dubai overseeing regional operations.',
-    image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
-  {
-    name: 'Maria Santos',
-    role: 'Head of Risk & Compliance',
-    bio: 'Former risk manager at a global trading firm, specializing in commodity derivatives, counterparty risk assessment, and regulatory compliance frameworks.',
-    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
+const heroImages = {
+  'who-we-are': 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1260',
+  'strengths': 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1260',
+  'key-facts': 'https://images.pexels.com/photos/1393382/pexels-photo-1393382.jpeg?auto=compress&cs=tinysrgb&w=1260',
+  'memberships': 'https://images.pexels.com/photos/2589457/pexels-photo-2589457.jpeg?auto=compress&cs=tinysrgb&w=1260',
+};
+
+const keyFacts = [
+  { value: 'More than 25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
+  { value: 'More than 200+', label: 'Vessels', sub: 'CHARTERED ANNUALLY', icon: Ship },
+  { value: '250+ Million USD', label: 'Worth of', sub: 'COMMODITIES TRADED', icon: Briefcase },
+  { value: '500,000+ MTS', label: '', sub: 'ANNUAL TRADE VOLUME', icon: Globe },
+  { value: 'Trade with 25+', label: '', sub: 'DIFFERENT COUNTRIES', icon: MapPin },
+  { value: '7 Offices & Staff', label: '', sub: 'IN 6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
 
 export default function AboutPage() {
+  const { tab } = useParams();
+  const navigate = useNavigate();
+  const activeTab = tab || 'who-we-are';
+  const [memberships, setMemberships] = useState([]);
+
+  useEffect(() => {
+    if (activeTab === 'memberships') {
+      getMemberships().then(res => setMemberships(res.data)).catch(() => {});
+    }
+  }, [activeTab]);
+
+  const currentTitle = tabs.find(t => t.id === activeTab)?.label || 'About';
+
   return (
     <div>
-      <PageHero
-        title="About GlobalAgri Commodities"
-        subtitle="An international trading company focused on agricultural raw materials, connecting reliable origins with demanding destination markets."
-        breadcrumbs={[{ label: 'About Us' }]}
-      />
+      {/* Hero */}
+      <section className="relative" style={{ height: '280px' }}>
+        <img src={heroImages[activeTab] || heroImages['who-we-are']} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55))' }} />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">{currentTitle}</h1>
+        </div>
+      </section>
 
-      {/* Who we are */}
-      <section className="ga-section" style={{ background: 'var(--ga-surface)' }}>
+      {/* Breadcrumb */}
+      <div className="bg-white border-b" style={{ borderColor: '#e5e7eb' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <nav className="flex items-center gap-1.5 text-xs" style={{ color: '#6b7280' }}>
+            <Link to="/" className="hover:text-gray-900">Home</Link>
+            <ChevronRight className="w-3 h-3" />
+            <span>About Us</span>
+            <ChevronRight className="w-3 h-3" />
+            <span className="text-gray-900 font-medium">{currentTitle}</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="bg-white border-b" style={{ borderColor: '#e5e7eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <FadeIn>
-              <div>
-                <Badge variant="outline" className="mb-4 text-xs" style={{ borderColor: 'rgba(217,164,65,0.4)', color: 'var(--ga-gold-2)' }}>
-                  Who We Are
-                </Badge>
-                <h2 className="h-serif text-2xl sm:text-3xl font-semibold tracking-tight mb-6" style={{ color: 'var(--ga-navy)' }}>
-                  Connecting producers and buyers across the globe
-                </h2>
-                <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: 'var(--ga-muted)' }}>
-                  <p>
-                    GlobalAgri Commodities is an international trading company focused on agricultural raw materials. We connect producers, exporters, and industrial buyers through disciplined risk management, robust logistics, and transparent communication.
-                  </p>
-                  <p>
-                    Our team brings deep experience in grains, feedstuff, pulses, oilseeds, rice, sugar, and coffee, serving industrial buyers, traders, and food manufacturers across multiple regions.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Shipping port"
-                  className="w-full h-64 lg:h-80 object-cover"
-                />
-              </div>
-            </FadeIn>
+          <div className="flex gap-0 overflow-x-auto">
+            {tabs.map(t => (
+              <button
+                key={t.id}
+                onClick={() => navigate(`/about/${t.id}`)}
+                className={`px-5 py-3.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
+                  activeTab === t.id
+                    ? 'border-[#e67e22] text-[#e67e22]'
+                    : 'border-transparent text-gray-500 hover:text-gray-800'
+                }`}
+                data-testid={`about-tab-${t.id}`}
+              >
+                {t.label}
+              </button>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Vision */}
-      <section className="ga-section" style={{ background: 'var(--ga-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="max-w-3xl mx-auto text-center">
-              <Badge variant="outline" className="mb-4 text-xs" style={{ borderColor: 'rgba(217,164,65,0.4)', color: 'var(--ga-gold-2)' }}>
-                <Target className="w-3 h-3 mr-1" /> Our Vision
-              </Badge>
-              <h2 className="h-serif text-2xl sm:text-3xl font-semibold tracking-tight mb-6" style={{ color: 'var(--ga-navy)' }}>
-                A trusted, agile partner in global food and feed supply chains
-              </h2>
-              <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--ga-muted)' }}>
-                To be a trusted, agile partner in global food and feed supply chains, creating long-term value for all stakeholders through disciplined trading, transparent operations, and sustainable practices.
+      {/* Content */}
+      <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {activeTab === 'who-we-are' && (
+            <FadeIn>
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Who We Are</h2>
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                <p>GlobalAgri Commodities is an international agricultural trading company focused on connecting reliable origins with demanding destination markets. We connect producers, exporters, and industrial buyers through disciplined risk management, robust logistics, and transparent communication.</p>
+                <p>Our hub was chosen to take the advantage of its strategic geographical location and excellent infrastructure for commodity trading activity including manpower, logistics, corporate tax and trade-finance benefits.</p>
+                <p>The management team is experienced in agri-commodities markets and the company principals have a deep physical trading experience with agricultural goods across Europe, the Middle East, Asia, and Africa.</p>
+                <p>We trade with grains, feeds, oilseeds, pulses, rice, sugar and coffee — both bulk and containerized shipments.</p>
+                <p>GlobalAgri's principal expertise are mainly with a strong origination and sourcing capabilities in the Black Sea region, Europe, Americas and with a niche and specific focus on the Middle East, Asia and African countries as the main export destinations.</p>
+              </div>
+            </FadeIn>
+          )}
+
+          {activeTab === 'strengths' && (
+            <FadeIn>
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Strengths</h2>
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                <p>The combined in-depth and broad trading experience coupled with strong, reliable and trusting relationships fostered over the years with the suppliers and buyers globally are the main strengths of the company.</p>
+                <p>Since we have started our operations, we have developed more supplier and customer base providing better diversity and further enhance our strengths.</p>
+                <p>Our familiarity and expertise in the global agri-commodity markets with a specific focus in Middle East, South Asia and Southeast-Asian countries as the main destinations is one of our core advantage.</p>
+                <p>The strong origination and sourcing capabilities in Black Sea region, East & West Africa and South America is another key strength of the company.</p>
+                <p>The valuable experience together with strong knowledge of logistics & execution and trade financing of soft-commodities enables GlobalAgri Commodities to act with timely execution, performing without market movements and stick to its contractual obligations — these norms are only some of the solid fundamentals of the company.</p>
+              </div>
+            </FadeIn>
+          )}
+
+          {activeTab === 'key-facts' && (
+            <FadeIn>
+              <h2 className="text-2xl font-semibold mb-8" style={{ color: '#1f2937' }}>Key Facts</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {keyFacts.map((fact, i) => {
+                  const Icon = fact.icon;
+                  return (
+                    <Card key={i} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
+                      <CardContent className="p-6">
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(230, 126, 34, 0.1)' }}>
+                          <Icon className="w-5 h-5" style={{ color: '#e67e22' }} />
+                        </div>
+                        <div className="text-lg font-bold" style={{ color: '#1f2937' }}>{fact.value}</div>
+                        {fact.label && <div className="text-sm" style={{ color: '#6b7280' }}>{fact.label}</div>}
+                        <div className="text-xs font-semibold mt-1 tracking-wider" style={{ color: '#e67e22' }}>{fact.sub}</div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </FadeIn>
+          )}
+
+          {activeTab === 'memberships' && (
+            <FadeIn>
+              <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Memberships</h2>
+              <p className="text-sm sm:text-base leading-relaxed mb-8" style={{ color: '#4b5563' }}>
+                We are a proud member of the following prestigious associations in order to provide more professional service to our counterparties as well as our market intelligence as a result of these trade bodies memberships.
               </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="ga-section" style={{ background: 'var(--ga-surface)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <h2 className="h-serif text-2xl sm:text-3xl font-semibold tracking-tight" style={{ color: 'var(--ga-navy)' }}>Our Values</h2>
-            </div>
-          </FadeIn>
-          <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {values.map((v) => {
-              const Icon = v.icon;
-              return (
-                <FadeInItem key={v.title}>
-                  <Card className="border h-full" style={{ borderColor: 'var(--ga-border)', borderRadius: 'var(--ga-radius-md)' }}>
-                    <CardContent className="p-6 lg:p-8">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: 'rgba(11,60,93,0.08)' }}>
-                        <Icon className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {memberships.map((m) => (
+                  <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
+                    <CardContent className="p-6">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
+                        <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
                       </div>
-                      <h3 className="h-serif text-lg font-semibold mb-3" style={{ color: 'var(--ga-navy)' }}>{v.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--ga-muted)' }}>{v.desc}</p>
+                      <div className="font-bold text-base" style={{ color: '#1f2937' }}>{m.name}</div>
+                      <div className="text-xs mt-1" style={{ color: '#6b7280' }}>{m.full_name}</div>
                     </CardContent>
                   </Card>
-                </FadeInItem>
-              );
-            })}
-          </FadeInStagger>
-        </div>
-      </section>
+                ))}
+              </div>
+            </FadeIn>
+          )}
 
-      {/* Leadership */}
-      <section className="ga-section" style={{ background: 'var(--ga-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <h2 className="h-serif text-2xl sm:text-3xl font-semibold tracking-tight" style={{ color: 'var(--ga-navy)' }}>Leadership</h2>
-              <p className="mt-3 text-sm sm:text-base" style={{ color: 'var(--ga-muted)' }}>
-                Experienced professionals driving value across global commodity markets
-              </p>
-            </div>
-          </FadeIn>
-          <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {leaders.map((leader) => (
-              <FadeInItem key={leader.name}>
-                <Card className="border overflow-hidden h-full" style={{ borderColor: 'var(--ga-border)', borderRadius: 'var(--ga-radius-md)' }}>
-                  <div className="aspect-square overflow-hidden">
-                    <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
-                  </div>
-                  <CardContent className="p-5">
-                    <h3 className="font-semibold text-base" style={{ color: 'var(--ga-navy)' }}>{leader.name}</h3>
-                    <p className="text-xs font-medium mt-1 mb-3" style={{ color: 'var(--ga-gold-2)' }}>{leader.role}</p>
-                    <p className="text-sm leading-relaxed" style={{ color: 'var(--ga-muted)' }}>{leader.bio}</p>
-                  </CardContent>
-                </Card>
-              </FadeInItem>
-            ))}
-          </FadeInStagger>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16" style={{ background: 'var(--ga-navy)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="h-serif text-2xl sm:text-3xl font-semibold text-white tracking-tight">Want to work with us?</h2>
-            <p className="mt-3 text-white/70 max-w-xl mx-auto">Get in touch to discuss how we can support your commodity needs.</p>
-            <div className="mt-8">
-              <Button asChild size="lg" className="rounded-full px-8" style={{ background: 'var(--ga-gold)', color: 'var(--ga-text)' }}>
-                <Link to="/contact">Contact Us <ArrowRight className="w-4 h-4 ml-1" /></Link>
-              </Button>
-            </div>
-          </FadeIn>
         </div>
       </section>
     </div>

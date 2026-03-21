@@ -27,4 +27,10 @@ export const submitCareerInquiry = (data) => api.post('/api/careers/inquiry', da
 // Download
 export const getProfileDownloadUrl = () => `${API_BASE}/api/download/profile`;
 
+// Partners
+export const getPartners = () => api.get('/api/partners');
+
+// Memberships
+export const getMemberships = () => api.get('/api/memberships');
+
 export default api;
