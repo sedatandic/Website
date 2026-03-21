@@ -1,7 +1,7 @@
-# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 6 Quadra-Inspired Header Mega-Menu)
+# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 7 Agrocorp-Inspired Homepage Enhancements)
 
 ## 1) Objectives
-- **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, and downloadable company profile PDF.
+- **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, partners, memberships, and downloadable company profile PDF.
 - **Deliver working backend (completed):** FastAPI + MongoDB APIs for contact submissions, market insights, careers (jobs + applications + inquiries), partners, memberships, and a downloadable company profile PDF.
 - **Content strategy (completed):** Pre-populated Insights + Jobs via seed script; **no admin panel**; **no newsletter**.
 - **Major design direction update (completed):** Redesign the site to **match the Dome Agribusiness reference style**:
@@ -21,8 +21,17 @@
   - Orange accent bottom border on mega-dropdown
   - Orange underline for active nav item
   - Mobile submenu expansion with orange left-border accent + a “Get In Touch” CTA
+- **Homepage storytelling update (completed):** Adopt **Agrocorp-inspired** homepage patterns to strengthen corporate narrative and visual hierarchy:
+  - Replaced circular About teaser with alternating **Mission / Vision** sections (large image + text) and **accent bars**
+  - Rebuilt value-chain section into clean **bordered cards** with centered icons and numbered titles
+  - Added prominent **Download Corporate Brochure** CTA (reuses Company Profile PDF download)
+  - Added **diamond image mosaic** treatment in the founder/leadership quote section
+  - Added orange accent bars under key section headings for consistent hierarchy
 - **Quality bar (completed):** Smooth navigation, responsive UI, form validation, loading/empty states, stable end-to-end data flow.
-- **Testing status (completed):** Full regression run after homepage enhancements passed at 100%; post-header redesign verified manually with no regressions.
+- **Testing status (completed):**
+  - Iteration 4 regression after Mediterra homepage enhancements: **backend 100% / frontend 100% / integration 100%**
+  - Iteration 5 regression after Agrocorp homepage changes: **backend 100% / frontend 95%**
+    - Only note: LOW priority automated-test selector mismatch for forms; forms function correctly and already include `data-testid` attributes.
 
 ## 2) Implementation Steps
 
@@ -216,20 +225,40 @@ Verified:
 - Confirmed mobile menu open/close and submenu expansion work.
 - Confirmed navigation remains correct across key pages (Home/About/Insights), with no regressions.
 
+### Phase 7 — Agrocorp-Inspired Homepage Enhancements (Narrative + Visual Hierarchy) ✅ COMPLETED
+
+**Goal:** Borrow Agrocorp-like homepage storytelling patterns (Mission/Vision emphasis, clean card grids, strong typographic hierarchy, and visual mosaic motifs) while keeping the Dome-style IA and routing.
+
+**Frontend updates** ✅
+- Homepage content/structure enhancements:
+  - Replaced the prior circular “About teaser” with alternating **Mission** and **Vision** sections:
+    - Large image + text composition
+    - Clear orange accent bars under headings
+  - Added a prominent **Download Our Corporate Brochure** CTA (reuses `/api/download/profile`).
+  - Rebuilt the value chain into clean **bordered cards** with centered icons and numbered titles.
+  - Added an Agrocorp-inspired **diamond image mosaic** treatment to the founder/leadership quote section.
+  - Added orange accent bars under key headings to standardize hierarchy across homepage sections.
+
+**Testing** ✅
+- Testing agent run after Phase 7:
+  - **Backend: 100%**
+  - **Frontend: 95%**
+  - LOW-priority testing note: automated selector expectations differ from implementation; forms function correctly.
+
 ## 3) Next Actions
 - **Delivery ready:** Confirm final branding assets (logo), real contact details, and final copy revisions.
-- Decide whether to keep the **orange accent CTA style** (currently consistent with the Dome reference and Quadra-inspired nav accents) or adjust to navy/gold branding accents.
-- (Optional) Run the automated testing agent again specifically after Phase 6, if you want a formal recorded regression run.
-- (Optional) Proceed with Phase 7 items if requested (SEO/spam hardening/admin).
+- Decide whether to keep the **orange accent CTA style** (now used as the consistent accent across Dome/Quadra/Agrocorp-inspired elements) or adjust to a different brand accent (e.g., navy/gold).
+- (Optional) Add/standardize `data-testid` attributes across any remaining form fields if stricter automated selector patterns are required.
+- (Optional) Run one more recorded regression test after any future styling/copy changes.
 
 ## 4) Success Criteria
 - ✅ All routes render correctly, are responsive, and match the **Dome Agribusiness-inspired** design system.
-- ✅ Homepage includes Mediterra-inspired enhancements (commodity icon cards, sustainability banner, partners carousel) without regressions.
-- ✅ Navigation supports dropdowns + tabbed internal pages (About, Commodities).
-- ✅ Navigation styling upgraded with **Quadra-inspired mega-dropdowns** (desktop) and enhanced mobile submenu UX.
+- ✅ Homepage includes Mediterra-inspired enhancements (commodity icon cards, sustainability banner, partners marquee) without regressions.
+- ✅ Navigation supports dropdowns + tabbed internal pages (About, Commodities) and includes **Quadra-inspired mega-dropdowns**.
+- ✅ Homepage includes Agrocorp-inspired narrative components (Mission/Vision, brochure CTA, clean value-chain cards, diamond mosaic quote section).
 - ✅ APIs work end-to-end with MongoDB; seed data appears in UI.
 - ✅ Contact, job application, and career inquiry forms validate and submit successfully.
 - ✅ Market insights list/detail flows work with filtering/search + loading/empty states.
 - ✅ Company profile PDF downloads successfully (`/api/download/profile`).
 - ✅ Partners and Memberships load from backend (`/api/partners`, `/api/memberships`).
-- ✅ Full regression test pass completed with **no critical UI/layout/integration issues** (backend 100%, frontend 100%, integration 100%); post-Phase-6 manual verification shows no regressions.
+- ✅ Latest regression results recorded (Phase 7): backend 100%, frontend 95% with only LOW-priority automated test selector note.
