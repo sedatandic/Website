@@ -1,4 +1,4 @@
-# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 3 Redesign)
+# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 4 Mediterra-Inspired Homepage Enhancements)
 
 ## 1) Objectives
 - **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, and downloadable company profile PDF.
@@ -11,8 +11,12 @@
   - **Partners** page with logo/card grid
   - Simplified **Contact** page layout + **Google Maps embed**
   - Simplified footer (single copyright line)
+- **Homepage refinement update (completed):** Add **Mediterra-inspired** homepage sections while preserving Dome-style IA:
+  - Commodity category cards with **icon badges**
+  - **Sustainability** banner section
+  - **Auto-scrolling partners carousel**
 - **Quality bar (completed):** Smooth navigation, responsive UI, form validation, loading/empty states, stable end-to-end data flow.
-- **Testing status (completed):** End-to-end testing executed after redesign; **backend 100% pass**, **frontend 100% pass**.
+- **Testing status (completed):** Full regression run after the homepage enhancements; **backend 100% pass**, **frontend 100% pass**, **integration 100% pass**.
 
 ## 2) Implementation Steps
 
@@ -143,31 +147,59 @@ Verified:
 4. As a visitor, I want to view partners to validate execution capability across shipping/inspection/trade finance.
 5. As a user, I want a simple contact page with a map so I can easily reach the company.
 
-### Phase 4 — Optional Next (only if requested)
-- SEO enhancements: meta tags, OpenGraph, sitemap generation.
-- Anti-spam hardening: honeypot + server-side rate limiting for forms.
-- Replace placeholder partner/membership logos with brand-approved assets.
-- Add CMS/admin (Insights/Jobs/Partners/Memberships) if content needs frequent updates.
-- Careers enhancements: resume upload (requires storage decision), job filters.
+### Phase 4 — Mediterra-Inspired Homepage Enhancements (Homepage-Only UI Layer) ✅ COMPLETED
 
-**Phase 4 user stories**
-1. As an admin, I want to manage insights/jobs/partners/memberships without deployments.
-2. As a candidate, I want to upload a resume so I can apply faster.
-3. As a business user, I want spam protection so contact/career inquiries stay clean.
-4. As a marketing user, I want SEO/OG tags so the site shares and ranks better.
-5. As a content owner, I want controlled publishing workflows (drafts/scheduling).
+**Goal:** Improve homepage storytelling and visual richness using Mediterra-like patterns while keeping the Dome-style IA and existing routing.
+
+**Frontend updates** ✅
+- Homepage enhancements implemented and verified:
+  - Commodity category cards updated to include **icon badges** (visual category markers)
+  - Added a dedicated **Sustainability** banner section
+  - Implemented an **auto-scrolling partners carousel** section
+
+**Verification (manual)** ✅
+- Confirmed all enhanced homepage sections render and behave correctly:
+  - Commodity cards (icons and layout)
+  - Sustainability banner visibility and styling
+  - Partners carousel appears and scrolls as expected
+
+**Routing re-validation** ✅
+- Re-investigated previously reported Careers → Job Detail routing issue:
+  - Confirmed **no bug** exists
+  - All 4 job slugs load correctly:
+    - `risk-analyst-singapore`
+    - `logistics-coordinator-dubai`
+    - `business-development-manager-nairobi`
+    - `senior-grains-trader`
+  - Confirmed click-through navigation from Careers listing to Job Detail works.
+
+**Full regression test (mandatory at end of phase)** ✅
+- Testing agent run after homepage enhancements:
+  - **Backend: 100% (16/16 tests passed)**
+  - **Frontend: 100% (navigation + UI verified)**
+  - **Integration: 100% (contact, career inquiry, job apply forms verified)**
+
+### Phase 5 — Project Closeout / Delivery Confirmation ✅ COMPLETED
+- Confirmed:
+  - All required routes render correctly and are responsive
+  - All APIs work end-to-end with MongoDB and seeded data
+  - Forms validate and submit successfully
+  - PDF download works (`/api/download/profile`)
+  - Partners and Memberships load correctly (`/api/partners`, `/api/memberships`)
+  - Post-enhancement regression testing completed at 100%
 
 ## 3) Next Actions
 - **Delivery ready:** Confirm final branding assets (logo), real contact details, and final copy revisions.
-- Decide whether to keep the **orange accent CTA style** (currently matching reference) or revert to navy/gold branding accents.
-- (Optional) Implement Phase 4 items (SEO, spam mitigation, CMS/admin, resume uploads, real partner/membership logos).
+- Decide whether to keep the **orange accent CTA style** (currently matching reference) or adjust to navy/gold branding accents.
+- (Optional) Proceed with Phase 6 items if requested (SEO/spam hardening/admin).
 
 ## 4) Success Criteria
 - ✅ All routes render correctly, are responsive, and match the **Dome Agribusiness-inspired** design system.
+- ✅ Homepage includes Mediterra-inspired enhancements (commodity icon cards, sustainability banner, partners carousel) without regressions.
 - ✅ Navigation supports dropdowns + tabbed internal pages (About, Commodities).
 - ✅ APIs work end-to-end with MongoDB; seed data appears in UI.
 - ✅ Contact, job application, and career inquiry forms validate and submit successfully.
 - ✅ Market insights list/detail flows work with filtering/search + loading/empty states.
 - ✅ Company profile PDF downloads successfully (`/api/download/profile`).
 - ✅ Partners and Memberships load from backend (`/api/partners`, `/api/memberships`).
-- ✅ End-to-end test pass completed with **no critical UI/layout/integration issues** (backend 100%, frontend 100%).
+- ✅ Full regression test pass completed with **no critical UI/layout/integration issues** (backend 100%, frontend 100%, integration 100%).
