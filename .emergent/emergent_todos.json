@@ -1,18 +1,18 @@
 [
   {
-    "content": "P0: Screenshot & verify Mediterra-inspired homepage changes",
+    "content": "Redesign Header mega-dropdowns to match Quadra style (white panel, arrow pointer, description + links columns, orange accent border, uppercase links)",
     "status": "completed"
   },
   {
-    "content": "P0: Fix any homepage issues found during verification",
+    "content": "Take screenshots to verify the new dropdown design on desktop",
     "status": "completed"
   },
   {
-    "content": "P1: Investigate & fix Job Detail page routing bug",
+    "content": "Verify mobile menu still works correctly",
     "status": "completed"
   },
   {
-    "content": "P2: Run full regression test with testing agent",
+    "content": "Verify no regressions on other pages",
     "status": "completed"
   }
 ]

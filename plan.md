@@ -1,8 +1,8 @@
-# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 4 Mediterra-Inspired Homepage Enhancements)
+# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 6 Quadra-Inspired Header Mega-Menu)
 
 ## 1) Objectives
 - **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, and downloadable company profile PDF.
-- **Deliver working backend (completed):** FastAPI + MongoDB APIs for contact submissions, market insights, careers (jobs + applications + inquiries), and a downloadable company profile PDF.
+- **Deliver working backend (completed):** FastAPI + MongoDB APIs for contact submissions, market insights, careers (jobs + applications + inquiries), partners, memberships, and a downloadable company profile PDF.
 - **Content strategy (completed):** Pre-populated Insights + Jobs via seed script; **no admin panel**; **no newsletter**.
 - **Major design direction update (completed):** Redesign the site to **match the Dome Agribusiness reference style**:
   - Full-screen **hero carousel** on homepage
@@ -15,8 +15,14 @@
   - Commodity category cards with **icon badges**
   - **Sustainability** banner section
   - **Auto-scrolling partners carousel**
+- **Navigation polish update (completed):** Adopt **Quadra-inspired** navigation/submenu styles to elevate perceived quality and usability:
+  - Desktop mega-dropdown menus with **white panel**, **arrow pointer**, **two-column layout (description + links)**
+  - Uppercase submenu links with subtle hover animation
+  - Orange accent bottom border on mega-dropdown
+  - Orange underline for active nav item
+  - Mobile submenu expansion with orange left-border accent + a “Get In Touch” CTA
 - **Quality bar (completed):** Smooth navigation, responsive UI, form validation, loading/empty states, stable end-to-end data flow.
-- **Testing status (completed):** Full regression run after the homepage enhancements; **backend 100% pass**, **frontend 100% pass**, **integration 100% pass**.
+- **Testing status (completed):** Full regression run after homepage enhancements passed at 100%; post-header redesign verified manually with no regressions.
 
 ## 2) Implementation Steps
 
@@ -188,18 +194,42 @@ Verified:
   - Partners and Memberships load correctly (`/api/partners`, `/api/memberships`)
   - Post-enhancement regression testing completed at 100%
 
+### Phase 6 — Quadra-Inspired Header Mega-Dropdowns (Navigation UI Upgrade) ✅ COMPLETED
+
+**Goal:** Borrow Quadra-like navigation/submenu patterns to modernize the header, improve scannability, and increase perceived trust/quality.
+
+**Frontend updates** ✅
+- Desktop navigation:
+  - Replaced basic dropdown lists with **Quadra-style mega dropdowns**:
+    - White panel + subtle shadow
+    - Arrow pointer aligned to the dropdown
+    - Two-column layout: **left description** + **right link columns**
+    - Uppercase submenu link styling with right-chevron hover reveal
+    - Orange accent bottom border
+  - Added orange underline to indicate active top-nav item.
+- Mobile navigation:
+  - Enhanced submenu expansion styling with orange left-border accent
+  - Added a “Get In Touch” CTA button inside the mobile menu
+
+**Verification (manual)** ✅
+- Confirmed dropdown open/close behavior and hover intent are stable.
+- Confirmed mobile menu open/close and submenu expansion work.
+- Confirmed navigation remains correct across key pages (Home/About/Insights), with no regressions.
+
 ## 3) Next Actions
 - **Delivery ready:** Confirm final branding assets (logo), real contact details, and final copy revisions.
-- Decide whether to keep the **orange accent CTA style** (currently matching reference) or adjust to navy/gold branding accents.
-- (Optional) Proceed with Phase 6 items if requested (SEO/spam hardening/admin).
+- Decide whether to keep the **orange accent CTA style** (currently consistent with the Dome reference and Quadra-inspired nav accents) or adjust to navy/gold branding accents.
+- (Optional) Run the automated testing agent again specifically after Phase 6, if you want a formal recorded regression run.
+- (Optional) Proceed with Phase 7 items if requested (SEO/spam hardening/admin).
 
 ## 4) Success Criteria
 - ✅ All routes render correctly, are responsive, and match the **Dome Agribusiness-inspired** design system.
 - ✅ Homepage includes Mediterra-inspired enhancements (commodity icon cards, sustainability banner, partners carousel) without regressions.
 - ✅ Navigation supports dropdowns + tabbed internal pages (About, Commodities).
+- ✅ Navigation styling upgraded with **Quadra-inspired mega-dropdowns** (desktop) and enhanced mobile submenu UX.
 - ✅ APIs work end-to-end with MongoDB; seed data appears in UI.
 - ✅ Contact, job application, and career inquiry forms validate and submit successfully.
 - ✅ Market insights list/detail flows work with filtering/search + loading/empty states.
 - ✅ Company profile PDF downloads successfully (`/api/download/profile`).
 - ✅ Partners and Memberships load from backend (`/api/partners`, `/api/memberships`).
-- ✅ Full regression test pass completed with **no critical UI/layout/integration issues** (backend 100%, frontend 100%, integration 100%).
+- ✅ Full regression test pass completed with **no critical UI/layout/integration issues** (backend 100%, frontend 100%, integration 100%); post-Phase-6 manual verification shows no regressions.
