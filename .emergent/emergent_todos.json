@@ -1,34 +1,14 @@
 [
   {
-    "content": "Phase 3: Redesign to match Dome Agribusiness style - Backend updates (Partners, Memberships data)",
+    "content": "Phase 4: Enhance Homepage - Animated counter stats (Quadra-style), numbered carousel (Sucden-style), hover cards, value chain, founder quote",
     "status": "completed"
   },
   {
-    "content": "Phase 3: Redesign Header/Footer to match Dome style",
+    "content": "Phase 4: Polish all pages with premium feel from references",
     "status": "completed"
   },
   {
-    "content": "Phase 3: Redesign Homepage with hero carousel",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 3: Redesign About section with tabs (Who We Are, Strengths, Key Facts, Memberships)",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 3: Redesign Products with tabbed image grid layout",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 3: Create Partners page with logo grid",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 3: Redesign Contact page with map + simpler form",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 3: End to End Testing",
-    "status": "completed"
+    "content": "Phase 4: End to End Testing",
+    "status": "in_progress"
   }
 ]

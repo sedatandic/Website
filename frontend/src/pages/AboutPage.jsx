@@ -22,12 +22,12 @@ const heroImages = {
 };
 
 const keyFacts = [
-  { value: 'More than 25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
-  { value: 'More than 200+', label: 'Vessels', sub: 'CHARTERED ANNUALLY', icon: Ship },
-  { value: '250+ Million USD', label: 'Worth of', sub: 'COMMODITIES TRADED', icon: Briefcase },
-  { value: '500,000+ MTS', label: '', sub: 'ANNUAL TRADE VOLUME', icon: Globe },
-  { value: 'Trade with 25+', label: '', sub: 'DIFFERENT COUNTRIES', icon: MapPin },
-  { value: '7 Offices & Staff', label: '', sub: 'IN 6 DIFFERENT COUNTRIES', icon: Building2 },
+  { value: '25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
+  { value: '200+', label: 'Vessels', sub: 'CHARTERED ANNUALLY', icon: Ship },
+  { value: '$250M+', label: 'Worth of', sub: 'ANNUAL TURNOVER', icon: Briefcase },
+  { value: '500K+', label: 'MTS', sub: 'ANNUAL TRADE VOLUME', icon: Globe },
+  { value: '25+', label: 'Different', sub: 'COUNTRIES SERVED', icon: MapPin },
+  { value: '7 Offices', label: 'Staff in', sub: '6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
 
 export default function AboutPage() {
