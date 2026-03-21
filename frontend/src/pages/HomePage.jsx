@@ -60,7 +60,7 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <AnimatePresence mode="wait">
             <motion.div
@@ -69,12 +69,12 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="max-w-2xl"
+              className="max-w-2xl mx-auto text-center"
             >
               <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold text-white leading-tight tracking-tight">
                 {slides[currentSlide].headline}
               </h1>
-              <p className="mt-5 text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
+              <p className="mt-5 text-sm sm:text-base text-white/70 leading-relaxed max-w-xl mx-auto">
                 {slides[currentSlide].subtext}
               </p>
               <div className="mt-8">
