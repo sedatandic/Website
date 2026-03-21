@@ -69,7 +69,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto text-center"
+              className="max-w-4xl mx-auto text-center"
             >
               <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold text-white leading-tight tracking-tight">
                 {slides[currentSlide].headline}
