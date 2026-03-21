@@ -1,18 +1,30 @@
 [
   {
-    "content": "Redesign Header mega-dropdowns to match Quadra style (white panel, arrow pointer, description + links columns, orange accent border, uppercase links)",
+    "content": "Upgrade About teaser to Agrocorp-style alternating Mission/Vision sections with large images and accent bars",
     "status": "completed"
   },
   {
-    "content": "Take screenshots to verify the new dropdown design on desktop",
+    "content": "Upgrade Value Chain to Agrocorp-style clean bordered cards with centered icons",
     "status": "completed"
   },
   {
-    "content": "Verify mobile menu still works correctly",
+    "content": "Add diamond image mosaic to the Founder's Quote section (Agrocorp signature)",
     "status": "completed"
   },
   {
-    "content": "Verify no regressions on other pages",
+    "content": "Add prominent Download Corporate Brochure CTA section (Agrocorp-style)",
     "status": "completed"
+  },
+  {
+    "content": "Add accent bars under section headings throughout homepage",
+    "status": "completed"
+  },
+  {
+    "content": "Screenshot & verify all new sections",
+    "status": "completed"
+  },
+  {
+    "content": "Run regression test",
+    "status": "in_progress"
   }
 ]

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { ArrowRight, Ship, BarChart3, Globe, Shield, Wheat, Leaf, Briefcase, ChevronRight, Coffee, Droplets, CandyCane } from 'lucide-react';
+import { ArrowRight, Ship, BarChart3, Globe, Shield, Wheat, Leaf, Briefcase, ChevronRight, Coffee, Droplets, CandyCane, Download } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { getProfileDownloadUrl } from '../lib/api';
 
@@ -70,15 +70,15 @@ const commodities = [
   { name: 'COFFEE', slug: 'coffee', icon: Coffee, image: 'https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=400' },
 ];
 
-/* ─────── Value Chain (Agrocorp-inspired) ─────── */
+/* ─────── Value Chain (Agrocorp-inspired bordered cards) ─────── */
 const valueChain = [
-  { step: '01', title: 'Origination & Sourcing', desc: 'Direct relationships with producers and exporters across key growing regions.', icon: Wheat },
-  { step: '02', title: 'Risk Management', desc: 'Structured contracts, hedging strategies and disciplined execution.', icon: Shield },
-  { step: '03', title: 'Logistics & Shipping', desc: 'Vessel chartering, documentation and freight management door-to-door.', icon: Ship },
-  { step: '04', title: 'Distribution & Delivery', desc: 'Timely delivery to industrial buyers, millers, feed producers and traders.', icon: Globe },
+  { step: '1', title: 'Origination & Sourcing', desc: 'Direct relationships with producers and exporters across key growing regions.', icon: Wheat },
+  { step: '2', title: 'Risk Management', desc: 'Structured contracts, hedging strategies and disciplined execution.', icon: Shield },
+  { step: '3', title: 'Logistics & Shipping', desc: 'Vessel chartering, documentation and freight management door-to-door.', icon: Ship },
+  { step: '4', title: 'Distribution & Delivery', desc: 'Timely delivery to industrial buyers, millers, feed producers and traders.', icon: Globe },
 ];
 
-/* ─────── Section Cards (Sucden-inspired hover cards) ─────── */
+/* ─────── Section Cards (Sucden / Quadra inspired) ─────── */
 const sectionCards = [
   { title: 'About GlobalAgri', desc: 'An international trading firm and supply chain manager of agricultural products.', link: '/about/who-we-are', icon: Briefcase },
   { title: 'Our Commodities', desc: 'Grains, feeds, oilseeds, pulses, sugar, rice and coffee from key origins.', link: '/commodities/at-a-glance', icon: Wheat },
@@ -90,6 +90,16 @@ const sectionCards = [
 
 /* ─────── Partners marquee ─────── */
 const partnerNames = ['SGS', 'Maersk', 'Intertek', 'CMA CGM', 'MSC', 'Bureau Veritas', 'GAFTA', 'FOSFA', 'GPC', 'Standard Chartered'];
+
+/* ─────── Diamond mosaic images (Agrocorp-inspired) ─────── */
+const diamondImages = [
+  'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&w=300',
+  'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=300',
+  'https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=300',
+  'https://images.pexels.com/photos/2589457/pexels-photo-2589457.jpeg?auto=compress&cs=tinysrgb&w=300',
+  'https://images.pexels.com/photos/1393382/pexels-photo-1393382.jpeg?auto=compress&cs=tinysrgb&w=300',
+  'https://images.pexels.com/photos/2523650/pexels-photo-2523650.jpeg?auto=compress&cs=tinysrgb&w=300',
+];
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -106,7 +116,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ═══════ HERO CAROUSEL ═══════ */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 68px)', minHeight: '560px' }}>
+      <section className="relative w-full" style={{ height: 'calc(100vh - 72px)', minHeight: '560px' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -187,40 +197,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════ ABOUT TEASER (Mediterra-inspired: image + text) ═══════ */}
-      <section className="py-20 lg:py-24" style={{ background: '#ffffff' }}>
+      {/* ═══════ MISSION SECTION (Agrocorp-inspired: image left + text right) ═══════ */}
+      <section className="py-20 lg:py-28" style={{ background: '#ffffff' }} data-testid="mission-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            {/* Left - Image composition */}
-            <div className="relative flex justify-center">
-              <div className="relative">
-                <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                  <img src="https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Grain silos" className="w-full h-full object-cover" />
-                </div>
-                {/* Small accent circle */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                  <img src="https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Wheat" className="w-full h-full object-cover" />
-                </div>
-                {/* Decorative dots */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                  <div className="w-4 h-4 rounded-full" style={{ background: '#e67e22' }} />
-                  <div className="w-4 h-4 rounded-full" style={{ background: 'rgba(230,126,34,0.3)' }} />
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+            {/* Left - Full-bleed image */}
+            <div className="relative overflow-hidden rounded-l-2xl lg:rounded-l-3xl" style={{ minHeight: '420px' }}>
+              <img
+                src="https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Grain silos at golden hour"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
-
             {/* Right - Text */}
-            <div>
-              <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#e67e22' }}>About Us</span>
-              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-[2rem] font-bold leading-snug" style={{ color: '#0b1220' }}>
-                Your reliable business partner in global agricultural commodity trade.
+            <div className="flex flex-col justify-center py-12 lg:py-16 px-8 lg:px-16">
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>
+                Our Mission
               </h2>
-              <p className="mt-5 text-sm sm:text-base leading-relaxed" style={{ color: '#6b7280' }}>
-                GlobalAgri Commodities, as a result of its trade policy based on trust, principled and ethical work, has achieved a respectable position in international markets. The combined in-depth trading experience coupled with strong, reliable relationships fostered over the years are the main strengths of the company.
+              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
+              <p className="mt-6 text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
+                We are committed to connecting reliable agricultural origins with demanding destination markets. Through disciplined risk management, robust logistics, and transparent communication, we strive to always be our partners' supplier of choice.
               </p>
               <div className="mt-8">
                 <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#0b1220', color: 'white' }}>
-                  <Link to="/about/who-we-are">Discover <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                  <Link to="/about/who-we-are">Learn More <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
                 </Button>
               </div>
             </div>
@@ -228,13 +228,65 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══════ VISION SECTION (Agrocorp-inspired: text left + image right, reversed) ═══════ */}
+      <section className="py-20 lg:py-28" style={{ background: '#f8f9fb' }} data-testid="vision-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+            {/* Left - Text */}
+            <div className="flex flex-col justify-center py-12 lg:py-16 px-8 lg:px-16 order-2 lg:order-1">
+              <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>
+                Our Vision
+              </h2>
+              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
+              <p className="mt-6 text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
+                Working towards a better-nourished world through responsible and sustainable sourcing of agricultural products, and building enduring partnerships all along the supply chain. We bridge the gap between farm and table, origin and destination.
+              </p>
+              <div className="mt-8">
+                <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#0b1220', color: 'white' }}>
+                  <Link to="/about/strengths">Our Strengths <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
+                </Button>
+              </div>
+            </div>
+            {/* Right - Full-bleed image */}
+            <div className="relative overflow-hidden rounded-r-2xl lg:rounded-r-3xl order-1 lg:order-2" style={{ minHeight: '420px' }}>
+              <img
+                src="https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Green agricultural field"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ DOWNLOAD BROCHURE CTA (Agrocorp-inspired centered CTA) ═══════ */}
+      <section className="py-10" style={{ background: '#ffffff' }} data-testid="download-brochure-section">
+        <div className="text-center">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full px-10 py-6 font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+            style={{ background: '#e67e22', color: 'white', letterSpacing: '0.08em' }}
+            data-testid="download-brochure-btn"
+          >
+            <a href={getProfileDownloadUrl()} target="_blank" rel="noopener noreferrer">
+              <Download className="w-4 h-4 mr-2" />
+              Download Our Corporate Brochure
+            </a>
+          </Button>
+        </div>
+      </section>
+
       {/* ═══════ COMMODITIES SHOWCASE (Mediterra-inspired cards) ═══════ */}
       <section className="py-16 lg:py-20" style={{ background: '#f8f9fb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-4">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>
-              <span className="italic" style={{ color: '#e67e22' }}>OUR</span> COMMODITIES
+              Our Commodities
             </h2>
+          </div>
+          <div className="flex justify-center mb-12">
+            <div className="w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             {commodities.map((c, i) => {
@@ -262,7 +314,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-10">
             <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#e67e22', color: 'white' }}>
-              <Link to="/commodities/at-a-glance">Discover <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              <Link to="/commodities/at-a-glance">Explore All <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
         </div>
@@ -278,6 +330,7 @@ export default function HomePage() {
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white leading-snug">
               Trading today with tomorrow in mind.
             </h2>
+            <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
             <p className="mt-5 text-base text-white/70 leading-relaxed">
               We work with suppliers who share our commitment to traceability, responsible sourcing, and reduced environmental impact. From farm-level programs to transparent documentation, we aim to make every shipment count.
             </p>
@@ -290,31 +343,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════ VALUE CHAIN (Agrocorp-inspired) ═══════ */}
-      <section className="py-16 lg:py-20" style={{ background: '#ffffff' }}>
+      {/* ═══════ END-TO-END TRADING MODEL (Agrocorp-inspired bordered cards) ═══════ */}
+      <section className="py-20 lg:py-24" style={{ background: '#ffffff' }} data-testid="value-chain-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#e67e22' }}>How We Operate</span>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>End-to-End Trading Model</h2>
+          <div className="text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>
+              End-to-End Trading Model
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+          <div className="flex justify-center mb-14">
+            <div className="w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {valueChain.map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="relative p-8 group" style={{ borderRight: i < valueChain.length - 1 ? '1px solid #e5e7eb' : 'none' }}>
-                  <div className="text-[4rem] font-bold leading-none absolute top-4 right-6 select-none" style={{ color: 'rgba(230,126,34,0.08)' }}>{item.step}</div>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors group-hover:bg-[#e67e22]/10" style={{ background: '#f3f4f6' }}>
-                      <Icon className="w-5 h-5" style={{ color: '#e67e22' }} />
-                    </div>
-                    <h3 className="font-bold text-base mb-2" style={{ color: '#0b1220' }}>{item.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{item.desc}</p>
+                <div
+                  key={i}
+                  className="group relative bg-white rounded-2xl border px-6 py-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  style={{ borderColor: '#e5e7eb' }}
+                  data-testid={`value-chain-card-${i}`}
+                >
+                  {/* Icon */}
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300 group-hover:bg-[#e67e22]"
+                    style={{ background: '#f3f4f6' }}
+                  >
+                    <Icon className="w-7 h-7 transition-colors duration-300 group-hover:text-white" style={{ color: '#e67e22' }} />
                   </div>
-                  {i < valueChain.length - 1 && (
-                    <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-7 h-7 rounded-full items-center justify-center" style={{ background: '#ffffff', border: '2px solid #e5e7eb' }}>
-                      <ChevronRight className="w-3.5 h-3.5" style={{ color: '#e67e22' }} />
-                    </div>
-                  )}
+                  {/* Title */}
+                  <h3 className="font-bold text-base mb-3" style={{ color: '#0b1220' }}>
+                    {item.step}. {item.title}
+                  </h3>
+                  {/* Description */}
+                  <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
+                    {item.desc}
+                  </p>
                 </div>
               );
             })}
@@ -351,12 +415,15 @@ export default function HomePage() {
 
       {/* ═══════ PARTNERS MARQUEE (Mediterra-inspired auto-scroll) ═══════ */}
       <section className="py-14" style={{ background: '#ffffff' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight" style={{ color: '#0b1220' }}>
-              <span className="italic" style={{ color: '#e67e22' }}>OUR</span> PARTNERS
+              Our Partners
             </h2>
           </div>
+        </div>
+        <div className="flex justify-center mb-10">
+          <div className="w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
         </div>
         <div className="relative overflow-hidden">
           <div className="flex animate-marquee gap-12 items-center">
@@ -381,16 +448,56 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ═══════ FOUNDER QUOTE (Agrocorp-inspired) ═══════ */}
-      <section className="py-16 lg:py-20" style={{ background: '#0b1220' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-px mx-auto mb-8" style={{ background: '#e67e22' }} />
-          <blockquote className="text-xl sm:text-2xl lg:text-[1.65rem] font-medium text-white leading-relaxed italic">
-            "We believe strongly in fair trade and always endeavor to deliver on our contractual promises. The combined in-depth trading experience coupled with strong, reliable relationships fostered over the years are the main strengths of the company."
-          </blockquote>
-          <div className="mt-8">
-            <div className="text-sm font-bold text-white">Leadership Team</div>
-            <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>GlobalAgri Commodities</div>
+      {/* ═══════ FOUNDER QUOTE WITH DIAMOND MOSAIC (Agrocorp-inspired) ═══════ */}
+      <section className="relative py-20 lg:py-28 overflow-hidden" style={{ background: '#0b1220' }} data-testid="founder-quote-section">
+        {/* Diamond mosaic background — right side */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block" style={{ opacity: 0.12 }}>
+          <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-3 p-8" style={{ transform: 'rotate(45deg) scale(1.4)', transformOrigin: 'center center' }}>
+            {diamondImages.map((img, i) => (
+              <div key={i} className="overflow-hidden rounded-lg">
+                <img src={img} alt="" className="w-full h-full object-cover" />
+              </div>
+            ))}
+            {diamondImages.slice(0, 3).map((img, i) => (
+              <div key={`dup-${i}`} className="overflow-hidden rounded-lg">
+                <img src={img} alt="" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Quote */}
+            <div>
+              <div className="w-16 h-[3px] rounded-full mb-8" style={{ background: '#e67e22' }} />
+              <blockquote className="text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-white leading-relaxed italic">
+                "It's more than just a business to us; it's part of a vision that we set out to achieve, that of more sustainable and equitable agricultural supply chains."
+              </blockquote>
+              <div className="mt-8">
+                <div className="text-sm font-bold text-white">Leadership Team</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>GlobalAgri Commodities</div>
+              </div>
+            </div>
+
+            {/* Right - Diamond image mosaic (visible on all screens) */}
+            <div className="relative flex justify-center items-center">
+              <div className="grid grid-cols-3 gap-3" style={{ width: '320px' }}>
+                {diamondImages.map((img, i) => (
+                  <div
+                    key={i}
+                    className="overflow-hidden"
+                    style={{
+                      width: '96px',
+                      height: '96px',
+                      clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                    }}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
