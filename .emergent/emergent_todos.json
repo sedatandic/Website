@@ -1,14 +1,18 @@
 [
   {
-    "content": "Phase 4: Enhance Homepage - Animated counter stats (Quadra-style), numbered carousel (Sucden-style), hover cards, value chain, founder quote",
+    "content": "P0: Screenshot & verify Mediterra-inspired homepage changes",
     "status": "completed"
   },
   {
-    "content": "Phase 4: Polish all pages with premium feel from references",
+    "content": "P0: Fix any homepage issues found during verification",
     "status": "completed"
   },
   {
-    "content": "Phase 4: End to End Testing",
+    "content": "P1: Investigate & fix Job Detail page routing bug",
     "status": "completed"
+  },
+  {
+    "content": "P2: Run full regression test with testing agent",
+    "status": "in_progress"
   }
 ]
