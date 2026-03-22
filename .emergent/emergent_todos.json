@@ -32,7 +32,11 @@
     "status": "completed"
   },
   {
+    "content": "Fix database seeding (wrong DB name) - reseed globalagri_db",
+    "status": "completed"
+  },
+  {
     "content": "Run regression test",
-    "status": "in_progress"
+    "status": "completed"
   }
 ]
