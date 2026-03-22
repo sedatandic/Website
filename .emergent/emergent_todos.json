@@ -1,42 +1,14 @@
 [
   {
-    "content": "Update backend seed data: add new insights, jobs, and enhance wordings (Dome Agribusiness style)",
+    "content": "Add 'Split-Screen Agricultural Panorama' section (Image 2 inspired: dual field imagery with bold headline overlay)",
     "status": "completed"
   },
   {
-    "content": "Add 'Who We Serve' icon grid section (Scoular-inspired, dark bg with circular icons)",
+    "content": "Add 'Close to the Source' product showcase section (Image 1 inspired: hands-on grains with flowing product list)",
     "status": "completed"
   },
   {
-    "content": "Add People/Products/Planet pillar triptych (Cargill-inspired)",
-    "status": "completed"
-  },
-  {
-    "content": "Add 'Latest Market Insights' dynamic section from API (Cargill/Andersons news style)",
-    "status": "completed"
-  },
-  {
-    "content": "Add Employee Testimonial section (Andersons-inspired)",
-    "status": "completed"
-  },
-  {
-    "content": "Upgrade Footer to multi-column layout (Cargill/Scoular style)",
-    "status": "completed"
-  },
-  {
-    "content": "Enhance homepage wordings across all sections (Dome Agribusiness corporate tone)",
-    "status": "completed"
-  },
-  {
-    "content": "Screenshot & verify all new sections",
-    "status": "completed"
-  },
-  {
-    "content": "Fix database seeding (wrong DB name) - reseed globalagri_db",
-    "status": "completed"
-  },
-  {
-    "content": "Run regression test",
+    "content": "Screenshot & verify new sections",
     "status": "completed"
   }
 ]

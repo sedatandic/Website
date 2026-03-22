@@ -1,4 +1,4 @@
-# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 8 Cargill/Andersons/Scoular Enhancements + Seed Data Expansion)
+# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 9 Bilcanli-Inspired Homepage Sections)
 
 ## 1) Objectives
 - **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, partners, memberships, and downloadable company profile PDF.
@@ -36,11 +36,15 @@
 - **Seed data strategy update (completed):** Expand seeded content to support richer homepage storytelling and listings:
   - **Insights: 8** total
   - **Jobs: 6** total
+- **Phase 9 homepage aesthetic expansion (completed):** Incorporate **Bilcanli-inspired** visual patterns from attached images:
+  - **“Close to the Source”** full-bleed image section with bold overlay headline and **flowing product tag cloud** (18 commodities)
+  - **Split-screen agricultural panorama** (dual imagery) with centered headline + supporting copy
 - **Quality bar (completed):** Smooth navigation, responsive UI, form validation, loading/empty states, stable end-to-end data flow.
-- **Testing status (updated, completed):**
+- **Testing status (updated):**
   - Iteration 4 regression after Mediterra homepage enhancements: **backend 100% / frontend 100% / integration 100%**
   - Iteration 5 regression after Agrocorp homepage changes: **backend 100% / frontend 95%** (LOW-priority automated selector mismatch)
   - Iteration 6 regression after Phase 8 + seed expansion: initially flagged missing data due to DB mismatch; after fix, **APIs return full dataset and UI listings render correctly**.
+  - Phase 9 verification: **manual visual verification via screenshots; no compilation errors**.
 
 ## 2) Implementation Steps
 
@@ -64,9 +68,9 @@
   - `POST /api/careers/inquiry`
   - `GET /api/download/profile`
   - `GET /api/health`
-- Seed script implemented (idempotent):
-  - Insights seeded (initially 6)
-  - Jobs seeded (initially 4)
+- Seed script implemented (idempotent) + later expanded:
+  - Insights seeded (initially 6 → expanded to 8)
+  - Jobs seeded (initially 4 → expanded to 6)
 - PDF generation implemented:
   - Auto-generates and serves `GlobalAgri_Company_Profile.pdf`
 - CORS enabled + request validation via Pydantic.
@@ -75,7 +79,7 @@
 - App shell implemented:
   - Sticky header navigation with dropdowns and mobile Sheet menu
   - Scroll-to-top on route change
-  - Footer with corporate content
+  - Footer with corporate content (later upgraded)
 - Pages implemented per initial sitemap:
   - Home
   - About
@@ -179,12 +183,34 @@ Verified:
   - Careers page lists all 6 jobs
   - Insights page lists all 8 insights
 
+### Phase 9 — Bilcanli-Inspired Homepage Visual Sections ✅ COMPLETED
+
+**Goal:** Adopt high-impact marketing composition patterns from attached Bilcanli/Alibey visuals (bold typography, strong image overlays, and product-forward listing).
+
+**Frontend updates** ✅
+- Added **Close to the Source** section (placed between Vision and Pillars):
+  - Full-bleed background image (hands/wheat)
+  - High-contrast overlay gradient
+  - Large headline: **“Right Raw Material. Right Result.”**
+  - **Flowing product tag cloud** with 18 commodities
+  - CTA: **Explore All Products** → `/commodities/at-a-glance`
+- Added **Split-Screen Agricultural Panorama** (placed between Commodities Showcase and Sustainability):
+  - 2-column split imagery (sunflower field + corn field)
+  - Centered headline: **“From Diverse Origins, One Trusted Source.”**
+  - Supporting paragraph + CTA to About
+
+**Verification** ✅
+- Confirmed via screenshots:
+  - Both new sections render correctly at desktop size
+  - No compilation errors after updates
+
 ## 3) Next Actions
 - **Delivery ready:** confirm final branding assets (logo), real contact details, and final copy revisions.
 - Confirm whether to keep the orange accent (`#e67e22`) as primary brand accent or adjust to navy/gold.
 - (Optional) Standardize automated test selectors across forms if strict selector expectations are required (LOW priority).
 - (Optional) Run one final recorded regression after any further copy/styling changes.
 - (Optional) Set `DB_NAME` explicitly in backend environment to avoid future DB mismatches.
+- (Optional) Add a mobile-specific layout check for Phase 9 sections (tag cloud wrapping, split-panorama stacking).
 
 ## 4) Success Criteria
 - ✅ All routes render correctly, are responsive, and match the Dome Agribusiness-inspired design system.
@@ -196,3 +222,4 @@ Verified:
 - ✅ Company profile PDF downloads successfully (`/api/download/profile`).
 - ✅ Partners and Memberships load from backend (`/api/partners`, `/api/memberships`).
 - ✅ Latest dataset targets met: **8 insights / 6 jobs** and visible in UI.
+- ✅ Phase 9 additions (Close to the Source, Split-Screen Panorama) render correctly and fit the established brand system.

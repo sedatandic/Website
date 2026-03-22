@@ -258,6 +258,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══════ CLOSE TO THE SOURCE — Product Showcase (Bilcanli-inspired) ═══════ */}
+      <section className="relative overflow-hidden" style={{ minHeight: '520px' }} data-testid="close-to-source-section">
+        {/* Background: hands holding grains */}
+        <img
+          src="https://images.unsplash.com/photo-1756047890348-e3a5f8e9d9d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxoYW5kcyUyMGhvbGRpbmclMjB3aGVhdCUyMGdyYWlucyUyMGFncmljdWx0dXJhbCUyMGNvbW1vZGl0eXxlbnwwfHx8fDE3NzQyMDkzMDN8MA&ixlib=rb-4.1.0&q=85"
+          alt="Hands touching golden wheat stalks in a field"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(11,18,32,0.82) 0%, rgba(11,18,32,0.55) 50%, rgba(11,18,32,0.35) 100%)' }} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Headline */}
+            <div>
+              <span className="text-xs font-mono tracking-widest uppercase mb-4 block" style={{ color: '#e67e22' }}>Close to the Source</span>
+              <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
+                Right Raw Material.<br />
+                <span style={{ color: '#e67e22' }}>Right Result.</span>
+              </h2>
+              <div className="mt-5 w-16 h-[3px] rounded-full" style={{ background: '#e67e22' }} />
+              <p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-lg">
+                A wide portfolio of agricultural commodities sourced directly from key origins, tailored to meet the specific requirements of our buyers.
+              </p>
+            </div>
+            {/* Right: Flowing product list */}
+            <div>
+              <h3 className="text-xs font-bold tracking-wider uppercase mb-6" style={{ color: '#e67e22', letterSpacing: '0.12em' }}>Our Products</h3>
+              <div className="flex flex-wrap gap-2.5">
+                {['Wheat', 'Corn', 'Barley', 'Soybean Meal', 'Soybean', 'DDGS', 'Sunflower Seed Meal', 'Rapeseed Meal', 'Full-Fat Soy', 'Rice Bran', 'Corn Gluten', 'Lentils', 'Chickpeas', 'Dry Peas', 'Sugar', 'Coffee', 'Sunflower Oil', 'Palm Oil'].map((product, i) => (
+                  <span
+                    key={i}
+                    className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 cursor-default"
+                    style={{
+                      background: 'rgba(255,255,255,0.08)',
+                      color: 'rgba(255,255,255,0.75)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      backdropFilter: 'blur(4px)',
+                    }}
+                  >
+                    {product}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#e67e22', color: 'white' }}>
+                  <Link to="/commodities/at-a-glance">Explore All Products <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ PEOPLE / PRODUCTS / PLANET TRIPTYCH (Cargill-inspired) ═══════ */}
       <section className="py-20 lg:py-24" style={{ background: '#ffffff' }} data-testid="pillars-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,6 +400,48 @@ export default function HomePage() {
             <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#e67e22', color: 'white' }}>
               <Link to="/commodities/at-a-glance">Explore All <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ SPLIT-SCREEN AGRICULTURAL PANORAMA (Bilcanli-inspired) ═══════ */}
+      <section className="relative overflow-hidden" data-testid="split-panorama-section">
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: '480px' }}>
+          {/* Left image — Sunflower/wheat field at sunset */}
+          <div className="relative overflow-hidden" style={{ minHeight: '320px' }}>
+            <img
+              src="https://images.pexels.com/photos/7819671/pexels-photo-7819671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Sunflower field at sunset"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(11,18,32,0.55), rgba(11,18,32,0.25))' }} />
+          </div>
+          {/* Right image — Green corn/crop field */}
+          <div className="relative overflow-hidden" style={{ minHeight: '320px' }}>
+            <img
+              src="https://images.pexels.com/photos/5601957/pexels-photo-5601957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Green corn field"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to left, rgba(11,18,32,0.55), rgba(11,18,32,0.25))' }} />
+          </div>
+        </div>
+        {/* Centered overlay text */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <div className="text-center px-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
+              From Diverse Origins,<br />
+              <span style={{ color: '#e67e22' }}>One Trusted Source.</span>
+            </h2>
+            <div className="mt-5 flex justify-center"><div className="w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} /></div>
+            <p className="mt-5 text-sm sm:text-base text-white/65 max-w-xl mx-auto leading-relaxed">
+              Our sourcing network spans the world's most important agricultural regions, from the sunflower fields of the Black Sea to the grain belts of the Americas. Diversity of origin means reliability of supply.
+            </p>
+            <div className="mt-7">
+              <Button asChild className="rounded-full px-7 font-medium shadow-lg" style={{ background: '#e67e22', color: 'white' }}>
+                <Link to="/about/who-we-are">Discover Our Reach <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
