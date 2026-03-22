@@ -1,22 +1,30 @@
 [
   {
-    "content": "Upgrade About teaser to Agrocorp-style alternating Mission/Vision sections with large images and accent bars",
+    "content": "Update backend seed data: add new insights, jobs, and enhance wordings (Dome Agribusiness style)",
     "status": "completed"
   },
   {
-    "content": "Upgrade Value Chain to Agrocorp-style clean bordered cards with centered icons",
+    "content": "Add 'Who We Serve' icon grid section (Scoular-inspired, dark bg with circular icons)",
     "status": "completed"
   },
   {
-    "content": "Add diamond image mosaic to the Founder's Quote section (Agrocorp signature)",
+    "content": "Add People/Products/Planet pillar triptych (Cargill-inspired)",
     "status": "completed"
   },
   {
-    "content": "Add prominent Download Corporate Brochure CTA section (Agrocorp-style)",
+    "content": "Add 'Latest Market Insights' dynamic section from API (Cargill/Andersons news style)",
     "status": "completed"
   },
   {
-    "content": "Add accent bars under section headings throughout homepage",
+    "content": "Add Employee Testimonial section (Andersons-inspired)",
+    "status": "completed"
+  },
+  {
+    "content": "Upgrade Footer to multi-column layout (Cargill/Scoular style)",
+    "status": "completed"
+  },
+  {
+    "content": "Enhance homepage wordings across all sections (Dome Agribusiness corporate tone)",
     "status": "completed"
   },
   {
@@ -25,6 +33,6 @@
   },
   {
     "content": "Run regression test",
-    "status": "completed"
+    "status": "in_progress"
   }
 ]

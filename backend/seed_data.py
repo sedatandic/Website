@@ -1,7 +1,7 @@
 import datetime
 
 def seed_database(db):
-    """Seed insights and jobs collections if empty."""
+    """Seed insights, jobs, partners, and memberships collections if empty."""
     
     # ── Seed Insights ──
     if db.insights.count_documents({}) == 0:
@@ -9,7 +9,7 @@ def seed_database(db):
             {
                 "slug": "black-sea-wheat-update-q1-2025",
                 "title": "Black Sea Wheat Update: Q1 2025 Outlook",
-                "excerpt": "Export dynamics from the Black Sea region continue to shape global wheat markets. We examine key supply indicators and pricing trends.",
+                "excerpt": "Export dynamics from the Black Sea region continue to shape global wheat markets. We examine key supply indicators and pricing trends heading into the new year.",
                 "content": """The Black Sea region remains the world's most critical wheat export corridor. As we enter Q1 2025, several factors are shaping the outlook:\n\n**Supply Fundamentals**\nUkraine and Russia continue to dominate global wheat exports, accounting for approximately 30% of world trade. The 2024/25 crop estimates suggest production levels broadly in line with last year, though quality variations remain a concern.\n\n**Pricing Dynamics**\nFOB prices from Black Sea ports have remained competitive relative to European and North American origins. Basis levels have narrowed as logistics bottlenecks eased following infrastructure investments at key terminals.\n\n**Freight Considerations**\nHandysize and Panamax rates on Black Sea routes have shown seasonal softening, creating opportunities for CIF buyers in North Africa and the Middle East.\n\n**Policy Landscape**\nExport quotas and duty mechanisms continue to influence timing of shipments. Traders should monitor announcements from both Moscow and Kyiv regarding any changes to existing frameworks.\n\n**Our View**\nWe expect continued price competitiveness from the region through Q1, with potential upside risk if weather conditions impact Southern Hemisphere crops.""",
                 "category": "Grains",
                 "date": datetime.datetime(2025, 1, 15),
@@ -20,7 +20,7 @@ def seed_database(db):
                 "slug": "freight-market-snapshot-dec-2024",
                 "title": "Freight Market Snapshot: December 2024",
                 "excerpt": "A review of dry bulk freight rates and their implications for agricultural commodity flows heading into the new year.",
-                "content": """Dry bulk freight markets experienced notable volatility in Q4 2024, with implications across the agricultural commodity supply chain.\n\n**Handysize Segment**\nRates for grain-suitable vessels (28,000–38,000 DWT) averaged around $12,500/day in December, down 8% from October peaks. This decline reflects seasonal patterns and a modest fleet supply increase.\n\n**Panamax/Kamsarmax**\nLarger vessel rates held firmer, supported by strong coal and iron ore demand from Asia. Agricultural charterers face competition for tonnage on key routes.\n\n**Key Route Analysis**\n- Black Sea to North Africa: TC rates softened, benefiting grain importers.\n- South America to China: Rates remain elevated due to soybean shipment season overlap.\n- Australia to Southeast Asia: Stable, with wheat exports supporting demand.\n\n**Outlook**\nWe anticipate a gradual recovery in rates through Q1 2025 as South American soybean exports peak. Charterers should consider forward fixing where possible.""",
+                "content": """Dry bulk freight markets experienced notable volatility in Q4 2024, with implications across the agricultural commodity supply chain.\n\n**Handysize Segment**\nRates for grain-suitable vessels (28,000-38,000 DWT) averaged around $12,500/day in December, down 8% from October peaks. This decline reflects seasonal patterns and a modest fleet supply increase.\n\n**Panamax/Kamsarmax**\nLarger vessel rates held firmer, supported by strong coal and iron ore demand from Asia. Agricultural charterers face competition for tonnage on key routes.\n\n**Key Route Analysis**\n- Black Sea to North Africa: TC rates softened, benefiting grain importers.\n- South America to China: Rates remain elevated due to soybean shipment season overlap.\n- Australia to Southeast Asia: Stable, with wheat exports supporting demand.\n\n**Outlook**\nWe anticipate a gradual recovery in rates through Q1 2025 as South American soybean exports peak. Charterers should consider forward fixing where possible.""",
                 "category": "Logistics",
                 "date": datetime.datetime(2024, 12, 20),
                 "read_time": "4 min read",
@@ -65,6 +65,26 @@ def seed_database(db):
                 "date": datetime.datetime(2025, 2, 1),
                 "read_time": "5 min read",
                 "image": "https://images.pexels.com/photos/2523650/pexels-photo-2523650.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            {
+                "slug": "global-corn-trade-flows-shifting",
+                "title": "Global Corn Trade Flows: A Shifting Landscape",
+                "excerpt": "New exporters and evolving demand patterns are reshaping the global corn trade. We analyze the key shifts and what they mean for buyers.",
+                "content": """The global corn market is undergoing structural changes that are redefining traditional trade flows.\n\n**New Export Corridors**\nBrazil's second-crop (safrinha) corn has transformed the country into a year-round exporter, challenging US dominance in key markets. Ukraine continues to be a major player despite logistical challenges.\n\n**Demand Drivers**\n- China's import appetite remains a wildcard, with feed demand supported by herd rebuilding.\n- Southeast Asian feed millers are diversifying away from single-origin dependence.\n- Ethanol mandates in Brazil and the US provide structural demand floors.\n\n**Price Dynamics**\nCBOT corn futures have traded in a range-bound pattern, but basis premiums at export terminals tell a more nuanced story.\n\n**Implications for GlobalAgri Clients**\nWe recommend multi-origin sourcing strategies to manage price and supply risk. Our trading desk can structure blended origin solutions for feed and industrial buyers.""",
+                "category": "Grains",
+                "date": datetime.datetime(2025, 3, 5),
+                "read_time": "5 min read",
+                "image": "https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            {
+                "slug": "building-resilient-food-supply-chains",
+                "title": "Building Resilient Agricultural Supply Chains",
+                "excerpt": "Disruptions from geopolitics to climate are testing global food supply chains. We explore how the industry is adapting and what resilience looks like in practice.",
+                "content": """The past few years have exposed vulnerabilities in global agricultural supply chains. From pandemic-era logistics disruptions to geopolitical tensions affecting key trade corridors, the need for resilience has never been clearer.\n\n**Key Challenges**\n- Concentration of production in few origins creates systemic risk.\n- Port and logistics infrastructure gaps amplify supply shocks.\n- Climate variability is increasing crop yield uncertainty globally.\n\n**Building Resilience**\nForward-thinking companies are investing in:\n- Multi-origin sourcing strategies that reduce dependence on any single corridor.\n- Long-term relationships with producers that provide supply security.\n- Data-driven risk management tools that anticipate disruptions.\n- Flexible logistics networks that can reroute shipments quickly.\n\n**GlobalAgri's Approach**\nOur presence across multiple origin markets and our deep relationships with logistics partners enable us to offer our clients supply continuity even during periods of disruption. We believe that resilience is built through partnership, not just procurement.""",
+                "category": "Industry",
+                "date": datetime.datetime(2025, 3, 15),
+                "read_time": "6 min read",
+                "image": "https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800"
             }
         ]
         db.insights.insert_many(insights)
@@ -144,6 +164,42 @@ def seed_database(db):
                     "Bachelor's degree; MBA preferred"
                 ],
                 "posted_at": datetime.datetime(2025, 1, 25)
+            },
+            {
+                "slug": "oilseeds-trader-singapore",
+                "title": "Oilseeds Trader",
+                "location": "Singapore",
+                "department": "Trading",
+                "type": "Full-time",
+                "summary": "Execute physical oilseed and vegetable oil trades across Southeast Asian and Indian subcontinent markets.",
+                "description": """We are expanding our oilseeds desk in Singapore and are looking for a trader with deep knowledge of Asian vegetable oil markets.\n\n**Key Responsibilities:**\n- Build and manage a portfolio of palm oil, soybean oil, and sunflower oil trades\n- Develop supply relationships with crushers, refiners, and plantation companies\n- Serve industrial buyers in South and Southeast Asia\n- Manage hedging positions on CBOT, Dalian, and BMD exchanges\n- Coordinate with logistics team on vessel nominations and documentation\n- Monitor regulatory developments affecting edible oil trade in the region\n\n**What We Offer:**\n- Access to a growing, high-potential market\n- Entrepreneurial culture with strong risk management support\n- Competitive compensation with profit-sharing component\n- International career development path""",
+                "requirements": [
+                    "3-6 years of physical oilseed or vegetable oil trading experience",
+                    "Strong understanding of Asian edible oil markets",
+                    "Experience with exchange-traded derivatives for hedging",
+                    "Established network in Southeast Asian commodity markets",
+                    "Fluency in English; Mandarin or Bahasa a plus",
+                    "Degree in business, finance, or agricultural economics"
+                ],
+                "posted_at": datetime.datetime(2025, 3, 1)
+            },
+            {
+                "slug": "compliance-officer-geneva",
+                "title": "Compliance & Trade Finance Officer",
+                "location": "Geneva, Switzerland",
+                "department": "Finance & Compliance",
+                "type": "Full-time",
+                "summary": "Oversee trade finance operations and ensure regulatory compliance across all trading activities.",
+                "description": """A key role supporting the integrity and efficiency of our global trading operations.\n\n**Key Responsibilities:**\n- Manage documentary credit operations (L/Cs, guarantees, collections)\n- Ensure compliance with international sanctions, AML, and KYC regulations\n- Coordinate with banking partners on trade finance facilities\n- Review and approve counterparty onboarding documentation\n- Support internal audits and regulatory examinations\n- Develop and update compliance policies and training materials\n\n**What We Offer:**\n- Central role in a growing international trading company\n- Exposure to complex cross-border trade finance structures\n- Competitive salary with comprehensive benefits\n- Professional development support (CDCS, ICA certifications)""",
+                "requirements": [
+                    "3-5 years of experience in commodity trade finance or compliance",
+                    "Knowledge of UCP 600, ISP98, and international trade regulations",
+                    "Familiarity with OFAC, EU, and UN sanctions frameworks",
+                    "Strong attention to detail and analytical skills",
+                    "Fluency in English and French",
+                    "Degree in law, finance, or international business"
+                ],
+                "posted_at": datetime.datetime(2025, 3, 10)
             }
         ]
         db.jobs.insert_many(jobs)
