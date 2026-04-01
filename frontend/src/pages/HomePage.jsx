@@ -31,6 +31,12 @@ const slides = [
     headline: 'with discipline, integrity and long-term commitment.',
     subtext: 'Our wealth of experience across agricultural commodity value chains enables us to perform in a steadfast manner, regardless of the complexities in market conditions.',
   },
+  {
+    image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    action: 'Grows',
+    headline: 'partnerships rooted in trust and shared success.',
+    subtext: 'From grain silos in the heartlands to port terminals on every continent, we build lasting relationships that nourish communities and drive sustainable trade.',
+  },
 ];
 
 /* ─────── Counter Stats ─────── */
@@ -152,24 +158,14 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* ═══════ HERO — BACKGROUND VIDEO (InspectSea-inspired) ═══════ */}
-      <section className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 72px)', minHeight: '560px' }} data-testid="hero-section">
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.pexels.com/photos/36091328/pexels-photo-36091328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          data-testid="hero-background-video"
-        >
-          <source src="https://cdn.pixabay.com/video/2022/09/23/132278-753175487_large.mp4" type="video/mp4" />
-        </video>
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(135deg, rgba(11,18,32,0.78) 0%, rgba(11,18,32,0.45) 50%, rgba(11,18,32,0.6) 100%)' }} />
-
-        {/* Content */}
+      {/* ═══════ HERO CAROUSEL ═══════ */}
+      <section className="relative w-full" style={{ height: 'calc(100vh - 72px)', minHeight: '560px' }} data-testid="hero-section">
+        <AnimatePresence mode="wait">
+          <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
+            <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.5) 100%)' }} />
+          </motion.div>
+        </AnimatePresence>
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
