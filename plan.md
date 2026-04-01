@@ -1,11 +1,11 @@
-# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 9 Bilcanli-Inspired Homepage Sections)
+# plan.md — GlobalAgri Commodities Corporate Website (Updated After Phase 10 InspectSea-Inspired Video Hero)
 
 ## 1) Objectives
 - **Deliver V1 (completed):** A working corporate website (React + shadcn/ui) with full backend integrations for insights, careers, contact, partners, memberships, and downloadable company profile PDF.
 - **Deliver working backend (completed):** FastAPI + MongoDB APIs for contact submissions, market insights, careers (jobs + applications + inquiries), partners, memberships, and a downloadable company profile PDF.
 - **Content strategy (updated, completed):** Pre-populated Insights + Jobs via seed script; **no admin panel**; **no newsletter**.
 - **Major design direction update (completed):** Redesign the site to **match the Dome Agribusiness reference style**:
-  - Full-screen **hero carousel** on homepage
+  - Full-screen **hero carousel** on homepage (later improved to video hero in Phase 10)
   - **Tabbed About** section (Who We Are, Strengths, Key Facts, Memberships)
   - **Tabbed Commodities** section (At A Glance, Grains & Feeds, Oilseeds, Pulses & Beans, Sugar & Rice, Coffee) with **image grids**
   - **Partners** page with logo/card grid
@@ -39,12 +39,17 @@
 - **Phase 9 homepage aesthetic expansion (completed):** Incorporate **Bilcanli-inspired** visual patterns from attached images:
   - **“Close to the Source”** full-bleed image section with bold overlay headline and **flowing product tag cloud** (18 commodities)
   - **Split-screen agricultural panorama** (dual imagery) with centered headline + supporting copy
+- **Phase 10 hero modernization (completed):** Incorporate **InspectSea-inspired** hero video treatment:
+  - Replace static hero slide images with a **looping background video** (Pixabay wheat harvest MP4)
+  - Preserve the **text carousel + slide transitions** on top of the video
+  - Add a **poster fallback image** and a **dark overlay gradient** for readability
 - **Quality bar (completed):** Smooth navigation, responsive UI, form validation, loading/empty states, stable end-to-end data flow.
 - **Testing status (updated):**
   - Iteration 4 regression after Mediterra homepage enhancements: **backend 100% / frontend 100% / integration 100%**
   - Iteration 5 regression after Agrocorp homepage changes: **backend 100% / frontend 95%** (LOW-priority automated selector mismatch)
   - Iteration 6 regression after Phase 8 + seed expansion: initially flagged missing data due to DB mismatch; after fix, **APIs return full dataset and UI listings render correctly**.
   - Phase 9 verification: **manual visual verification via screenshots; no compilation errors**.
+  - Phase 10 verification: **manual screenshot confirmation that hero video renders and text carousel works**.
 
 ## 2) Implementation Steps
 
@@ -118,7 +123,7 @@ Verified:
   - Careers
   - Contact Us
 - Homepage redesign:
-  - Full-screen hero carousel, orange CTA, carousel dots
+  - Full-screen hero carousel, orange CTA, carousel dots (later upgraded to video hero in Phase 10)
 - About redesign:
   - Tabbed layout (Who We Are / Strengths / Key Facts / Memberships)
 - Commodities redesign:
@@ -204,12 +209,37 @@ Verified:
   - Both new sections render correctly at desktop size
   - No compilation errors after updates
 
+### Phase 10 — InspectSea-Inspired Background Video Hero ✅ COMPLETED
+
+**Goal:** Modernize the hero section using a premium background video treatment similar to InspectSea.
+
+**Frontend updates** ✅
+- Replaced the hero’s per-slide background image with a single looping background video:
+  - MP4 source: **Pixabay wheat harvest video**
+  - `autoPlay`, `muted`, `loop`, `playsInline` to match modern hero video patterns
+- Preserved all existing hero behavior:
+  - Text carousel and slide transitions still animate per slide
+  - Numbered dots still change slides
+  - CTAs unchanged (Discover Us / Company Profile)
+- Added resilience + readability improvements:
+  - Poster image as fallback for browsers that don’t autoplay video
+  - Dark overlay gradient tuned for consistent text contrast
+
+**Verification** ✅
+- Confirmed via screenshot that:
+  - Video renders behind hero content (combine harvester visible)
+  - Text carousel remains readable and transitions properly
+
 ## 3) Next Actions
 - **Delivery ready:** confirm final branding assets (logo), real contact details, and final copy revisions.
 - Confirm whether to keep the orange accent (`#e67e22`) as primary brand accent or adjust to navy/gold.
 - (Optional) Standardize automated test selectors across forms if strict selector expectations are required (LOW priority).
 - (Optional) Run one final recorded regression after any further copy/styling changes.
 - (Optional) Set `DB_NAME` explicitly in backend environment to avoid future DB mismatches.
+- (Optional) Add a **video performance pass**:
+  - Provide reduced-motion / data-saver fallback (disable autoplay if `prefers-reduced-motion: reduce`)
+  - Provide a secondary lower-bitrate MP4 source for mobile
+  - Ensure hero video does not block first paint (consider `preload="metadata"`)
 - (Optional) Add a mobile-specific layout check for Phase 9 sections (tag cloud wrapping, split-panorama stacking).
 
 ## 4) Success Criteria
@@ -223,3 +253,4 @@ Verified:
 - ✅ Partners and Memberships load from backend (`/api/partners`, `/api/memberships`).
 - ✅ Latest dataset targets met: **8 insights / 6 jobs** and visible in UI.
 - ✅ Phase 9 additions (Close to the Source, Split-Screen Panorama) render correctly and fit the established brand system.
+- ✅ Phase 10 video hero renders correctly with fallback poster and maintains carousel UX.

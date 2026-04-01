@@ -1,14 +1,14 @@
 [
   {
-    "content": "Add 'Split-Screen Agricultural Panorama' section (Image 2 inspired: dual field imagery with bold headline overlay)",
+    "content": "Replace hero carousel images with background video (InspectSea-inspired, Pixabay wheat field video)",
     "status": "completed"
   },
   {
-    "content": "Add 'Close to the Source' product showcase section (Image 1 inspired: hands-on grains with flowing product list)",
+    "content": "Keep carousel text/slide transitions on top of the video background",
     "status": "completed"
   },
   {
-    "content": "Screenshot & verify new sections",
+    "content": "Screenshot & verify video hero + fallback image",
     "status": "completed"
   }
 ]
