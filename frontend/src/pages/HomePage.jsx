@@ -495,6 +495,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══════ WHY GLOBALAGRI (InspectSea "What Sets Us Apart" inspired) ═══════ */}
+      <section className="py-20 lg:py-24" style={{ background: '#f8f9fb' }} data-testid="why-globalagri-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
+            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#e67e22' }}>Why Choose Us</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>What Sets Us Apart</h2>
+          </div>
+          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#e67e22' }} /></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Expertise in Agri-Commodities', desc: 'Years of hands-on experience across agricultural markets allow us to deliver highly reliable, origin-specific sourcing and trading solutions.' },
+              { title: 'Client-Centric Approach', desc: 'We build long-term partnerships by focusing on each buyer\'s unique specifications, offering flexible contracts and responsive support.' },
+              { title: 'Transparency & Integrity', desc: 'We prioritize open communication, detailed documentation, and honest evaluations in every transaction we handle.' },
+              { title: 'Comprehensive Service Coverage', desc: 'From origination and risk management to logistics and final delivery, we offer end-to-end solutions tailored to your supply chain needs.' },
+              { title: 'Certified Quality Standards', desc: 'Our shipments are inspected and certified by leading international agencies including SGS, Intertek, and Bureau Veritas.' },
+              { title: 'International Compliance', desc: 'All our contracts and operations adhere strictly to GAFTA, FOSFA, and ICC regulations, ensuring global recognition and legal assurance.' },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`why-card-${i}`}>
+                <div className="w-2 h-2 rounded-full mb-4" style={{ background: '#e67e22' }} />
+                <h3 className="font-bold text-base mb-2" style={{ color: '#0b1220' }}>{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ LATEST MARKET INSIGHTS (Cargill/Andersons-inspired) ═══════ */}
       <section className="py-20 lg:py-24" style={{ background: '#f8f9fb' }} data-testid="latest-insights-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
