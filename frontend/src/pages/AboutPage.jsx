@@ -78,7 +78,7 @@ export default function AboutPage() {
                 onClick={() => navigate(`/about/${t.id}`)}
                 className={`px-5 py-3.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === t.id
-                    ? 'border-[#7B2FA0] text-[#7B2FA0]'
+                    ? 'border-[#7B1E2F] text-[#7B1E2F]'
                     : 'border-transparent text-gray-500 hover:text-gray-800'
                 }`}
                 data-testid={`about-tab-${t.id}`}
@@ -130,11 +130,11 @@ export default function AboutPage() {
                     <Card key={i} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                       <CardContent className="p-6">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(230, 126, 34, 0.1)' }}>
-                          <Icon className="w-5 h-5" style={{ color: '#7B2FA0' }} />
+                          <Icon className="w-5 h-5" style={{ color: '#7B1E2F' }} />
                         </div>
                         <div className="text-lg font-bold" style={{ color: '#1f2937' }}>{fact.value}</div>
                         {fact.label && <div className="text-sm" style={{ color: '#6b7280' }}>{fact.label}</div>}
-                        <div className="text-xs font-semibold mt-1 tracking-wider" style={{ color: '#7B2FA0' }}>{fact.sub}</div>
+                        <div className="text-xs font-semibold mt-1 tracking-wider" style={{ color: '#7B1E2F' }}>{fact.sub}</div>
                       </CardContent>
                     </Card>
                   );

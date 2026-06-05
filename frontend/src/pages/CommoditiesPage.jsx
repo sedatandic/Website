@@ -109,7 +109,7 @@ export default function CommoditiesPage() {
                 onClick={() => navigate(`/commodities/${t.id}`)}
                 className={`px-5 py-3.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === t.id
-                    ? 'border-[#7B2FA0] text-[#7B2FA0]'
+                    ? 'border-[#7B1E2F] text-[#7B1E2F]'
                     : 'border-transparent text-gray-500 hover:text-gray-800'
                 }`}
                 data-testid={`commodity-tab-${t.id}`}

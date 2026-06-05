@@ -31,27 +31,23 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2.5 group mb-5">
-              <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-10 w-auto" />
-              <div>
-                <div className="text-white font-semibold text-sm tracking-widest leading-tight">PENINSULA</div>
-                <div className="text-[10px] tracking-wider leading-tight" style={{ color: 'rgba(255,255,255,0.4)' }}>AGRITRADE LLC</div>
-              </div>
+            <Link to="/" className="flex items-center group mb-5">
+              <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-14 w-auto" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
             </Link>
             <p className="text-sm leading-relaxed max-w-sm mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
               An international commodity trading house specializing in the merchandising of agricultural cash-crops. Connecting harvests to markets, reliably and responsibly.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                 <span>Geneva | Dubai | Singapore | Nairobi</span>
               </div>
               <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                 <span>info@peninsulaagritrade.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                 <span>+41 22 000 0000</span>
               </div>
             </div>
@@ -60,7 +56,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>About</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#C76BAE]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
           </div>
@@ -68,7 +64,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>Commodities</h3>
             <ul className="space-y-3">
               {commodityLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#C76BAE]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
           </div>
@@ -76,11 +72,11 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#C76BAE]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
             <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all hover:gap-2.5" style={{ color: '#C76BAE' }}>Get in Touch <ArrowRight className="w-3 h-3" /></Link>
+              <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all hover:gap-2.5" style={{ color: '#A0354A' }}>Get in Touch <ArrowRight className="w-3 h-3" /></Link>
             </div>
           </div>
         </div>

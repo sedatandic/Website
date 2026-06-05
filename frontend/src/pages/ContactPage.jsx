@@ -68,27 +68,27 @@ export default function ContactPage() {
                 <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
                 <div className="space-y-5">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
                       Geneva, Switzerland<br />
                       (European Headquarters)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
                       Dubai, UAE<br />
                       (Middle East & Africa Hub)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                     <div className="text-sm" style={{ color: '#4b5563' }}>
                       +41 22 000 0000
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
+                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
                     <div className="text-sm" style={{ color: '#4b5563' }}>
                       info@peninsula-agritrade.com
                     </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <Button
                     onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product_interest: '', message: '' }); }}
                     className="rounded-full"
-                    style={{ background: '#7B2FA0', color: 'white' }}
+                    style={{ background: '#7B1E2F', color: 'white' }}
                   >
                     Send Another Message
                   </Button>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                     disabled={submitting}
                     size="lg"
                     className="rounded-full px-8"
-                    style={{ background: '#7B2FA0', color: 'white' }}
+                    style={{ background: '#7B1E2F', color: 'white' }}
                     data-testid="contact-form-submit"
                   >
                     {submitting ? 'Sending...' : 'Contact Us'}

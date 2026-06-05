@@ -123,7 +123,7 @@ export default function CareersPage() {
                           </div>
                           <p className="text-sm mt-2" style={{ color: '#6b7280' }}>{job.summary}</p>
                         </div>
-                        <span className="text-xs font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#7B2FA0' }}>
+                        <span className="text-xs font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#7B1E2F' }}>
                           View role <ArrowRight className="w-3 h-3" />
                         </span>
                       </CardContent>
@@ -160,7 +160,7 @@ export default function CareersPage() {
                   <Label htmlFor="inq-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
                   <Textarea id="inq-message" rows={4} value={inquiryForm.message} onChange={e => setInquiryForm({ ...inquiryForm, message: e.target.value })} className="mt-1 rounded-lg bg-white" data-testid="career-inquiry-message" />
                 </div>
-                <Button type="submit" disabled={submitting} className="rounded-full px-6" style={{ background: '#7B2FA0', color: 'white' }} data-testid="career-inquiry-submit">
+                <Button type="submit" disabled={submitting} className="rounded-full px-6" style={{ background: '#7B1E2F', color: 'white' }} data-testid="career-inquiry-submit">
                   <Send className="w-4 h-4 mr-2" />
                   {submitting ? 'Submitting...' : 'Submit Inquiry'}
                 </Button>

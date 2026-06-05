@@ -16,26 +16,26 @@ const slides = [
   {
     image: 'https://images.pexels.com/photos/36091328/pexels-photo-36091328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Connects',
-    headline: 'harvests to markets, reliably and responsibly.',
-    subtext: 'An international commodity trading house specializing in the merchandising of bulk and containerized shipments of agricultural cash-crops across origins and destinations worldwide.',
+    headline: 'Qatar to the global agricultural value chain.',
+    subtext: 'A fully integrated agri-supply chain manager and global trading platform, connecting agricultural producers with consumers across the globe.',
   },
   {
     image: 'https://images.pexels.com/photos/5732561/pexels-photo-5732561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Sources',
-    headline: 'agricultural commodities from key origins to demand markets.',
-    subtext: 'Deep origination capabilities in the Black Sea, Europe, the Americas and Africa, with a niche focus on serving buyers in the Middle East, Asia and Sub-Saharan Africa.',
+    headline: 'from the world\'s key origins to demand markets.',
+    subtext: 'Multi-origin sourcing across the Black Sea, Americas, Africa, and Asia, with a niche focus on structurally import-dependent markets in the Middle East, MENA, and Sub-Saharan Africa.',
   },
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Delivers',
-    headline: 'with discipline, integrity and long-term commitment.',
-    subtext: 'Our wealth of experience across agricultural commodity value chains enables us to perform in a steadfast manner, regardless of the complexities in market conditions.',
+    headline: 'with discipline, integrity and daily execution.',
+    subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul. We deliver what we promised, at the agreed price, quality and time.',
   },
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Grows',
-    headline: 'partnerships rooted in trust and shared success.',
-    subtext: 'From grain silos in the heartlands to port terminals on every continent, we build lasting relationships that nourish communities and drive sustainable trade.',
+    headline: 'partnerships rooted in trust and long-term vision.',
+    subtext: 'From grain silos in the heartlands to port terminals worldwide, we build lasting relationships that nourish communities and support food security.',
   },
 ];
 
@@ -98,7 +98,7 @@ const pillars = [
   {
     title: 'People',
     icon: Users,
-    desc: 'Our team of experienced professionals across multiple continents brings deep market knowledge, cultural fluency and a commitment to long-term partnerships.',
+    desc: 'A lean, flat management structure with over 20 years of combined international trading experience across Dubai, Singapore, Geneva and Istanbul. We empower our team to make decisions and act.',
     link: '/careers',
     linkText: 'Explore Careers',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -106,7 +106,7 @@ const pillars = [
   {
     title: 'Products',
     icon: Wheat,
-    desc: 'From grains and oilseeds to pulses, sugar and coffee, we trade a diversified portfolio of agricultural commodities sourced from the world\'s leading origins.',
+    desc: 'A diversified portfolio spanning grains, feedstuff, oilseeds, pulses, sugar, rice, coffee, cotton and specialty crops — sourced from multiple origins and delivered to structurally import-dependent markets.',
     link: '/commodities/at-a-glance',
     linkText: 'View Commodities',
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -114,7 +114,7 @@ const pillars = [
   {
     title: 'Planet',
     icon: Leaf,
-    desc: 'Responsible sourcing, traceability and reduced environmental footprint are embedded in how we operate. We trade today with tomorrow in mind.',
+    desc: 'Contributing to food security through responsible sourcing and sustainable supply chain management. We believe profitable trade and environmental stewardship can coexist.',
     link: '/about/strengths',
     linkText: 'Our Commitment',
     image: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -170,13 +170,13 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -24 }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
-                <div className="mb-4"><span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B2FA0' }}>Peninsula Agritrade</span></div>
+                <div className="mb-4"><span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>Peninsula Agritrade</span></div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
-                  <span style={{ color: '#7B2FA0' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
+                  <span style={{ color: '#7B1E2F' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
-                  <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5" style={{ background: '#7B2FA0', color: 'white' }} data-testid="hero-discover-us-button">
+                  <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5" style={{ background: '#7B1E2F', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/25 text-white hover:bg-white/10 hover:text-white" data-testid="pdf-download-company-profile">
@@ -188,8 +188,8 @@ export default function HomePage() {
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-5 items-center">
               {slides.map((_, i) => (
                 <button key={i} onClick={() => setCurrentSlide(i)} className="flex items-center gap-2 group transition-all" data-testid={`hero-dot-${i}`}>
-                  <span className={`text-xs font-mono font-bold transition-colors ${i === currentSlide ? 'text-[#7B2FA0]' : 'text-white/40 group-hover:text-white/70'}`}>0{i + 1}</span>
-                  <div className="h-[2px] transition-all duration-500" style={{ width: i === currentSlide ? '40px' : '20px', background: i === currentSlide ? '#7B2FA0' : 'rgba(255,255,255,0.25)' }} />
+                  <span className={`text-xs font-mono font-bold transition-colors ${i === currentSlide ? 'text-[#7B1E2F]' : 'text-white/40 group-hover:text-white/70'}`}>0{i + 1}</span>
+                  <div className="h-[2px] transition-all duration-500" style={{ width: i === currentSlide ? '40px' : '20px', background: i === currentSlide ? '#7B1E2F' : 'rgba(255,255,255,0.25)' }} />
                 </button>
               ))}
             </div>
@@ -205,7 +205,7 @@ export default function HomePage() {
               const Icon = stat.icon;
               return (
                 <div key={i} className="text-center">
-                  <Icon className="w-5 h-5 mx-auto mb-3" style={{ color: '#7B2FA0' }} />
+                  <Icon className="w-5 h-5 mx-auto mb-3" style={{ color: '#7B1E2F' }} />
                   <div className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-none tracking-tight">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                   </div>
@@ -227,9 +227,9 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col justify-center py-12 lg:py-16 px-8 lg:px-16">
               <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>Our Mission</h2>
-              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} />
+              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} />
               <p className="mt-6 text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
-                To be a trusted partner in the global agricultural supply chain, connecting reliable origins with demanding markets. Through disciplined risk management, robust logistics, and transparent communication, we strive to always be our partners' supplier of choice.
+                To connect global producers and consumers through reliable, efficient, and transparent physical trading operations. To be a one-stop service for customers by providing relevant, up-to-date market intelligence — building long-lasting relationships through proactive, responsible, and reassuring counterparty behavior.
               </p>
               <div className="mt-8">
                 <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#0b1220', color: 'white' }}>
@@ -247,9 +247,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
             <div className="flex flex-col justify-center py-12 lg:py-16 px-8 lg:px-16 order-2 lg:order-1">
               <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>Our Vision</h2>
-              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} />
+              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} />
               <p className="mt-6 text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
-                Working towards a better-nourished world through responsible and sustainable sourcing of agricultural products. We aim to build enduring partnerships all along the supply chain, bridging the gap between farm and table, origin and destination.
+                To be a premier global supply chain manager and agri-business platform — a leading integrated agricultural commodities trading house and a dependable global link between producers and consumers, competing alongside multinationals in key agri-commodity markets.
               </p>
               <div className="mt-8">
                 <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#0b1220', color: 'white' }}>
@@ -277,21 +277,21 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Headline */}
             <div>
-              <span className="text-xs font-mono tracking-widest uppercase mb-4 block" style={{ color: '#7B2FA0' }}>Close to the Source</span>
+              <span className="text-xs font-mono tracking-widest uppercase mb-4 block" style={{ color: '#7B1E2F' }}>Close to the Source</span>
               <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
                 Right Raw Material.<br />
-                <span style={{ color: '#7B2FA0' }}>Right Result.</span>
+                <span style={{ color: '#7B1E2F' }}>Right Result.</span>
               </h2>
-              <div className="mt-5 w-16 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} />
+              <div className="mt-5 w-16 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} />
               <p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-lg">
                 A wide portfolio of agricultural commodities sourced directly from key origins, tailored to meet the specific requirements of our buyers.
               </p>
             </div>
             {/* Right: Flowing product list */}
             <div>
-              <h3 className="text-xs font-bold tracking-wider uppercase mb-6" style={{ color: '#7B2FA0', letterSpacing: '0.12em' }}>Our Products</h3>
+              <h3 className="text-xs font-bold tracking-wider uppercase mb-6" style={{ color: '#7B1E2F', letterSpacing: '0.12em' }}>Our Products</h3>
               <div className="flex flex-wrap gap-2.5">
-                {['Wheat', 'Corn', 'Barley', 'Soybean Meal', 'Soybean', 'DDGS', 'Sunflower Seed Meal', 'Rapeseed Meal', 'Full-Fat Soy', 'Rice Bran', 'Corn Gluten', 'Lentils', 'Chickpeas', 'Dry Peas', 'Sugar', 'Coffee', 'Sunflower Oil', 'Palm Oil'].map((product, i) => (
+                {['Wheat', 'Corn', 'Barley', 'Soybean Meal', 'Sunflower Seed Meal', 'Rapeseed', 'Lentils', 'Chickpeas', 'Yellow Peas', 'Faba Beans', 'Rice', 'Sugar', 'Cotton', 'Coffee', 'DDGS', 'Sesame Seeds', 'Sorghum', 'Mung Beans'].map((product, i) => (
                   <span
                     key={i}
                     className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 cursor-default"
@@ -307,7 +307,7 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="mt-8">
-                <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#7B2FA0', color: 'white' }}>
+                <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#7B1E2F', color: 'white' }}>
                   <Link to="/commodities/at-a-glance">Explore All Products <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
                 </Button>
               </div>
@@ -320,10 +320,10 @@ export default function HomePage() {
       <section className="py-20 lg:py-24" style={{ background: '#ffffff' }} data-testid="pillars-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B2FA0' }}>What Drives Us</span>
+            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>What Drives Us</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>People. Products. Planet.</h2>
           </div>
-          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pillars.map((p, i) => {
               const Icon = p.icon;
@@ -333,7 +333,7 @@ export default function HomePage() {
                     <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(11,18,32,0.7) 0%, transparent 60%)' }} />
                     <div className="absolute bottom-4 left-5 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: '#7B2FA0' }}>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: '#7B1E2F' }}>
                         <Icon className="w-5 h-5 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-white">{p.title}</h3>
@@ -341,9 +341,9 @@ export default function HomePage() {
                   </div>
                   <div className="p-6">
                     <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{p.desc}</p>
-                    <div className="mt-5 text-xs font-semibold inline-flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: '#7B2FA0' }}>{p.linkText} <ArrowRight className="w-3 h-3" /></div>
+                    <div className="mt-5 text-xs font-semibold inline-flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: '#7B1E2F' }}>{p.linkText} <ArrowRight className="w-3 h-3" /></div>
                   </div>
-                  <div className="h-[3px] w-0 group-hover:w-full transition-all duration-300" style={{ background: '#7B2FA0' }} />
+                  <div className="h-[3px] w-0 group-hover:w-full transition-all duration-300" style={{ background: '#7B1E2F' }} />
                 </Link>
               );
             })}
@@ -355,10 +355,10 @@ export default function HomePage() {
       <section className="py-20 lg:py-24" style={{ background: '#0b1220' }} data-testid="who-we-serve-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B2FA0' }}>Our Markets</span>
+            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>Our Markets</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight">Who We Serve</h2>
           </div>
-          <div className="flex justify-center mb-4"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+          <div className="flex justify-center mb-4"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
           <p className="text-center text-sm sm:text-base mb-14 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.5)' }}>
             We supply a diversified base of buyers across the food, feed and industrial sectors, ensuring that agricultural raw materials reach the right hands at the right time.
           </p>
@@ -368,7 +368,7 @@ export default function HomePage() {
               return (
                 <div key={i} className="group text-center" data-testid={`who-we-serve-${i}`}>
                   <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style={{ background: 'rgba(230,126,34,0.1)', border: '2px solid rgba(230,126,34,0.25)' }}>
-                    <Icon className="w-8 h-8 transition-colors duration-300 group-hover:text-[#7B2FA0]" style={{ color: 'rgba(255,255,255,0.7)' }} />
+                    <Icon className="w-8 h-8 transition-colors duration-300 group-hover:text-[#7B1E2F]" style={{ color: 'rgba(255,255,255,0.7)' }} />
                   </div>
                   <h3 className="mt-4 text-sm font-bold text-white tracking-wide">{item.name}</h3>
                   <p className="mt-2 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>{item.desc}</p>
@@ -383,7 +383,7 @@ export default function HomePage() {
       <section className="py-16 lg:py-20" style={{ background: '#f8f9fb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4"><h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>Our Commodities</h2></div>
-          <div className="flex justify-center mb-12"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+          <div className="flex justify-center mb-12"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             {commodities.map((c, i) => {
               const Icon = c.icon;
@@ -391,7 +391,7 @@ export default function HomePage() {
                 <Link key={i} to={`/commodities/${c.slug}`} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-testid={`commodity-showcase-${c.slug}`}>
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img src={c.image} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10" style={{ background: '#7B2FA0' }}>
+                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10" style={{ background: '#7B1E2F' }}>
                       <Icon className="w-4 h-4 text-white" />
                     </div>
                   </div>
@@ -403,7 +403,7 @@ export default function HomePage() {
             })}
           </div>
           <div className="text-center mt-10">
-            <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#7B2FA0', color: 'white' }}>
+            <Button asChild className="rounded-full px-7 font-medium" style={{ background: '#7B1E2F', color: 'white' }}>
               <Link to="/commodities/at-a-glance">Explore All <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
@@ -437,14 +437,14 @@ export default function HomePage() {
           <div className="text-center px-4">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
               From Diverse Origins,<br />
-              <span style={{ color: '#7B2FA0' }}>One Trusted Source.</span>
+              <span style={{ color: '#7B1E2F' }}>One Trusted Source.</span>
             </h2>
-            <div className="mt-5 flex justify-center"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+            <div className="mt-5 flex justify-center"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
             <p className="mt-5 text-sm sm:text-base text-white/65 max-w-xl mx-auto leading-relaxed">
               Our sourcing network spans the world's most important agricultural regions, from the sunflower fields of the Black Sea to the grain belts of the Americas. Diversity of origin means reliability of supply.
             </p>
             <div className="mt-7">
-              <Button asChild className="rounded-full px-7 font-medium shadow-lg" style={{ background: '#7B2FA0', color: 'white' }}>
+              <Button asChild className="rounded-full px-7 font-medium shadow-lg" style={{ background: '#7B1E2F', color: 'white' }}>
                 <Link to="/about/who-we-are">Discover Our Reach <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
               </Button>
             </div>
@@ -460,7 +460,7 @@ export default function HomePage() {
           <div className="max-w-xl">
             <span className="text-xs font-mono tracking-widest uppercase text-white/60">Sustainability</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white leading-snug">Trading today with tomorrow in mind.</h2>
-            <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} />
+            <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} />
             <p className="mt-5 text-base text-white/70 leading-relaxed">
               From farm-level traceability to transparent documentation, we work with suppliers who share our commitment to responsible sourcing and reduced environmental impact. Every shipment is an opportunity to build a more sustainable supply chain.
             </p>
@@ -477,14 +477,14 @@ export default function HomePage() {
       <section className="py-20 lg:py-24" style={{ background: '#ffffff' }} data-testid="value-chain-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4"><h2 className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>End-to-End Trading Model</h2></div>
-          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {valueChain.map((item, i) => {
               const Icon = item.icon;
               return (
                 <div key={i} className="group relative bg-white rounded-2xl border px-6 py-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style={{ borderColor: '#e5e7eb' }} data-testid={`value-chain-card-${i}`}>
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300 group-hover:bg-[#7B2FA0]" style={{ background: '#f3f4f6' }}>
-                    <Icon className="w-7 h-7 transition-colors duration-300 group-hover:text-white" style={{ color: '#7B2FA0' }} />
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300 group-hover:bg-[#7B1E2F]" style={{ background: '#f3f4f6' }}>
+                    <Icon className="w-7 h-7 transition-colors duration-300 group-hover:text-white" style={{ color: '#7B1E2F' }} />
                   </div>
                   <h3 className="font-bold text-base mb-3" style={{ color: '#0b1220' }}>{item.step}. {item.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{item.desc}</p>
@@ -499,21 +499,21 @@ export default function HomePage() {
       <section className="py-20 lg:py-24" style={{ background: '#f8f9fb' }} data-testid="why-peninsula-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B2FA0' }}>Why Choose Us</span>
+            <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>Why Choose Us</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>What Sets Us Apart</h2>
           </div>
-          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+          <div className="flex justify-center mb-14"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Expertise in Agri-Commodities', desc: 'Years of hands-on experience across agricultural markets allow us to deliver highly reliable, origin-specific sourcing and trading solutions.' },
-              { title: 'Client-Centric Approach', desc: 'We build long-term partnerships by focusing on each buyer\'s unique specifications, offering flexible contracts and responsive support.' },
-              { title: 'Transparency & Integrity', desc: 'We prioritize open communication, detailed documentation, and honest evaluations in every transaction we handle.' },
-              { title: 'Comprehensive Service Coverage', desc: 'From origination and risk management to logistics and final delivery, we offer end-to-end solutions tailored to your supply chain needs.' },
-              { title: 'Certified Quality Standards', desc: 'Our shipments are inspected and certified by leading international agencies including SGS, Intertek, and Bureau Veritas.' },
-              { title: 'International Compliance', desc: 'All our contracts and operations adhere strictly to GAFTA, FOSFA, and ICC regulations, ensuring global recognition and legal assurance.' },
+              { title: 'Multi-Origin Sourcing', desc: 'Direct procurement across Black Sea, South America, Africa, Asia, and Australia — reducing single-origin risk and optimizing landed costs.' },
+              { title: 'Client-Centric Approach', desc: 'We are a one-stop service for our customers, providing market intelligence, tailored solutions, and proactive communication at every stage.' },
+              { title: 'Trade Finance Expertise', desc: 'Structured trade finance, pre-export finance facilities, and LC operations managed with precision and speed by our dedicated finance team.' },
+              { title: 'Freight & Logistics Management', desc: 'Vessel chartering, containerized shipments, and end-to-end logistics from origin to destination with certified documentation.' },
+              { title: 'Risk Management Discipline', desc: 'Stringent counterparty assessment, mark-to-market monitoring, and hedging strategies protect every transaction in our portfolio.' },
+              { title: 'GAFTA, FOSFA & ICC Compliance', desc: 'All contracts and operations adhere to international trade association rules, ensuring legal certainty and global recognition.' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`why-card-${i}`}>
-                <div className="w-2 h-2 rounded-full mb-4" style={{ background: '#7B2FA0' }} />
+                <div className="w-2 h-2 rounded-full mb-4" style={{ background: '#7B1E2F' }} />
                 <h3 className="font-bold text-base mb-2" style={{ color: '#0b1220' }}>{item.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{item.desc}</p>
               </div>
@@ -527,9 +527,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B2FA0' }}>Market Intelligence</span>
+              <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>Market Intelligence</span>
               <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#0b1220' }}>Latest Insights</h2>
-              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} />
+              <div className="mt-4 w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} />
             </div>
             <Button asChild className="rounded-full px-6 font-medium self-start sm:self-auto" style={{ background: '#0b1220', color: 'white' }}>
               <Link to="/insights">View All <ArrowRight className="w-4 h-4 ml-1" /></Link>
@@ -541,7 +541,7 @@ export default function HomePage() {
                 <div className="relative h-48 overflow-hidden">
                   <img src={insight.image || 'https://images.pexels.com/photos/6489275/pexels-photo-6489275.jpeg?auto=compress&cs=tinysrgb&w=600'} alt={insight.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 left-3">
-                    <Badge className="text-[10px] font-bold tracking-wide px-3 py-1" style={{ background: '#7B2FA0', color: 'white', border: 'none' }}>{insight.category}</Badge>
+                    <Badge className="text-[10px] font-bold tracking-wide px-3 py-1" style={{ background: '#7B1E2F', color: 'white', border: 'none' }}>{insight.category}</Badge>
                   </div>
                 </div>
                 <div className="p-5">
@@ -550,11 +550,11 @@ export default function HomePage() {
                     <span>|</span>
                     <span>{insight.date ? new Date(insight.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : ''}</span>
                   </div>
-                  <h3 className="font-bold text-base leading-snug mb-2 transition-colors group-hover:text-[#7B2FA0]" style={{ color: '#0b1220' }}>{insight.title}</h3>
+                  <h3 className="font-bold text-base leading-snug mb-2 transition-colors group-hover:text-[#7B1E2F]" style={{ color: '#0b1220' }}>{insight.title}</h3>
                   <p className="text-sm leading-relaxed line-clamp-2" style={{ color: '#6b7280' }}>{insight.excerpt}</p>
-                  <div className="mt-4 text-xs font-semibold inline-flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: '#7B2FA0' }}>Read More <ArrowRight className="w-3 h-3" /></div>
+                  <div className="mt-4 text-xs font-semibold inline-flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: '#7B1E2F' }}>Read More <ArrowRight className="w-3 h-3" /></div>
                 </div>
-                <div className="h-[3px] w-0 group-hover:w-full transition-all duration-300" style={{ background: '#7B2FA0' }} />
+                <div className="h-[3px] w-0 group-hover:w-full transition-all duration-300" style={{ background: '#7B1E2F' }} />
               </Link>
             ))}
           </div>
@@ -568,15 +568,15 @@ export default function HomePage() {
             <div className="lg:col-span-3">
               <Quote className="w-10 h-10 mb-6" style={{ color: 'rgba(230,126,34,0.3)' }} />
               <blockquote className="text-xl sm:text-2xl font-medium leading-relaxed italic" style={{ color: '#0b1220' }}>
-                "What sets us apart is the depth of our relationships at origin. When markets tighten, it's the trust built over years that ensures our clients still receive their cargoes on time and to spec. This business is, and always will be, about people."
+                "Our business is built on the principle that the best relationships in trading are earned through consistent daily execution. We deliver what we promised — at the agreed price, quality, and time. That's not a tagline, it's how we operate."
               </blockquote>
               <div className="mt-8 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#7B2FA0' }}>
-                  <span className="text-white font-bold text-sm">AH</span>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#7B1E2F' }}>
+                  <span className="text-white font-bold text-sm">FK</span>
                 </div>
                 <div>
-                  <div className="font-bold text-sm" style={{ color: '#0b1220' }}>Ahmed Hassan</div>
-                  <div className="text-xs" style={{ color: '#6b7280' }}>Head of Trading, Dubai Office</div>
+                  <div className="font-bold text-sm" style={{ color: '#0b1220' }}>Founding Team</div>
+                  <div className="text-xs" style={{ color: '#6b7280' }}>Peninsula Agritrade LLC</div>
                 </div>
               </div>
             </div>
@@ -593,7 +593,7 @@ export default function HomePage() {
       {/* ═══════ DOWNLOAD BROCHURE CTA ═══════ */}
       <section className="py-10" style={{ background: '#f8f9fb' }} data-testid="download-brochure-section">
         <div className="text-center">
-          <Button asChild size="lg" className="rounded-full px-10 py-6 font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5" style={{ background: '#7B2FA0', color: 'white', letterSpacing: '0.08em' }} data-testid="download-brochure-btn">
+          <Button asChild size="lg" className="rounded-full px-10 py-6 font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5" style={{ background: '#7B1E2F', color: 'white', letterSpacing: '0.08em' }} data-testid="download-brochure-btn">
             <a href={getProfileDownloadUrl()} target="_blank" rel="noopener noreferrer">
               <Download className="w-4 h-4 mr-2" />Download Our Corporate Brochure
             </a>
@@ -604,7 +604,7 @@ export default function HomePage() {
       {/* ═══════ PARTNERS MARQUEE ═══════ */}
       <section className="py-14" style={{ background: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4"><div className="text-center"><h2 className="text-3xl font-bold tracking-tight" style={{ color: '#0b1220' }}>Our Partners</h2></div></div>
-        <div className="flex justify-center mb-10"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B2FA0' }} /></div>
+        <div className="flex justify-center mb-10"><div className="w-14 h-[3px] rounded-full" style={{ background: '#7B1E2F' }} /></div>
         <div className="relative overflow-hidden">
           <div className="flex animate-marquee gap-12 items-center">
             {[...partnerNames, ...partnerNames].map((name, i) => (
@@ -632,13 +632,13 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="w-16 h-[3px] rounded-full mb-8" style={{ background: '#7B2FA0' }} />
+              <div className="w-16 h-[3px] rounded-full mb-8" style={{ background: '#7B1E2F' }} />
               <blockquote className="text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-white leading-relaxed italic">
-                "It's more than just a business to us; it's part of a vision that we set out to achieve, that of more sustainable and equitable agricultural supply chains."
+                "In commodities trading, your word is your bond. We built this company on that principle — integrity in every transaction, discipline in every execution, and commitment to every partner."
               </blockquote>
               <div className="mt-8">
                 <div className="text-sm font-bold text-white">Leadership Team</div>
-                <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Peninsula Agritrade</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Peninsula Agritrade LLC</div>
               </div>
             </div>
             <div className="relative flex justify-center items-center">
@@ -655,7 +655,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ CTA BAND ═══════ */}
-      <section className="py-14" style={{ background: '#7B2FA0' }}>
+      <section className="py-14" style={{ background: '#7B1E2F' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Ready to discuss your requirements?</h2>
           <p className="mt-3 text-base text-white/80 max-w-xl mx-auto">Whether you need grains, oilseeds, sugar, or coffee — our trading desk is ready to help.</p>

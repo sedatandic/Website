@@ -91,12 +91,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group" data-testid="site-header-logo">
-            <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-10 w-auto transition-transform duration-200 group-hover:scale-105" />
-            <div>
-              <div className="text-white font-semibold text-sm tracking-widest leading-tight">PENINSULA</div>
-              <div className="text-[10px] tracking-wider leading-tight" style={{ color: 'rgba(255,255,255,0.5)' }}>AGRITRADE LLC</div>
-            </div>
+          <Link to="/" className="flex items-center group" data-testid="site-header-logo">
+            <img
+              src="/logo.png"
+              alt="Peninsula Agritrade LLC"
+              className="h-14 w-auto transition-transform duration-200 group-hover:scale-105"
+              style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -122,7 +123,7 @@ export default function Header() {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
                   {isActive(link.path) && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#7B2FA0' }} />
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#7B1E2F' }} />
                   )}
                 </Link>
 
@@ -147,8 +148,8 @@ export default function Header() {
                               <div key={colIndex} className="flex flex-col gap-1">
                                 {col.map((sub) => (
                                   <Link key={sub.path} to={sub.path} className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                                    <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B2FA0]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
-                                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B2FA0' }} />
+                                    <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B1E2F]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
+                                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B1E2F' }} />
                                   </Link>
                                 ))}
                               </div>
@@ -156,7 +157,7 @@ export default function Header() {
                           </div>
                         </div>
                       </div>
-                      <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #7B2FA0, #C76BAE)' }} />
+                      <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #7B1E2F, #A0354A)' }} />
                     </div>
                   </div>
                 )}
@@ -175,8 +176,7 @@ export default function Header() {
               <div className="sr-only" id="mobile-nav-title">Navigation Menu</div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-8">
-                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-8 w-auto" />
-                  <span className="text-white font-semibold text-sm tracking-wide">PENINSULA</span>
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-12 w-auto" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
                 </div>
                 <div className="space-y-1">
                   {navLinks.map((link) => (
@@ -188,7 +188,7 @@ export default function Header() {
                             <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileDropdowns[link.name] ? 'rotate-180' : ''}`} />
                           </button>
                           {mobileDropdowns[link.name] && (
-                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #7B2FA0' }}>
+                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #7B1E2F' }}>
                               {link.dropdown.map((sub) => (
                                 <Link key={sub.path} to={sub.path} className="block px-3 py-2 text-white/60 hover:text-white text-xs font-medium tracking-wide rounded-md hover:bg-white/5 transition-colors duration-150 uppercase" style={{ letterSpacing: '0.05em' }} onClick={() => setMobileOpen(false)}>{sub.name}</Link>
                               ))}
@@ -202,7 +202,7 @@ export default function Header() {
                   ))}
                 </div>
                 <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200" style={{ background: '#7B2FA0' }} onClick={() => setMobileOpen(false)}>
+                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200" style={{ background: '#7B1E2F' }} onClick={() => setMobileOpen(false)}>
                     Get In Touch <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
