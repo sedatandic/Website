@@ -109,7 +109,7 @@ export default function CommoditiesPage() {
                 onClick={() => navigate(`/commodities/${t.id}`)}
                 className={`px-5 py-3.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === t.id
-                    ? 'border-[#e67e22] text-[#e67e22]'
+                    ? 'border-[#7B2FA0] text-[#7B2FA0]'
                     : 'border-transparent text-gray-500 hover:text-gray-800'
                 }`}
                 data-testid={`commodity-tab-${t.id}`}
@@ -129,7 +129,7 @@ export default function CommoditiesPage() {
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>At A Glance</h2>
               <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                <p>GlobalAgri Commodities is well-connected with suppliers & buyers globally therefore able to source and originate commodities that meet each buyers' specifications.</p>
+                <p>Peninsula Agritrade LLC is well-connected with suppliers & buyers globally therefore able to source and originate commodities that meet each buyers' specifications.</p>
                 <p>Our vast experience in these markets and excellent commercial relationships with our counterparties and their proven track record enables us to deliver quality goods in a timely manner.</p>
                 <p>On the other hand, our niche focus and expertise in dealing with buyers in Middle East, South Asia and Southeast-Asian regions enabled us to find greater market where we have great rapport built over the years.</p>
                 <p>In view of our wealth of experience in agri-trading, the experience gained enable us to perform in a steadfast manner regardless of the challenges in market conditions. We believe strongly in fair trade and always endeavor to deliver on our contractual promises.</p>

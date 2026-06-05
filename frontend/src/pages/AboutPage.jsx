@@ -78,7 +78,7 @@ export default function AboutPage() {
                 onClick={() => navigate(`/about/${t.id}`)}
                 className={`px-5 py-3.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === t.id
-                    ? 'border-[#e67e22] text-[#e67e22]'
+                    ? 'border-[#7B2FA0] text-[#7B2FA0]'
                     : 'border-transparent text-gray-500 hover:text-gray-800'
                 }`}
                 data-testid={`about-tab-${t.id}`}
@@ -98,11 +98,11 @@ export default function AboutPage() {
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Who We Are</h2>
               <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                <p>GlobalAgri Commodities is an international agricultural trading company focused on connecting reliable origins with demanding destination markets. We connect producers, exporters, and industrial buyers through disciplined risk management, robust logistics, and transparent communication.</p>
+                <p>Peninsula Agritrade LLC is an international agricultural trading company focused on connecting reliable origins with demanding destination markets. We connect producers, exporters, and industrial buyers through disciplined risk management, robust logistics, and transparent communication.</p>
                 <p>Our hub was chosen to take the advantage of its strategic geographical location and excellent infrastructure for commodity trading activity including manpower, logistics, corporate tax and trade-finance benefits.</p>
                 <p>The management team is experienced in agri-commodities markets and the company principals have a deep physical trading experience with agricultural goods across Europe, the Middle East, Asia, and Africa.</p>
                 <p>We trade with grains, feeds, oilseeds, pulses, rice, sugar and coffee — both bulk and containerized shipments.</p>
-                <p>GlobalAgri's principal expertise are mainly with a strong origination and sourcing capabilities in the Black Sea region, Europe, Americas and with a niche and specific focus on the Middle East, Asia and African countries as the main export destinations.</p>
+                <p>Peninsula Agritrade's principal expertise are mainly with a strong origination and sourcing capabilities in the Black Sea region, Europe, Americas and with a niche and specific focus on the Middle East, Asia and African countries as the main export destinations.</p>
               </div>
             </FadeIn>
           )}
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 <p>Since we have started our operations, we have developed more supplier and customer base providing better diversity and further enhance our strengths.</p>
                 <p>Our familiarity and expertise in the global agri-commodity markets with a specific focus in Middle East, South Asia and Southeast-Asian countries as the main destinations is one of our core advantage.</p>
                 <p>The strong origination and sourcing capabilities in Black Sea region, East & West Africa and South America is another key strength of the company.</p>
-                <p>The valuable experience together with strong knowledge of logistics & execution and trade financing of soft-commodities enables GlobalAgri Commodities to act with timely execution, performing without market movements and stick to its contractual obligations — these norms are only some of the solid fundamentals of the company.</p>
+                <p>The valuable experience together with strong knowledge of logistics & execution and trade financing of soft-commodities enables Peninsula Agritrade LLC to act with timely execution, performing without market movements and stick to its contractual obligations — these norms are only some of the solid fundamentals of the company.</p>
               </div>
             </FadeIn>
           )}
@@ -130,11 +130,11 @@ export default function AboutPage() {
                     <Card key={i} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                       <CardContent className="p-6">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(230, 126, 34, 0.1)' }}>
-                          <Icon className="w-5 h-5" style={{ color: '#e67e22' }} />
+                          <Icon className="w-5 h-5" style={{ color: '#7B2FA0' }} />
                         </div>
                         <div className="text-lg font-bold" style={{ color: '#1f2937' }}>{fact.value}</div>
                         {fact.label && <div className="text-sm" style={{ color: '#6b7280' }}>{fact.label}</div>}
-                        <div className="text-xs font-semibold mt-1 tracking-wider" style={{ color: '#e67e22' }}>{fact.sub}</div>
+                        <div className="text-xs font-semibold mt-1 tracking-wider" style={{ color: '#7B2FA0' }}>{fact.sub}</div>
                       </CardContent>
                     </Card>
                   );

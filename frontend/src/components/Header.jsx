@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, ChevronDown, Wheat, ChevronRight } from 'lucide-react';
+import { Menu, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
-const aboutDescription = 'GlobalAgri is an international trading firm and supply chain manager of agricultural products. We connect supply and demand effectively, profitably and sustainably.';
+const aboutDescription = 'Peninsula Agritrade is an international trading firm and supply chain manager of agricultural products. We connect supply and demand effectively, profitably and sustainably.';
 const commoditiesDescription = 'Deep market knowledge, solid expertise, and strategic long-term partnerships across key agricultural commodity markets worldwide.';
 
 const aboutLinks = [
@@ -26,7 +26,7 @@ const commodityLinks = [
 const navLinks = [
   { name: 'Home', path: '/' },
   {
-    name: 'About GlobalAgri',
+    name: 'About Us',
     path: '/about',
     dropdown: aboutLinks,
     megaTitle: 'ABOUT US',
@@ -58,7 +58,6 @@ export default function Header() {
     return location.pathname.startsWith(path);
   };
 
-  // Close dropdown on route change
   useEffect(() => {
     setOpenDropdown(null);
   }, [location.pathname]);
@@ -77,7 +76,6 @@ export default function Header() {
     }, 150);
   };
 
-  // Split dropdown links into columns (max 4 per column)
   const splitIntoColumns = (links) => {
     if (links.length <= 4) return [links];
     const mid = Math.ceil(links.length / 2);
@@ -94,15 +92,10 @@ export default function Header() {
         <nav className="flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group" data-testid="site-header-logo">
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
-              style={{ background: 'var(--ga-gold)' }}
-            >
-              <Wheat className="w-5 h-5 text-white" />
-            </div>
+            <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-10 w-auto transition-transform duration-200 group-hover:scale-105" />
             <div>
-              <div className="text-white font-semibold text-sm tracking-widest leading-tight">GLOBALAGRI</div>
-              <div className="text-[10px] tracking-wider leading-tight" style={{ color: 'rgba(255,255,255,0.5)' }}>COMMODITIES</div>
+              <div className="text-white font-semibold text-sm tracking-widest leading-tight">PENINSULA</div>
+              <div className="text-[10px] tracking-wider leading-tight" style={{ color: 'rgba(255,255,255,0.5)' }}>AGRITRADE LLC</div>
             </div>
           </Link>
 
@@ -119,29 +112,17 @@ export default function Header() {
                 <Link
                   to={link.path}
                   className={`px-3.5 py-2 text-[13px] font-medium inline-flex items-center gap-1.5 transition-all duration-200 relative ${
-                    isActive(link.path)
-                      ? 'text-white'
-                      : 'text-white/70 hover:text-white'
+                    isActive(link.path) ? 'text-white' : 'text-white/70 hover:text-white'
                   }`}
-                  style={{
-                    letterSpacing: '0.02em',
-                  }}
+                  style={{ letterSpacing: '0.02em' }}
                   data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {link.name}
                   {link.dropdown && (
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        openDropdown === link.name ? 'rotate-180' : ''
-                      }`}
-                    />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
-                  {/* Active indicator line */}
                   {isActive(link.path) && (
-                    <span
-                      className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full"
-                      style={{ background: '#e67e22' }}
-                    />
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#7B2FA0' }} />
                   )}
                 </Link>
 
@@ -149,83 +130,25 @@ export default function Header() {
                 {link.dropdown && openDropdown === link.name && (
                   <div
                     className="absolute top-full left-1/2 pt-2 z-50"
-                    style={{
-                      transform: 'translateX(-50%)',
-                      minWidth: link.dropdown.length > 4 ? '580px' : '480px',
-                    }}
+                    style={{ transform: 'translateX(-50%)', minWidth: link.dropdown.length > 4 ? '580px' : '480px' }}
                     onMouseEnter={() => handleMouseEnter(link.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    {/* Arrow pointer */}
-                    <div
-                      className="absolute top-2 left-1/2 w-0 h-0"
-                      style={{
-                        transform: 'translateX(-50%)',
-                        borderLeft: '10px solid transparent',
-                        borderRight: '10px solid transparent',
-                        borderBottom: '10px solid white',
-                        zIndex: 51,
-                      }}
-                    />
-
-                    {/* Dropdown panel */}
-                    <div
-                      className="bg-white rounded-sm overflow-hidden"
-                      style={{
-                        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08)',
-                        marginTop: '8px',
-                      }}
-                    >
+                    <div className="absolute top-2 left-1/2 w-0 h-0" style={{ transform: 'translateX(-50%)', borderLeft: '10px solid transparent', borderRight: '10px solid transparent', borderBottom: '10px solid white', zIndex: 51 }} />
+                    <div className="bg-white rounded-sm overflow-hidden" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.08)', marginTop: '8px' }}>
                       <div className="flex">
-                        {/* Left: Description column */}
-                        <div
-                          className="flex-shrink-0 p-6"
-                          style={{
-                            width: '220px',
-                            borderRight: '1px solid #e5e7eb',
-                          }}
-                        >
-                          <h3
-                            className="text-sm font-bold tracking-wide mb-3"
-                            style={{ color: '#1a2a3a', letterSpacing: '0.04em' }}
-                          >
-                            {link.megaTitle}
-                          </h3>
-                          <p
-                            className="text-xs leading-relaxed"
-                            style={{ color: '#6b7280', lineHeight: '1.7' }}
-                          >
-                            {link.megaDescription}
-                          </p>
+                        <div className="flex-shrink-0 p-6" style={{ width: '220px', borderRight: '1px solid #e5e7eb' }}>
+                          <h3 className="text-sm font-bold tracking-wide mb-3" style={{ color: '#1a2a3a', letterSpacing: '0.04em' }}>{link.megaTitle}</h3>
+                          <p className="text-xs leading-relaxed" style={{ color: '#6b7280', lineHeight: '1.7' }}>{link.megaDescription}</p>
                         </div>
-
-                        {/* Right: Links columns */}
                         <div className="flex-1 p-6">
                           <div className="flex gap-8">
                             {splitIntoColumns(link.dropdown).map((col, colIndex) => (
                               <div key={colIndex} className="flex flex-col gap-1">
                                 {col.map((sub) => (
-                                  <Link
-                                    key={sub.path}
-                                    to={sub.path}
-                                    className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50"
-                                    onClick={() => setOpenDropdown(null)}
-                                    data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}
-                                  >
-                                    <span
-                                      className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#e67e22]"
-                                      style={{
-                                        color: '#374151',
-                                        letterSpacing: '0.06em',
-                                        textTransform: 'uppercase',
-                                      }}
-                                    >
-                                      {sub.name}
-                                    </span>
-                                    <ChevronRight
-                                      className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0"
-                                      style={{ color: '#e67e22' }}
-                                    />
+                                  <Link key={sub.path} to={sub.path} className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                                    <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B2FA0]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
+                                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B2FA0' }} />
                                   </Link>
                                 ))}
                               </div>
@@ -233,12 +156,7 @@ export default function Header() {
                           </div>
                         </div>
                       </div>
-
-                      {/* Orange accent bottom border — Quadra signature */}
-                      <div
-                        className="w-full h-[3px]"
-                        style={{ background: '#e67e22' }}
-                      />
+                      <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #7B2FA0, #C76BAE)' }} />
                     </div>
                   </div>
                 )}
@@ -257,66 +175,35 @@ export default function Header() {
               <div className="sr-only" id="mobile-nav-title">Navigation Menu</div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-8">
-                  <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ background: 'var(--ga-gold)' }}>
-                    <Wheat className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-white font-semibold text-sm tracking-wide">GLOBALAGRI</span>
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-8 w-auto" />
+                  <span className="text-white font-semibold text-sm tracking-wide">PENINSULA</span>
                 </div>
                 <div className="space-y-1">
                   {navLinks.map((link) => (
                     <div key={link.name}>
                       {link.dropdown ? (
                         <>
-                          <button
-                            onClick={() => setMobileDropdowns(prev => ({ ...prev, [link.name]: !prev[link.name] }))}
-                            className="w-full flex items-center justify-between px-3 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-md text-sm font-medium transition-colors duration-150"
-                            data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          >
+                          <button onClick={() => setMobileDropdowns(prev => ({ ...prev, [link.name]: !prev[link.name] }))} className="w-full flex items-center justify-between px-3 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-md text-sm font-medium transition-colors duration-150" data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>
                             {link.name}
                             <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileDropdowns[link.name] ? 'rotate-180' : ''}`} />
                           </button>
                           {mobileDropdowns[link.name] && (
-                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #e67e22' }}>
+                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #7B2FA0' }}>
                               {link.dropdown.map((sub) => (
-                                <Link
-                                  key={sub.path}
-                                  to={sub.path}
-                                  className="block px-3 py-2 text-white/60 hover:text-white text-xs font-medium tracking-wide rounded-md hover:bg-white/5 transition-colors duration-150 uppercase"
-                                  style={{ letterSpacing: '0.05em' }}
-                                  onClick={() => setMobileOpen(false)}
-                                >
-                                  {sub.name}
-                                </Link>
+                                <Link key={sub.path} to={sub.path} className="block px-3 py-2 text-white/60 hover:text-white text-xs font-medium tracking-wide rounded-md hover:bg-white/5 transition-colors duration-150 uppercase" style={{ letterSpacing: '0.05em' }} onClick={() => setMobileOpen(false)}>{sub.name}</Link>
                               ))}
                             </div>
                           )}
                         </>
                       ) : (
-                        <Link
-                          to={link.path}
-                          className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-150 ${
-                            isActive(link.path) ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'
-                          }`}
-                          onClick={() => setMobileOpen(false)}
-                          data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                        >
-                          {link.name}
-                        </Link>
+                        <Link to={link.path} className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-150 ${isActive(link.path) ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'}`} onClick={() => setMobileOpen(false)} data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>{link.name}</Link>
                       )}
                     </div>
                   ))}
                 </div>
-
-                {/* Mobile CTA */}
                 <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <Link
-                    to="/contact"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200"
-                    style={{ background: '#e67e22' }}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Get In Touch
-                    <ChevronRight className="w-4 h-4" />
+                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200" style={{ background: '#7B2FA0' }} onClick={() => setMobileOpen(false)}>
+                    Get In Touch <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -324,8 +211,6 @@ export default function Header() {
           </Sheet>
         </nav>
       </div>
-
-      {/* Subtle header bottom line */}
       <div className="w-full h-px" style={{ background: 'rgba(255,255,255,0.06)' }} />
     </header>
   );

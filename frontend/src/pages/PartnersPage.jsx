@@ -44,7 +44,7 @@ export default function PartnersPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Our Partners</h2>
             <p className="text-sm sm:text-base leading-relaxed mb-10" style={{ color: '#4b5563' }}>
-              GlobalAgri Commodities is the reliable partner in international agri-commodity venue. A vast experienced team of physical trading, trade-finance, shipping & execution professionals to make sure custom-made service to our trade partners — Government Institutions, Port & Custom Authorities, Business Chambers, Independent Surveyors, Ship Owners, Shipping Lines, Cargo Insurers and our Trade Finance Partners.
+              Peninsula Agritrade LLC is the reliable partner in international agri-commodity venue. A vast experienced team of physical trading, trade-finance, shipping & execution professionals to make sure custom-made service to our trade partners — Government Institutions, Port & Custom Authorities, Business Chambers, Independent Surveyors, Ship Owners, Shipping Lines, Cargo Insurers and our Trade Finance Partners.
             </p>
           </FadeIn>
 

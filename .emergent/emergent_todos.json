@@ -1,14 +1,30 @@
 [
   {
-    "content": "Replace hero carousel images with background video (InspectSea-inspired, Pixabay wheat field video)",
+    "content": "Download logo and save to frontend assets",
     "status": "completed"
   },
   {
-    "content": "Keep carousel text/slide transitions on top of the video background",
+    "content": "Update Header: replace icon with logo image, rename to Peninsula Agritrade LLC, change accent from orange to purple",
     "status": "completed"
   },
   {
-    "content": "Screenshot & verify video hero + fallback image",
+    "content": "Update Footer: replace icon with logo image, rename, change accent color",
+    "status": "completed"
+  },
+  {
+    "content": "Update HomePage: rebrand all text from GlobalAgri to Peninsula Agritrade, change all orange accents to purple",
+    "status": "completed"
+  },
+  {
+    "content": "Update all other pages: rename GlobalAgri references, update accent colors",
+    "status": "completed"
+  },
+  {
+    "content": "Update HTML title and meta",
+    "status": "completed"
+  },
+  {
+    "content": "Screenshot & verify rebrand",
     "status": "completed"
   }
 ]

@@ -65,32 +65,32 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-2">
               <div>
-                <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>GlobalAgri Commodities</h2>
+                <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
                 <div className="space-y-5">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#e67e22' }} />
+                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
                       Geneva, Switzerland<br />
                       (European Headquarters)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#e67e22' }} />
+                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
                       Dubai, UAE<br />
                       (Middle East & Africa Hub)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#e67e22' }} />
+                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
                     <div className="text-sm" style={{ color: '#4b5563' }}>
                       +41 22 000 0000
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#e67e22' }} />
+                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B2FA0' }} />
                     <div className="text-sm" style={{ color: '#4b5563' }}>
-                      info@globalagri.com
+                      info@peninsula-agritrade.com
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <Button
                     onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product_interest: '', message: '' }); }}
                     className="rounded-full"
-                    style={{ background: '#e67e22', color: 'white' }}
+                    style={{ background: '#7B2FA0', color: 'white' }}
                   >
                     Send Another Message
                   </Button>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                     disabled={submitting}
                     size="lg"
                     className="rounded-full px-8"
-                    style={{ background: '#e67e22', color: 'white' }}
+                    style={{ background: '#7B2FA0', color: 'white' }}
                     data-testid="contact-form-submit"
                   >
                     {submitting ? 'Sending...' : 'Contact Us'}
@@ -204,7 +204,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="w-full" style={{ height: '400px' }}>
         <iframe
-          title="GlobalAgri Office Location"
+          title="Peninsula Agritrade Office Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43867.95160296721!2d6.1!3d46.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x4bc4e82b2b946b81!2sGeneva%2C%20Switzerland!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
           className="w-full h-full border-0"
           allowFullScreen=""
