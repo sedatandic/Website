@@ -28,7 +28,7 @@ const slides = [
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Delivers',
-    headline: 'with discipline, integrity and daily execution.',
+    headline: 'with discipline, integrity\nand daily execution.',
     subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul. We deliver what we promised, at the agreed price, quality and time.',
   },
   {
@@ -159,7 +159,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ═══════ HERO CAROUSEL ═══════ */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 88px)', minHeight: '560px' }} data-testid="hero-section">
+      <section className="relative w-full" style={{ height: 'calc(100vh - 120px)', minHeight: '520px' }} data-testid="hero-section">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
@@ -170,8 +170,8 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -24 }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-center">
-                <div className="mb-4"><span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#7B1E2F' }}>Peninsula Agritrade</span></div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+                <div className="mb-4"></div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight whitespace-pre-line">
                   <span style={{ color: '#7B1E2F' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">{slides[currentSlide].subtext}</p>

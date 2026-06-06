@@ -89,13 +89,13 @@ export default function Header() {
       data-testid="site-header"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-20 lg:h-[88px]">
+        <nav className="flex items-center justify-between h-24 lg:h-[120px]">
           {/* Logo */}
           <Link to="/" className="flex items-center group" data-testid="site-header-logo">
             <img
               src="/logo.png"
               alt="Peninsula Agritrade LLC"
-              className="h-[72px] w-auto transition-transform duration-200 group-hover:scale-105"
+              className="h-[120px] w-auto transition-transform duration-200 group-hover:scale-105"
             />
           </Link>
 
