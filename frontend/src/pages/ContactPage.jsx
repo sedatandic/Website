@@ -65,8 +65,8 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <div className="mb-6">
-                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto" style={{ maxWidth: '280px' }} />
+                <div className="mb-6 bg-[#1a2a3a] p-4 rounded-lg" style={{ maxWidth: '280px' }}>
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto" />
                 </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3">
