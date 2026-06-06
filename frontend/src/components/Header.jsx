@@ -122,7 +122,7 @@ export default function Header() {
                 {link.dropdown && openDropdown === link.name && (
                   <div
                     className="absolute top-full left-1/2 pt-2 z-50"
-                    style={{ transform: 'translateX(-50%)', minWidth: '280px' }}
+                    style={{ transform: 'translateX(-50%)', minWidth: '220px' }}
                     onMouseEnter={() => handleMouseEnter(link.name)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -131,7 +131,7 @@ export default function Header() {
                       <div className="p-6">
                         <div className="flex flex-col gap-1">
                           {link.dropdown.map((sub) => (
-                            <Link key={sub.path} to={sub.path} className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                            <Link key={sub.path} to={sub.path} className="group/link flex items-center justify-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
                               <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B1E2F]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
                               <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B1E2F' }} />
                             </Link>
