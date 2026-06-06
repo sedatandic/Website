@@ -65,9 +65,9 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <Link to="/" className="flex items-center mb-5">
+                <div className="mb-6 bg-gray-900 p-3 rounded-lg inline-block">
                   <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-16 w-auto" />
-                </Link>
+                </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
@@ -142,7 +142,6 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <div className="bg-white rounded-xl border p-6 lg:p-8" style={{ borderColor: '#e5e7eb' }}>
-                  <h3 className="text-lg font-bold mb-4" style={{ color: '#1f2937' }}>Send us a message</h3>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
