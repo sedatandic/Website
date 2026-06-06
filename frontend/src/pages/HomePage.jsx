@@ -12,19 +12,19 @@ const slides = [
     image: 'https://images.pexels.com/photos/36091328/pexels-photo-36091328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Connects',
     headline: 'Qatar to the global\nagricultural value chain.',
-    subtext: 'A fully integrated agri-supply chain manager and global trading platform, connecting agricultural producers with consumers across the globe.',
+    subtext: 'A fully integrated agri-supply chain manager and global trading platform,\nconnecting agricultural producers with consumers across the globe.',
   },
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Delivers',
     headline: 'with discipline, integrity\nand daily execution.',
-    subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul. We deliver what we promised — at the agreed price, quality and time.',
+    subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul.\nWe deliver what we promised — at the agreed price, quality and time.',
   },
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Grows',
     headline: 'partnerships rooted in trust\nand long-term vision.',
-    subtext: 'From grain silos in the heartlands to port terminals worldwide, we build lasting relationships that nourish communities and support food security.',
+    subtext: 'From grain silos in the heartlands to port terminals worldwide,\nwe build lasting relationships that nourish communities and support food security.',
   },
 ];
 
