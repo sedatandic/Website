@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center group mb-5">
-              <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-14 w-auto" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
+              <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-16 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed max-w-sm mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
               An international commodity trading house specializing in the merchandising of agricultural cash-crops. Connecting harvests to markets, reliably and responsibly.

@@ -89,14 +89,13 @@ export default function Header() {
       data-testid="site-header"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-16 lg:h-[72px]">
+        <nav className="flex items-center justify-between h-20 lg:h-[88px]">
           {/* Logo */}
           <Link to="/" className="flex items-center group" data-testid="site-header-logo">
             <img
               src="/logo.png"
               alt="Peninsula Agritrade LLC"
-              className="h-14 w-auto transition-transform duration-200 group-hover:scale-105"
-              style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }}
+              className="h-[72px] w-auto transition-transform duration-200 group-hover:scale-105"
             />
           </Link>
 
@@ -176,7 +175,7 @@ export default function Header() {
               <div className="sr-only" id="mobile-nav-title">Navigation Menu</div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-8">
-                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-12 w-auto" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-12 w-auto" />
                 </div>
                 <div className="space-y-1">
                   {navLinks.map((link) => (

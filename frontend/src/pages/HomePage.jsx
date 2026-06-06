@@ -159,7 +159,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ═══════ HERO CAROUSEL ═══════ */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 72px)', minHeight: '560px' }} data-testid="hero-section">
+      <section className="relative w-full" style={{ height: 'calc(100vh - 88px)', minHeight: '560px' }} data-testid="hero-section">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
