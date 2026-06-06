@@ -65,7 +65,34 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
+                <h2 className="text-xl font-bold mb-5" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                    <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+                      Office No.4, 9th Floor QFC Tower 1<br />
+                      Doha - State of Qatar
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                    <div className="text-sm" style={{ color: '#4b5563' }}>
+                      +974 4419 6680
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                    <div className="text-sm" style={{ color: '#4b5563' }}>
+                      info@peninsula.com.qa
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                    <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
+                      www.peninsula.com.qa
+                    </a>
+                  </div>
+                </div>
                 <div className="space-y-5">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
