@@ -65,7 +65,9 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <h2 className="text-xl font-bold mb-5" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
+                <Link to="/" className="flex items-center mb-5">
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="h-16 w-auto" />
+                </Link>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
@@ -110,8 +112,8 @@ export default function ContactPage() {
             <FadeIn delay={0.1} className="lg:col-span-4">
               <div className="h-full min-h-[240px] rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb' }}>
                 <iframe
-                  title="Peninsula Agritrade Office Location - Doha"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4573834046887!2d51.5!3d25.27!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534ffdce87f%3A0x1cfa88cf812b4032!2sQatar%20Financial%20Centre!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
+                  title="Peninsula Agritrade - QFC Tower 1, Doha"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5228764935926!2d51.53245931501613!3d25.268899483862935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534ffdce87f%3A0x1cfa88cf812b4032!2sQatar%20Financial%20Centre%20Tower%201!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"

@@ -36,27 +36,6 @@ export default function Footer() {
             <p className="text-sm leading-relaxed max-w-sm mb-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
               An international commodity trading house specializing in the merchandising of agricultural cash-crops. Connecting harvests to markets, reliably and responsibly.
             </p>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-bold text-white mb-3">Peninsula Agritrade LLC</h4>
-                <div className="space-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <p className="font-semibold text-white">Geneva, Switzerland</p>
-                  <p className="text-xs italic" style={{ color: 'rgba(255,255,255,0.35)' }}>(European Headquarters)</p>
-                  <p className="font-semibold text-white mt-3">Dubai, UAE</p>
-                  <p className="text-xs italic" style={{ color: 'rgba(255,255,255,0.35)' }}>(Middle East & Africa Hub)</p>
-                </div>
-              </div>
-              <div className="pt-3 space-y-3">
-                <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                  <span>+41 22 000 0000</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                  <span>info@peninsula-agritrade.com</span>
-                </div>
-              </div>
-            </div>
           </div>
           <div>
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>About</h3>
