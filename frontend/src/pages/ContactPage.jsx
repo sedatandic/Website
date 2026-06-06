@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Send, MapPin, Phone, Mail } from 'lucide-react';
+import { ChevronRight, Send, MapPin, Phone, Mail, Globe } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
@@ -65,32 +65,44 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
+                <h2 className="text-xl font-bold mb-4" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
+                <p className="text-sm leading-relaxed mb-6" style={{ color: '#4b5563' }}>
+                  An international commodity trading house specializing in the merchandising of agricultural cash-crops. Connecting harvests to markets, reliably and responsibly.
+                </p>
                 <div className="space-y-5">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                    <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-                      <div className="font-semibold text-gray-900">Geneva, Switzerland</div>
-                      <div className="text-xs italic mt-0.5" style={{ color: '#9ca3af' }}>(European Headquarters)</div>
-                    </div>
+                  <div>
+                    <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
+                    <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                    <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-                      <div className="font-semibold text-gray-900">Dubai, UAE</div>
-                      <div className="text-xs italic mt-0.5" style={{ color: '#9ca3af' }}>(Middle East & Africa Hub)</div>
-                    </div>
+                  <div>
+                    <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Origination Offices</h3>
+                    <p className="text-sm" style={{ color: '#4b5563' }}>Russia | Ukraine | Kazakhstan | Moldova | Canada</p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                    <div className="text-sm" style={{ color: '#4b5563' }}>
-                      +41 22 000 0000
+                  <div className="pt-2 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                      <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+                        Office No.4, 9th Floor QFC Tower 1<br />
+                        Doha - State of Qatar
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                    <div className="text-sm" style={{ color: '#4b5563' }}>
-                      info@peninsula-agritrade.com
+                    <div className="flex items-start gap-3">
+                      <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                      <div className="text-sm" style={{ color: '#4b5563' }}>
+                        +974 4419 6680
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                      <div className="text-sm" style={{ color: '#4b5563' }}>
+                        info@peninsula.com.qa
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
+                      <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
+                        www.peninsula.com.qa
+                      </a>
                     </div>
                   </div>
                 </div>
