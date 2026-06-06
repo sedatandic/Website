@@ -38,29 +38,22 @@ export default function Footer() {
             </p>
             <div className="space-y-4">
               <div>
-                <h4 className="text-xs font-bold tracking-wider uppercase text-white mb-2" style={{ letterSpacing: '0.1em' }}>Trading Offices</h4>
-                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold tracking-wider uppercase text-white mb-2" style={{ letterSpacing: '0.1em' }}>Origination Offices</h4>
-                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>Russia | Ukraine | Kazakhstan | Moldova | Canada</p>
-              </div>
-              <div className="pt-2 space-y-3">
-                <div className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#7B1E2F' }} />
-                  <span>Office No.4, 9th Floor QFC Tower 1<br />Doha - State of Qatar</span>
+                <h4 className="text-sm font-bold text-white mb-3">Peninsula Agritrade LLC</h4>
+                <div className="space-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                  <p className="font-semibold text-white">Geneva, Switzerland</p>
+                  <p className="text-xs italic" style={{ color: 'rgba(255,255,255,0.35)' }}>(European Headquarters)</p>
+                  <p className="font-semibold text-white mt-3">Dubai, UAE</p>
+                  <p className="text-xs italic" style={{ color: 'rgba(255,255,255,0.35)' }}>(Middle East & Africa Hub)</p>
                 </div>
+              </div>
+              <div className="pt-3 space-y-3">
                 <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
                   <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                  <span>+974 4419 6680</span>
+                  <span>+41 22 000 0000</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
                   <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                  <span>info@peninsula.com.qa</span>
-                </div>
-                <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <Globe className="w-4 h-4 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                  <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="hover:text-[#A0354A] transition-colors duration-150">www.peninsula.com.qa</a>
+                  <span>info@peninsula-agritrade.com</span>
                 </div>
               </div>
             </div>
