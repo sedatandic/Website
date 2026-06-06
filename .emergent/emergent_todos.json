@@ -1,22 +1,10 @@
 [
   {
-    "content": "Change all purple (#7B2FA0) to maroon (#7B1E2F) across entire codebase",
-    "status": "completed"
+    "content": "Rewrite HomePage with simplified elegant structure: Hero → Stats → About → Commodities → Differentiators → Insights → CTA",
+    "status": "in_progress"
   },
   {
-    "content": "Update Header: remove text next to logo, make logo 2x bigger, remove white bg",
-    "status": "completed"
-  },
-  {
-    "content": "Update Footer: same logo treatment",
-    "status": "completed"
-  },
-  {
-    "content": "Update homepage content with Dome Agribusiness details (mission, vision, values, services)",
-    "status": "completed"
-  },
-  {
-    "content": "Screenshot & verify all changes",
-    "status": "completed"
+    "content": "Screenshot & verify the simplified design",
+    "status": "pending"
   }
 ]
