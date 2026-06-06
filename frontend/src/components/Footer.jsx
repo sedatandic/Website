@@ -18,7 +18,6 @@ const commodityLinks = [
 ];
 
 const companyLinks = [
-  { name: 'Market Insights', path: '/insights' },
   { name: 'Our Partners', path: '/partners' },
   { name: 'Careers', path: '/careers' },
   { name: 'Contact Us', path: '/contact' },

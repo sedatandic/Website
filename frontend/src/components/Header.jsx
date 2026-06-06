@@ -4,9 +4,6 @@ import { Menu, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
-const aboutDescription = 'Peninsula Agritrade is an international trading firm and supply chain manager of agricultural products. We connect supply and demand effectively, profitably and sustainably.';
-const commoditiesDescription = 'Deep market knowledge, solid expertise, and strategic long-term partnerships across key agricultural commodity markets worldwide.';
-
 const aboutLinks = [
   { name: 'Who We Are', path: '/about/who-we-are' },
   { name: 'Strengths', path: '/about/strengths' },
@@ -29,18 +26,13 @@ const navLinks = [
     name: 'About Us',
     path: '/about',
     dropdown: aboutLinks,
-    megaTitle: 'ABOUT US',
-    megaDescription: aboutDescription,
   },
   {
     name: 'Our Commodities',
     path: '/commodities',
     dropdown: commodityLinks,
-    megaTitle: 'OUR COMMODITIES',
-    megaDescription: commoditiesDescription,
   },
   { name: 'Our Partners', path: '/partners' },
-  { name: 'Market Insights', path: '/insights' },
   { name: 'Careers', path: '/careers' },
   { name: 'Contact Us', path: '/contact' },
 ];
@@ -126,34 +118,24 @@ export default function Header() {
                   )}
                 </Link>
 
-                {/* Quadra-style Mega Dropdown */}
+                {/* Simplified Mega Dropdown */}
                 {link.dropdown && openDropdown === link.name && (
                   <div
                     className="absolute top-full left-1/2 pt-2 z-50"
-                    style={{ transform: 'translateX(-50%)', minWidth: link.dropdown.length > 4 ? '580px' : '480px' }}
+                    style={{ transform: 'translateX(-50%)', minWidth: '280px' }}
                     onMouseEnter={() => handleMouseEnter(link.name)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="absolute top-2 left-1/2 w-0 h-0" style={{ transform: 'translateX(-50%)', borderLeft: '10px solid transparent', borderRight: '10px solid transparent', borderBottom: '10px solid white', zIndex: 51 }} />
                     <div className="bg-white rounded-sm overflow-hidden" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.08)', marginTop: '8px' }}>
-                      <div className="flex">
-                        <div className="flex-shrink-0 p-6" style={{ width: '220px', borderRight: '1px solid #e5e7eb' }}>
-                          <h3 className="text-sm font-bold tracking-wide mb-3" style={{ color: '#1a2a3a', letterSpacing: '0.04em' }}>{link.megaTitle}</h3>
-                          <p className="text-xs leading-relaxed" style={{ color: '#6b7280', lineHeight: '1.7' }}>{link.megaDescription}</p>
-                        </div>
-                        <div className="flex-1 p-6">
-                          <div className="flex gap-8">
-                            {splitIntoColumns(link.dropdown).map((col, colIndex) => (
-                              <div key={colIndex} className="flex flex-col gap-1">
-                                {col.map((sub) => (
-                                  <Link key={sub.path} to={sub.path} className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                                    <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B1E2F]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
-                                    <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B1E2F' }} />
-                                  </Link>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
+                      <div className="p-6">
+                        <div className="flex flex-col gap-1">
+                          {link.dropdown.map((sub) => (
+                            <Link key={sub.path} to={sub.path} className="group/link flex items-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                              <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#7B1E2F]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
+                              <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#7B1E2F' }} />
+                            </Link>
+                          ))}
                         </div>
                       </div>
                       <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #7B1E2F, #A0354A)' }} />
