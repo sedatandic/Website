@@ -128,7 +128,7 @@ export default function Header() {
                   >
                     <div className="absolute top-2 left-1/2 w-0 h-0" style={{ transform: 'translateX(-50%)', borderLeft: '10px solid transparent', borderRight: '10px solid transparent', borderBottom: '10px solid white', zIndex: 51 }} />
                     <div className="bg-white rounded-sm overflow-hidden" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.08)', marginTop: '8px' }}>
-                      <div className="p-6">
+                      <div className="py-6 px-3">
                         <div className="flex flex-col gap-1">
                           {link.dropdown.map((sub) => (
                             <Link key={sub.path} to={sub.path} className="group/link flex items-center justify-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
