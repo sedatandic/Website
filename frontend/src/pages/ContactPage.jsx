@@ -65,10 +65,7 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <h2 className="text-xl font-bold mb-4" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
-                <p className="text-sm leading-relaxed mb-6" style={{ color: '#4b5563' }}>
-                  An international commodity trading house specializing in the merchandising of agricultural cash-crops. Connecting harvests to markets, reliably and responsibly.
-                </p>
+                <h2 className="text-xl font-bold mb-6" style={{ color: '#1f2937' }}>Peninsula Agritrade LLC</h2>
                 <div className="space-y-5">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
@@ -78,43 +75,16 @@ export default function ContactPage() {
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Origination Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Russia | Ukraine | Kazakhstan | Moldova | Canada</p>
                   </div>
-                  <div className="pt-2 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                      <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-                        Office No.4, 9th Floor QFC Tower 1<br />
-                        Doha - State of Qatar
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                      <div className="text-sm" style={{ color: '#4b5563' }}>
-                        +974 4419 6680
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                      <div className="text-sm" style={{ color: '#4b5563' }}>
-                        info@peninsula.com.qa
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#7B1E2F' }} />
-                      <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
-                        www.peninsula.com.qa
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </FadeIn>
 
             {/* Middle - Map */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="h-full min-h-[400px] rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb' }}>
+              <div className="h-full min-h-[240px] rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb' }}>
                 <iframe
-                  title="Peninsula Agritrade Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43867.95160296721!2d6.1!3d46.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x4bc4e82b2b946b81!2sGeneva%2C%20Switzerland!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  title="Peninsula Agritrade Office Location - Doha"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4573834046887!2d51.5!3d25.27!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534ffdce87f%3A0x1cfa88cf812b4032!2sQatar%20Financial%20Centre!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"
@@ -165,28 +135,6 @@ export default function ContactPage() {
                           onChange={e => setForm({ ...form, email: e.target.value })}
                           className="mt-1 rounded-lg bg-white"
                           data-testid="contact-form-email"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="c-company" className="text-sm font-medium" style={{ color: '#374151' }}>Company</Label>
-                        <Input
-                          id="c-company"
-                          value={form.company}
-                          onChange={e => setForm({ ...form, company: e.target.value })}
-                          className="mt-1 rounded-lg bg-white"
-                          data-testid="contact-form-company"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="c-phone" className="text-sm font-medium" style={{ color: '#374151' }}>Phone</Label>
-                        <Input
-                          id="c-phone"
-                          value={form.phone}
-                          onChange={e => setForm({ ...form, phone: e.target.value })}
-                          className="mt-1 rounded-lg bg-white"
-                          data-testid="contact-form-phone"
                         />
                       </div>
                     </div>
