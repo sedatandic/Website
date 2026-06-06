@@ -63,7 +63,7 @@ export default function InsightsPage() {
                     className="rounded-full text-xs"
                     style={
                       activeCategory === cat
-                        ? { background: '#7B1E2F', color: 'white', border: 'none' }
+                        ? { background: '#8B5CF6', color: 'white', border: 'none' }
                         : { borderColor: '#d1d5db', color: '#374151' }
                     }
                     onClick={() => setActiveCategory(cat)}
@@ -122,7 +122,7 @@ export default function InsightsPage() {
                         </div>
                         <h3 className="font-semibold text-base mb-2 line-clamp-2" style={{ color: '#1f2937' }}>{item.title}</h3>
                         <p className="text-sm line-clamp-2" style={{ color: '#6b7280' }}>{item.excerpt}</p>
-                        <span className="mt-3 text-xs font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#7B1E2F' }}>
+                        <span className="mt-3 text-xs font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#8B5CF6' }}>
                           Read more <ArrowRight className="w-3 h-3" />
                         </span>
                       </CardContent>

@@ -41,7 +41,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>About</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#7C3AED]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
           </div>
@@ -49,7 +49,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>Commodities</h3>
             <ul className="space-y-3">
               {commodityLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#7C3AED]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
           </div>
@@ -57,11 +57,11 @@ export default function Footer() {
             <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-5" style={{ letterSpacing: '0.1em' }}>Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
-                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#A0354A]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
+                <li key={link.path}><Link to={link.path} className="text-sm transition-colors duration-150 hover:text-[#7C3AED]" style={{ color: 'rgba(255,255,255,0.45)' }}>{link.name}</Link></li>
               ))}
             </ul>
             <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all hover:gap-2.5" style={{ color: '#A0354A' }}>Get in Touch <ArrowRight className="w-3 h-3" /></Link>
+              <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold transition-all hover:gap-2.5" style={{ color: '#7C3AED' }}>Get in Touch <ArrowRight className="w-3 h-3" /></Link>
             </div>
           </div>
         </div>
