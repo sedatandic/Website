@@ -68,7 +68,7 @@ export default function ContactPage() {
                 <div className="mb-4" style={{ maxWidth: '220px' }}>
                   <img src="/logo_tight.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
-                <div className="space-y-2.5 mb-5">
+                <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4 mt-auto">
+                <div className="space-y-4">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-6 lg:pt-8 pb-3 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
+                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-5 pb-3 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
                   <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
                     <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="contact-honeypot" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
