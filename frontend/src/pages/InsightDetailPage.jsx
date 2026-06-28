@@ -131,7 +131,7 @@ export default function InsightDetailPage() {
                   <p className="text-sm mb-5" style={{ color: '#6b7280' }}>
                     Contact our trading desk to discuss how this market update may affect your requirements.
                   </p>
-                  <Button asChild className="w-full rounded-full" style={{ background: '#8B5CF6', color: 'white' }}>
+                  <Button asChild className="w-full rounded-full" style={{ background: '#8A1538', color: 'white' }}>
                     <Link to="/contact">Contact Trading Desk</Link>
                   </Button>
                 </CardContent>

@@ -112,11 +112,11 @@ export default function HomePage() {
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-5xl mx-auto text-center">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.12] tracking-tight whitespace-pre-line">
-                  <span style={{ color: '#8B5CF6' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
+                  <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
-                  <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8B5CF6', color: 'white' }} data-testid="hero-discover-us-button">
+                  <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8A1538', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/20 text-white hover:bg-white/10 hover:text-white" data-testid="pdf-download-company-profile">
@@ -130,7 +130,7 @@ export default function HomePage() {
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
               {slides.map((_, i) => (
                 <button key={i} onClick={() => setCurrentSlide(i)} className="group" data-testid={`hero-dot-${i}`}>
-                  <div className="h-[3px] rounded-full transition-all duration-500" style={{ width: i === currentSlide ? '32px' : '16px', background: i === currentSlide ? '#8B5CF6' : 'rgba(255,255,255,0.3)' }} />
+                  <div className="h-[3px] rounded-full transition-all duration-500" style={{ width: i === currentSlide ? '32px' : '16px', background: i === currentSlide ? '#8A1538' : 'rgba(255,255,255,0.3)' }} />
                 </button>
               ))}
             </div>
@@ -141,15 +141,15 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           2. STATS
       ══════════════════════════════════════════════════ */}
-      <section style={{ background: '#0b1220' }}>
+      <section style={{ background: '#fdf2f5', borderBottom: '1px solid #f3d6df' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                <div className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#8A1538' }}>
                   <AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} />
                 </div>
-                <div className="mt-1.5 text-xs font-medium tracking-wider uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.label}</div>
+                <div className="mt-1.5 text-xs font-medium tracking-wider uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function HomePage() {
               <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>
                 Who We Are
               </h2>
-              <div className="mt-4 w-12 h-[3px] rounded-full" style={{ background: '#8B5CF6' }} />
+              <div className="mt-4 w-12 h-[3px] rounded-full" style={{ background: '#8A1538' }} />
               <p className="mt-6 text-base leading-relaxed" style={{ color: '#4b5563' }}>
                 Peninsula Agritrade is a fully integrated agri-supply chain manager and global trading platform. We connect agricultural producers with consumers through reliable, efficient, and transparent physical trading operations.
               </p>
@@ -177,7 +177,7 @@ export default function HomePage() {
                 With over 20 years of combined international trading experience, we serve as a one-stop service for our customers — providing market intelligence, disciplined execution, and proactive communication at every stage.
               </p>
               <div className="mt-8">
-                <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#0b1220', color: 'white' }}>
+                <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#8A1538', color: 'white' }}>
                   <Link to="/about/who-we-are">Learn More <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
                 </Button>
               </div>
@@ -193,7 +193,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#0b1220' }}>Our Commodities</h2>
-            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8B5CF6' }} />
+            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8A1538' }} />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {commodities.map((c, i) => (
@@ -208,7 +208,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#8B5CF6', color: 'white' }}>
+            <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#8A1538', color: 'white' }}>
               <Link to="/commodities/at-a-glance">View All Products <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
@@ -222,15 +222,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#0b1220' }}>What Sets Us Apart</h2>
-            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8B5CF6' }} />
+            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8A1538' }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {differentiators.map((d, i) => {
               const Icon = d.icon;
               return (
                 <div key={i} className="group rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`diff-card-${i}`}>
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#8B5CF6]" style={{ background: '#f3f4f6' }}>
-                    <Icon className="w-5 h-5 transition-colors duration-300 group-hover:text-white" style={{ color: '#8B5CF6' }} />
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#8A1538]" style={{ background: '#f3f4f6' }}>
+                    <Icon className="w-5 h-5 transition-colors duration-300 group-hover:text-white" style={{ color: '#8A1538' }} />
                   </div>
                   <h3 className="font-bold text-sm mb-2" style={{ color: '#0b1220' }}>{d.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{d.desc}</p>
@@ -244,15 +244,15 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           7. CTA
       ══════════════════════════════════════════════════ */}
-      <section className="py-16" style={{ background: '#0b1220' }}>
+      <section className="py-16" style={{ background: '#8A1538' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to discuss your requirements?</h2>
-          <p className="mt-3 text-sm text-white/50 max-w-lg mx-auto">Whether you need grains, oilseeds, sugar, or coffee — our trading desk is ready to help.</p>
+          <p className="mt-3 text-sm text-white/70 max-w-lg mx-auto">Whether you need grains, oilseeds, sugar, or coffee — our trading desk is ready to help.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="rounded-full px-8 font-medium" style={{ background: '#8B5CF6', color: 'white' }}>
+            <Button asChild size="lg" className="rounded-full px-8 font-medium" style={{ background: 'white', color: '#8A1538' }}>
               <Link to="/contact">Contact Us</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/15 text-white hover:bg-white/10 hover:text-white">
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/40 text-white hover:bg-white/10 hover:text-white">
               <Link to="/commodities/at-a-glance">Browse Products</Link>
             </Button>
           </div>

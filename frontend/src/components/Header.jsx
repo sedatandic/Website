@@ -77,7 +77,7 @@ export default function Header() {
   return (
     <header
       className="sticky top-0 z-50"
-      style={{ background: 'rgba(11, 18, 32, 0.95)', backdropFilter: 'blur(14px)' }}
+      style={{ background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(14px)', boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}
       data-testid="site-header"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +104,7 @@ export default function Header() {
                 <Link
                   to={link.path}
                   className={`px-3.5 py-2 text-[13px] font-medium inline-flex items-center gap-1.5 transition-all duration-200 relative ${
-                    isActive(link.path) ? 'text-white' : 'text-white/70 hover:text-white'
+                    isActive(link.path) ? 'text-[#8A1538]' : 'text-gray-600 hover:text-[#8A1538]'
                   }`}
                   style={{ letterSpacing: '0.02em' }}
                   data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
@@ -114,7 +114,7 @@ export default function Header() {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
                   {isActive(link.path) && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#8B5CF6' }} />
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#8A1538' }} />
                   )}
                 </Link>
 
@@ -132,13 +132,13 @@ export default function Header() {
                         <div className="flex flex-col gap-1">
                           {link.dropdown.map((sub) => (
                             <Link key={sub.path} to={sub.path} className="group/link flex items-center justify-center gap-2 px-2 py-2 rounded transition-colors duration-150 hover:bg-gray-50" onClick={() => setOpenDropdown(null)} data-testid={`dropdown-link-${sub.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                              <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#8B5CF6]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
-                              <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#8B5CF6' }} />
+                              <span className="text-xs font-semibold tracking-wide transition-colors duration-150 group-hover/link:text-[#8A1538]" style={{ color: '#374151', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub.name}</span>
+                              <ChevronRight className="w-3 h-3 opacity-0 -translate-x-1 transition-all duration-150 group-hover/link:opacity-100 group-hover/link:translate-x-0" style={{ color: '#8A1538' }} />
                             </Link>
                           ))}
                         </div>
                       </div>
-                      <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #8B5CF6, #7C3AED)' }} />
+                      <div className="w-full h-[3px]" style={{ background: 'linear-gradient(to right, #8A1538, #6E0F2A)' }} />
                     </div>
                   </div>
                 )}
@@ -149,11 +149,11 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="mobile-menu-trigger">
+              <Button variant="ghost" size="icon" className="text-gray-700 hover:bg-gray-100" data-testid="mobile-menu-trigger">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 p-0 border-l-0" style={{ background: '#0b1220' }} aria-describedby={undefined}>
+            <SheetContent side="right" className="w-80 p-0 border-l-0" style={{ background: '#ffffff' }} aria-describedby={undefined}>
               <div className="sr-only" id="mobile-nav-title">Navigation Menu</div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-8">
@@ -164,26 +164,26 @@ export default function Header() {
                     <div key={link.name}>
                       {link.dropdown ? (
                         <>
-                          <button onClick={() => setMobileDropdowns(prev => ({ ...prev, [link.name]: !prev[link.name] }))} className="w-full flex items-center justify-between px-3 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-md text-sm font-medium transition-colors duration-150" data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <button onClick={() => setMobileDropdowns(prev => ({ ...prev, [link.name]: !prev[link.name] }))} className="w-full flex items-center justify-between px-3 py-2.5 text-gray-700 hover:text-[#8A1538] hover:bg-gray-100 rounded-md text-sm font-medium transition-colors duration-150" data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>
                             {link.name}
                             <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileDropdowns[link.name] ? 'rotate-180' : ''}`} />
                           </button>
                           {mobileDropdowns[link.name] && (
-                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #8B5CF6' }}>
+                            <div className="mt-1 ml-3 pl-3 space-y-0.5" style={{ borderLeft: '2px solid #8A1538' }}>
                               {link.dropdown.map((sub) => (
-                                <Link key={sub.path} to={sub.path} className="block px-3 py-2 text-white/60 hover:text-white text-xs font-medium tracking-wide rounded-md hover:bg-white/5 transition-colors duration-150 uppercase" style={{ letterSpacing: '0.05em' }} onClick={() => setMobileOpen(false)}>{sub.name}</Link>
+                                <Link key={sub.path} to={sub.path} className="block px-3 py-2 text-gray-500 hover:text-[#8A1538] text-xs font-medium tracking-wide rounded-md hover:bg-gray-100 transition-colors duration-150 uppercase" style={{ letterSpacing: '0.05em' }} onClick={() => setMobileOpen(false)}>{sub.name}</Link>
                               ))}
                             </div>
                           )}
                         </>
                       ) : (
-                        <Link to={link.path} className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-150 ${isActive(link.path) ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'}`} onClick={() => setMobileOpen(false)} data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>{link.name}</Link>
+                        <Link to={link.path} className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-150 ${isActive(link.path) ? 'text-[#8A1538] bg-[#8A1538]/10' : 'text-gray-700 hover:text-[#8A1538] hover:bg-gray-100'}`} onClick={() => setMobileOpen(false)} data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}>{link.name}</Link>
                       )}
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200" style={{ background: '#8B5CF6' }} onClick={() => setMobileOpen(false)}>
+                <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-sm font-medium text-white transition-colors duration-200" style={{ background: '#8A1538' }} onClick={() => setMobileOpen(false)}>
                     Get In Touch <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -192,7 +192,7 @@ export default function Header() {
           </Sheet>
         </nav>
       </div>
-      <div className="w-full h-px" style={{ background: 'rgba(255,255,255,0.06)' }} />
+      <div className="w-full h-px" style={{ background: 'rgba(0,0,0,0.06)' }} />
     </header>
   );
 }

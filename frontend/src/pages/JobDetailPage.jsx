@@ -107,7 +107,7 @@ export default function JobDetailPage() {
                   <ul className="space-y-2">
                     {job.requirements.map((req, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#4b5563' }}>
-                        <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8B5CF6' }} />
+                        <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
                         {req}
                       </li>
                     ))}
@@ -155,7 +155,7 @@ export default function JobDetailPage() {
                           <Label htmlFor="a-cover" className="text-xs font-medium" style={{ color: '#374151' }}>Cover Letter</Label>
                           <Textarea id="a-cover" rows={3} value={form.cover_letter} onChange={e => setForm({ ...form, cover_letter: e.target.value })} className="mt-1 rounded-lg text-sm bg-white" data-testid="job-apply-cover-letter" />
                         </div>
-                        <Button type="submit" disabled={submitting} className="w-full rounded-full mt-2" style={{ background: '#8B5CF6', color: 'white' }} data-testid="careers-apply-submit-button">
+                        <Button type="submit" disabled={submitting} className="w-full rounded-full mt-2" style={{ background: '#8A1538', color: 'white' }} data-testid="careers-apply-submit-button">
                           <Send className="w-4 h-4 mr-2" />
                           {submitting ? 'Submitting...' : 'Submit Application'}
                         </Button>
