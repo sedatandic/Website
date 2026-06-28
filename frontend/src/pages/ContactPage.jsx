@@ -82,17 +82,19 @@ export default function ContactPage() {
                       +974 4419 6680
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8B5CF6' }} />
-                    <div className="text-sm" style={{ color: '#4b5563' }}>
-                      info@peninsula.com.qa
+                  <div className="flex items-start gap-6">
+                    <div className="flex items-start gap-3">
+                      <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8B5CF6' }} />
+                      <div className="text-sm" style={{ color: '#4b5563' }}>
+                        info@peninsula.com.qa
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8B5CF6' }} />
-                    <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
-                      www.peninsula.com.qa
-                    </a>
+                    <div className="flex items-start gap-3">
+                      <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8B5CF6' }} />
+                      <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
+                        www.peninsula.com.qa
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-5">
