@@ -37,8 +37,8 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative" style={{ height: '280px' }}>
         <img
-          src="https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=1260"
-          alt=""
+          src="https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
+          alt="Doha West Bay skyline, Qatar"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55))' }} />
@@ -61,12 +61,12 @@ export default function ContactPage() {
       {/* Contact Section with 3 columns: Address | Map | Form */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left - Company Info */}
-            <FadeIn className="lg:col-span-3">
+            <FadeIn className="lg:col-span-4">
               <div>
-                <div className="mb-3" style={{ maxWidth: '280px' }}>
-                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto" />
+                <div className="mb-4" style={{ maxWidth: '240px' }}>
+                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3">
@@ -82,19 +82,17 @@ export default function ContactPage() {
                       +974 4419 6680
                     </div>
                   </div>
-                  <div className="flex items-start gap-6">
-                    <div className="flex items-start gap-3">
-                      <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
-                      <div className="text-sm" style={{ color: '#4b5563' }}>
-                        info@peninsula.com.qa
-                      </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
+                    <div className="text-sm" style={{ color: '#4b5563' }}>
+                      info@peninsula.com.qa
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
-                      <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
-                        www.peninsula.com.qa
-                      </a>
-                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
+                    <a href="https://www.peninsula.com.qa" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: '#4b5563' }}>
+                      www.peninsula.com.qa
+                    </a>
                   </div>
                 </div>
                 <div className="space-y-5">
@@ -110,12 +108,12 @@ export default function ContactPage() {
               </div>
             </FadeIn>
 
-            {/* Middle - Map */}
+            {/* Middle - Map + Hamad Port */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb', height: '336px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb', height: '240px' }}>
                 <iframe
                   title="Office No.4, 9th Floor QFC Tower 1, Doha"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=336&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=240&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"
@@ -123,10 +121,18 @@ export default function ContactPage() {
                   data-testid="contact-map"
                 />
               </div>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-4 relative" style={{ borderColor: '#e5e7eb', height: '150px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?crop=entropy&cs=srgb&fm=jpg&q=85&w=800"
+                  alt="Hamad Port container terminal"
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Hamad Port, Qatar</span>
+              </div>
             </FadeIn>
 
             {/* Right - Form */}
-            <FadeIn delay={0.2} className="lg:col-span-5">
+            <FadeIn delay={0.2} className="lg:col-span-4">
               {submitted ? (
                 <div className="bg-white rounded-xl border p-8 text-center" style={{ borderColor: '#e5e7eb' }}>
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(34,197,94,0.1)' }}>
@@ -135,7 +141,7 @@ export default function ContactPage() {
                   <h3 className="text-xl font-semibold mb-2" style={{ color: '#1f2937' }}>Message Sent!</h3>
                   <p className="text-sm mb-4" style={{ color: '#6b7280' }}>Thank you. Our team will respond within 1-2 business days.</p>
                   <Button
-                    onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product_interest: '', message: '' }); }}
+                    onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', country: '', product_interest: '', message: '', website: '' }); }}
                     className="rounded-full"
                     style={{ background: '#8A1538', color: 'white' }}
                   >
