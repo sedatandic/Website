@@ -152,8 +152,9 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-white rounded-xl border p-6 lg:p-8" style={{ borderColor: '#e5e7eb' }}>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="bg-white rounded-xl border p-6 lg:p-8 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
+                  <h2 className="text-2xl font-bold mb-5" style={{ color: '#0b1220' }}>Contact Us</h2>
+                  <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
                     <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="contact-honeypot" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -189,14 +190,14 @@ export default function ContactPage() {
                         data-testid="contact-form-subject"
                       />
                     </div>
-                    <div>
+                    <div className="flex flex-col flex-1">
                       <Label htmlFor="c-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
                       <Textarea
                         id="c-message"
-                        rows={4}
                         value={form.message}
                         onChange={e => setForm({ ...form, message: e.target.value })}
-                        className="mt-1 rounded-lg bg-white"
+                        className="mt-1 rounded-lg bg-white flex-1 resize-none"
+                        style={{ minHeight: '140px' }}
                         placeholder="Tell us about your requirements..."
                         data-testid="contact-form-message"
                       />
