@@ -63,12 +63,12 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left - Company Info */}
-            <FadeIn className="lg:col-span-4">
+            <FadeIn className="lg:col-span-3">
               <div>
                 <div className="mb-4" style={{ maxWidth: '240px' }}>
                   <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
-                <div className="space-y-3 mb-6">
+                <div className="space-y-2.5 mb-5">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
@@ -110,7 +110,7 @@ export default function ContactPage() {
 
             {/* Middle - Tornado Tower photo (top) + Map (below) */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '240px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '190px' }}>
                 <img
                   src="https://customer-assets.emergentagent.com/job_1c2ecdee-46b4-4501-824e-998904d91028/artifacts/h7yif8lc_image.png"
                   alt="Tornado Tower, Doha"
@@ -119,10 +119,10 @@ export default function ContactPage() {
                 />
                 <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower, Doha</span>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '150px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '190px' }}>
                 <iframe
                   title="Office No.4, 9th Floor QFC Tower 1, Doha"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=150&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=190&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"
@@ -133,7 +133,7 @@ export default function ContactPage() {
             </FadeIn>
 
             {/* Right - Form */}
-            <FadeIn delay={0.2} className="lg:col-span-4">
+            <FadeIn delay={0.2} className="lg:col-span-5">
               {submitted ? (
                 <div className="bg-white rounded-xl border p-8 text-center" style={{ borderColor: '#e5e7eb' }}>
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(34,197,94,0.1)' }}>
