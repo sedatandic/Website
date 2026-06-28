@@ -121,6 +121,14 @@ export default function ContactPage() {
                   data-testid="contact-map"
                 />
               </div>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-4 relative" style={{ borderColor: '#e5e7eb', height: '150px' }}>
+                <img
+                  src="https://images.pexels.com/photos/19612359/pexels-photo-19612359.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Tornado Tower, Doha"
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower, Doha</span>
+              </div>
             </FadeIn>
 
             {/* Right - Form */}
