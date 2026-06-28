@@ -9,7 +9,7 @@ import { getProfileDownloadUrl } from '../lib/api';
 /* ─── Hero Slides ─── */
 const slides = [
   {
-    image: 'https://images.pexels.com/photos/36091328/pexels-photo-36091328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    image: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     action: 'Connects',
     headline: 'Qatar to the global\nagricultural value chain.',
     subtext: 'A fully integrated agri-supply chain manager and global trading platform,\nconnecting agricultural producers with consumers across the globe.',
@@ -81,7 +81,7 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 6000);
+    const timer = setInterval(nextSlide, 2000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 

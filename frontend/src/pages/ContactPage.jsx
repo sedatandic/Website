@@ -121,14 +121,6 @@ export default function ContactPage() {
                   data-testid="contact-map"
                 />
               </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-4 relative" style={{ borderColor: '#e5e7eb', height: '150px' }}>
-                <img
-                  src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?crop=entropy&cs=srgb&fm=jpg&q=85&w=800"
-                  alt="Hamad Port container terminal"
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Hamad Port, Qatar</span>
-              </div>
             </FadeIn>
 
             {/* Right - Form */}
