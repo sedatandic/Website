@@ -65,15 +65,15 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div>
-                <div className="mb-4" style={{ maxWidth: '240px' }}>
-                  <img src="/logo.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
+                <div className="mb-4" style={{ maxWidth: '220px' }}>
+                  <img src="/logo_tight.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
                 <div className="space-y-2.5 mb-5">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-                      Office No.4, 9th Floor QFC Tower 1<br />
-                      Doha - State of Qatar
+                      Level 22, Tornado Tower, Majlis Al Taawon Street<br />
+                      PO Box 17225, West Bay, Doha, State of Qatar
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -121,8 +121,8 @@ export default function ContactPage() {
               </div>
               <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '190px' }}>
                 <iframe
-                  title="Office No.4, 9th Floor QFC Tower 1, Doha"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=190&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  title="Tornado Tower, West Bay, Doha"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=190&amp;hl=en&amp;q=Tornado%20Tower,%20Majlis%20Al%20Taawon%20Street,%20West%20Bay,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"
