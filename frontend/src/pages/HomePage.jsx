@@ -18,7 +18,7 @@ const slides = [
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Delivers',
     headline: 'with discipline, integrity\nand daily execution.',
-    subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul.\nWe deliver what we promised — at the agreed price, quality and time.',
+    subtext: 'Over 25 years of international trading experience across Dubai, Singapore, Geneva\nand Istanbul. We deliver what we promised — at the agreed price, quality and time.',
   },
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -114,7 +114,7 @@ export default function HomePage() {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.12] tracking-tight whitespace-pre-line">
                   <span style={{ color: '#8B5CF6' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
-                <p className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-2xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
+                <p className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8B5CF6', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
