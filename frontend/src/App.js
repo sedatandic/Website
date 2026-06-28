@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import PageTitle from './components/PageTitle';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <PageTitle />
       <div className="min-h-screen flex flex-col" style={{ background: 'var(--ga-bg)' }}>
         <Header />
         <main className="flex-1">
