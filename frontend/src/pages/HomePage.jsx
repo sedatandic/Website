@@ -128,8 +128,8 @@ export default function HomePage() {
 
             {/* Slide indicators */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-              {slides.map((_, i) => (
-                <button key={i} onClick={() => setCurrentSlide(i)} className="group" data-testid={`hero-dot-${i}`}>
+              {slides.map((s, i) => (
+                <button key={s.action} onClick={() => setCurrentSlide(i)} className="group" data-testid={`hero-dot-${i}`}>
                   <div className="h-[3px] rounded-full transition-all duration-500" style={{ width: i === currentSlide ? '32px' : '16px', background: i === currentSlide ? '#8A1538' : 'rgba(255,255,255,0.3)' }} />
                 </button>
               ))}
@@ -145,7 +145,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((s, i) => (
-              <div key={i} className="text-center">
+              <div key={s.label} className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#8A1538' }}>
                   <AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} />
                 </div>
@@ -197,7 +197,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {commodities.map((c, i) => (
-              <Link key={i} to={c.path} className="group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`commodity-card-${i}`}>
+              <Link key={c.name} to={c.path} className="group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`commodity-card-${i}`}>
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img src={c.image} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -228,7 +228,7 @@ export default function HomePage() {
             {differentiators.map((d, i) => {
               const Icon = d.icon;
               return (
-                <div key={i} className="group rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`diff-card-${i}`}>
+                <div key={d.title} className="group rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`diff-card-${i}`}>
                   <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#8A1538]" style={{ background: '#f3f4f6' }}>
                     <Icon className="w-5 h-5 transition-colors duration-300 group-hover:text-white" style={{ color: '#8A1538' }} />
                   </div>

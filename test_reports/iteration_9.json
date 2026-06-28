@@ -1,0 +1,46 @@
+{
+  "summary": "Regression check after React list-render key prop changes (array-index -> stable identifiers) in HomePage.jsx, AboutPage.jsx, CommoditiesPage.jsx. Backend (9/9 pytest pass) and frontend (homepage carousel + 3 hero CTAs + 5 commodity cards + 4 differentiator cards + all 6 nav routes + 5 commodity sub-pages + About/Key Facts tab + contact form e2e submission) all working. No console errors or duplicate-key warnings on isolated route tests or full SPA navigation replay.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "All pages", "issues": ["HTML <title> still 'Emergent | Fullstack App' in /app/frontend/public/index.html (unchanged from iter 8). Cosmetic/SEO only."]}
+    ]
+  },
+  "passed_tests": [
+    "Backend pytest 9/9: /api/health, /api/insights (list + by slug), /api/jobs (list + by slug), /api/partners, /api/memberships, /api/contact POST, /api/commodities optional",
+    "Homepage: 3 hero dots present (hero-dot-0/1/2); cycling through all 3 slides works without layout shift or errors",
+    "Homepage: 5 commodity cards rendered (commodity-card-0..4) with stable key={c.name}",
+    "Homepage: 4 differentiator cards rendered (diff-card-0..3) with stable key={d.title}",
+    "Homepage: stats counters section renders correctly with stable key={s.label}",
+    "Homepage CTAs: Discover Us -> /about/who-we-are works, Company Profile present, Learn More present",
+    "About page /about/who-we-are: H1 'Who We Are' renders; Key Facts tab click works; cards render with stable key={fact.label || fact.value}",
+    "Commodities /commodities/at-a-glance: H1 'At A Glance' renders; products grid renders with stable key={p.id || p.name || i}",
+    "All 5 sub-pages render correct H1: Grains & Feeds, Oilseeds, Pulses & Beans, Sugar & Rice, Coffee",
+    "All 6 main nav routes return 200: /, /about/who-we-are, /commodities/at-a-glance, /partners, /careers, /contact",
+    "Contact form e2e: POST /api/contact -> 200, 'Message sent successfully!' toast + 'Message Sent!' success state displayed",
+    "Zero React duplicate-key warnings across 11 route navigations and carousel interactions in clean replay",
+    "Zero console errors / page errors on all tested routes"
+  ],
+  "test_report_links": [
+    "/app/backend/tests/test_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional (low priority, carried over from iter 8): Update <title> in /app/frontend/public/index.html from 'Emergent | Fullstack App' to 'Peninsula Agritrade LLC' for SEO/branding."
+  ],
+  "critical_code_review_comments": [
+    "Key prop changes are correct and use stable identifiers. Note: HomePage.jsx hero dot uses key={s.action} - relies on s.action being unique per slide; verified unique across the 3 hero slides. If a future slide reuses an action label, this will cause dup keys - consider key={s.title || s.action} for extra safety.",
+    "CommoditiesPage.jsx line 146 uses key={p.id || p.name || i} - good fallback chain; falling back to index only when both id and name are missing.",
+    "AboutPage.jsx key={fact.label || fact.value} - stable as long as labels/values are unique within the keyFacts array."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (9/9)", "frontend": "100% (all key-prop targets verified + carousel + contact submission)"},
+  "test_credentials": "N/A - public site, no auth",
+  "seed_data_creation": "One TEST_Regression contact record created via /api/contact POST during e2e test; harmless and prefixed.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend regression suite: /app/backend/tests/test_api.py (run: pytest /app/backend/tests/ -v). data-testids for key-prop targets: hero-dot-{0,1,2}, commodity-card-{0..4}, diff-card-{0..3}. Contact form: contact-form-name/email/subject/message. The first multi-route playwright run produced one transient React 'two children with the same key' warning that could NOT be reproduced in any subsequent isolated or full-replay test - treated as flaky/transient (likely from a stale HMR boundary during the very first hit). All code-review of key props shows stable identifiers in place. No regression introduced by the key-prop cleanup.",
+  "rca of the issue": "No real bug. One flaky duplicate-key warning observed once during the first playwright session; not reproducible across 11 subsequent isolated route tests + a full SPA-style navigation replay (12 transitions including hero-dot interactions) with zero warnings. All key={...} usages reviewed in HomePage/AboutPage/CommoditiesPage/Footer/Header are unique within their respective arrays."
+}

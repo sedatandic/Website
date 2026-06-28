@@ -143,7 +143,7 @@ export default function CommoditiesPage() {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {products.map((p, i) => (
                   <div
-                    key={i}
+                    key={p.id || p.name || i}
                     className="group bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow duration-200"
                     style={{ borderColor: '#e5e7eb' }}
                     data-testid={`commodity-item-${i}`}
