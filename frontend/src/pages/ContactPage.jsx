@@ -65,7 +65,7 @@ export default function ContactPage() {
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
               <div className="flex flex-col h-full">
-                <div className="mb-4" style={{ maxWidth: '220px' }}>
+                <div className="mb-4" style={{ maxWidth: '280px' }}>
                   <img src="/logo_tight.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
                 <div className="space-y-2 mb-4">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 mt-auto">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
