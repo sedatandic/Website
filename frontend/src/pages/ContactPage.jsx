@@ -119,7 +119,7 @@ export default function ContactPage() {
                 />
                 <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower, Doha</span>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-4" style={{ borderColor: '#e5e7eb', height: '150px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '150px' }}>
                 <iframe
                   title="Office No.4, 9th Floor QFC Tower 1, Doha"
                   src="https://maps.google.com/maps?width=100%25&amp;height=150&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
