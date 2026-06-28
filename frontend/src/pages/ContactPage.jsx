@@ -152,7 +152,7 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-white rounded-xl border p-6 lg:p-8" style={{ borderColor: '#e5e7eb' }}>
+                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-6 lg:pt-8 pb-6" style={{ borderColor: '#e5e7eb' }}>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="contact-honeypot" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
