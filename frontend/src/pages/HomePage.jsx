@@ -17,7 +17,7 @@ const slides = [
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Delivers',
-    headline: 'with discipline, integrity\nand daily execution.',
+    headline: 'with discipline, integrity and\ndaily execution.',
     subtext: 'Over 20 years of international trading experience across Dubai, Singapore, Geneva and Istanbul.\nWe deliver what we promised — at the agreed price, quality and time.',
   },
   {
