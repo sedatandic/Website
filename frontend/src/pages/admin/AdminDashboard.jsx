@@ -260,7 +260,7 @@ export default function AdminDashboard() {
 
       {/* Edit/Create Dialog */}
       <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
-        <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto" data-testid="admin-form-dialog">
+        <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto" aria-describedby={undefined} data-testid="admin-form-dialog">
           <DialogHeader>
             <DialogTitle>{editing === 'new' ? 'Add' : 'Edit'} {RESOURCES[active]?.label?.replace(/s$/, '')}</DialogTitle>
           </DialogHeader>

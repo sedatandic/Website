@@ -1,51 +1,59 @@
 # Peninsula Agritrade LLC — Corporate Website
 
 ## Original Problem Statement
-Refine a professional, multi-page corporate website for "Peninsula Agritrade LLC" (Qatar-based agri-commodity trading house). Goal: "simpler but elegant" design. Built with React + FastAPI + MongoDB.
+Refine a professional, multi-page corporate website for "Peninsula Agritrade LLC" (Qatar-based agri-commodity trading house). Goal: "simpler but elegant." Built with React + FastAPI + MongoDB.
 
-## Current Theme (as of 2026-06-28)
-- **Brand color: Qatar Maroon `#8A1538`** (darker `#6E0F2A` for gradients). Swapped from purple (#8B5CF6/#7C3AED), which itself replaced an earlier maroon.
-- **Light theme** across the whole site:
-  - Header: white bg, dark gray nav text, maroon active states.
-  - Footer: light gray (`#f5f5f7`) with dark text, maroon hover links.
-  - Stats band: light maroon tint (`#fdf2f5`) with maroon figures.
-  - CTA band: solid Qatar maroon with white "Contact Us" button.
-  - Page bodies: white / `#f9fafb`. Hero banners are photo-based with dark overlay (intentional).
-- **Logo** (`/app/frontend/public/logo.png`): transparent wheat icon recolored to Qatar maroon (purple backup at `logo_purple_backup.png`). Dark gray wordmark preserved.
+## Theme
+- **Brand color: Qatar Maroon `#8A1538`** (darker `#6E0F2A`). Light theme site-wide (white header, light footer, maroon CTA/accents). Logo recolored to maroon (purple backup at `public/logo_purple_backup.png`).
 
 ## Architecture
 ```
 /app
-├── backend/  (server.py FastAPI, seed_data.py, MongoDB via MONGO_URL)
+├── backend/
+│   ├── server.py        # FastAPI app: public APIs + auth + admin CRUD + resume upload
+│   ├── auth.py          # bcrypt hashing + JWT (Bearer) helpers
+│   ├── storage.py       # Emergent object storage helpers (init/put/get)
+│   ├── seed_data.py     # seeds insights/jobs/partners/memberships
+│   ├── pdf_generator.py
+│   └── tests/           # test_api.py (9), test_admin_auth.py (20)
 └── frontend/
-    ├── public/logo.png  (maroon transparent logo)
+    ├── public/  logo.png (maroon), og-banner.png (1200x630 share image), index.html (SEO+OG)
     └── src/
-        ├── index.css   (light theme tokens; --ga-gold = #8A1538)
-        ├── components/ (Header.jsx light, Footer.jsx light)
-        └── pages/      (HomePage, ContactPage, AboutPage, CommoditiesPage,
-                          CareersPage, PartnersPage, InsightsPage, detail pages)
+        ├── App.js                 # Layout splits public vs /admin (no marketing chrome on admin)
+        ├── context/AuthContext.jsx
+        ├── components/  Header.jsx, Footer.jsx, ProtectedRoute.jsx, PageTitle.jsx
+        ├── lib/api.js             # axios + Bearer interceptor
+        └── pages/
+            ├── (public pages)
+            └── admin/ AdminLoginPage.jsx, AdminDashboard.jsx
 ```
 
+## Auth / Admin
+- JWT Bearer (token in localStorage `pa_admin_token`). Admin seeded from `backend/.env` (`ADMIN_EMAIL`/`ADMIN_PASSWORD`).
+- Admin: `admin@peninsulaagritrade.com` / `Peninsula@2026` (see `/app/memory/test_credentials.md`).
+- Admin panel: CRUD for Insights/Jobs/Partners/Memberships + read-only inboxes (Contacts, Career Inquiries, Job Applications with resume download).
+
 ## Key API Endpoints
-- GET `/api/insights`, `/api/jobs`, `/api/partners`, `/api/memberships`
-- POST `/api/contact`
+- Public: GET `/api/insights`, `/api/jobs`, `/api/partners`, `/api/memberships`; POST `/api/contact`, `/api/careers/inquiry`, `/api/jobs/apply` (multipart, optional resume)
+- Auth: POST `/api/auth/login`, GET `/api/auth/me`
+- Admin (Bearer): GET/POST `/api/admin/{coll}`, PUT/DELETE `/api/admin/{coll}/{id}`, GET `/api/admin/inbox/{contacts|inquiries|applications}`, GET `/api/admin/applications/{id}/resume`
 
 ## Completed (2026-06-28)
-- Fixed Homepage hero Slide 1 subtext wrapping (added `whitespace-pre-line`).
-- Slide 3 headline: "in trust" kept on line 1 (widened container to max-w-5xl).
-- Slide 2 headline: "and daily execution." on line 2; subtext now 2 rows; "20 years" → "25 years".
-- Removed "Latest Insights" section from Homepage.
-- Full theme migration: purple → Qatar maroon (#8A1538) across all files.
-- Dark → Light theme (header, footer, stats, CTA).
-- Recolored logo wheat to maroon.
-- Regression test passed (iteration_8) before the light-theme change.
+- Hero carousel text-wrap fixes (Slides 1/2/3); removed "Latest Insights" homepage section.
+- Full purple→Qatar maroon migration + dark→light theme; logo recolor.
+- Code-quality pass: stable React keys (HomePage/AboutPage/CommoditiesPage).
+- SEO: branded per-route titles (PageTitle), meta description/keywords/robots, Open Graph + Twitter tags, favicon, 1200x630 OG banner.
+- **Spam protection**: honeypot `website` field on contact/inquiry/apply + per-IP rate limit (8/10min).
+- **Admin panel**: JWT auth, full content CRUD, submissions inboxes.
+- **Resume upload**: PDF/DOC/DOCX ≤10MB on job applications via Emergent object storage; admin download.
+- Verified: testing_agent iteration_10 — backend 29/29, frontend 100%.
 
 ## Backlog (P1/P2)
-- Update browser tab `<title>` in `frontend/public/index.html` ("Emergent | Fullstack App" → "Peninsula Agritrade LLC") + SEO meta tags / Open Graph.
-- Contact form spam protection (reCAPTCHA).
-- Backend admin panel for content management.
-- Resume/file upload on Careers page.
+- (Optional) Tighten CORS origins for production (currently `*`).
+- Rate limiter is in-memory/single-process — move to MongoDB/Redis if scaled to multiple workers.
+- Email notifications for new contact/application submissions (e.g., Resend/SendGrid).
+- Richer admin: pagination/search on inboxes, image upload for insights/partner logos.
 
 ## Notes
-- No third-party integrations. No auth. Public site.
-- Preview URL comes from `frontend/.env` REACT_APP_BACKEND_URL.
+- Backend uses **synchronous pymongo** (no Motor/await). Auth via Bearer header (no cookies).
+- Object storage is REAL (Emergent objstore via EMERGENT_LLM_KEY).
