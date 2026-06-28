@@ -64,7 +64,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left - Company Info */}
             <FadeIn className="lg:col-span-3">
-              <div>
+              <div className="flex flex-col h-full">
                 <div className="mb-4" style={{ maxWidth: '220px' }}>
                   <img src="/logo_tight.png" alt="Peninsula Agritrade LLC" className="w-full h-auto block" />
                 </div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-5">
+                <div className="space-y-4 mt-auto">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
@@ -152,8 +152,8 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-6 lg:pt-8 pb-6" style={{ borderColor: '#e5e7eb' }}>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-6 lg:pt-8 pb-3 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
+                  <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
                     <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="contact-honeypot" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -189,14 +189,14 @@ export default function ContactPage() {
                         data-testid="contact-form-subject"
                       />
                     </div>
-                    <div>
+                    <div className="flex flex-col flex-1">
                       <Label htmlFor="c-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
                       <Textarea
                         id="c-message"
-                        rows={5}
                         value={form.message}
                         onChange={e => setForm({ ...form, message: e.target.value })}
-                        className="mt-1 rounded-lg bg-white resize-none"
+                        className="mt-1 rounded-lg bg-white flex-1 resize-none"
+                        style={{ minHeight: '120px' }}
                         placeholder="Tell us about your requirements..."
                         data-testid="contact-form-message"
                       />
