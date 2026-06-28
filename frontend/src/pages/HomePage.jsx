@@ -242,49 +242,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          6. LATEST INSIGHTS
-      ══════════════════════════════════════════════════ */}
-      {insights.length > 0 && (
-        <section className="py-20 lg:py-24" style={{ background: '#f9fafb' }} data-testid="insights-section">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-end justify-between mb-12">
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#0b1220' }}>Latest Insights</h2>
-                <div className="mt-4 w-12 h-[3px] rounded-full" style={{ background: '#8B5CF6' }} />
-              </div>
-              <Button asChild className="hidden sm:inline-flex rounded-full px-6 font-medium" style={{ background: '#0b1220', color: 'white' }}>
-                <Link to="/insights">View All <ArrowRight className="w-4 h-4 ml-1" /></Link>
-              </Button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {insights.map((ins, i) => (
-                <Link key={i} to={`/insights/${ins.slug}`} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`insight-card-${i}`}>
-                  <div className="relative h-44 overflow-hidden">
-                    <img src={ins.image || 'https://images.pexels.com/photos/6489275/pexels-photo-6489275.jpeg?auto=compress&cs=tinysrgb&w=600'} alt={ins.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute top-3 left-3">
-                      <Badge className="text-[10px] font-bold tracking-wide px-2.5 py-0.5" style={{ background: '#8B5CF6', color: 'white', border: 'none' }}>{ins.category}</Badge>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-sm leading-snug mb-2 transition-colors group-hover:text-[#8B5CF6]" style={{ color: '#0b1220' }}>{ins.title}</h3>
-                    <p className="text-xs leading-relaxed line-clamp-2" style={{ color: '#6b7280' }}>{ins.excerpt}</p>
-                    <div className="mt-4 text-xs font-semibold inline-flex items-center gap-1 transition-all group-hover:gap-2" style={{ color: '#8B5CF6' }}>
-                      Read More <ChevronRight className="w-3 h-3" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="text-center mt-8 sm:hidden">
-              <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#0b1220', color: 'white' }}>
-                <Link to="/insights">View All <ArrowRight className="w-4 h-4 ml-1" /></Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ══════════════════════════════════════════════════
           7. CTA
       ══════════════════════════════════════════════════ */}
       <section className="py-16" style={{ background: '#0b1220' }}>
