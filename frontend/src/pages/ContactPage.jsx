@@ -108,26 +108,27 @@ export default function ContactPage() {
               </div>
             </FadeIn>
 
-            {/* Middle - Map + Hamad Port */}
+            {/* Middle - Tornado Tower photo (top) + Map (below) */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="rounded-xl overflow-hidden shadow-sm border" style={{ borderColor: '#e5e7eb', height: '240px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '240px' }}>
+                <img
+                  src="https://customer-assets.emergentagent.com/job_1c2ecdee-46b4-4501-824e-998904d91028/artifacts/h7yif8lc_image.png"
+                  alt="Tornado Tower, Doha"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: 'center 20%' }}
+                />
+                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower, Doha</span>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-4" style={{ borderColor: '#e5e7eb', height: '150px' }}>
                 <iframe
                   title="Office No.4, 9th Floor QFC Tower 1, Doha"
-                  src="https://maps.google.com/maps?width=100%25&amp;height=240&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  src="https://maps.google.com/maps?width=100%25&amp;height=150&amp;hl=en&amp;q=Office%20No.4,%209th%20Floor%20QFC%20Tower%201,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   data-testid="contact-map"
                 />
-              </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-4 relative" style={{ borderColor: '#e5e7eb', height: '150px' }}>
-                <img
-                  src="https://images.pexels.com/photos/19612359/pexels-photo-19612359.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Tornado Tower, Doha"
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower, Doha</span>
               </div>
             </FadeIn>
 
