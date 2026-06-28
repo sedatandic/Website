@@ -72,8 +72,8 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8A1538' }} />
                     <div className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-                      Level 22, Tornado Tower, Majlis Al<br />
-                      Taawon Street, West Bay, Doha, Qatar
+                      Level 22, Tornado Tower,<br />
+                      West Bay, Doha, Qatar
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
