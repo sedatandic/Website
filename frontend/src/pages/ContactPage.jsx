@@ -117,7 +117,8 @@ export default function ContactPage() {
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{ objectPosition: 'center 20%' }}
                 />
-                <span className="absolute bottom-2 left-3 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower</span>
+                <span className="absolute bottom-2 left-3 z-10 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower</span>
+                <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.75), rgba(15,23,42,0))' }} />
               </div>
               <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '190px' }}>
                 <iframe
