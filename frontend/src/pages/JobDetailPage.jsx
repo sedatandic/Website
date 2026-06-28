@@ -9,14 +9,15 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { Skeleton } from '../components/ui/skeleton';
 import { FadeIn } from '../components/FadeIn';
-import { getJob, applyJob } from '../lib/api';
+import { getJob, applyJobForm } from '../lib/api';
 import { toast } from 'sonner';
 
 export default function JobDetailPage() {
   const { slug } = useParams();
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [form, setForm] = useState({ name: '', email: '', phone: '', linkedin: '', cover_letter: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', linkedin: '', cover_letter: '', website: '' });
+  const [resume, setResume] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [applied, setApplied] = useState(false);
 
@@ -28,9 +29,23 @@ export default function JobDetailPage() {
   const handleApply = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) { toast.error('Please fill in name and email'); return; }
+    if (resume) {
+      const ext = resume.name.split('.').pop().toLowerCase();
+      if (!['pdf', 'doc', 'docx'].includes(ext)) { toast.error('Resume must be a PDF, DOC, or DOCX file'); return; }
+      if (resume.size > 10 * 1024 * 1024) { toast.error('Resume must be under 10MB'); return; }
+    }
     setSubmitting(true);
     try {
-      await applyJob({ ...form, job_id: job.id });
+      const fd = new FormData();
+      fd.append('job_id', job.id);
+      fd.append('name', form.name);
+      fd.append('email', form.email);
+      fd.append('phone', form.phone);
+      fd.append('linkedin', form.linkedin);
+      fd.append('cover_letter', form.cover_letter);
+      fd.append('website', form.website);
+      if (resume) fd.append('resume', resume);
+      await applyJobForm(fd);
       toast.success('Application submitted successfully!');
       setApplied(true);
     } catch (err) {
@@ -135,6 +150,7 @@ export default function JobDetailPage() {
                     <>
                       <h3 className="font-semibold text-base mb-4" style={{ color: '#1f2937' }}>Apply for this role</h3>
                       <form onSubmit={handleApply} className="space-y-3">
+                        <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="apply-honeypot" />
                         <div>
                           <Label htmlFor="a-name" className="text-xs font-medium" style={{ color: '#374151' }}>Full Name *</Label>
                           <Input id="a-name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="mt-1 rounded-lg text-sm bg-white" data-testid="job-apply-name" />
@@ -154,6 +170,11 @@ export default function JobDetailPage() {
                         <div>
                           <Label htmlFor="a-cover" className="text-xs font-medium" style={{ color: '#374151' }}>Cover Letter</Label>
                           <Textarea id="a-cover" rows={3} value={form.cover_letter} onChange={e => setForm({ ...form, cover_letter: e.target.value })} className="mt-1 rounded-lg text-sm bg-white" data-testid="job-apply-cover-letter" />
+                        </div>
+                        <div>
+                          <Label htmlFor="a-resume" className="text-xs font-medium" style={{ color: '#374151' }}>Resume (PDF, DOC, DOCX · max 10MB)</Label>
+                          <Input id="a-resume" type="file" accept=".pdf,.doc,.docx" onChange={e => setResume(e.target.files?.[0] || null)} className="mt-1 rounded-lg text-sm bg-white file:mr-3 file:rounded-full file:border-0 file:bg-[#8A1538] file:text-white file:px-3 file:py-1 file:text-xs" data-testid="job-apply-resume" />
+                          {resume && <p className="text-xs mt-1 truncate" style={{ color: '#6b7280' }}>{resume.name}</p>}
                         </div>
                         <Button type="submit" disabled={submitting} className="w-full rounded-full mt-2" style={{ background: '#8A1538', color: 'white' }} data-testid="careers-apply-submit-button">
                           <Send className="w-4 h-4 mr-2" />

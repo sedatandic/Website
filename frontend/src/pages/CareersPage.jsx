@@ -14,7 +14,7 @@ import { toast } from 'sonner';
 export default function CareersPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [inquiryForm, setInquiryForm] = useState({ name: '', email: '', message: '' });
+  const [inquiryForm, setInquiryForm] = useState({ name: '', email: '', message: '', website: '' });
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function CareersPage() {
     try {
       await submitCareerInquiry(inquiryForm);
       toast.success('Inquiry submitted successfully!');
-      setInquiryForm({ name: '', email: '', message: '' });
+      setInquiryForm({ name: '', email: '', message: '', website: '' });
     } catch (err) {
       toast.error('Failed to submit inquiry.');
     } finally {
@@ -148,6 +148,7 @@ export default function CareersPage() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <form onSubmit={handleInquiry} className="space-y-4">
+                <input type="text" tabIndex={-1} autoComplete="off" value={inquiryForm.website} onChange={e => setInquiryForm({ ...inquiryForm, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="inquiry-honeypot" />
                 <div>
                   <Label htmlFor="inq-name" className="text-sm font-medium" style={{ color: '#374151' }}>Name *</Label>
                   <Input id="inq-name" value={inquiryForm.name} onChange={e => setInquiryForm({ ...inquiryForm, name: e.target.value })} className="mt-1 rounded-lg bg-white" data-testid="career-inquiry-name" />
