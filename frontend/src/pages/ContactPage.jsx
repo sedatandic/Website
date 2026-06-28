@@ -110,8 +110,8 @@ export default function ContactPage() {
             </FadeIn>
 
             {/* Middle - Tornado Tower photo (top) + Map (below) */}
-            <FadeIn delay={0.1} className="lg:col-span-4 flex flex-col h-full">
-              <div className="rounded-xl overflow-hidden shadow-sm border relative flex-1" style={{ borderColor: '#e5e7eb', minHeight: '190px' }}>
+            <FadeIn delay={0.1} className="lg:col-span-4">
+              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '240px' }}>
                 <img
                   src="https://customer-assets.emergentagent.com/job_1c2ecdee-46b4-4501-824e-998904d91028/artifacts/h7yif8lc_image.png"
                   alt="Tornado Tower"
