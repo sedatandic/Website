@@ -9,7 +9,7 @@ const tabs = [
   { id: 'oilseeds', label: 'Oilseeds' },
   { id: 'pulses-beans', label: 'Pulses & Beans' },
   { id: 'sugar-rice', label: 'Sugar & Rice' },
-  { id: 'coffee', label: 'Coffee' },
+  { id: 'coffee', label: 'Coffee Beans' },
 ];
 
 const heroImages = {

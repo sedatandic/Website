@@ -17,7 +17,7 @@ const commodityLinks = [
   { name: 'Oilseeds', path: '/commodities/oilseeds' },
   { name: 'Pulses & Beans', path: '/commodities/pulses-beans' },
   { name: 'Sugar & Rice', path: '/commodities/sugar-rice' },
-  { name: 'Coffee', path: '/commodities/coffee' },
+  { name: 'Coffee Beans', path: '/commodities/coffee' },
 ];
 
 const navLinks = [
