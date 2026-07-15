@@ -163,9 +163,15 @@ export default function AboutPage() {
                 {memberships.map((m) => (
                   <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6">
-                      <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
-                        <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
-                      </div>
+                      {m.logo ? (
+                        <div className="h-16 flex items-center justify-center mb-4">
+                          <img src={m.logo} alt={m.name} className="max-h-16 max-w-[140px] object-contain" data-testid={`membership-logo-${m.name}`} />
+                        </div>
+                      ) : (
+                        <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
+                          <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
+                        </div>
+                      )}
                       <div className="font-bold text-base" style={{ color: '#1f2937' }}>{m.name}</div>
                       <div className="text-xs mt-1" style={{ color: '#6b7280' }}>{m.full_name}</div>
                     </CardContent>

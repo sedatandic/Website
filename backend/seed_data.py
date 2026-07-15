@@ -223,10 +223,10 @@ def seed_database(db):
     # ── Seed Memberships ──
     if db.memberships.count_documents({}) == 0:
         memberships = [
-            {"name": "GAFTA", "full_name": "Grain and Feed Trade Association", "logo": ""},
-            {"name": "GPC", "full_name": "Global Pulse Confederation", "logo": ""},
-            {"name": "FOSFA International", "full_name": "Federation of Oils, Seeds and Fats Associations", "logo": ""},
-            {"name": "ICC", "full_name": "International Chamber of Commerce", "logo": ""},
+            {"name": "GAFTA", "full_name": "Grain and Feed Trade Association", "logo": "/memberships/gafta.png"},
+            {"name": "GPC", "full_name": "Global Pulse Confederation", "logo": "/memberships/gpc.png"},
+            {"name": "FOSFA International", "full_name": "Federation of Oils, Seeds and Fats Associations", "logo": "/memberships/fosfa.png"},
+            {"name": "Qatar Chamber", "full_name": "Qatar Chamber of Commerce and Industry", "logo": "/memberships/qatar-chamber.jpg"},
         ]
         db.memberships.insert_many(memberships)
         print("Seeded memberships collection")
