@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 mt-auto">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
