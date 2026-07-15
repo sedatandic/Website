@@ -16,8 +16,8 @@ import uuid
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://grain-trade-preview.preview.emergentagent.com").rstrip("/")
-ADMIN_EMAIL = "admin@peninsulaagritrade.com"
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://qatar-commodities.preview.emergentagent.com").rstrip("/")
+ADMIN_EMAIL = "admin@peninsula.com.qa"
 ADMIN_PASSWORD = "Peninsula@2026"
 
 # A tiny but valid PDF byte sequence so the server accepts the upload
@@ -317,3 +317,88 @@ class TestResumeE2E:
         data = {"job_id": "anything", "name": "TEST_X", "email": "x@example.com", "website": ""}
         r = requests.post(f"{BASE_URL}/api/jobs/apply", data=data, files=files, timeout=30)
         assert r.status_code == 422
+
+
+# ---------- CAREER INQUIRY (multipart) ----------
+class TestCareerInquiryMultipart:
+    def test_inquiry_with_resume_and_download(self, session, auth_headers):
+        marker = f"TEST_Inquiry_{uuid.uuid4().hex[:8]}"
+        files = {"resume": ("cv.pdf", io.BytesIO(MINIMAL_PDF), "application/pdf")}
+        data = {
+            "name": marker,
+            "email": "inq@example.com",
+            "message": "I would like to apply for a general position.",
+            "website": "",
+        }
+        r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, files=files, timeout=60)
+        assert r.status_code == 200, r.text
+        body = r.json()
+        assert body.get("success") is True
+        assert "id" in body
+        inq_id = body["id"]
+
+        # Should appear in admin inquiries inbox
+        inbox = session.get(f"{BASE_URL}/api/admin/inbox/inquiries", headers=auth_headers, timeout=20)
+        assert inbox.status_code == 200
+        mine = [x for x in inbox.json() if x.get("id") == inq_id]
+        assert len(mine) == 1
+        assert mine[0]["name"] == marker
+        assert mine[0]["has_resume"] is True
+
+        # Download resume
+        dl = session.get(
+            f"{BASE_URL}/api/admin/inquiries/{inq_id}/resume",
+            headers=auth_headers,
+            timeout=30,
+        )
+        assert dl.status_code == 200
+        assert "application/pdf" in dl.headers.get("content-type", "")
+        assert dl.content.startswith(b"%PDF")
+
+    def test_inquiry_no_resume(self):
+        data = {
+            "name": f"TEST_InquiryNoCV_{uuid.uuid4().hex[:6]}",
+            "email": "noresume@example.com",
+            "message": "Message without resume attached.",
+            "website": "",
+        }
+        r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, timeout=30)
+        assert r.status_code == 200
+        assert r.json().get("success") is True
+        assert "id" in r.json()
+
+    def test_inquiry_honeypot_silent_drop(self, session, auth_headers):
+        before = session.get(f"{BASE_URL}/api/admin/inbox/inquiries", headers=auth_headers, timeout=20)
+        before_count = len(before.json())
+
+        marker = f"HONEYPOT_INQ_{uuid.uuid4().hex[:8]}"
+        data = {
+            "name": marker,
+            "email": "spam@example.com",
+            "message": "spam body",
+            "website": "spambot",
+        }
+        r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, timeout=30)
+        assert r.status_code == 200
+        assert r.json().get("success") is True
+        after = session.get(f"{BASE_URL}/api/admin/inbox/inquiries", headers=auth_headers, timeout=20)
+        assert len(after.json()) == before_count
+        assert not any(x.get("name") == marker for x in after.json())
+
+    def test_inquiry_missing_required_field(self):
+        # message missing -> FastAPI returns 422
+        data = {"name": "TEST_x", "email": "x@example.com", "website": ""}
+        r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, timeout=30)
+        assert r.status_code == 422
+
+    def test_inquiry_invalid_resume_ext(self):
+        files = {"resume": ("bad.txt", io.BytesIO(b"nope"), "text/plain")}
+        data = {
+            "name": "TEST_BadExt",
+            "email": "x@example.com",
+            "message": "hello",
+            "website": "",
+        }
+        r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, files=files, timeout=30)
+        assert r.status_code == 422
+

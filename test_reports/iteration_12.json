@@ -1,0 +1,40 @@
+{
+  "summary": "Full regression after major UI restructuring across 6 pages and conversion of /api/careers/inquiry to multipart. Backend: 34/34 pytest passing (added 5 new tests for the multipart Career Inquiry endpoint incl. resume upload/download, honeypot silent-drop, validation, invalid extension). Frontend: all 6 public pages load with 200, header + footer intact, ZERO console errors. Contact form + Careers General Inquiry (with CV PDF upload) both submit successfully with visible toast + inline success card. Admin login (admin@peninsula.com.qa / Peninsula@2026) works, dashboard loads, all 7 nav sections (Insights/Jobs/Partners/Memberships/Contact Inbox/Career Inquiries/Job Applications) navigate. Nav dropdowns (About Us -> 4 items, Our Commodities -> 6 items) hover-open and route correctly. Verified TEST_UI_Contact submission ended up in admin Contact Inbox.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "AdminDashboard - Contact/Inquiries/Applications inbox tables",
+        "issue": "Date column renders as YYYY-MM-DD (e.g. '2026-07-15') instead of the required DD/MM/YYYY. The Insights/Jobs list rows correctly use the isoToDMY() helper, but lines 245, 249 and 258 of /app/frontend/src/pages/admin/AdminDashboard.jsx use isoToDateInput(item.created_at) which returns String(v).slice(0,10) — i.e. the raw ISO YYYY-MM-DD prefix.",
+        "selector": "table row 'Date' cell inside admin-nav-contacts / admin-nav-inquiries / admin-nav-applications views",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_api.py",
+    "/app/backend/tests/test_admin_auth.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "In /app/frontend/src/pages/admin/AdminDashboard.jsx, replace isoToDateInput(item.created_at) with isoToDMY(item.created_at) at lines ~245, 249, 258 so Contact/Inquiries/Applications inbox tables show DD/MM/YYYY as required."
+  ],
+  "critical_code_review_comments": [
+    "server.py: in-memory rate limiter (_rate_log) shared across ALL POST endpoints (contact/inquiry/apply) with limit 8/10min per IP. When running behind a Kubernetes ingress/CDN, request.client.host is often the proxy IP so a shared 8-req window will hit legitimate users. Consider trusting X-Forwarded-For or increasing the window per-endpoint.",
+    "server.py: DB_NAME default falls back to 'globalagri_db' but .env sets 'test_database'. Not a bug now but the fallback is misleading; prefer failing fast when env is missing (matches project convention).",
+    "server.py admin_update: passes item_id straight into ObjectId(item_id) without try/except — an invalid id string returns a 500 InvalidId instead of 400/404. Small hardening opportunity.",
+    "AdminDashboard.jsx: two similar date-format helpers (isoToDMY vs isoToDateInput) coexist and one is used in the wrong place — root cause of the UI bug above; consider consolidating."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_admin_auth.py (updated ADMIN_EMAIL to admin@peninsula.com.qa, added TestCareerInquiryMultipart class with 5 new tests)"
+  ],
+  "success_rate": {"backend": "100% (34/34)", "frontend": "~95% (only date-format cosmetic issue in admin inbox)"},
+  "test_credentials": "admin@peninsula.com.qa / Peninsula@2026",
+  "seed_data_creation": "Pytest creates TEST_-prefixed submissions/applications/inquiries and cleans up CRUD items; a TEST_UI_Contact + TEST_UI_Careers submission is left in DB from the UI test (visible in Contact Inbox).",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend is fully covered by /app/backend/tests/test_api.py (public GETs + contact) and /app/backend/tests/test_admin_auth.py (auth, admin CRUD, honeypot, resume upload/download for both /api/jobs/apply and /api/careers/inquiry). Rate limiter is 8 requests/10 min per IP and applies to /api/contact, /api/careers/inquiry, /api/jobs/apply — if you re-run form tests many times in quick succession you may see 429s. Frontend testids to prefer: contact-form-{name,email,subject,message,submit}, career-inquiry-{name,email,message,resume,submit}, admin-login-{email,password,submit}, admin-nav-{insights|jobs|partners|memberships|contacts|inquiries|applications}, nav-{about-us,our-commodities}, dropdown-link-*.",
+  "rca of the issue": "Admin Contact/Inquiries/Applications inbox date columns use isoToDateInput() (returns ISO YYYY-MM-DD, intended for <input type=date>) instead of the sibling isoToDMY() helper. Fix by swapping the function call at the 3 TableCell lines noted above."
+}
