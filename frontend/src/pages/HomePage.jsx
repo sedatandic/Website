@@ -11,7 +11,7 @@ const slides = [
     image: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     action: 'Connecting',
     headline: 'Qatar to the global agricultural value chain\nand supporting long-term national food security goals.',
-    subtext: "Qatar's first fully integrated agri-supply-chain manager and global trading platform, linking producers and consumers worldwide with seamless, efficient, end-to-end commodity flow.",
+    subtext: "Qatar's first fully integrated agri-supply-chain manager and global trading platform, linking producers and consumers globally with seamless, efficient, end-to-end commodity flows.",
   },
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
