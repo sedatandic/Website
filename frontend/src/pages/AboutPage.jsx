@@ -159,7 +159,7 @@ export default function AboutPage() {
               <p className="text-sm sm:text-base leading-relaxed mb-8" style={{ color: '#4b5563' }}>
                 We are proud members of several prestigious international trade associations, strengthening our professional standards, market intelligence, and the quality of service we provide to all counterparties.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {memberships.map((m) => (
                   <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6">
