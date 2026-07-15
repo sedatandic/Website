@@ -34,7 +34,7 @@ const sideImages = {
   'who-we-are': 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'strengths': 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'key-facts': 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
-  'memberships': 'https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'memberships': 'https://images.unsplash.com/photo-1582794496242-8165eed32971?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
 };
 
 export default function AboutPage() {
@@ -161,12 +161,10 @@ export default function AboutPage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {memberships.map((m) => (
-                  <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
-                    <CardContent className="p-6">
+                  <Card key={m.id} className="border text-center h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
+                    <CardContent className="p-4 h-full flex flex-col items-center justify-center" style={{ minHeight: '120px' }}>
                       {m.logo ? (
-                        <div className="h-28 flex items-center justify-center mb-4">
-                          <img src={m.logo} alt={m.name} className="max-h-24 w-full max-w-full object-contain px-2" data-testid={`membership-logo-${m.name}`} />
-                        </div>
+                        <img src={m.logo} alt={m.name} className="max-h-20 w-full max-w-full object-contain px-2" data-testid={`membership-logo-${m.name}`} />
                       ) : (
                         <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
                           <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
