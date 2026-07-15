@@ -31,22 +31,10 @@ const keyFacts = [
 ];
 
 const sideImages = {
-  'who-we-are': [
-    { url: 'https://images.unsplash.com/photo-1685113872064-de4180a0ea93?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Doha, Qatar' },
-    { url: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'West Bay skyline' },
-  ],
-  'strengths': [
-    { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Global origination' },
-    { url: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Bulk & container shipments' },
-  ],
-  'key-facts': [
-    { url: 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Chartered vessels' },
-    { url: 'https://images.unsplash.com/photo-1684607961356-1d99dc31aee2?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Grain storage & logistics' },
-  ],
-  'memberships': [
-    { url: 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'International trade' },
-    { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Agri-commodities' },
-  ],
+  'who-we-are': { url: 'https://images.unsplash.com/photo-1685113872064-de4180a0ea93?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Doha, Qatar' },
+  'strengths': { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Global origination' },
+  'key-facts': { url: 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Chartered vessels & logistics' },
+  'memberships': { url: 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'International trade' },
 };
 
 export default function AboutPage() {
@@ -145,7 +133,7 @@ export default function AboutPage() {
           {activeTab === 'key-facts' && (
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-8" style={{ color: '#1f2937' }}>Key Facts</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
                 {keyFacts.map((fact, i) => {
                   const Icon = fact.icon;
                   return (
@@ -191,19 +179,20 @@ export default function AboutPage() {
 
             {/* Right - related imagery */}
             <FadeIn delay={0.15} className="lg:col-span-2">
-              <div className="space-y-4 lg:sticky lg:top-24">
-                {(sideImages[activeTab] || sideImages['who-we-are']).map((img) => (
-                  <div key={img.url} className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '210px' }}>
+              {(() => {
+                const img = sideImages[activeTab] || sideImages['who-we-are'];
+                return (
+                  <div className="rounded-xl overflow-hidden shadow-sm border relative lg:sticky lg:top-24" style={{ borderColor: '#e5e7eb', height: '440px' }}>
                     <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
                     {img.label && (
                       <>
-                        <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7), rgba(15,23,42,0))' }} />
-                        <span className="absolute bottom-2 left-3 z-10 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{img.label}</span>
+                        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.72), rgba(15,23,42,0))' }} />
+                        <span className="absolute bottom-3 left-4 z-10 text-sm font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{img.label}</span>
                       </>
                     )}
                   </div>
-                ))}
-              </div>
+                );
+              })()}
             </FadeIn>
           </div>
         </div>
