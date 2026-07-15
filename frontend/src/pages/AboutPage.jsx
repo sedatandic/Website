@@ -108,11 +108,11 @@ export default function AboutPage() {
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Who We Are</h2>
               <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                <p>Peninsula Agritrade LLC is an international agricultural trading company focused on connecting reliable origins with demanding destination markets. We connect producers, exporters, and industrial buyers through disciplined risk management, robust logistics, and transparent communication.</p>
-                <p>Our hub was chosen to take the advantage of its strategic geographical location and excellent infrastructure for commodity trading activity including manpower, logistics, corporate tax and trade-finance benefits.</p>
-                <p>The management team is experienced in agri-commodities markets and the company principals have a deep physical trading experience with agricultural goods across Europe, the Middle East, Asia, and Africa.</p>
-                <p>We trade with grains, feeds, oilseeds, pulses, rice, sugar and coffee — both bulk and containerized shipments.</p>
-                <p>Peninsula Agritrade's principal expertise are mainly with a strong origination and sourcing capabilities in the Black Sea region, Europe, Americas and with a niche and specific focus on the Middle East, Asia and African countries as the main export destinations.</p>
+                <p>Peninsula Agritrade LLC is Qatar's first international agribusiness and a fully integrated agri-supply chain manager. We connect reliable origins with demanding destination markets through disciplined risk management, robust logistics, and transparent communication.</p>
+                <p>Our hub in Qatar leverages the country's strategic geographic location, world-class infrastructure, competitive corporate tax environment, and strong trade-finance ecosystem — enabling efficient, secure, and scalable commodity trading operations.</p>
+                <p>Our management team brings over 20 years of combined international trading experience across Europe, the Middle East, Asia, and Africa. We operate with deep physical trading expertise, serving producers, exporters, and industrial buyers with end-to-end execution and market intelligence.</p>
+                <p>We trade grains, feed ingredients, oilseeds, pulses, rice, sugar, and coffee — across both bulk and containerized shipments.</p>
+                <p>Peninsula Agritrade's core strength lies in strong origination and sourcing capabilities across the Black Sea region, Europe, and the Americas, with a focused export footprint into the Middle East, Asia, and Africa. Our mission aligns with Qatar's Food Security Vision 2030, supporting resilient supply chains and reliable access to essential agricultural commodities.</p>
               </div>
             </FadeIn>
           )}
