@@ -157,36 +157,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          3. ABOUT
-      ══════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28" style={{ background: '#fff' }} data-testid="about-section">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
-              <img src="https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Grain storage facility" className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ color: '#0b1220' }}>
-                Who We Are
-              </h2>
-              <div className="mt-4 w-12 h-[3px] rounded-full" style={{ background: '#8A1538' }} />
-              <p className="mt-6 text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                Peninsula Agritrade is a fully integrated agri-supply chain manager and global trading platform. We connect agricultural producers with consumers through reliable, efficient, and transparent physical trading operations.
-              </p>
-              <p className="mt-4 text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                With over 20 years of combined international trading experience, we serve as a one-stop service for our customers — providing market intelligence, disciplined execution, and proactive communication at every stage.
-              </p>
-              <div className="mt-8">
-                <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#8A1538', color: 'white' }}>
-                  <Link to="/about/who-we-are">Learn More <ArrowRight className="w-4 h-4 ml-1.5" /></Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
           4. COMMODITIES
       ══════════════════════════════════════════════════ */}
       <section className="py-20 lg:py-24" style={{ background: '#f9fafb' }} data-testid="commodities-section">
