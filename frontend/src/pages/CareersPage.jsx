@@ -161,7 +161,7 @@ export default function CareersPage() {
             </div>
 
             {/* Right: General Inquiry */}
-            <FadeIn>
+            <FadeIn className="lg:mt-[3.25rem]">
               <div className="rounded-xl border bg-white p-4 sm:p-5" style={{ borderColor: '#e5e7eb' }}>
                 <h2 className="text-xl font-semibold mb-1" style={{ color: '#1f2937' }}>General Inquiry</h2>
                 <p className="text-xs leading-relaxed mb-3" style={{ color: '#4b5563' }}>
