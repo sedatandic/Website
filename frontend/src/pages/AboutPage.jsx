@@ -106,8 +106,8 @@ export default function AboutPage() {
 
           {activeTab === 'who-we-are' && (
             <FadeIn>
-              <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#1f2937' }}>Who We Are</h2>
-              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-center" style={{ color: '#4b5563' }}>
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Who We Are</h2>
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
                 <p>Peninsula Agritrade LLC is Qatar's first international agribusiness and a fully integrated agri-supply chain manager. We connect reliable origins with demanding destination markets through disciplined risk management, robust logistics, and transparent communication.</p>
                 <p>Our hub in Qatar leverages the country's strategic geographic location, world-class infrastructure, competitive corporate tax environment, and strong trade-finance ecosystem — enabling efficient, secure, and scalable commodity trading operations.</p>
                 <p>Our management team brings over 20 years of combined international trading experience across Europe, the Middle East, Asia, and Africa. We operate with deep physical trading expertise, serving producers, exporters, and industrial buyers with end-to-end execution and market intelligence.</p>
@@ -119,8 +119,8 @@ export default function AboutPage() {
 
           {activeTab === 'strengths' && (
             <FadeIn>
-              <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#1f2937' }}>Strengths</h2>
-              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-center" style={{ color: '#4b5563' }}>
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Strengths</h2>
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
                 <p>The combined in-depth and broad trading experience coupled with strong, reliable and trusting relationships fostered over the years with the suppliers and buyers globally are the main strengths of the company.</p>
                 <p>Since we have started our operations, we have developed more supplier and customer base providing better diversity and further enhance our strengths.</p>
                 <p>Our familiarity and expertise in the global agri-commodity markets with a specific focus in Middle East, South Asia and Southeast-Asian countries as the main destinations is one of our core advantage.</p>
@@ -155,8 +155,8 @@ export default function AboutPage() {
 
           {activeTab === 'memberships' && (
             <FadeIn>
-              <h2 className="text-2xl font-semibold mb-4 text-center" style={{ color: '#1f2937' }}>Memberships</h2>
-              <p className="text-sm sm:text-base leading-relaxed mb-8 text-center" style={{ color: '#4b5563' }}>
+              <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Memberships</h2>
+              <p className="text-sm sm:text-base leading-relaxed mb-8" style={{ color: '#4b5563' }}>
                 We are proud members of several prestigious international trade associations, strengthening our professional standards, market intelligence, and the quality of service we provide to all counterparties.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
