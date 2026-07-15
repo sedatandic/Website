@@ -104,7 +104,7 @@ export default function HomePage() {
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.65) 0%, rgba(11,18,32,0.35) 50%, rgba(11,18,32,0.55) 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.72) 0%, rgba(11,18,32,0.5) 50%, rgba(11,18,32,0.68) 100%)' }} />
           </motion.div>
         </AnimatePresence>
 
@@ -112,10 +112,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-7xl mx-auto text-center">
-                <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line">
+                <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
                   <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
-                <p className="mt-6 text-sm sm:text-base text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
+                <p className="mt-6 text-sm sm:text-base text-white leading-relaxed max-w-4xl mx-auto whitespace-pre-line" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8A1538', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
