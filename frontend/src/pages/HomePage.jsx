@@ -14,7 +14,7 @@ const slides = [
     subtext: "Qatar's first fully integrated agri-supply-chain manager and global trading platform, linking producers and consumers globally with seamless, efficient, end-to-end commodity flows.",
   },
   {
-    image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    image: 'https://customer-assets-wrfwihn1.emergentagent.net/job_a46d9f4e-718c-4add-95f0-4ba36a75bba8/artifacts/53os6rjt_image.png',
     action: 'Grounded',
     headline: 'in discipline, integrity, and proven\noperational excellence across global markets.',
     subtext: 'Supported by a team with 25+ years of global trading experience, we execute every commitment\nwith precision — price, quality, and timing delivered as promised.',
