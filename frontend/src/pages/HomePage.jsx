@@ -157,22 +157,8 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          7. CTA
+          CTA removed
       ══════════════════════════════════════════════════ */}
-      <section className="py-16" style={{ background: '#8A1538' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to discuss your requirements?</h2>
-          <p className="mt-3 text-sm text-white/70 max-w-lg mx-auto">Whether you need grains, oilseeds, sugar, or coffee — our trading desk is ready to help.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="rounded-full px-8 font-medium" style={{ background: 'white', color: '#8A1538' }}>
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/40 text-white hover:bg-white/10 hover:text-white">
-              <Link to="/commodities/at-a-glance">Browse Products</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
     </div>
   );
