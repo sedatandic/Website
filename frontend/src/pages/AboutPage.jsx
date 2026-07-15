@@ -30,6 +30,25 @@ const keyFacts = [
   { value: '7 Offices', label: 'Staff in', sub: '6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
 
+const sideImages = {
+  'who-we-are': [
+    { url: 'https://images.unsplash.com/photo-1685113872064-de4180a0ea93?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Doha, Qatar' },
+    { url: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'West Bay skyline' },
+  ],
+  'strengths': [
+    { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Global origination' },
+    { url: 'https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Bulk & container shipments' },
+  ],
+  'key-facts': [
+    { url: 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Chartered vessels' },
+    { url: 'https://images.unsplash.com/photo-1684607961356-1d99dc31aee2?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Grain storage & logistics' },
+  ],
+  'memberships': [
+    { url: 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'International trade' },
+    { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=800', label: 'Agri-commodities' },
+  ],
+};
+
 export default function AboutPage() {
   const { tab } = useParams();
   const navigate = useNavigate();
@@ -92,7 +111,10 @@ export default function AboutPage() {
 
       {/* Content */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+            {/* Left - content */}
+            <div className="lg:col-span-3">
 
           {activeTab === 'who-we-are' && (
             <FadeIn>
@@ -123,7 +145,7 @@ export default function AboutPage() {
           {activeTab === 'key-facts' && (
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-8" style={{ color: '#1f2937' }}>Key Facts</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {keyFacts.map((fact, i) => {
                   const Icon = fact.icon;
                   return (
@@ -149,7 +171,7 @@ export default function AboutPage() {
               <p className="text-sm sm:text-base leading-relaxed mb-8" style={{ color: '#4b5563' }}>
                 We are a proud member of the following prestigious associations in order to provide more professional service to our counterparties as well as our market intelligence as a result of these trade bodies memberships.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {memberships.map((m) => (
                   <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6">
@@ -165,6 +187,25 @@ export default function AboutPage() {
             </FadeIn>
           )}
 
+            </div>
+
+            {/* Right - related imagery */}
+            <FadeIn delay={0.15} className="lg:col-span-2">
+              <div className="space-y-4 lg:sticky lg:top-24">
+                {(sideImages[activeTab] || sideImages['who-we-are']).map((img) => (
+                  <div key={img.url} className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '210px' }}>
+                    <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                    {img.label && (
+                      <>
+                        <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7), rgba(15,23,42,0))' }} />
+                        <span className="absolute bottom-2 left-3 z-10 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{img.label}</span>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
     </div>
