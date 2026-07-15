@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -9,9 +10,9 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs" style={{ color: '#9ca3af' }}>&copy; {new Date().getFullYear()} Peninsula Agritrade LLC. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <span className="text-xs" style={{ color: '#9ca3af' }}>Privacy Policy</span>
-              <span className="text-xs" style={{ color: '#9ca3af' }}>Terms of Use</span>
-              <span className="text-xs" style={{ color: '#9ca3af' }}>Cookie Policy</span>
+              <Link to="/privacy" className="text-xs transition-colors hover:text-[#8A1538]" style={{ color: '#9ca3af' }} data-testid="footer-privacy-link">Privacy Policy</Link>
+              <Link to="/terms" className="text-xs transition-colors hover:text-[#8A1538]" style={{ color: '#9ca3af' }} data-testid="footer-terms-link">Terms of Use</Link>
+              <Link to="/cookies" className="text-xs transition-colors hover:text-[#8A1538]" style={{ color: '#9ca3af' }} data-testid="footer-cookies-link">Cookie Policy</Link>
             </div>
           </div>
         </div>

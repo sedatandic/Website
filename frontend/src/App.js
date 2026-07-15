@@ -19,6 +19,7 @@ import CareersPage from './pages/CareersPage';
 import JobDetailPage from './pages/JobDetailPage';
 import InsightsPage from './pages/InsightsPage';
 import InsightDetailPage from './pages/InsightDetailPage';
+import LegalPage from './pages/LegalPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 
@@ -51,6 +52,9 @@ function Layout() {
           <Route path="/careers/:slug" element={<JobDetailPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:id" element={<InsightDetailPage />} />
+          <Route path="/privacy" element={<LegalPage />} />
+          <Route path="/terms" element={<LegalPage />} />
+          <Route path="/cookies" element={<LegalPage />} />
         </Routes>
       </main>
       <Footer />

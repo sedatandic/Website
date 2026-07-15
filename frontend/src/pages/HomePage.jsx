@@ -111,10 +111,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-7xl mx-auto text-center">
-                <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight whitespace-pre-line">
+                <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line">
                   <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
-                <p className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
+                <p className="mt-6 text-sm sm:text-base text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8A1538', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
@@ -142,7 +142,7 @@ export default function HomePage() {
           2. STATS
       ══════════════════════════════════════════════════ */}
       <section style={{ background: '#fdf2f5', borderBottom: '1px solid #f3d6df' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((s, i) => (
               <div key={s.label} className="text-center">
