@@ -30,12 +30,11 @@ const keyFacts = [
   { value: '7 Offices', label: 'Staff in', sub: '6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
 
-const WEST_BAY_SKYLINE = 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000';
 const sideImages = {
-  'who-we-are': { url: WEST_BAY_SKYLINE },
-  'strengths': { url: WEST_BAY_SKYLINE },
-  'key-facts': { url: WEST_BAY_SKYLINE },
-  'memberships': { url: WEST_BAY_SKYLINE },
+  'who-we-are': 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'strengths': 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'key-facts': 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'memberships': 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
 };
 
 export default function AboutPage() {
@@ -180,14 +179,9 @@ export default function AboutPage() {
 
             {/* Right - related imagery */}
             <FadeIn delay={0.15} className="lg:col-span-2">
-              {(() => {
-                const img = sideImages[activeTab] || sideImages['who-we-are'];
-                return (
-                  <div className="rounded-xl overflow-hidden shadow-sm border h-full w-full" style={{ borderColor: '#e5e7eb', minHeight: '260px' }}>
-                    <img src={img.url} alt="Doha West Bay skyline" className="w-full h-full object-cover" />
-                  </div>
-                );
-              })()}
+              <div className="rounded-xl overflow-hidden shadow-sm border w-full" style={{ borderColor: '#e5e7eb', height: 'calc(100% - 8px)', marginTop: '8px', minHeight: '260px' }}>
+                <img src={sideImages[activeTab] || sideImages['who-we-are']} alt="Doha, Qatar" className="w-full h-full object-cover" />
+              </div>
             </FadeIn>
           </div>
         </div>
