@@ -157,32 +157,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          5. DIFFERENTIATORS
-      ══════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: '#fff' }} data-testid="differentiators-section">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#0b1220' }}>What Sets Us Apart</h2>
-            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8A1538' }} />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {differentiators.map((d, i) => {
-              const Icon = d.icon;
-              return (
-                <div key={d.title} className="group rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: '#e5e7eb' }} data-testid={`diff-card-${i}`}>
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#8A1538]" style={{ background: '#f3f4f6' }}>
-                    <Icon className="w-5 h-5 transition-colors duration-300 group-hover:text-white" style={{ color: '#8A1538' }} />
-                  </div>
-                  <h3 className="font-bold text-sm mb-2" style={{ color: '#0b1220' }}>{d.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>{d.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
           7. CTA
       ══════════════════════════════════════════════════ */}
       <section className="py-16" style={{ background: '#8A1538' }}>
