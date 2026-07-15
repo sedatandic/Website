@@ -56,13 +56,24 @@ const INBOX = {
 };
 
 const isoToDateInput = (v) => (v ? String(v).slice(0, 10) : '');
+const isoToDMY = (v) => {
+  const iso = v ? String(v).slice(0, 10) : '';
+  const parts = iso.split('-');
+  if (parts.length !== 3 || !parts[0]) return '';
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+};
+const dmyToISO = (s) => {
+  const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec((s || '').trim());
+  if (!m) return '';
+  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+};
 
 function toFormValues(key, item) {
   const cfg = RESOURCES[key];
   const vals = {};
   cfg.fields.forEach((f) => {
     let v = item ? item[f.name] : '';
-    if (f.type === 'date') v = isoToDateInput(v);
+    if (f.type === 'date') v = isoToDMY(v);
     else if (f.type === 'list') v = Array.isArray(v) ? v.join('\n') : (v || '');
     else v = v ?? '';
     vals[f.name] = v;
@@ -76,6 +87,8 @@ function fromFormValues(key, vals) {
   cfg.fields.forEach((f) => {
     if (f.type === 'list') {
       body[f.name] = (vals[f.name] || '').split('\n').map((s) => s.trim()).filter(Boolean);
+    } else if (f.type === 'date') {
+      body[f.name] = dmyToISO(vals[f.name]);
     } else {
       body[f.name] = vals[f.name];
     }
@@ -225,7 +238,7 @@ export default function AdminDashboard() {
                 {rows.map((item) => (
                   <TableRow key={item.id} data-testid={`admin-row-${item.id}`}>
                     {isResource && RESOURCES[active].columns.map((c) => (
-                      <TableCell key={c} className="max-w-xs truncate">{c.includes('date') || c.includes('_at') ? isoToDateInput(item[c]) : String(item[c] ?? '')}</TableCell>
+                      <TableCell key={c} className="max-w-xs truncate">{c.includes('date') || c.includes('_at') ? isoToDMY(item[c]) : String(item[c] ?? '')}</TableCell>
                     ))}
                     {active === 'contacts' && (<>
                       <TableCell>{item.name}</TableCell><TableCell>{item.email}</TableCell>
@@ -270,8 +283,10 @@ export default function AdminDashboard() {
                 <Label className="text-sm font-medium" style={{ color: '#374151' }}>{f.label || f.name}</Label>
                 {f.type === 'textarea' || f.type === 'list' ? (
                   <Textarea rows={f.rows || 3} value={formVals[f.name] || ''} onChange={(e) => setFormVals({ ...formVals, [f.name]: e.target.value })} className="mt-1 rounded-lg" data-testid={`admin-field-${f.name}`} />
+                ) : f.type === 'date' ? (
+                  <Input type="text" inputMode="numeric" placeholder="DD/MM/YYYY" value={formVals[f.name] || ''} onChange={(e) => setFormVals({ ...formVals, [f.name]: e.target.value })} className="mt-1 rounded-lg" data-testid={`admin-field-${f.name}`} />
                 ) : (
-                  <Input type={f.type === 'date' ? 'date' : 'text'} value={formVals[f.name] || ''} onChange={(e) => setFormVals({ ...formVals, [f.name]: e.target.value })} className="mt-1 rounded-lg" data-testid={`admin-field-${f.name}`} />
+                  <Input type="text" value={formVals[f.name] || ''} onChange={(e) => setFormVals({ ...formVals, [f.name]: e.target.value })} className="mt-1 rounded-lg" data-testid={`admin-field-${f.name}`} />
                 )}
               </div>
             ))}

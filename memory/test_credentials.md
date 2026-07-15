@@ -2,7 +2,7 @@
 
 ## Admin Panel (JWT auth)
 - URL: `<frontend>/admin/login`
-- Email: `admin@peninsulaagritrade.com`
+- Email: `admin@peninsula.com.qa`
 - Password: `Peninsula@2026`
 - Role: admin
 
@@ -18,8 +18,9 @@ Token returned by `POST /api/auth/login` is stored in localStorage key `pa_admin
 - PUT/DELETE `/api/admin/{coll}/{id}`
 - GET `/api/admin/inbox/{contacts|inquiries|applications}`
 - GET `/api/admin/applications/{id}/resume` (downloads resume from object storage)
+- GET `/api/admin/inquiries/{id}/resume` (downloads career-inquiry resume)
 
 ## Notes
 - Public site has no auth.
 - Spam protection: honeypot field `website` on contact/inquiry/apply forms + per-IP rate limit (8 req / 10 min).
-- Resume uploads stored via Emergent object storage; metadata in `job_applications` collection.
+- Resume uploads stored via Emergent object storage; metadata in `job_applications` and `career_inquiries` collections.
