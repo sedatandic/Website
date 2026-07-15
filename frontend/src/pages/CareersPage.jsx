@@ -117,8 +117,8 @@ export default function CareersPage() {
                 <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Open Positions</h2>
               </FadeIn>
               {loading ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[1, 2, 3, 4, 5, 6].map(i => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[1, 2, 3, 4].map(i => (
                     <div key={i} className="rounded-xl border p-5 animate-pulse bg-white" style={{ borderColor: '#e5e7eb' }}>
                       <div className="h-5 rounded w-2/3 mb-3 bg-gray-100" />
                       <div className="h-4 rounded w-full bg-gray-100" />
@@ -126,8 +126,8 @@ export default function CareersPage() {
                   ))}
                 </div>
               ) : (
-                <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {jobs.slice(0, 6).map((job) => (
+                <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {jobs.slice(0, 4).map((job) => (
                     <FadeInItem key={job.id} className="h-full">
                       <Link to={`/careers/${job.slug || job.id}`} className="block h-full">
                         <Card
