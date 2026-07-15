@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: '150px' }}>
+      <section className="relative" style={{ height: '280px' }}>
         <img
           src="https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
           alt="Doha West Bay skyline, Qatar"
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Section with 3 columns: Address | Map | Form */}
-      <section className="py-6" style={{ background: 'var(--ga-surface)' }}>
+      <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left - Company Info */}
@@ -111,7 +111,7 @@ export default function ContactPage() {
 
             {/* Middle - Tornado Tower photo (top) + Map (below) */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '240px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '320px' }}>
                 <img
                   src="https://customer-assets.emergentagent.com/job_1c2ecdee-46b4-4501-824e-998904d91028/artifacts/h7yif8lc_image.png"
                   alt="Tornado Tower"
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 <span className="absolute bottom-2 left-3 z-10 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower</span>
                 <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.75), rgba(15,23,42,0))' }} />
               </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-1" style={{ borderColor: '#e5e7eb', height: '190px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-4" style={{ borderColor: '#e5e7eb', height: '300px' }}>
                 <iframe
                   title="Tornado Tower, West Bay, Doha"
                   src="https://maps.google.com/maps?width=100%25&amp;height=190&amp;hl=en&amp;q=Tornado%20Tower,%20Majlis%20Al%20Taawon%20Street,%20West%20Bay,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
@@ -152,8 +152,8 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="bg-white rounded-xl border px-6 lg:px-8 pt-5 pb-3 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
-                  <form onSubmit={handleSubmit} className="space-y-4 flex flex-col flex-1">
+                <div className="bg-white rounded-xl border p-6 lg:p-8 h-full flex flex-col" style={{ borderColor: '#e5e7eb' }}>
+                  <form onSubmit={handleSubmit} className="space-y-5 flex flex-col flex-1">
                     <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="contact-honeypot" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                         value={form.message}
                         onChange={e => setForm({ ...form, message: e.target.value })}
                         className="mt-1 rounded-lg bg-white flex-1 resize-none"
-                        style={{ minHeight: '90px' }}
+                        style={{ minHeight: '160px' }}
                         placeholder="Tell us about your requirements..."
                         data-testid="contact-form-message"
                       />
