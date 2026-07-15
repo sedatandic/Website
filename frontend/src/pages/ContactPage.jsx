@@ -34,6 +34,18 @@ export default function ContactPage() {
 
   return (
     <div>
+      {/* Hero */}
+      <section className="relative" style={{ height: '140px' }}>
+        <img
+          src="https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
+          alt="Doha West Bay skyline, Qatar"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55))' }} />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">Contact Us</h1>
+        </div>
+      </section>
 
       {/* Breadcrumb */}
       <div className="bg-white border-b" style={{ borderColor: '#e5e7eb' }}>
