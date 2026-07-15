@@ -109,16 +109,16 @@ export default function CareersPage() {
       {/* Open Positions + General Inquiry */}
       <section className="py-10" style={{ background: '#f9fafb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
 
-            {/* Left: Open Positions — 4 summary cards */}
-            <div>
+            {/* Left: Open Positions — 6 summary cards, 3 per row */}
+            <div className="lg:col-span-2">
               <FadeIn>
                 <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Open Positions</h2>
               </FadeIn>
               {loading ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map(i => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[1, 2, 3, 4, 5, 6].map(i => (
                     <div key={i} className="rounded-xl border p-5 animate-pulse bg-white" style={{ borderColor: '#e5e7eb' }}>
                       <div className="h-5 rounded w-2/3 mb-3 bg-gray-100" />
                       <div className="h-4 rounded w-full bg-gray-100" />
@@ -126,8 +126,8 @@ export default function CareersPage() {
                   ))}
                 </div>
               ) : (
-                <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {jobs.slice(0, 4).map((job) => (
+                <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {jobs.slice(0, 6).map((job) => (
                     <FadeInItem key={job.id} className="h-full">
                       <Link to={`/careers/${job.slug || job.id}`} className="block h-full">
                         <Card
@@ -161,8 +161,9 @@ export default function CareersPage() {
             </div>
 
             {/* Right: General Inquiry */}
-            <FadeIn className="lg:mt-[3.25rem]">
-              <div className="rounded-xl border bg-white p-4 sm:p-5" style={{ borderColor: '#e5e7eb' }}>
+            <FadeIn className="lg:col-span-1 h-full flex flex-col">
+              <h2 className="text-2xl font-semibold mb-6 invisible" aria-hidden="true">.</h2>
+              <div className="rounded-xl border bg-white p-4 sm:p-5 flex-1" style={{ borderColor: '#e5e7eb' }}>
                 <h2 className="text-xl font-semibold mb-1" style={{ color: '#1f2937' }}>General Inquiry</h2>
                 <p className="text-xs leading-relaxed mb-3" style={{ color: '#4b5563' }}>
                   Don't see a matching role? Send us a message and we'll keep your details on file.
