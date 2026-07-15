@@ -11,7 +11,7 @@ const slides = [
   {
     image: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     action: 'Connecting',
-    headline: 'Qatar to the global\nagricultural value chain.',
+    headline: 'Qatar to the global agricultural value chain\nand supporting long-term national food security goals.',
     subtext: "Qatar's first fully integrated agri-supply chain manager and global trading platform,\nlinking producers and consumers worldwide.",
   },
   {
