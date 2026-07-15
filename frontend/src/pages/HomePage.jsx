@@ -107,7 +107,7 @@ export default function HomePage() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="relative z-10 h-full flex items-center justify-center">
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-7xl mx-auto text-center">
