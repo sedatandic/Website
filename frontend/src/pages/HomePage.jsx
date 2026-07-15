@@ -30,12 +30,12 @@ const slides = [
 
 /* ─── Stats ─── */
 const stats = [
-  { value: 250, suffix: 'M+', prefix: '', unit: 'USD', mid: 'Worth of', label: 'Annual Turnover', icon: CircleDollarSign },
-  { value: 500, suffix: 'K+', prefix: '', unit: 'MTS', mid: 'MTS', label: 'Annual Trade Volume', icon: Boxes },
-  { value: 200, suffix: '+', prefix: '', unit: 'VESSELS', mid: 'Vessels', label: 'Chartered Annually', icon: Ship },
-  { value: 25, suffix: '+', prefix: '', unit: 'COMMODITIES', mid: 'Different', label: 'Commodities Traded', icon: Sprout },
-  { value: 25, suffix: '+', prefix: '', unit: 'MARKETS', mid: 'Different', label: 'Countries Served', icon: Globe },
-  { text: '7 Offices', mid: 'Staff in', label: '6 Different Countries', icon: Building2 },
+  { value: 250, suffix: 'M+', prefix: '', unit: 'USD', label: 'Annual Turnover', icon: CircleDollarSign },
+  { value: 500, suffix: 'K+', prefix: '', unit: 'MTS', label: 'Annual Trade Volume', icon: Boxes },
+  { value: 200, suffix: '+', prefix: '', unit: 'VESSELS', label: 'Chartered Annually', icon: Ship },
+  { value: 25, suffix: '+', prefix: '', unit: 'COMMODITIES', label: 'Traded Globally', icon: Sprout },
+  { value: 25, suffix: '+', prefix: '', unit: 'DESTINATION', label: 'Countries Served', icon: Globe },
+  { text: '4 Offices & Staff', label: 'in 3 Different Countries', icon: Building2 },
 ];
 
 function AnimatedCounter({ value, suffix, prefix, duration = 2 }) {
@@ -155,8 +155,7 @@ export default function HomePage() {
                   <div className="text-2xl sm:text-3xl font-bold tracking-tight leading-none" style={{ color: '#8A1538' }}>
                     {s.text ? s.text : <><AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} /><span className="text-sm sm:text-base font-semibold ml-1 align-baseline">{s.unit}</span></>}
                   </div>
-                  <div className="mt-1 text-[11px] leading-tight font-medium" style={{ color: '#9ca3af' }}>{s.mid}</div>
-                  <div className="text-[11px] leading-tight font-semibold tracking-wide uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
+                  <div className="mt-1 text-[11px] leading-tight font-semibold tracking-wide uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
                 </div>
               </div>
               );
