@@ -104,7 +104,7 @@ export default function HomePage() {
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.72) 0%, rgba(11,18,32,0.5) 50%, rgba(11,18,32,0.68) 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.55) 0%, rgba(11,18,32,0.35) 50%, rgba(11,18,32,0.5) 100%)' }} />
           </motion.div>
         </AnimatePresence>
 
