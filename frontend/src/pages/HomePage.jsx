@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { ArrowRight, Ship, BarChart3, Globe, Wheat, Shield, ChevronRight, TrendingUp, Briefcase, MapPin, Building2 } from 'lucide-react';
+import { ArrowRight, Ship, BarChart3, Globe, Wheat, Shield, ChevronRight, CircleDollarSign, Boxes, Sprout, Building2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { getProfileDownloadUrl } from '../lib/api';
@@ -30,11 +30,11 @@ const slides = [
 
 /* ─── Stats ─── */
 const stats = [
-  { value: 250, suffix: 'M+', prefix: '$', mid: 'Worth of', label: 'Annual Turnover', icon: Briefcase },
-  { value: 500, suffix: 'K+', prefix: '', mid: 'MTS', label: 'Annual Trade Volume', icon: Globe },
+  { value: 250, suffix: 'M+', prefix: '$', mid: 'Worth of', label: 'Annual Turnover', icon: CircleDollarSign },
+  { value: 500, suffix: 'K+', prefix: '', mid: 'MTS', label: 'Annual Trade Volume', icon: Boxes },
   { value: 200, suffix: '+', prefix: '', mid: 'Vessels', label: 'Chartered Annually', icon: Ship },
-  { value: 25, suffix: '+', prefix: '', mid: 'Different', label: 'Commodities Traded', icon: Wheat },
-  { value: 25, suffix: '+', prefix: '', mid: 'Different', label: 'Countries Served', icon: MapPin },
+  { value: 25, suffix: '+', prefix: '', mid: 'Different', label: 'Commodities Traded', icon: Sprout },
+  { value: 25, suffix: '+', prefix: '', mid: 'Different', label: 'Countries Served', icon: Globe },
   { text: '7 Offices', mid: 'Staff in', label: '6 Different Countries', icon: Building2 },
 ];
 
@@ -144,13 +144,13 @@ export default function HomePage() {
           2. STATS
       ══════════════════════════════════════════════════ */}
       <section style={{ background: '#fdf2f5', borderBottom: '1px solid #f3d6df' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-5">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
             {stats.map((s, i) => {
               const Icon = s.icon;
               return (
-              <div key={s.label} className="flex items-center justify-center gap-2.5">
-                <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" strokeWidth={1.5} style={{ color: '#8A1538' }} data-testid={`stat-icon-${i}`} />
+              <div key={s.label} className="flex items-center justify-center gap-3 px-3 py-2 lg:border-l lg:first:border-l-0" style={{ borderColor: '#f0cdd8' }}>
+                <Icon className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" strokeWidth={1.5} style={{ color: '#8A1538' }} data-testid={`stat-icon-${i}`} />
                 <div className="text-left">
                   <div className="text-2xl sm:text-3xl font-bold tracking-tight leading-none" style={{ color: '#8A1538' }}>
                     {s.text ? s.text : <AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} />}
