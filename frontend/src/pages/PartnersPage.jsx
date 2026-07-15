@@ -54,7 +54,7 @@ export default function PartnersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-stretch">
             {/* Left - text */}
-            <FadeIn className="lg:col-span-2 flex flex-col justify-center">
+            <FadeIn className="lg:col-span-2">
               <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Our Partners</h2>
               <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
                 <p>Peninsula Agritrade LLC is a reliable partner in the international agri-commodity arena. Our team brings extensive expertise across physical trading, trade finance, shipping, and execution — ensuring tailored, professional service for every counterparty.</p>
