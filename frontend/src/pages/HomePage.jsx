@@ -16,9 +16,9 @@ const slides = [
   },
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    action: 'Delivers',
-    headline: 'with discipline, integrity\nand daily execution.',
-    subtext: 'Over 25 years of international trading experience across Dubai, Singapore, Geneva\nand Istanbul. We deliver what we promised — at the agreed price, quality and time.',
+    action: 'Grounded',
+    headline: 'in discipline, integrity,\nand operational excellence.',
+    subtext: 'Supported by a team with 25+ years of global trading experience, we execute every commitment\nwith precision — price, quality, and timing delivered as promised.',
   },
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
