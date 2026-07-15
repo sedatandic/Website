@@ -164,8 +164,8 @@ export default function AboutPage() {
                   <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6">
                       {m.logo ? (
-                        <div className="h-16 flex items-center justify-center mb-4">
-                          <img src={m.logo} alt={m.name} className="max-h-16 max-w-[140px] object-contain" data-testid={`membership-logo-${m.name}`} />
+                        <div className="h-32 flex items-center justify-center mb-4">
+                          <img src={m.logo} alt={m.name} className="max-h-32 max-w-[280px] object-contain" data-testid={`membership-logo-${m.name}`} />
                         </div>
                       ) : (
                         <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
