@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Landmark, Anchor, Building2, ClipboardCheck, Ship, Container, ShieldCheck, Banknote } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { FadeIn, FadeInStagger, FadeInItem } from '../components/FadeIn';
 import { getPartners } from '../lib/api';
+
+const partnerCategories = [
+  { name: 'Government Institutions', icon: Landmark },
+  { name: 'Port & Customs Authorities', icon: Anchor },
+  { name: 'Business Chambers', icon: Building2 },
+  { name: 'Independent Surveyors', icon: ClipboardCheck },
+  { name: 'Ship Owners', icon: Ship },
+  { name: 'Shipping Lines', icon: Container },
+  { name: 'Cargo Insurers', icon: ShieldCheck },
+  { name: 'Trade Finance Partners', icon: Banknote },
+];
 
 export default function PartnersPage() {
   const [partners, setPartners] = useState([]);
@@ -40,26 +51,36 @@ export default function PartnersPage() {
 
       {/* Content */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Our Partners</h2>
-            <p className="text-sm sm:text-base leading-relaxed mb-10" style={{ color: '#4b5563' }}>
-              Peninsula Agritrade LLC is the reliable partner in international agri-commodity venue. A vast experienced team of physical trading, trade-finance, shipping & execution professionals to make sure custom-made service to our trade partners — Government Institutions, Port & Custom Authorities, Business Chambers, Independent Surveyors, Ship Owners, Shipping Lines, Cargo Insurers and our Trade Finance Partners.
-            </p>
-          </FadeIn>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+            {/* Left - text */}
+            <FadeIn className="lg:col-span-2">
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>Our Partners</h2>
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                <p>Peninsula Agritrade LLC is a reliable partner in the international agri-commodity arena. Our team brings extensive expertise across physical trading, trade finance, shipping, and execution — ensuring tailored, professional service for every counterparty.</p>
+                <p>We work closely with government institutions, port and customs authorities, business chambers, independent surveyors, ship owners, shipping lines, cargo insurers, and trade-finance partners, delivering seamless coordination across the entire supply chain.</p>
+              </div>
+            </FadeIn>
 
-          <FadeInStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {partners.map((partner) => (
-              <FadeInItem key={partner.id}>
-                <Card className="border text-center h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
-                  <CardContent className="p-6 flex flex-col items-center justify-center" style={{ minHeight: '140px' }}>
-                    <div className="text-lg font-bold mb-1" style={{ color: '#1f2937' }}>{partner.name}</div>
-                    <div className="text-xs" style={{ color: '#9ca3af' }}>{partner.category}</div>
-                  </CardContent>
-                </Card>
-              </FadeInItem>
-            ))}
-          </FadeInStagger>
+            {/* Right - partner categories (4 per row) */}
+            <FadeIn delay={0.15} className="lg:col-span-3 lg:mt-14">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {partnerCategories.map((c) => {
+                  const Icon = c.icon;
+                  return (
+                    <Card key={c.name} className="border h-full bg-white transition-shadow hover:shadow-md" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }} data-testid={`partner-tile-${c.name}`}>
+                      <CardContent className="p-5 flex flex-col items-center justify-center text-center" style={{ minHeight: '140px' }}>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
+                          <Icon className="w-6 h-6" style={{ color: '#8A1538' }} strokeWidth={1.6} />
+                        </div>
+                        <span className="text-sm font-semibold leading-tight" style={{ color: '#1f2937' }}>{c.name}</span>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
     </div>
