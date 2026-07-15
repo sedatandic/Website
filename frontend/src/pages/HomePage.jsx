@@ -4,7 +4,6 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, Ship, BarChart3, Globe, Wheat, Shield, ChevronRight, CircleDollarSign, Boxes, Sprout, Building2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { getProfileDownloadUrl } from '../lib/api';
 
 /* ─── Hero Slides ─── */
 const slides = [
@@ -120,9 +119,6 @@ export default function HomePage() {
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8A1538', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full px-8 font-medium border-white/20 text-white hover:bg-white/10 hover:text-white" data-testid="pdf-download-company-profile">
-                    <a href={getProfileDownloadUrl()} target="_blank" rel="noopener noreferrer">Company Profile</a>
                   </Button>
                 </div>
               </motion.div>
