@@ -38,7 +38,7 @@ function Layout() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: 'var(--ga-bg)' }}>
       <Header />
-      <main className="flex-1">
+      <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
