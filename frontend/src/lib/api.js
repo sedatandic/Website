@@ -28,7 +28,7 @@ export const applyJobForm = (formData) =>
 export const submitContact = (data) => api.post('/api/contact', data);
 
 // Career inquiry
-export const submitCareerInquiry = (data) => api.post('/api/careers/inquiry', data);
+export const submitCareerInquiry = (formData) => api.post('/api/careers/inquiry', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
 
 // Download
 export const getProfileDownloadUrl = () => `${API_BASE}/api/download/profile`;

@@ -286,13 +286,43 @@ async def apply_job(
 
 # ── Career Inquiry ──
 @app.post("/api/careers/inquiry")
-async def submit_career_inquiry(data: CareerInquiry, request: Request):
+async def submit_career_inquiry(
+    request: Request,
+    name: str = Form(...),
+    email: str = Form(...),
+    message: str = Form(...),
+    website: str = Form(""),  # honeypot
+    resume: Optional[UploadFile] = File(None),
+):
     check_rate_limit(request.client.host if request.client else "unknown")
-    if data.website:
+    if website:
         return {"success": True}
-    doc = data.model_dump()
-    doc.pop("website", None)
-    doc["created_at"] = datetime.datetime.now(datetime.timezone.utc)
+    if not name.strip() or not email.strip() or not message.strip():
+        raise HTTPException(status_code=422, detail="Name, email and message are required")
+
+    doc = {
+        "name": name,
+        "email": email,
+        "message": message,
+        "created_at": datetime.datetime.now(datetime.timezone.utc),
+    }
+
+    if resume is not None and resume.filename:
+        ext = resume.filename.rsplit(".", 1)[-1].lower() if "." in resume.filename else ""
+        if ext not in ALLOWED_RESUME_EXT:
+            raise HTTPException(status_code=422, detail="Resume must be a PDF, DOC, or DOCX file")
+        data = await resume.read()
+        if len(data) > MAX_RESUME_BYTES:
+            raise HTTPException(status_code=422, detail="Resume must be under 10MB")
+        path = f"{storage.APP_NAME}/resumes/{uuid.uuid4()}.{ext}"
+        try:
+            result = storage.put_object(path, data, resume.content_type or "application/octet-stream")
+            doc["resume_path"] = result["path"]
+            doc["resume_filename"] = resume.filename
+            doc["resume_content_type"] = resume.content_type or "application/octet-stream"
+        except Exception as e:
+            raise HTTPException(status_code=502, detail=f"Failed to store resume: {e}")
+
     result = db.career_inquiries.insert_one(doc)
     return {"success": True, "id": str(result.inserted_id)}
 
@@ -395,7 +425,29 @@ async def admin_contacts(admin: dict = Depends(get_current_admin)):
 
 @app.get("/api/admin/inbox/inquiries")
 async def admin_inquiries(admin: dict = Depends(get_current_admin)):
-    return [serialize_doc(c) for c in db.career_inquiries.find().sort("created_at", -1)]
+    out = []
+    for c in db.career_inquiries.find().sort("created_at", -1):
+        c = serialize_doc(c)
+        c["has_resume"] = bool(c.get("resume_path"))
+        out.append(c)
+    return out
+
+
+@app.get("/api/admin/inquiries/{item_id}/resume")
+async def admin_download_inquiry_resume(item_id: str, admin: dict = Depends(get_current_admin)):
+    rec = db.career_inquiries.find_one({"_id": ObjectId(item_id)})
+    if not rec or not rec.get("resume_path"):
+        raise HTTPException(status_code=404, detail="Resume not found")
+    try:
+        data, content_type = storage.get_object(rec["resume_path"])
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Failed to fetch resume: {e}")
+    filename = rec.get("resume_filename", "resume")
+    return Response(
+        content=data,
+        media_type=rec.get("resume_content_type", content_type),
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
 
 
 @app.get("/api/admin/inbox/applications")

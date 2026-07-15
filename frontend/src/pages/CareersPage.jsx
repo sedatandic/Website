@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Briefcase, Clock, Send, ChevronRight } from 'lucide-react';
+import { ArrowRight, MapPin, Briefcase, Clock, Send, ChevronRight, Paperclip } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -15,6 +15,7 @@ export default function CareersPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [inquiryForm, setInquiryForm] = useState({ name: '', email: '', message: '', website: '' });
+  const [resumeFile, setResumeFile] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -24,6 +25,23 @@ export default function CareersPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const handleResumeChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) { setResumeFile(null); return; }
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['pdf', 'doc', 'docx'].includes(ext)) {
+      toast.error('Resume must be a PDF, DOC, or DOCX file');
+      e.target.value = '';
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error('Resume must be under 10MB');
+      e.target.value = '';
+      return;
+    }
+    setResumeFile(file);
+  };
+
   const handleInquiry = async (e) => {
     e.preventDefault();
     if (!inquiryForm.name || !inquiryForm.email || !inquiryForm.message) {
@@ -32,9 +50,16 @@ export default function CareersPage() {
     }
     setSubmitting(true);
     try {
-      await submitCareerInquiry(inquiryForm);
+      const fd = new FormData();
+      fd.append('name', inquiryForm.name);
+      fd.append('email', inquiryForm.email);
+      fd.append('message', inquiryForm.message);
+      fd.append('website', inquiryForm.website);
+      if (resumeFile) fd.append('resume', resumeFile);
+      await submitCareerInquiry(fd);
       toast.success('Inquiry submitted successfully!');
       setInquiryForm({ name: '', email: '', message: '', website: '' });
+      setResumeFile(null);
     } catch (err) {
       toast.error('Failed to submit inquiry.');
     } finally {
@@ -155,6 +180,16 @@ export default function CareersPage() {
               <div>
                 <Label htmlFor="inq-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
                 <Textarea id="inq-message" rows={4} value={inquiryForm.message} onChange={e => setInquiryForm({ ...inquiryForm, message: e.target.value })} className="mt-1 rounded-lg bg-white" data-testid="career-inquiry-message" />
+              </div>
+              <div>
+                <Label htmlFor="inq-resume" className="text-sm font-medium" style={{ color: '#374151' }}>CV / Resume <span className="text-xs font-normal" style={{ color: '#9ca3af' }}>(PDF, DOC, DOCX — optional)</span></Label>
+                <label htmlFor="inq-resume" className="mt-1 flex items-center gap-3 rounded-lg border border-dashed px-4 py-3 cursor-pointer bg-white hover:bg-gray-50 transition-colors" style={{ borderColor: '#d1d5db' }} data-testid="career-inquiry-resume-label">
+                  <Paperclip className="w-4 h-4 flex-shrink-0" style={{ color: '#8A1538' }} />
+                  <span className="text-sm truncate" style={{ color: resumeFile ? '#1f2937' : '#9ca3af' }}>
+                    {resumeFile ? resumeFile.name : 'Attach your CV or resume'}
+                  </span>
+                </label>
+                <input id="inq-resume" type="file" accept=".pdf,.doc,.docx" onChange={handleResumeChange} className="hidden" data-testid="career-inquiry-resume" />
               </div>
               <Button type="submit" disabled={submitting} className="rounded-full px-6" style={{ background: '#8A1538', color: 'white' }} data-testid="career-inquiry-submit">
                 <Send className="w-4 h-4 mr-2" />
