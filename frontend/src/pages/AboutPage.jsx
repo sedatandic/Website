@@ -172,8 +172,12 @@ export default function AboutPage() {
                           <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />
                         </div>
                       )}
-                      <div className="font-bold text-base" style={{ color: '#1f2937' }}>{m.name}</div>
-                      <div className="text-xs mt-1" style={{ color: '#6b7280' }}>{m.full_name}</div>
+                      {!m.logo && (
+                        <>
+                          <div className="font-bold text-base" style={{ color: '#1f2937' }}>{m.name}</div>
+                          <div className="text-xs mt-1" style={{ color: '#6b7280' }}>{m.full_name}</div>
+                        </>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
