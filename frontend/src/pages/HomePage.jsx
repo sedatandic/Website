@@ -23,7 +23,7 @@ const slides = [
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Partnerships',
-    headline: "built on trust, long-term alignment, and Qatar's Food Security Vision 2030.",
+    headline: "built on trust, long-term alignment,\nand Qatar's Food Security Vision 2030.",
     subtext: 'From inland grain origins to major global port terminals, we cultivate relationships that reinforce\nnational food resilience and support sustainable international supply chains.',
   },
 ];
@@ -110,8 +110,8 @@ export default function HomePage() {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
-              <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-5xl mx-auto text-center">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.12] tracking-tight whitespace-pre-line">
+              <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="max-w-7xl mx-auto text-center">
+                <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white leading-[1.12] tracking-tight whitespace-pre-line">
                   <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-4xl mx-auto whitespace-pre-line">{slides[currentSlide].subtext}</p>
