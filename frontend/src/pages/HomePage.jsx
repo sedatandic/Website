@@ -22,9 +22,9 @@ const slides = [
   },
   {
     image: 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    action: 'Grows',
-    headline: 'partnerships rooted in trust\nand long-term vision.',
-    subtext: 'From grain silos in the heartlands to port terminals worldwide,\nwe build lasting relationships that nourish communities and support food security.',
+    action: 'Partnerships',
+    headline: "built on trust, long-term alignment, and Qatar's Food Security Vision 2030.",
+    subtext: 'From inland grain origins to major global port terminals, we cultivate relationships that reinforce\nnational food resilience and support sustainable international supply chains.',
   },
 ];
 
