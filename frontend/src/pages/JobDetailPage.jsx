@@ -68,7 +68,7 @@ export default function JobDetailPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: '280px' }}>
+      <section className="relative" style={{ height: '140px' }}>
         <img src="https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1260" alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55))' }} />
         <div className="absolute inset-0 flex items-center justify-center">

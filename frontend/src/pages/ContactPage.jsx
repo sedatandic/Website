@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: '280px' }}>
+      <section className="relative" style={{ height: '140px' }}>
         <img
           src="https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
           alt="Doha West Bay skyline, Qatar"

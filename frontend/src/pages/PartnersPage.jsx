@@ -26,7 +26,7 @@ export default function PartnersPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: '280px' }}>
+      <section className="relative" style={{ height: '140px' }}>
         <img
           src="https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1260"
           alt=""
