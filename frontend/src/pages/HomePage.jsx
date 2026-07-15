@@ -81,7 +81,7 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 4000);
+    const timer = setInterval(nextSlide, 5500);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
