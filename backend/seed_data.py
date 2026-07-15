@@ -227,6 +227,7 @@ def seed_database(db):
             {"name": "GPC", "full_name": "Global Pulse Confederation", "logo": "/memberships/gpc.png"},
             {"name": "FOSFA International", "full_name": "Federation of Oils, Seeds and Fats Associations", "logo": "/memberships/fosfa.png"},
             {"name": "Qatar Chamber", "full_name": "Qatar Chamber of Commerce and Industry", "logo": "/memberships/qatar-chamber.jpg"},
+            {"name": "US-Qatar Business Council", "full_name": "US-Qatar Business Council, Doha", "logo": "/memberships/usqbc.jpg"},
         ]
         db.memberships.insert_many(memberships)
         print("Seeded memberships collection")
