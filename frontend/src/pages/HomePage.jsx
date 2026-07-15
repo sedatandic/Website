@@ -145,12 +145,14 @@ export default function HomePage() {
             {stats.map((s, i) => {
               const Icon = s.icon;
               return (
-              <div key={s.label} className="flex flex-col items-center justify-center text-center gap-1 px-3 py-2 lg:border-l lg:first:border-l-0" style={{ borderColor: '#f0cdd8' }}>
-                <Icon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" strokeWidth={1.5} style={{ color: '#8A1538' }} data-testid={`stat-icon-${i}`} />
-                <div className="text-2xl sm:text-3xl font-bold tracking-tight leading-none" style={{ color: '#8A1538' }}>
-                  {s.text ? s.text : <><AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} /><span className="text-sm sm:text-base font-semibold ml-1 align-baseline">{s.unit}</span></>}
+              <div key={s.label} className="flex flex-row items-center justify-center gap-3 px-3 py-2 lg:border-l lg:first:border-l-0" style={{ borderColor: '#f0cdd8' }}>
+                <Icon className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" strokeWidth={1.5} style={{ color: '#8A1538' }} data-testid={`stat-icon-${i}`} />
+                <div className="flex flex-col items-center text-center gap-1">
+                  <div className="text-2xl sm:text-3xl font-bold tracking-tight leading-none" style={{ color: '#8A1538' }}>
+                    {s.text ? s.text : <><AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} /><span className="text-sm sm:text-base font-semibold ml-1 align-baseline">{s.unit}</span></>}
+                  </div>
+                  <div className="text-[11px] leading-tight font-semibold tracking-wide uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
                 </div>
-                <div className="text-[11px] leading-tight font-semibold tracking-wide uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
               </div>
               );
             })}
