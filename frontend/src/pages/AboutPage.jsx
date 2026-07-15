@@ -34,7 +34,7 @@ const sideImages = {
   'who-we-are': 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'strengths': 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'key-facts': 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
-  'memberships': 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'memberships': 'https://images.unsplash.com/photo-1696861270495-7f35c35c3273?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
 };
 
 export default function AboutPage() {
@@ -164,8 +164,8 @@ export default function AboutPage() {
                   <Card key={m.id} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6">
                       {m.logo ? (
-                        <div className="h-32 flex items-center justify-center mb-4">
-                          <img src={m.logo} alt={m.name} className="max-h-32 max-w-[280px] object-contain" data-testid={`membership-logo-${m.name}`} />
+                        <div className="h-28 flex items-center justify-center mb-4">
+                          <img src={m.logo} alt={m.name} className="max-h-24 w-full max-w-full object-contain px-2" data-testid={`membership-logo-${m.name}`} />
                         </div>
                       ) : (
                         <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
