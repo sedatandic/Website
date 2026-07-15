@@ -99,7 +99,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 120px)', minHeight: '520px' }} data-testid="hero-section">
+      <section className="relative w-full" style={{ height: 'calc(100vh - 270px)', minHeight: '400px' }} data-testid="hero-section">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
@@ -142,7 +142,7 @@ export default function HomePage() {
           2. STATS
       ══════════════════════════════════════════════════ */}
       <section style={{ background: '#fdf2f5', borderBottom: '1px solid #f3d6df' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((s, i) => (
               <div key={s.label} className="text-center">
