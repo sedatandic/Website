@@ -94,12 +94,12 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col flex-1">
 
       {/* ══════════════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 350px)', minHeight: '360px' }} data-testid="hero-section">
+      <section className="relative w-full flex-1" style={{ minHeight: '420px' }} data-testid="hero-section">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
