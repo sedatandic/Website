@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4 mt-auto">
+                <div className="space-y-4">
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
@@ -111,7 +111,7 @@ export default function ContactPage() {
 
             {/* Middle - Tornado Tower photo (top) + Map (below) */}
             <FadeIn delay={0.1} className="lg:col-span-4">
-              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '320px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border relative" style={{ borderColor: '#e5e7eb', height: '230px' }}>
                 <img
                   src="https://customer-assets.emergentagent.com/job_1c2ecdee-46b4-4501-824e-998904d91028/artifacts/h7yif8lc_image.png"
                   alt="Tornado Tower"
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 <span className="absolute bottom-2 left-3 z-10 text-xs font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>Tornado Tower</span>
                 <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.75), rgba(15,23,42,0))' }} />
               </div>
-              <div className="rounded-xl overflow-hidden shadow-sm border mt-4" style={{ borderColor: '#e5e7eb', height: '300px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border mt-4" style={{ borderColor: '#e5e7eb', height: '210px' }}>
                 <iframe
                   title="Tornado Tower, West Bay, Doha"
                   src="https://maps.google.com/maps?width=100%25&amp;height=190&amp;hl=en&amp;q=Tornado%20Tower,%20Majlis%20Al%20Taawon%20Street,%20West%20Bay,%20Doha+(Peninsula%20Agritrade%20LLC)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
@@ -189,14 +189,15 @@ export default function ContactPage() {
                         data-testid="contact-form-subject"
                       />
                     </div>
-                    <div className="flex flex-col flex-1">
+                    <div>
                       <Label htmlFor="c-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
                       <Textarea
                         id="c-message"
                         value={form.message}
                         onChange={e => setForm({ ...form, message: e.target.value })}
-                        className="mt-1 rounded-lg bg-white flex-1 resize-none"
-                        style={{ minHeight: '160px' }}
+                        className="mt-1 rounded-lg bg-white resize-none"
+                        rows={4}
+                        style={{ minHeight: '110px' }}
                         placeholder="Tell us about your requirements..."
                         data-testid="contact-form-message"
                       />
