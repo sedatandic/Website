@@ -34,7 +34,7 @@ const sideImages = {
   'who-we-are': 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'strengths': 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'key-facts': 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
-  'memberships': 'https://images.unsplash.com/photo-1696861270495-7f35c35c3273?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'memberships': 'https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
 };
 
 export default function AboutPage() {
