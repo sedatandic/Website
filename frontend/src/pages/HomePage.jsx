@@ -144,14 +144,20 @@ export default function HomePage() {
       <section style={{ background: '#fdf2f5', borderBottom: '1px solid #f3d6df' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((s, i) => (
-              <div key={s.label} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#8A1538' }}>
-                  <AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} />
+            {stats.map((s, i) => {
+              const Icon = s.icon;
+              return (
+              <div key={s.label} className="flex items-center justify-center gap-3">
+                <Icon className="w-8 h-8 sm:w-9 sm:h-9 shrink-0" strokeWidth={1.5} style={{ color: '#8A1538' }} data-testid={`stat-icon-${i}`} />
+                <div className="text-left">
+                  <div className="text-3xl sm:text-4xl font-bold tracking-tight" style={{ color: '#8A1538' }}>
+                    <AnimatedCounter value={s.value} suffix={s.suffix} prefix={s.prefix} />
+                  </div>
+                  <div className="mt-1.5 text-xs font-medium tracking-wider uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
                 </div>
-                <div className="mt-1.5 text-xs font-medium tracking-wider uppercase" style={{ color: '#6b7280' }}>{s.label}</div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
