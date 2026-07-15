@@ -157,35 +157,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          4. COMMODITIES
-      ══════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-24" style={{ background: '#f9fafb' }} data-testid="commodities-section">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: '#0b1220' }}>Our Commodities</h2>
-            <div className="mt-4 w-12 h-[3px] rounded-full mx-auto" style={{ background: '#8A1538' }} />
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {commodities.map((c, i) => (
-              <Link key={c.name} to={c.path} className="group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-testid={`commodity-card-${i}`}>
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={c.image} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-3.5 text-center">
-                  <span className="text-sm font-semibold" style={{ color: '#0b1220' }}>{c.name}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Button asChild className="rounded-full px-6 font-medium" style={{ background: '#8A1538', color: 'white' }}>
-              <Link to="/commodities/at-a-glance">View All Products <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
           5. DIFFERENTIATORS
       ══════════════════════════════════════════════════ */}
       <section className="py-20 lg:py-24" style={{ background: '#fff' }} data-testid="differentiators-section">
