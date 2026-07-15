@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Briefcase, Clock, Send, ChevronRight, Paperclip } from 'lucide-react';
+import { ArrowRight, MapPin, Briefcase, Clock, Send, ChevronRight, Paperclip, Globe, TrendingUp, Users, Award } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -90,24 +90,38 @@ export default function CareersPage() {
       </div>
 
       {/* Why Join */}
-      <section className="py-10" style={{ background: 'var(--ga-surface)' }}>
+      <section className="py-8" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Why Join Peninsula Agritrade?</h2>
-            <p className="text-sm sm:text-base leading-relaxed mb-6 max-w-3xl" style={{ color: '#4b5563' }}>
-              At Peninsula Agritrade LLC, you'll work in a fast-paced, entrepreneurial environment where your contributions directly impact the business. We offer global exposure, competitive compensation, and a collaborative culture.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Global exposure', 'Competitive compensation', 'Career growth', 'Collaborative culture'].map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs" style={{ background: '#f3f4f6', color: '#374151' }}>{tag}</Badge>
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div>
+                <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Why Join Peninsula Agritrade?</h2>
+                <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                  At Peninsula Agritrade LLC, you'll work in a fast-paced, entrepreneurial environment where your contributions directly impact the business. We offer global exposure, competitive compensation, and a collaborative culture.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Global exposure', icon: Globe },
+                  { label: 'Competitive compensation', icon: Award },
+                  { label: 'Career growth', icon: TrendingUp },
+                  { label: 'Collaborative culture', icon: Users },
+                ].map(({ label, icon: Icon }) => (
+                  <div key={label} className="rounded-xl border bg-white p-4 flex items-center gap-3" style={{ borderColor: '#e5e7eb' }} data-testid={`why-join-${label.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <span className="flex items-center justify-center w-10 h-10 rounded-lg flex-shrink-0" style={{ background: '#f7e9ee' }}>
+                      <Icon className="w-5 h-5" strokeWidth={1.75} style={{ color: '#8A1538' }} />
+                    </span>
+                    <span className="text-sm font-semibold" style={{ color: '#1f2937' }}>{label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
       {/* Open Positions + General Inquiry */}
-      <section className="py-10" style={{ background: '#f9fafb' }}>
+      <section className="pt-2 pb-10" style={{ background: '#f9fafb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
 
