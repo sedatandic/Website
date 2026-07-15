@@ -162,12 +162,12 @@ export default function CareersPage() {
 
             {/* Right: General Inquiry */}
             <FadeIn>
-              <div className="rounded-xl border bg-white p-6 sm:p-8" style={{ borderColor: '#e5e7eb' }}>
-                <h2 className="text-2xl font-semibold mb-3" style={{ color: '#1f2937' }}>General Inquiry</h2>
-                <p className="text-sm leading-relaxed mb-6" style={{ color: '#4b5563' }}>
+              <div className="rounded-xl border bg-white p-5 sm:p-6" style={{ borderColor: '#e5e7eb' }}>
+                <h2 className="text-2xl font-semibold mb-2" style={{ color: '#1f2937' }}>General Inquiry</h2>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#4b5563' }}>
                   Don't see a matching role? Send us a message and we'll keep your details on file.
                 </p>
-                <form onSubmit={handleInquiry} className="space-y-4">
+                <form onSubmit={handleInquiry} className="space-y-3">
               <input type="text" tabIndex={-1} autoComplete="off" value={inquiryForm.website} onChange={e => setInquiryForm({ ...inquiryForm, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" data-testid="inquiry-honeypot" />
               <div>
                 <Label htmlFor="inq-name" className="text-sm font-medium" style={{ color: '#374151' }}>Name *</Label>
@@ -179,7 +179,7 @@ export default function CareersPage() {
               </div>
               <div>
                 <Label htmlFor="inq-message" className="text-sm font-medium" style={{ color: '#374151' }}>Message *</Label>
-                <Textarea id="inq-message" rows={4} value={inquiryForm.message} onChange={e => setInquiryForm({ ...inquiryForm, message: e.target.value })} className="mt-1 rounded-lg bg-white" data-testid="career-inquiry-message" />
+                <Textarea id="inq-message" rows={3} value={inquiryForm.message} onChange={e => setInquiryForm({ ...inquiryForm, message: e.target.value })} className="mt-1 rounded-lg bg-white" data-testid="career-inquiry-message" />
               </div>
               <div>
                 <Label htmlFor="inq-resume" className="text-sm font-medium" style={{ color: '#374151' }}>CV / Resume <span className="text-xs font-normal" style={{ color: '#9ca3af' }}>(PDF, DOC, DOCX — optional)</span></Label>
