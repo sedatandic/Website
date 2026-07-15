@@ -131,10 +131,10 @@ export default function CommoditiesPage() {
               <FadeIn className="lg:col-span-3">
                 <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>At A Glance</h2>
                 <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                  <p>Peninsula Agritrade LLC is well-connected with suppliers & buyers globally therefore able to source and originate commodities that meet each buyers' specifications.</p>
-                  <p>Our vast experience in these markets and excellent commercial relationships with our counterparties and their proven track record enables us to deliver quality goods in a timely manner.</p>
-                  <p>On the other hand, our niche focus and expertise in dealing with buyers in Middle East, South Asia and Southeast-Asian regions enabled us to find greater market where we have great rapport built over the years.</p>
-                  <p>In view of our wealth of experience in agri-trading, the experience gained enable us to perform in a steadfast manner regardless of the challenges in market conditions. We believe strongly in fair trade and always endeavor to deliver on our contractual promises.</p>
+                  <p>Peninsula Agritrade LLC maintains strong global connectivity with suppliers and buyers, enabling us to source and originate commodities that meet each buyer's exact specifications. Our extensive market experience and long-standing commercial relationships — built on trust and proven performance — allow us to deliver quality goods reliably and on time.</p>
+                  <p>Our niche expertise in serving buyers across the Middle East, South Asia, and Southeast Asia has created a strong and enduring market presence. These regions represent our core demand centers, where we have developed deep rapport and consistent commercial alignment over the years.</p>
+                  <p>We complement this demand-side strength with robust origination capabilities across the Black Sea region, East and West Africa, and South America. This diversified sourcing footprint ensures reliable supply and enhances our ability to serve multiple markets under varying conditions.</p>
+                  <p>Our experience in global agri-trading — combined with strong logistics execution and soft-commodity trade-finance capabilities — enables Peninsula Agritrade LLC to perform with discipline and consistency, even in volatile market environments. We operate with a firm commitment to fair trade and uphold our contractual obligations with steadfast reliability.</p>
                 </div>
               </FadeIn>
 
