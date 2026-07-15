@@ -162,6 +162,7 @@ export default function CareersPage() {
                                 <Clock className="w-3 h-3" /> {job.type}
                               </span>
                             </div>
+                            <p className="text-xs leading-relaxed mb-3 overflow-hidden" style={{ color: '#6b7280', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{job.summary}</p>
                             <span className="mt-auto text-xs font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all" style={{ color: '#8A1538' }}>
                               View role <ArrowRight className="w-3 h-3" />
                             </span>
