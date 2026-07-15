@@ -115,7 +115,7 @@ export default function HomePage() {
                 <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
                   <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
-                <p className="mt-6 text-sm sm:text-base text-white leading-relaxed max-w-4xl mx-auto whitespace-pre-line" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{slides[currentSlide].subtext}</p>
+                <p className="mt-6 text-sm sm:text-base italic text-white leading-relaxed max-w-4xl mx-auto whitespace-pre-line" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Button asChild size="lg" className="rounded-full px-8 font-medium shadow-lg transition-all hover:-translate-y-0.5" style={{ background: '#8A1538', color: 'white' }} data-testid="hero-discover-us-button">
                     <Link to="/about/who-we-are">Discover Us</Link>
