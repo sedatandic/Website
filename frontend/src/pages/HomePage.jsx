@@ -17,7 +17,7 @@ const slides = [
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     action: 'Grounded',
-    headline: 'in discipline, integrity,\nand operational excellence.',
+    headline: 'in discipline, integrity, and proven\noperational excellence across global markets.',
     subtext: 'Supported by a team with 25+ years of global trading experience, we execute every commitment\nwith precision — price, quality, and timing delivered as promised.',
   },
   {
