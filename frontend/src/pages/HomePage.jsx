@@ -20,7 +20,7 @@ const slides = [
     subtext: 'Supported by a team with 25+ years of global trading experience, we execute every commitment\nwith precision — price, quality, and timing delivered as promised.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1658869163471-81665d648612?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
+    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     action: 'Partnerships',
     headline: "built on trust, long-term alignment,\nand Qatar's Food Security Vision 2030.",
     subtext: 'From inland grain origins to major global port terminals, we cultivate relationships that reinforce\nnational food resilience and support sustainable international supply chains.',
