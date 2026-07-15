@@ -123,7 +123,7 @@ export default function CommoditiesPage() {
 
       {/* Content */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {activeTab === 'at-a-glance' && (
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-stretch">
