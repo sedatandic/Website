@@ -157,7 +157,7 @@ export default function AboutPage() {
             <FadeIn>
               <h2 className="text-2xl font-semibold mb-4" style={{ color: '#1f2937' }}>Memberships</h2>
               <p className="text-sm sm:text-base leading-relaxed mb-8" style={{ color: '#4b5563' }}>
-                We are a proud member of the following prestigious associations in order to provide more professional service to our counterparties as well as our market intelligence as a result of these trade bodies memberships.
+                We are proud members of several prestigious international trade associations, strengthening our professional standards, market intelligence, and the quality of service we provide to all counterparties.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {memberships.map((m) => (
