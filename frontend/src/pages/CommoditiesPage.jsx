@@ -146,7 +146,7 @@ export default function CommoditiesPage() {
                 </div>
 
                 {/* Right - imagery + highlights */}
-                <div className="space-y-5">
+                <div className="space-y-5 lg:mt-14">
                   <div className="rounded-2xl overflow-hidden shadow-sm" style={{ border: '1px solid #e5e7eb' }}>
                     <img
                       src="https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000"

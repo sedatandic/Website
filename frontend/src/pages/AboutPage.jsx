@@ -189,7 +189,7 @@ export default function AboutPage() {
 
             {/* Right - related imagery */}
             <FadeIn delay={0.15} className="lg:col-span-2">
-              <div className="rounded-xl overflow-hidden shadow-sm border w-full relative" style={{ borderColor: '#e5e7eb', height: 'calc(100% - 8px)', marginTop: '8px', minHeight: '260px' }}>
+              <div className="rounded-xl overflow-hidden shadow-sm border w-full relative" style={{ borderColor: '#e5e7eb', height: 'calc(100% - 3.5rem)', marginTop: '3.5rem', minHeight: '260px' }}>
                 <img src={sideImages[activeTab] || sideImages['who-we-are']} alt="Doha, Qatar" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </FadeIn>
