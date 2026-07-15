@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ChevronRight, Globe, Handshake, ShieldCheck } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { FadeIn, FadeInStagger, FadeInItem } from '../components/FadeIn';
-
-const glanceHighlights = [
-  { title: 'Global Sourcing Network', icon: Globe },
-  { title: 'Trusted Relationships', icon: Handshake },
-  { title: 'Fair Trade Commitment', icon: ShieldCheck },
-];
 
 const tabs = [
   { id: 'at-a-glance', label: 'At A Glance' },
@@ -132,45 +126,25 @@ export default function CommoditiesPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {activeTab === 'at-a-glance' && (
-            <FadeIn>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-                {/* Left - text */}
-                <div>
-                  <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>At A Glance</h2>
-                  <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-                    <p>Peninsula Agritrade LLC is well-connected with suppliers & buyers globally therefore able to source and originate commodities that meet each buyers' specifications.</p>
-                    <p>Our vast experience in these markets and excellent commercial relationships with our counterparties and their proven track record enables us to deliver quality goods in a timely manner.</p>
-                    <p>On the other hand, our niche focus and expertise in dealing with buyers in Middle East, South Asia and Southeast-Asian regions enabled us to find greater market where we have great rapport built over the years.</p>
-                    <p>In view of our wealth of experience in agri-trading, the experience gained enable us to perform in a steadfast manner regardless of the challenges in market conditions. We believe strongly in fair trade and always endeavor to deliver on our contractual promises.</p>
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-stretch">
+              {/* Left - text */}
+              <FadeIn className="lg:col-span-3">
+                <h2 className="text-2xl font-semibold mb-6" style={{ color: '#1f2937' }}>At A Glance</h2>
+                <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                  <p>Peninsula Agritrade LLC is well-connected with suppliers & buyers globally therefore able to source and originate commodities that meet each buyers' specifications.</p>
+                  <p>Our vast experience in these markets and excellent commercial relationships with our counterparties and their proven track record enables us to deliver quality goods in a timely manner.</p>
+                  <p>On the other hand, our niche focus and expertise in dealing with buyers in Middle East, South Asia and Southeast-Asian regions enabled us to find greater market where we have great rapport built over the years.</p>
+                  <p>In view of our wealth of experience in agri-trading, the experience gained enable us to perform in a steadfast manner regardless of the challenges in market conditions. We believe strongly in fair trade and always endeavor to deliver on our contractual promises.</p>
                 </div>
+              </FadeIn>
 
-                {/* Right - imagery + highlights */}
-                <div className="space-y-5 lg:mt-14">
-                  <div className="rounded-2xl overflow-hidden shadow-sm" style={{ border: '1px solid #e5e7eb' }}>
-                    <img
-                      src="https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000"
-                      alt="Global agri-commodity trade"
-                      className="w-full h-56 sm:h-64 object-cover"
-                      data-testid="glance-hero-image"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {glanceHighlights.map((h, i) => {
-                      const Icon = h.icon;
-                      return (
-                        <div key={h.title} className="rounded-xl p-4 text-center bg-white" style={{ border: '1px solid #e5e7eb' }} data-testid={`glance-highlight-${i}`}>
-                          <div className="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
-                            <Icon className="w-5 h-5" style={{ color: '#8A1538' }} />
-                          </div>
-                          <div className="text-sm font-semibold" style={{ color: '#1f2937' }}>{h.title}</div>
-                        </div>
-                      );
-                    })}
-                  </div>
+              {/* Right - related imagery */}
+              <FadeIn delay={0.15} className="lg:col-span-2">
+                <div className="rounded-xl overflow-hidden shadow-sm border w-full relative" style={{ borderColor: '#e5e7eb', height: 'calc(100% - 3.5rem)', marginTop: '3.5rem', minHeight: '260px' }}>
+                  <img src="https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000" alt="Global agri-commodity trade" className="absolute inset-0 w-full h-full object-cover" data-testid="glance-hero-image" />
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           )}
 
           {products.length > 0 && (
