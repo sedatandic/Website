@@ -10,9 +10,9 @@ import { getProfileDownloadUrl } from '../lib/api';
 const slides = [
   {
     image: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
-    action: 'Connects',
+    action: 'Connecting',
     headline: 'Qatar to the global\nagricultural value chain.',
-    subtext: 'A fully integrated agri-supply chain manager and global trading platform,\nconnecting agricultural producers with consumers across the globe.',
+    subtext: "Qatar's first fully integrated agri-supply chain manager and global trading platform,\nlinking producers and consumers worldwide.",
   },
   {
     image: 'https://images.pexels.com/photos/1211787/pexels-photo-1211787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
