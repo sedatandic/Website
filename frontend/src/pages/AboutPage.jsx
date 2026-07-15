@@ -30,11 +30,12 @@ const keyFacts = [
   { value: '7 Offices', label: 'Staff in', sub: '6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
 
+const WEST_BAY_SKYLINE = 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000';
 const sideImages = {
-  'who-we-are': { url: 'https://images.unsplash.com/photo-1685113872064-de4180a0ea93?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Doha, Qatar' },
-  'strengths': { url: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Global origination' },
-  'key-facts': { url: 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'Chartered vessels & logistics' },
-  'memberships': { url: 'https://images.unsplash.com/photo-1613690399151-65ea69478674?crop=entropy&cs=srgb&fm=jpg&q=85&w=900', label: 'International trade' },
+  'who-we-are': { url: WEST_BAY_SKYLINE },
+  'strengths': { url: WEST_BAY_SKYLINE },
+  'key-facts': { url: WEST_BAY_SKYLINE },
+  'memberships': { url: WEST_BAY_SKYLINE },
 };
 
 export default function AboutPage() {
@@ -100,7 +101,7 @@ export default function AboutPage() {
       {/* Content */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-stretch">
             {/* Left - content */}
             <div className="lg:col-span-3">
 
@@ -182,14 +183,8 @@ export default function AboutPage() {
               {(() => {
                 const img = sideImages[activeTab] || sideImages['who-we-are'];
                 return (
-                  <div className="rounded-xl overflow-hidden shadow-sm border relative lg:sticky lg:top-24" style={{ borderColor: '#e5e7eb', height: '440px' }}>
-                    <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
-                    {img.label && (
-                      <>
-                        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.72), rgba(15,23,42,0))' }} />
-                        <span className="absolute bottom-3 left-4 z-10 text-sm font-medium text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{img.label}</span>
-                      </>
-                    )}
+                  <div className="rounded-xl overflow-hidden shadow-sm border h-full w-full" style={{ borderColor: '#e5e7eb', minHeight: '260px' }}>
+                    <img src={img.url} alt="Doha West Bay skyline" className="w-full h-full object-cover" />
                   </div>
                 );
               })()}
