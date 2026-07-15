@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: '280px' }}>
+      <section className="relative" style={{ height: '150px' }}>
         <img
           src="https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
           alt="Doha West Bay skyline, Qatar"
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Section with 3 columns: Address | Map | Form */}
-      <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
+      <section className="py-6" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left - Company Info */}
@@ -196,7 +196,7 @@ export default function ContactPage() {
                         value={form.message}
                         onChange={e => setForm({ ...form, message: e.target.value })}
                         className="mt-1 rounded-lg bg-white flex-1 resize-none"
-                        style={{ minHeight: '120px' }}
+                        style={{ minHeight: '90px' }}
                         placeholder="Tell us about your requirements..."
                         data-testid="contact-form-message"
                       />
