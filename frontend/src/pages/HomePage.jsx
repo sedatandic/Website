@@ -35,7 +35,7 @@ const stats = [
   { value: 200, suffix: '+', prefix: '', unit: 'VESSELS', label: 'Chartered Annually', icon: Ship },
   { value: 25, suffix: '+', prefix: '', unit: 'COMMODITIES', label: 'Traded Globally', icon: Sprout },
   { value: 25, suffix: '+', prefix: '', unit: 'DESTINATION', label: 'Countries Served', icon: Globe },
-  { text: '4 Offices & Staff', label: 'in 3 Different Countries', icon: Building2 },
+  { value: 4, suffix: '', prefix: '', unit: 'OFFICES & STAFF', label: 'in 3 Different Countries', icon: Building2 },
 ];
 
 function AnimatedCounter({ value, suffix, prefix, duration = 2 }) {
