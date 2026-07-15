@@ -30,7 +30,7 @@ const slides = [
 /* ─── Stats ─── */
 const stats = [
   { value: 250, suffix: 'M+', prefix: '', unit: 'USD', label: 'Annual Turnover', icon: CircleDollarSign },
-  { value: 500, suffix: 'K+', prefix: '', unit: 'MTS', label: 'Annual Trade Volume', icon: Boxes },
+  { value: 600, suffix: 'K+', prefix: '', unit: 'MTS', label: 'Annual Trade Volume', icon: Boxes },
   { value: 200, suffix: '+', prefix: '', unit: 'VESSELS', label: 'Chartered Annually', icon: Ship },
   { value: 25, suffix: '+', prefix: '', unit: 'COMMODITIES', label: 'Traded Globally', icon: Sprout },
   { value: 25, suffix: '+', prefix: '', unit: 'DESTINATION', label: 'Countries Served', icon: Globe },
