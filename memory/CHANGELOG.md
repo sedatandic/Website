@@ -8,6 +8,14 @@
 - **Commodities product images**: replaced generic/repeated photos with accurate close-ups across grains, oilseeds, pulses, sugar/rice, coffee.
 - **Our Partners page**: new 2-paragraph copy, center-aligned + vertically centered left column; right side shows 8 partner-CATEGORY tiles (4 per row, 2 rows equal height) with maroon lucide icons. NOTE: real company logos (SGS/Maersk/etc.) not used — external logo CDNs blocked in env and Wikipedia hotlinks fail in-browser. Awaiting user-uploaded logo files to swap in.
 
+## 2026-06-16 — About Page: Global Presence tab
+- Added new "Global Presence" tab on About Us page, positioned before Memberships.
+- Enhanced AnimatedOfficeMap: added optional destination markers (navy) + title prop; showDestinations only on this tab (Contact map unchanged).
+- Recalibrated all map marker coordinates (Doha HQ now on Persian Gulf; offices/origins/destinations aligned to dotted map).
+- Right column beside map shows intro paragraph + grouped legend (Trading Offices / Origination / Destination Markets). Removed the "How We Operate" panel.
+- Full-width sections below: Trading Offices, Origins & Sourcing, Destination Markets, Commodities pills.
+- Verified via testing_agent (iteration_15) — 100% frontend, no bugs; regressions on other tabs & Contact map pass.
+
 ## Pending / Backlog
 - P1: Email notifications for new submissions (blocked — needs Resend API key).
 - P1: Admin inbox pagination/search + image upload for insights & partner logos.
