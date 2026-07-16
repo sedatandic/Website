@@ -104,7 +104,7 @@ export default function HomePage() {
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.55) 0%, rgba(11,18,32,0.35) 50%, rgba(11,18,32,0.5) 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,18,32,0.6) 0%, rgba(11,18,32,0.42) 50%, rgba(11,18,32,0.55) 100%)' }} />
           </motion.div>
         </AnimatePresence>
 
@@ -113,7 +113,7 @@ export default function HomePage() {
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 1 }} className="max-w-7xl mx-auto text-center">
                 <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
-                  <span style={{ color: '#8A1538' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
+                  <span style={{ color: '#8A1538', textShadow: '0 1px 3px rgba(0,0,0,0.55), 0 2px 14px rgba(0,0,0,0.75)' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg italic text-white leading-relaxed max-w-4xl mx-auto whitespace-pre-line" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{slides[currentSlide].subtext}</p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
