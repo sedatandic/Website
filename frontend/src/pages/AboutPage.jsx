@@ -78,9 +78,10 @@ function GlobalPresence() {
         <div className="lg:col-span-2">
           <h3 className="text-xs font-bold uppercase mb-3 invisible select-none" aria-hidden="true" style={{ letterSpacing: '0.1em' }}>Office & Trade-Flow Map</h3>
           <div className="space-y-5">
-          <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-            From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
-          </p>
+          <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+            <p>Peninsula Agritrade operates from its Doha headquarters as a fully integrated physical trading platform, extending far beyond simple origin-to-destination execution. It builds structured supply chains that link reliable producers, competitive export hubs, and high-demand destination markets through a coordinated network of trading offices, origination desks, and logistics partners across the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.</p>
+            <p>The company's regional presence enables continuous market intelligence, disciplined risk management, and real-time operational control. Origination teams maintain direct relationships with farmers, cooperatives, processors, and exporters, ensuring consistent quality and dependable volume. Destination desks work closely with millers, crushers, food manufacturers, and government buyers to match specifications, manage timelines, and secure long-term supply programs.</p>
+          </div>
           <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
             <div className="flex items-center gap-2 mb-3">
               <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
