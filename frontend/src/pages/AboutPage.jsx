@@ -80,7 +80,7 @@ function GlobalPresence() {
           <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
             From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
           </p>
-          <div>
+          <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
             <div className="flex items-center gap-2 mb-3">
               <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
               <h3 className="text-base font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
