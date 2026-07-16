@@ -8,6 +8,7 @@ const aboutLinks = [
   { name: 'Who We Are', path: '/about/who-we-are' },
   { name: 'Strengths', path: '/about/strengths' },
   { name: 'Key Facts', path: '/about/key-facts' },
+  { name: 'Global Presence', path: '/about/global-presence' },
   { name: 'Memberships', path: '/about/memberships' },
 ];
 

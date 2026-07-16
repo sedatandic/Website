@@ -42,10 +42,10 @@ const originRegions = [
 ];
 
 const destinationRegions = [
-  { region: 'Middle East', markets: 'Qatar, KSA, UAE, Oman, Kuwait' },
-  { region: 'South Asia', markets: 'India, Pakistan, Bangladesh, Sri Lanka' },
+  { region: 'Middle East & Levant', markets: 'Qatar, UAE, Lebanon, Syria, Türkiye' },
+  { region: 'North Africa', markets: 'Egypt, Tunisia, Algeria, Libya' },
+  { region: 'South Asia', markets: 'India, Pakistan, Nepal, Bangladesh, Sri Lanka' },
   { region: 'Southeast Asia', markets: 'Indonesia, Vietnam, Malaysia, Philippines' },
-  { region: 'Africa', markets: 'Egypt, Kenya, Nigeria, Sudan' },
 ];
 
 const commoditiesList = ['Wheat', 'Barley', 'Corn', 'Feed ingredients', 'Oilseeds', 'Pulses', 'Rice', 'Sugar', 'Coffee'];
@@ -71,9 +71,9 @@ function GlobalPresence() {
   return (
     <FadeIn>
       <h2 className="text-2xl font-semibold mb-3" style={{ color: '#1f2937' }}>Global Presence</h2>
-      <div className="grid lg:grid-cols-5 gap-8 items-stretch mb-12">
-        <div className="lg:col-span-3 flex flex-col">
-          <AnimatedOfficeMap showDestinations fill title="Office & Trade-Flow Map" />
+      <div className="grid lg:grid-cols-5 gap-8 items-start mb-12">
+        <div className="lg:col-span-3">
+          <AnimatedOfficeMap showDestinations legendInside showFlows title="Office & Trade-Flow Map" />
         </div>
         <div className="lg:col-span-2">
           <h3 className="text-xs font-bold uppercase mb-3 invisible select-none" aria-hidden="true" style={{ letterSpacing: '0.1em' }}>Office & Trade-Flow Map</h3>
@@ -86,9 +86,9 @@ function GlobalPresence() {
               <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
               <h3 className="text-base font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {commoditiesList.map((c) => (
-                <span key={c} className="px-3 py-1.5 rounded-full text-xs font-medium border" style={{ borderColor: '#e5e7eb', color: '#4b5563', background: '#fff' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+                <span key={c} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
               ))}
             </div>
           </div>
@@ -96,7 +96,7 @@ function GlobalPresence() {
             {[
               { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
               { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
-              { label: 'Destination Markets', color: '#0B3C5D', items: ['Egypt', 'Saudi Arabia', 'Kenya', 'Nigeria', 'India', 'Bangladesh', 'Vietnam', 'Indonesia'] },
+              { label: 'Destination Markets', color: '#0B3C5D', items: ['Türkiye', 'Tunisia', 'Algeria', 'Lebanon', 'Syria', 'Pakistan', 'Libya', 'Malaysia', 'Sri Lanka', 'Philippines', 'Egypt', 'India', 'Nepal', 'Bangladesh', 'Vietnam', 'Indonesia'] },
             ].map((g) => (
               <div key={g.label} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>
                 <div className="flex items-center gap-2 mb-2.5">

@@ -19,17 +19,63 @@ const offices = [
 ];
 
 const destinationMarkers = [
+  { name: 'Türkiye', type: 'destination', left: 59.0, top: 40.4 },
+  { name: 'Tunisia', type: 'destination', left: 52.6, top: 43.7 },
+  { name: 'Algeria', type: 'destination', left: 50.8, top: 46.9 },
+  { name: 'Lebanon', type: 'destination', left: 59.9, top: 43.8 },
+  { name: 'Syria', type: 'destination', left: 60.6, top: 43.2 },
+  { name: 'Pakistan', type: 'destination', left: 70.3, top: 43.9 },
+  { name: 'Libya', type: 'destination', left: 53.7, top: 44.3 },
+  { name: 'Malaysia', type: 'destination', left: 78.2, top: 58.6 },
+  { name: 'Sri Lanka', type: 'destination', left: 72.4, top: 56.4 },
+  { name: 'Philippines', type: 'destination', left: 83.6, top: 53.4 },
   { name: 'Egypt', type: 'destination', left: 58.7, top: 45.9 },
-  { name: 'Saudi Arabia', type: 'destination', left: 63.0, top: 48.6 },
-  { name: 'Kenya', type: 'destination', left: 60.2, top: 60.5 },
-  { name: 'Nigeria', type: 'destination', left: 50.9, top: 57.0 },
   { name: 'India', type: 'destination', left: 71.4, top: 46.6 },
+  { name: 'Nepal', type: 'destination', left: 73.7, top: 47.1 },
   { name: 'Bangladesh', type: 'destination', left: 75.1, top: 49.0 },
   { name: 'Vietnam', type: 'destination', left: 79.4, top: 50.3 },
   { name: 'Indonesia', type: 'destination', left: 79.7, top: 62.7 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
+
+// Trade-flow paths in the 1264x732 SVG space (left*12.64, top*7.32)
+const DOHA = [812.8, 353.6];
+const flowDefs = [
+  { from: [280.6, 237.9], to: DOHA, color: '#d9a441', dur: 6.5 },   // Canada -> Doha
+  { from: [739.4, 246.7], to: DOHA, color: '#d9a441', dur: 4.6 },   // Ukraine -> Doha
+  { from: [480.3, 484.6], to: DOHA, color: '#d9a441', dur: 7.0 },   // Brazil -> Doha
+  { from: [1087.0, 523.4], to: DOHA, color: '#d9a441', dur: 7.5 },  // Australia -> Doha
+  { from: DOHA, to: [745.8, 295.7], color: '#0B3C5D', dur: 3.8 },   // Doha -> Türkiye
+  { from: DOHA, to: [742.0, 336.0], color: '#0B3C5D', dur: 4.2 },   // Doha -> Egypt
+  { from: DOHA, to: [902.5, 341.1], color: '#0B3C5D', dur: 4.4 },   // Doha -> India
+  { from: DOHA, to: [1007.4, 458.9], color: '#0B3C5D', dur: 5.6 },  // Doha -> Indonesia
+];
+
+const buildPath = ([x1, y1], [x2, y2]) => {
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.hypot(dx, dy) || 1;
+  const off = len * 0.18;
+  const cx = mx + (-dy / len) * off, cy = my + (dx / len) * off;
+  return `M${x1},${y1} Q${cx.toFixed(1)},${cy.toFixed(1)} ${x2},${y2}`;
+};
+
+const TradeFlows = () => (
+  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1264 732" preserveAspectRatio="none" aria-hidden="true">
+    {flowDefs.map((f, i) => {
+      const d = buildPath(f.from, f.to);
+      return (
+        <g key={i}>
+          <path d={d} fill="none" stroke={f.color} strokeWidth="2" strokeDasharray="8 8" opacity="0.4" />
+          <path d="M-7,-4 L7,0 L-7,4 Z" fill={f.color} opacity="0.95">
+            <animateMotion dur={`${f.dur}s`} repeatCount="indefinite" path={d} rotate="auto" />
+          </path>
+        </g>
+      );
+    })}
+  </svg>
+);
 
 const Marker = ({ name, type, left, top, hq, index }) => {
   const color = COLORS[type];
@@ -65,7 +111,7 @@ const Marker = ({ name, type, left, top, hq, index }) => {
   );
 };
 
-export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, title = 'Global Presence' }) => {
+export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, legendInside = false, showFlows = false, title = 'Global Presence' }) => {
   const markers = showDestinations ? [...offices, ...destinationMarkers] : offices;
   const legend = (
     <>
@@ -97,10 +143,11 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, titl
           className={`absolute inset-0 w-full h-full ${fill ? 'object-fill' : 'object-contain'}`}
           style={{ opacity: 0.85 }}
         />
+        {showFlows && <TradeFlows />}
         {markers.map((o, i) => (
           <Marker key={o.name} {...o} index={i} />
         ))}
-        {fill && (
+        {legendInside && (
           <div
             className="absolute bottom-2.5 left-2.5 flex flex-wrap items-center gap-3 px-3 py-1.5 rounded-lg"
             style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(4px)', border: '1px solid #e5e7eb' }}
@@ -109,7 +156,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, titl
           </div>
         )}
       </div>
-      {!fill && (
+      {!legendInside && (
         <div className="flex flex-wrap items-center gap-4 mt-2">{legend}</div>
       )}
     </div>
