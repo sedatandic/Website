@@ -5,26 +5,26 @@ const MAP_URL = 'https://static.prod-images.emergentagent.com/jobs/a46d9f4e-718c
 
 // left/top are % positions tuned to the equirectangular dotted map
 const offices = [
-  { name: 'Doha (HQ)', type: 'trading', left: 67, top: 43.6, hq: true },
-  { name: 'Geneva', type: 'trading', left: 57.5, top: 35.8 },
-  { name: 'Istanbul', type: 'trading', left: 59, top: 37.3 },
-  { name: 'Dubai', type: 'trading', left: 68.5, top: 43.3 },
-  { name: 'Singapore', type: 'trading', left: 80, top: 51.6 },
-  { name: 'Canada', type: 'origination', left: 28, top: 30 },
-  { name: 'Ukraine', type: 'origination', left: 60.5, top: 36.5 },
-  { name: 'Russia', type: 'origination', left: 61.5, top: 33.8 },
-  { name: 'Kazakhstan', type: 'origination', left: 68.5, top: 39.5 },
+  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 41.6, hq: true },
+  { name: 'Geneva', type: 'trading', left: 51.7, top: 31.4 },
+  { name: 'Istanbul', type: 'trading', left: 58.1, top: 34.2 },
+  { name: 'Dubai', type: 'trading', left: 65.4, top: 41.6 },
+  { name: 'Singapore', type: 'trading', left: 78.9, top: 51.1 },
+  { name: 'Canada', type: 'origination', left: 22.2, top: 28.0 },
+  { name: 'Ukraine', type: 'origination', left: 58.5, top: 29.0 },
+  { name: 'Russia', type: 'origination', left: 60.4, top: 25.4 },
+  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 28.6 },
 ];
 
 const destinationMarkers = [
-  { name: 'Egypt', type: 'destination', left: 61.5, top: 44.3 },
-  { name: 'Saudi Arabia', type: 'destination', left: 67.5, top: 45.3 },
-  { name: 'Kenya', type: 'destination', left: 62.5, top: 50.5 },
-  { name: 'Nigeria', type: 'destination', left: 58.5, top: 50.5 },
-  { name: 'India', type: 'destination', left: 71.5, top: 45 },
-  { name: 'Bangladesh', type: 'destination', left: 74, top: 46 },
-  { name: 'Vietnam', type: 'destination', left: 78.5, top: 47 },
-  { name: 'Indonesia', type: 'destination', left: 81, top: 54 },
+  { name: 'Egypt', type: 'destination', left: 58.7, top: 39.5 },
+  { name: 'Saudi Arabia', type: 'destination', left: 63.0, top: 41.8 },
+  { name: 'Kenya', type: 'destination', left: 60.2, top: 52.1 },
+  { name: 'Nigeria', type: 'destination', left: 50.9, top: 49.1 },
+  { name: 'India', type: 'destination', left: 71.4, top: 40.1 },
+  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 42.2 },
+  { name: 'Vietnam', type: 'destination', left: 79.4, top: 43.3 },
+  { name: 'Indonesia', type: 'destination', left: 79.7, top: 54.0 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
@@ -44,8 +44,8 @@ const Marker = ({ name, type, left, top, hq, index }) => {
         className="absolute rounded-full"
         style={{ width: ring, height: ring, left: -ring / 2, top: -ring / 2, background: color }}
         initial={{ scale: 1, opacity: 0.55 }}
-        animate={{ scale: [1, 2.8, 2.8], opacity: [0.55, 0, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut', delay: index * 0.22 }}
+        animate={{ scale: [1, 2.6, 2.6], opacity: [0.5, 0, 0] }}
+        transition={{ duration: 4.2, times: [0, 0.45, 1], repeat: Infinity, ease: 'easeOut', delay: index * 0.35 }}
       />
       {/* solid dot */}
       <span

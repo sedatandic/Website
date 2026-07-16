@@ -74,7 +74,9 @@ function GlobalPresence() {
         <div className="lg:col-span-3">
           <AnimatedOfficeMap showDestinations title="Office & Trade-Flow Map" />
         </div>
-        <div className="lg:col-span-2 space-y-5">
+        <div className="lg:col-span-2">
+          <h3 className="text-xs font-bold uppercase mb-3 invisible select-none" aria-hidden="true" style={{ letterSpacing: '0.1em' }}>Office & Trade-Flow Map</h3>
+          <div className="space-y-5">
           <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
             From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
           </p>
@@ -96,6 +98,7 @@ function GlobalPresence() {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>
@@ -163,6 +166,10 @@ function GlobalPresence() {
           <span key={c} className="px-4 py-2 rounded-full text-sm font-medium border" style={{ borderColor: '#e5e7eb', color: '#4b5563', background: '#fff' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
         ))}
       </div>
+
+      <p className="text-sm sm:text-base leading-relaxed mt-10 max-w-4xl" style={{ color: '#4b5563' }}>
+        From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
+      </p>
     </FadeIn>
   );
 }
