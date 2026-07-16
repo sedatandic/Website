@@ -77,41 +77,41 @@ function GlobalPresence() {
         </div>
         <div className="lg:col-span-2">
           <h3 className="text-xs font-bold uppercase mb-3 invisible select-none" aria-hidden="true" style={{ letterSpacing: '0.1em' }}>Office & Trade-Flow Map</h3>
-          <div className="space-y-5">
           <div className="space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
             <p>Peninsula Agritrade operates from its Doha headquarters as a fully integrated physical trading platform, extending far beyond simple origin-to-destination execution. It builds structured supply chains that link reliable producers, competitive export hubs, and high-demand destination markets through a coordinated network of trading offices, origination desks, and logistics partners across the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.</p>
             <p>The company's regional presence enables continuous market intelligence, disciplined risk management, and real-time operational control. Origination teams maintain direct relationships with farmers, cooperatives, processors, and exporters, ensuring consistent quality and dependable volume. Destination desks work closely with millers, crushers, food manufacturers, and government buyers to match specifications, manage timelines, and secure long-term supply programs.</p>
           </div>
-          <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
+        </div>
+      </div>
+
+      {/* Network directory: each group in its own frame, in one row with Commodities */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12 items-stretch">
+        {[
+          { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
+          { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
+          { label: 'Destination Markets', color: '#0B3C5D', items: ['Türkiye', 'Tunisia', 'Algeria', 'Lebanon', 'Syria', 'Pakistan', 'Libya', 'Malaysia', 'Sri Lanka', 'Philippines', 'Egypt', 'India', 'Nepal', 'Bangladesh', 'Vietnam', 'Indonesia'] },
+        ].map((g) => (
+          <div key={g.label} className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>
             <div className="flex items-center gap-2 mb-3">
-              <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
-              <h3 className="text-base font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
+              <span className="w-2.5 h-2.5 rounded-full" style={{ background: g.color }} />
+              <span className="text-sm font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.06em' }}>{g.label}</span>
             </div>
             <div className="flex flex-wrap gap-1.5">
-              {commoditiesList.map((c) => (
-                <span key={c} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+              {g.items.map((it) => (
+                <span key={it} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }}>{it}</span>
               ))}
             </div>
           </div>
-          <div className="rounded-xl border p-5 space-y-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
-            {[
-              { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
-              { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
-              { label: 'Destination Markets', color: '#0B3C5D', items: ['Türkiye', 'Tunisia', 'Algeria', 'Lebanon', 'Syria', 'Pakistan', 'Libya', 'Malaysia', 'Sri Lanka', 'Philippines', 'Egypt', 'India', 'Nepal', 'Bangladesh', 'Vietnam', 'Indonesia'] },
-            ].map((g) => (
-              <div key={g.label} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>
-                <div className="flex items-center gap-2 mb-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: g.color }} />
-                  <span className="text-xs font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.08em' }}>{g.label}</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {g.items.map((it) => (
-                    <span key={it} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }}>{it}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
+        ))}
+        <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }} data-testid="commodities-frame">
+          <div className="flex items-center gap-2 mb-3">
+            <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
+            <span className="text-sm font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.06em' }}>Commodities We Trade</span>
           </div>
+          <div className="flex flex-wrap gap-1.5">
+            {commoditiesList.map((c) => (
+              <span key={c} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+            ))}
           </div>
         </div>
       </div>
