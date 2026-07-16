@@ -16,7 +16,7 @@ import uuid
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://qatar-commodities.preview.emergentagent.com").rstrip("/")
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://agritrade-preview.preview.emergentagent.com").rstrip("/")
 ADMIN_EMAIL = "admin@peninsula.com.qa"
 ADMIN_PASSWORD = "Peninsula@2026"
 

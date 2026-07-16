@@ -16,7 +16,18 @@ const offices = [
   { name: 'Kazakhstan', type: 'origination', left: 70.5, top: 26 },
 ];
 
-const COLORS = { trading: '#8A1538', origination: '#d9a441' };
+const destinationMarkers = [
+  { name: 'Egypt', type: 'destination', left: 58.5, top: 45 },
+  { name: 'Saudi Arabia', type: 'destination', left: 62.5, top: 47.5 },
+  { name: 'Kenya', type: 'destination', left: 61.5, top: 61 },
+  { name: 'Nigeria', type: 'destination', left: 49.5, top: 55 },
+  { name: 'India', type: 'destination', left: 72, top: 48 },
+  { name: 'Bangladesh', type: 'destination', left: 74.5, top: 47 },
+  { name: 'Vietnam', type: 'destination', left: 79, top: 52 },
+  { name: 'Indonesia', type: 'destination', left: 81, top: 63 },
+];
+
+const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
 
 const Marker = ({ name, type, left, top, hq, index }) => {
   const color = COLORS[type];
@@ -52,24 +63,34 @@ const Marker = ({ name, type, left, top, hq, index }) => {
   );
 };
 
-export const AnimatedOfficeMap = () => (
-  <div className="mb-6" data-testid="animated-office-map">
-    <h3 className="text-xs font-bold tracking-wider uppercase mb-3" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Global Presence</h3>
-    <div className="relative w-full rounded-xl border overflow-hidden" style={{ borderColor: '#e5e7eb', background: '#f4f6f8', aspectRatio: '1264 / 848' }}>
-      <img src={MAP_URL} alt="World map of Peninsula Agritrade offices" className="absolute inset-0 w-full h-full object-contain" style={{ opacity: 0.85 }} />
-      {offices.map((o, i) => (
-        <Marker key={o.name} {...o} index={i} />
-      ))}
+export const AnimatedOfficeMap = ({ showDestinations = false, title = 'Global Presence' }) => {
+  const markers = showDestinations ? [...offices, ...destinationMarkers] : offices;
+  return (
+    <div className="mb-6" data-testid="animated-office-map">
+      {title && (
+        <h3 className="text-xs font-bold tracking-wider uppercase mb-3" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>{title}</h3>
+      )}
+      <div className="relative w-full rounded-xl border overflow-hidden" style={{ borderColor: '#e5e7eb', background: '#f4f6f8', aspectRatio: '1264 / 848' }}>
+        <img src={MAP_URL} alt="World map of Peninsula Agritrade offices" className="absolute inset-0 w-full h-full object-contain" style={{ opacity: 0.85 }} />
+        {markers.map((o, i) => (
+          <Marker key={o.name} {...o} index={i} />
+        ))}
+      </div>
+      <div className="flex flex-wrap items-center gap-4 mt-2">
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.trading }} /> Trading Office
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
+          <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.origination }} /> Origination
+        </span>
+        {showDestinations && (
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.destination }} /> Destination Market
+          </span>
+        )}
+      </div>
     </div>
-    <div className="flex items-center gap-4 mt-2">
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
-        <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.trading }} /> Trading
-      </span>
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
-        <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.origination }} /> Origination
-      </span>
-    </div>
-  </div>
-);
+  );
+};
 
 export default AnimatedOfficeMap;

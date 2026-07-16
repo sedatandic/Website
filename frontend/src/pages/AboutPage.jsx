@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { ChevronRight, Shield, Award, Handshake, Globe, TrendingUp, Users, Briefcase, Building2, Ship, MapPin } from 'lucide-react';
+import { ChevronRight, Shield, Award, Handshake, Globe, TrendingUp, Users, Briefcase, Building2, Ship, MapPin, Package } from 'lucide-react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { FadeIn, FadeInStagger, FadeInItem } from '../components/FadeIn';
+import { AnimatedOfficeMap } from '../components/AnimatedOfficeMap';
 import { getPartners, getMemberships } from '../lib/api';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ const tabs = [
   { id: 'who-we-are', label: 'Who We Are' },
   { id: 'strengths', label: 'Strengths' },
   { id: 'key-facts', label: 'Key Facts' },
+  { id: 'global-presence', label: 'Global Presence' },
   { id: 'memberships', label: 'Memberships' },
 ];
 
@@ -18,8 +20,34 @@ const heroImages = {
   'who-we-are': 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1260',
   'strengths': 'https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&w=1260',
   'key-facts': 'https://images.pexels.com/photos/1393382/pexels-photo-1393382.jpeg?auto=compress&cs=tinysrgb&w=1260',
+  'global-presence': 'https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&w=1260',
   'memberships': 'https://images.pexels.com/photos/2589457/pexels-photo-2589457.jpeg?auto=compress&cs=tinysrgb&w=1260',
 };
+
+const tradingOffices = [
+  { city: 'Doha', country: 'Qatar', tag: 'Headquarters', desc: 'Central trading, risk-management and trade-finance hub, leveraging Qatar\u2019s strategic location and world-class infrastructure.' },
+  { city: 'Geneva', country: 'Switzerland', tag: 'Trading Office', desc: 'European trading desk with access to global structured commodity and trade finance.' },
+  { city: 'Istanbul', country: 'T\u00fcrkiye', tag: 'Trading Office', desc: 'Black Sea origination and regional trading gateway for grains and oilseeds.' },
+  { city: 'Dubai', country: 'UAE', tag: 'Trading Office', desc: 'Middle East distribution, logistics coordination and regional customer service.' },
+  { city: 'Singapore', country: 'Singapore', tag: 'Trading Office', desc: 'Asia-Pacific trading and distribution hub serving South & Southeast Asian markets.' },
+];
+
+const originRegions = [
+  { region: 'Black Sea', places: 'Ukraine \u00b7 Russia', commodities: 'Wheat, barley, corn, sunflower meal & oil' },
+  { region: 'Central Asia', places: 'Kazakhstan', commodities: 'Milling wheat, pulses' },
+  { region: 'Americas', places: 'Canada \u00b7 USA \u00b7 South America', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
+  { region: 'Africa', places: 'East & West Africa', commodities: 'Sesame, pulses, cashew' },
+  { region: 'Europe', places: 'EU origins', commodities: 'Feed grains, wheat, barley' },
+];
+
+const destinationRegions = [
+  { region: 'Middle East', markets: 'Qatar, KSA, UAE, Oman, Kuwait' },
+  { region: 'South Asia', markets: 'India, Pakistan, Bangladesh, Sri Lanka' },
+  { region: 'Southeast Asia', markets: 'Indonesia, Vietnam, Malaysia, Philippines' },
+  { region: 'Africa', markets: 'Egypt, Kenya, Nigeria, Sudan' },
+];
+
+const commoditiesList = ['Wheat', 'Barley', 'Corn', 'Feed ingredients', 'Oilseeds', 'Pulses', 'Rice', 'Sugar', 'Coffee'];
 
 const keyFacts = [
   { value: '25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
@@ -34,8 +62,109 @@ const sideImages = {
   'who-we-are': 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'strengths': 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'key-facts': 'https://images.unsplash.com/photo-1670121180530-cfcba4438038?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
+  'global-presence': 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
   'memberships': 'https://images.unsplash.com/photo-1733195296321-b99d129b09cd?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000',
 };
+
+function GlobalPresence() {
+  return (
+    <FadeIn>
+      <h2 className="text-2xl font-semibold mb-3" style={{ color: '#1f2937' }}>Global Presence</h2>
+      <p className="text-sm sm:text-base leading-relaxed mb-8 max-w-3xl" style={{ color: '#4b5563' }}>
+        From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
+      </p>
+
+      <div className="grid lg:grid-cols-5 gap-8 items-start mb-12">
+        <div className="lg:col-span-3">
+          <AnimatedOfficeMap showDestinations title="Office & Trade-Flow Map" />
+        </div>
+        <div className="lg:col-span-2">
+          <div className="rounded-xl border p-6" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: '#8A1538' }}>How We Operate</h3>
+            <ul className="space-y-4 text-sm" style={{ color: '#4b5563' }}>
+              <li className="flex gap-3">
+                <Building2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#8A1538' }} />
+                <span><b>Trading offices</b> in Doha, Geneva, Istanbul, Dubai and Singapore manage pricing, risk and execution.</span>
+              </li>
+              <li className="flex gap-3">
+                <Globe className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#d9a441' }} />
+                <span><b>Origination desks</b> secure competitive supply from the Black Sea, Central Asia, the Americas, Europe and Africa.</span>
+              </li>
+              <li className="flex gap-3">
+                <Ship className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#0B3C5D' }} />
+                <span><b>Logistics & chartering</b> move bulk and containerized cargo reliably to destination markets.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Trading Offices */}
+      <div className="flex items-center gap-2 mb-4">
+        <Building2 className="w-5 h-5" style={{ color: '#8A1538' }} />
+        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Trading Offices</h3>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {tradingOffices.map((o) => (
+          <Card key={o.city} className="border h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }} data-testid={`office-card-${o.city.toLowerCase()}`}>
+            <CardContent className="p-5">
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="font-semibold" style={{ color: '#1f2937' }}>{o.city}</span>
+                <span className="text-xs" style={{ color: '#9ca3af' }}>· {o.country}</span>
+              </div>
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-2.5" style={{ background: o.tag === 'Headquarters' ? '#8A1538' : 'rgba(138,21,56,0.08)', color: o.tag === 'Headquarters' ? '#fff' : '#8A1538' }}>{o.tag}</span>
+              <p className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>{o.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Origins */}
+      <div className="flex items-center gap-2 mb-4">
+        <MapPin className="w-5 h-5" style={{ color: '#d9a441' }} />
+        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Origins &amp; Sourcing</h3>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        {originRegions.map((o) => (
+          <Card key={o.region} className="border h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }} data-testid={`origin-card-${o.region.toLowerCase().replace(/[^a-z]/g, '')}`}>
+            <CardContent className="p-5">
+              <div className="font-semibold mb-0.5" style={{ color: '#1f2937' }}>{o.region}</div>
+              <div className="text-xs mb-2.5" style={{ color: '#d9a441', fontWeight: 600 }}>{o.places}</div>
+              <p className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>{o.commodities}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Destinations */}
+      <div className="flex items-center gap-2 mb-4">
+        <Globe className="w-5 h-5" style={{ color: '#0B3C5D' }} />
+        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Destination Markets</h3>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        {destinationRegions.map((d) => (
+          <Card key={d.region} className="border h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }} data-testid={`destination-card-${d.region.toLowerCase().replace(/[^a-z]/g, '')}`}>
+            <CardContent className="p-5">
+              <div className="font-semibold mb-1.5" style={{ color: '#1f2937' }}>{d.region}</div>
+              <p className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>{d.markets}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Commodities */}
+      <div className="flex items-center gap-2 mb-4">
+        <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
+        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
+      </div>
+      <div className="flex flex-wrap gap-3">
+        {commoditiesList.map((c) => (
+          <span key={c} className="px-4 py-2 rounded-full text-sm font-medium border" style={{ borderColor: '#e5e7eb', color: '#4b5563', background: '#fff' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+        ))}
+      </div>
+    </FadeIn>
+  );
+}
 
 export default function AboutPage() {
   const { tab } = useParams();
@@ -100,6 +229,11 @@ export default function AboutPage() {
       {/* Content */}
       <section className="py-12 lg:py-16" style={{ background: 'var(--ga-surface)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {activeTab === 'global-presence' && (
+            <GlobalPresence />
+          )}
+
+          {activeTab !== 'global-presence' && (
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-stretch">
             {/* Left - content */}
             <div className="lg:col-span-3">
@@ -192,6 +326,7 @@ export default function AboutPage() {
               </div>
             </FadeIn>
           </div>
+          )}
         </div>
       </section>
     </div>
