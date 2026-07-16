@@ -35,8 +35,9 @@ const tradingOffices = [
 const originRegions = [
   { region: 'Black Sea', places: 'Ukraine \u00b7 Russia', commodities: 'Wheat, barley, corn, sunflower meal & oil' },
   { region: 'Central Asia', places: 'Kazakhstan', commodities: 'Milling wheat, pulses' },
-  { region: 'Americas', places: 'Canada \u00b7 USA \u00b7 South America', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
+  { region: 'Americas', places: 'Canada \u00b7 USA \u00b7 Brazil', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
   { region: 'Africa', places: 'East & West Africa', commodities: 'Sesame, pulses, cashew' },
+  { region: 'Oceania', places: 'Australia', commodities: 'Wheat, barley, pulses' },
   { region: 'Europe', places: 'EU origins', commodities: 'Feed grains, wheat, barley' },
 ];
 
@@ -94,7 +95,7 @@ function GlobalPresence() {
           <div className="rounded-xl border p-5 space-y-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
             {[
               { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
-              { label: 'Origination', color: '#d9a441', items: ['Canada', 'Ukraine', 'Russia', 'Kazakhstan'] },
+              { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
               { label: 'Destination Markets', color: '#0B3C5D', items: ['Egypt', 'Saudi Arabia', 'Kenya', 'Nigeria', 'India', 'Bangladesh', 'Vietnam', 'Indonesia'] },
             ].map((g) => (
               <div key={g.label} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>

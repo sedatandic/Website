@@ -1,30 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const MAP_URL = 'https://static.prod-images.emergentagent.com/jobs/a46d9f4e-718c-4add-95f0-4ba36a75bba8/images/6273f377bbf4b8f698221190cf59f72041087ff4671c198a75a0ab09f673cee8.png';
+const MAP_URL = '/dotted-world-map.png';
 
-// left/top are % positions tuned to the equirectangular dotted map
+// left/top are % positions tuned to the dotted map (Antarctica cropped; aspect 1264/732)
 const offices = [
-  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 41.6, hq: true },
-  { name: 'Geneva', type: 'trading', left: 51.7, top: 31.4 },
-  { name: 'Istanbul', type: 'trading', left: 58.1, top: 34.2 },
-  { name: 'Dubai', type: 'trading', left: 65.4, top: 41.6 },
-  { name: 'Singapore', type: 'trading', left: 78.9, top: 51.1 },
-  { name: 'Canada', type: 'origination', left: 22.2, top: 28.0 },
-  { name: 'Ukraine', type: 'origination', left: 58.5, top: 29.0 },
-  { name: 'Russia', type: 'origination', left: 60.4, top: 25.4 },
-  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 28.6 },
+  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 48.3, hq: true },
+  { name: 'Geneva', type: 'trading', left: 51.7, top: 36.5 },
+  { name: 'Istanbul', type: 'trading', left: 58.1, top: 39.7 },
+  { name: 'Dubai', type: 'trading', left: 65.4, top: 48.3 },
+  { name: 'Singapore', type: 'trading', left: 78.9, top: 59.4 },
+  { name: 'Canada', type: 'origination', left: 22.2, top: 32.5 },
+  { name: 'Ukraine', type: 'origination', left: 58.5, top: 33.7 },
+  { name: 'Russia', type: 'origination', left: 60.4, top: 29.5 },
+  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 33.2 },
+  { name: 'Brazil', type: 'origination', left: 38, top: 66.2 },
+  { name: 'Australia', type: 'origination', left: 86, top: 71.5 },
 ];
 
 const destinationMarkers = [
-  { name: 'Egypt', type: 'destination', left: 58.7, top: 39.5 },
-  { name: 'Saudi Arabia', type: 'destination', left: 63.0, top: 41.8 },
-  { name: 'Kenya', type: 'destination', left: 60.2, top: 52.1 },
-  { name: 'Nigeria', type: 'destination', left: 50.9, top: 49.1 },
-  { name: 'India', type: 'destination', left: 71.4, top: 40.1 },
-  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 42.2 },
-  { name: 'Vietnam', type: 'destination', left: 79.4, top: 43.3 },
-  { name: 'Indonesia', type: 'destination', left: 79.7, top: 54.0 },
+  { name: 'Egypt', type: 'destination', left: 58.7, top: 45.9 },
+  { name: 'Saudi Arabia', type: 'destination', left: 63.0, top: 48.6 },
+  { name: 'Kenya', type: 'destination', left: 60.2, top: 60.5 },
+  { name: 'Nigeria', type: 'destination', left: 50.9, top: 57.0 },
+  { name: 'India', type: 'destination', left: 71.4, top: 46.6 },
+  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 49.0 },
+  { name: 'Vietnam', type: 'destination', left: 79.4, top: 50.3 },
+  { name: 'Indonesia', type: 'destination', left: 79.7, top: 62.7 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
@@ -87,7 +89,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, titl
       )}
       <div
         className={`relative w-full rounded-xl border overflow-hidden ${fill ? 'flex-1' : 'shrink-0'}`}
-        style={{ borderColor: '#e5e7eb', background: '#f4f6f8', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 848' }) }}
+        style={{ borderColor: '#e5e7eb', background: '#f4f6f8', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
       >
         <img
           src={MAP_URL}
