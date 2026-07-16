@@ -28,8 +28,8 @@ const tradingOffices = [
   { city: 'Doha', country: 'Qatar', tag: 'Headquarters', desc: 'Central trading, risk-management and trade-finance hub, leveraging Qatar\u2019s strategic location and world-class infrastructure.' },
   { city: 'Geneva', country: 'Switzerland', tag: 'Trading Office', desc: 'European trading desk with access to global structured commodity and trade finance.' },
   { city: 'Istanbul', country: 'T\u00fcrkiye', tag: 'Trading Office', desc: 'Black Sea origination and regional trading gateway for grains and oilseeds.' },
-  { city: 'Dubai', country: 'UAE', tag: 'Trading Office', desc: 'Middle East distribution, logistics coordination and regional customer service.' },
-  { city: 'Singapore', country: 'Singapore', tag: 'Trading Office', desc: 'Asia-Pacific trading and distribution hub serving South & Southeast Asian markets.' },
+  { city: 'Dubai', country: 'United Arab Emirates', tag: 'Trading Office', desc: 'Middle East distribution, logistics coordination and regional customer service.' },
+  { city: 'Singapore', country: '', tag: 'Trading Office', desc: 'Asia-Pacific trading and distribution hub serving South & Southeast Asian markets.' },
 ];
 
 const originRegions = [
@@ -125,7 +125,7 @@ function GlobalPresence() {
             <CardContent className="p-5">
               <div className="flex items-center gap-1.5 mb-2">
                 <span className="font-semibold" style={{ color: '#1f2937' }}>{o.city}</span>
-                <span className="text-xs" style={{ color: '#9ca3af' }}>· {o.country}</span>
+                {o.country && <span className="text-xs" style={{ color: '#9ca3af' }}>· {o.country}</span>}
               </div>
               <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-2.5" style={{ background: o.tag === 'Headquarters' ? '#8A1538' : 'rgba(138,21,56,0.08)', color: o.tag === 'Headquarters' ? '#fff' : '#8A1538' }}>{o.tag}</span>
               <p className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>{o.desc}</p>
