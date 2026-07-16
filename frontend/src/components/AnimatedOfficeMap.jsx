@@ -5,26 +5,26 @@ const MAP_URL = 'https://static.prod-images.emergentagent.com/jobs/a46d9f4e-718c
 
 // left/top are % positions tuned to the equirectangular dotted map
 const offices = [
-  { name: 'Doha (HQ)', type: 'trading', left: 64.6, top: 43, hq: true },
-  { name: 'Geneva', type: 'trading', left: 51.7, top: 30 },
-  { name: 'Istanbul', type: 'trading', left: 58.2, top: 33.5 },
-  { name: 'Dubai', type: 'trading', left: 66.5, top: 44 },
-  { name: 'Singapore', type: 'trading', left: 78.8, top: 58.5 },
-  { name: 'Canada', type: 'origination', left: 25.5, top: 30 },
-  { name: 'Ukraine', type: 'origination', left: 58.5, top: 27 },
-  { name: 'Russia', type: 'origination', left: 61.5, top: 22 },
-  { name: 'Kazakhstan', type: 'origination', left: 70.5, top: 26 },
+  { name: 'Doha (HQ)', type: 'trading', left: 67, top: 43.6, hq: true },
+  { name: 'Geneva', type: 'trading', left: 57.5, top: 35.8 },
+  { name: 'Istanbul', type: 'trading', left: 59, top: 37.3 },
+  { name: 'Dubai', type: 'trading', left: 68.5, top: 43.3 },
+  { name: 'Singapore', type: 'trading', left: 80, top: 51.6 },
+  { name: 'Canada', type: 'origination', left: 28, top: 30 },
+  { name: 'Ukraine', type: 'origination', left: 60.5, top: 36.5 },
+  { name: 'Russia', type: 'origination', left: 61.5, top: 33.8 },
+  { name: 'Kazakhstan', type: 'origination', left: 68.5, top: 39.5 },
 ];
 
 const destinationMarkers = [
-  { name: 'Egypt', type: 'destination', left: 58.5, top: 45 },
-  { name: 'Saudi Arabia', type: 'destination', left: 62.5, top: 47.5 },
-  { name: 'Kenya', type: 'destination', left: 61.5, top: 61 },
-  { name: 'Nigeria', type: 'destination', left: 49.5, top: 55 },
-  { name: 'India', type: 'destination', left: 72, top: 48 },
-  { name: 'Bangladesh', type: 'destination', left: 74.5, top: 47 },
-  { name: 'Vietnam', type: 'destination', left: 79, top: 52 },
-  { name: 'Indonesia', type: 'destination', left: 81, top: 63 },
+  { name: 'Egypt', type: 'destination', left: 61.5, top: 44.3 },
+  { name: 'Saudi Arabia', type: 'destination', left: 67.5, top: 45.3 },
+  { name: 'Kenya', type: 'destination', left: 62.5, top: 50.5 },
+  { name: 'Nigeria', type: 'destination', left: 58.5, top: 50.5 },
+  { name: 'India', type: 'destination', left: 71.5, top: 45 },
+  { name: 'Bangladesh', type: 'destination', left: 74, top: 46 },
+  { name: 'Vietnam', type: 'destination', left: 78.5, top: 47 },
+  { name: 'Indonesia', type: 'destination', left: 81, top: 54 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };

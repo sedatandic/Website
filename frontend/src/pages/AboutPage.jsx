@@ -70,31 +70,32 @@ function GlobalPresence() {
   return (
     <FadeIn>
       <h2 className="text-2xl font-semibold mb-3" style={{ color: '#1f2937' }}>Global Presence</h2>
-      <p className="text-sm sm:text-base leading-relaxed mb-8 max-w-3xl" style={{ color: '#4b5563' }}>
-        From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
-      </p>
-
       <div className="grid lg:grid-cols-5 gap-8 items-start mb-12">
         <div className="lg:col-span-3">
           <AnimatedOfficeMap showDestinations title="Office & Trade-Flow Map" />
         </div>
-        <div className="lg:col-span-2">
-          <div className="rounded-xl border p-6" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
-            <h3 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: '#8A1538' }}>How We Operate</h3>
-            <ul className="space-y-4 text-sm" style={{ color: '#4b5563' }}>
-              <li className="flex gap-3">
-                <Building2 className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#8A1538' }} />
-                <span><b>Trading offices</b> in Doha, Geneva, Istanbul, Dubai and Singapore manage pricing, risk and execution.</span>
-              </li>
-              <li className="flex gap-3">
-                <Globe className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#d9a441' }} />
-                <span><b>Origination desks</b> secure competitive supply from the Black Sea, Central Asia, the Americas, Europe and Africa.</span>
-              </li>
-              <li className="flex gap-3">
-                <Ship className="w-4 h-4 mt-0.5 shrink-0" style={{ color: '#0B3C5D' }} />
-                <span><b>Logistics & chartering</b> move bulk and containerized cargo reliably to destination markets.</span>
-              </li>
-            </ul>
+        <div className="lg:col-span-2 space-y-5">
+          <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+            From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
+          </p>
+          <div className="rounded-xl border p-5 space-y-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
+            {[
+              { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
+              { label: 'Origination', color: '#d9a441', items: ['Canada', 'Ukraine', 'Russia', 'Kazakhstan'] },
+              { label: 'Destination Markets', color: '#0B3C5D', items: ['Egypt', 'Saudi Arabia', 'Kenya', 'Nigeria', 'India', 'Bangladesh', 'Vietnam', 'Indonesia'] },
+            ].map((g) => (
+              <div key={g.label} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>
+                <div className="flex items-center gap-2 mb-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: g.color }} />
+                  <span className="text-xs font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.08em' }}>{g.label}</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {g.items.map((it) => (
+                    <span key={it} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }}>{it}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
