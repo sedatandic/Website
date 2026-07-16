@@ -80,6 +80,17 @@ function GlobalPresence() {
           <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
             From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
           </p>
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
+              <h3 className="text-base font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {commoditiesList.map((c) => (
+                <span key={c} className="px-3 py-1.5 rounded-full text-xs font-medium border" style={{ borderColor: '#e5e7eb', color: '#4b5563', background: '#fff' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+              ))}
+            </div>
+          </div>
           <div className="rounded-xl border p-5 space-y-5" style={{ borderColor: '#e5e7eb', background: '#fff' }}>
             {[
               { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
@@ -145,7 +156,7 @@ function GlobalPresence() {
         <Globe className="w-5 h-5" style={{ color: '#0B3C5D' }} />
         <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Destination Markets</h3>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {destinationRegions.map((d) => (
           <Card key={d.region} className="border h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }} data-testid={`destination-card-${d.region.toLowerCase().replace(/[^a-z]/g, '')}`}>
             <CardContent className="p-5">
@@ -155,21 +166,6 @@ function GlobalPresence() {
           </Card>
         ))}
       </div>
-
-      {/* Commodities */}
-      <div className="flex items-center gap-2 mb-4">
-        <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
-        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Commodities We Trade</h3>
-      </div>
-      <div className="flex flex-wrap gap-3">
-        {commoditiesList.map((c) => (
-          <span key={c} className="px-4 py-2 rounded-full text-sm font-medium border" style={{ borderColor: '#e5e7eb', color: '#4b5563', background: '#fff' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
-        ))}
-      </div>
-
-      <p className="text-sm sm:text-base leading-relaxed mt-10 max-w-4xl" style={{ color: '#4b5563' }}>
-        From our Doha headquarters, Peninsula Agritrade connects reliable origins with demanding destination markets — supported by a network of trading offices, origination desks, and logistics partners spanning the Black Sea, Europe, the Americas, Africa, the Middle East, and Asia.
-      </p>
     </FadeIn>
   );
 }
