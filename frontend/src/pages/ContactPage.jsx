@@ -6,6 +6,7 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { FadeIn } from '../components/FadeIn';
+import { AnimatedOfficeMap } from '../components/AnimatedOfficeMap';
 import { submitContact } from '../lib/api';
 import { toast } from 'sonner';
 
@@ -97,6 +98,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="space-y-4 mt-auto">
+                  <AnimatedOfficeMap />
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
                     <p className="text-sm" style={{ color: '#4b5563' }}>Doha | Geneva | Dubai | Istanbul | Singapore</p>
