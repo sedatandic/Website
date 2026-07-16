@@ -276,7 +276,7 @@ export default function AboutPage() {
                 {keyFacts.map((fact, i) => {
                   const Icon = fact.icon;
                   return (
-                    <Card key={fact.label || fact.value} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
+                    <Card key={fact.sub} className="border text-center" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                       <CardContent className="p-6">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(230, 126, 34, 0.1)' }}>
                           <Icon className="w-5 h-5" style={{ color: '#8A1538' }} />

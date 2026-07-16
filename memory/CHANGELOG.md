@@ -8,7 +8,15 @@
 - **Commodities product images**: replaced generic/repeated photos with accurate close-ups across grains, oilseeds, pulses, sugar/rice, coffee.
 - **Our Partners page**: new 2-paragraph copy, center-aligned + vertically centered left column; right side shows 8 partner-CATEGORY tiles (4 per row, 2 rows equal height) with maroon lucide icons. NOTE: real company logos (SGS/Maersk/etc.) not used — external logo CDNs blocked in env and Wikipedia hotlinks fail in-browser. Awaiting user-uploaded logo files to swap in.
 
-## 2026-06-16 — About Page: Global Presence tab
+## 2026-06-16 — About: Global Presence tab
+- Added "Global Presence" tab on About Us (before Memberships) + header dropdown link.
+- AnimatedOfficeMap: destination markers, animated trade-flow vessels (origins→Doha→destinations), Antarctica cropped from map (served locally at /dotted-world-map.png), Mercator-calibrated marker positions, slower pulse.
+- Origins now include Canada, Brazil, Ukraine, Russia, Kazakhstan, Australia.
+- Destinations: Türkiye, Tunisia, Algeria, Lebanon, Syria, Pakistan, Libya, Malaysia, Sri Lanka, Philippines, Egypt, India, Nepal, Bangladesh, Vietnam, Indonesia (removed Kenya, Nigeria, Saudi Arabia).
+- Right column: intro + framed Commodities card + framed legend card (pills matched). Legend chip moved inside map bottom-left.
+- Fixed duplicate React key on Key Facts tab. Verified via testing_agent iteration_15 & iteration_16 (100% frontend).
+
+## Pending / Backlog
 - Added new "Global Presence" tab on About Us page, positioned before Memberships.
 - Enhanced AnimatedOfficeMap: added optional destination markers (navy) + title prop; showDestinations only on this tab (Contact map unchanged).
 - Recalibrated all map marker coordinates (Doha HQ now on Persian Gulf; offices/origins/destinations aligned to dotted map).
