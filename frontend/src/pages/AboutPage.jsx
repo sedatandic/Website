@@ -70,8 +70,8 @@ function GlobalPresence() {
   return (
     <FadeIn>
       <h2 className="text-2xl font-semibold mb-3" style={{ color: '#1f2937' }}>Global Presence</h2>
-      <div className="grid lg:grid-cols-5 gap-8 items-start mb-12">
-        <div className="lg:col-span-3">
+      <div className="grid lg:grid-cols-5 gap-8 items-stretch mb-12">
+        <div className="lg:col-span-3 flex flex-col">
           <AnimatedOfficeMap showDestinations title="Office & Trade-Flow Map" />
         </div>
         <div className="lg:col-span-2">

@@ -66,17 +66,17 @@ const Marker = ({ name, type, left, top, hq, index }) => {
 export const AnimatedOfficeMap = ({ showDestinations = false, title = 'Global Presence' }) => {
   const markers = showDestinations ? [...offices, ...destinationMarkers] : offices;
   return (
-    <div className="mb-6" data-testid="animated-office-map">
+    <div className="flex flex-col h-full" data-testid="animated-office-map">
       {title && (
         <h3 className="text-xs font-bold tracking-wider uppercase mb-3" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>{title}</h3>
       )}
-      <div className="relative w-full rounded-xl border overflow-hidden" style={{ borderColor: '#e5e7eb', background: '#f4f6f8', aspectRatio: '1264 / 848' }}>
+      <div className="relative w-full rounded-xl border overflow-hidden shrink-0" style={{ borderColor: '#e5e7eb', background: '#f4f6f8', aspectRatio: '1264 / 848' }}>
         <img src={MAP_URL} alt="World map of Peninsula Agritrade offices" className="absolute inset-0 w-full h-full object-contain" style={{ opacity: 0.85 }} />
         {markers.map((o, i) => (
           <Marker key={o.name} {...o} index={i} />
         ))}
       </div>
-      <div className="flex flex-wrap items-center gap-4 mt-2">
+      <div className="flex flex-wrap items-center gap-4 mt-auto pt-3">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#4b5563' }}>
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.trading }} /> Trading Office
         </span>
