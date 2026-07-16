@@ -86,6 +86,17 @@ function GlobalPresence() {
 
       {/* Network directory: each group in its own frame, in one row with Commodities */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12 items-stretch">
+        <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }} data-testid="commodities-frame">
+          <div className="flex items-center gap-2 mb-3">
+            <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
+            <span className="text-sm font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.06em' }}>Commodities We Trade</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {commoditiesList.map((c) => (
+              <span key={c} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
+            ))}
+          </div>
+        </div>
         {[
           { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
           { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
@@ -103,17 +114,6 @@ function GlobalPresence() {
             </div>
           </div>
         ))}
-        <div className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }} data-testid="commodities-frame">
-          <div className="flex items-center gap-2 mb-3">
-            <Package className="w-5 h-5" style={{ color: '#8A1538' }} />
-            <span className="text-sm font-bold uppercase" style={{ color: '#1f2937', letterSpacing: '0.06em' }}>Commodities We Trade</span>
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {commoditiesList.map((c) => (
-              <span key={c} className="px-2.5 py-1 rounded-md text-xs font-medium" style={{ background: 'rgba(0,0,0,0.04)', color: '#4b5563' }} data-testid={`commodity-pill-${c.toLowerCase().replace(/[^a-z]/g, '')}`}>{c}</span>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Trading Offices */}
