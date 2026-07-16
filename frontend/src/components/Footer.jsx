@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#f5f5f7' }} data-testid="site-footer">
+    <footer style={{ background: '#ffffff' }} data-testid="site-footer">
       <div className="h-px" style={{ background: 'rgba(138,21,56,0.25)' }} />
       <div className="border-t" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
