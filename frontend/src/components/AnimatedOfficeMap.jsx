@@ -140,13 +140,13 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
       )}
       <div
         className={`relative w-full rounded-xl border overflow-hidden ${fill ? 'flex-1' : 'shrink-0'}`}
-        style={{ borderColor: '#e5e7eb', background: '#f4f6f8', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
+        style={{ borderColor: '#e5e7eb', background: '#3f4248', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
       >
         <img
           src={MAP_URL}
           alt="World map of Peninsula Agritrade offices"
           className={`absolute inset-0 w-full h-full ${fill ? 'object-fill' : 'object-contain'}`}
-          style={{ opacity: 0.85 }}
+          style={{ opacity: 1 }}
         />
         {showFlows && <TradeFlows />}
         {markers.map((o, i) => (
