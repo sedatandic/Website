@@ -33,9 +33,9 @@ const tradingOffices = [
 ];
 
 const originRegions = [
-  { region: 'Black Sea', places: 'Ukraine \u00b7 Russia', commodities: 'Wheat, barley, corn, sunflower meal & oil' },
-  { region: 'Central Asia', places: 'Kazakhstan', commodities: 'Milling wheat, pulses' },
-  { region: 'Americas', places: 'Canada \u00b7 USA \u00b7 Brazil', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
+  { region: 'Black Sea', places: 'Ukraine \u00b7 Russia \u00b7 Moldova \u00b7 Romania \u00b7 Bulgaria', commodities: 'Wheat, barley, corn, sunflower meal & oil' },
+  { region: 'Central Asia', places: 'Kazakhstan \u00b7 Uzbekistan', commodities: 'Milling wheat, pulses' },
+  { region: 'Americas', places: 'Canada \u00b7 Brazil \u00b7 USA \u00b7 Argentina', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
   { region: 'Africa', places: 'East & West Africa', commodities: 'Sesame, pulses, cashew' },
   { region: 'Oceania', places: 'Australia', commodities: 'Wheat, barley, pulses' },
   { region: 'Europe', places: 'EU origins', commodities: 'Feed grains, wheat, barley' },
@@ -139,7 +139,7 @@ function GlobalPresence() {
       {/* Origins */}
       <div className="flex items-center gap-2 mb-4">
         <MapPin className="w-5 h-5" style={{ color: '#d9a441' }} />
-        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Origins &amp; Sourcing</h3>
+        <h3 className="text-lg font-semibold" style={{ color: '#1f2937' }}>Origination &amp; Sourcing</h3>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
         {originRegions.map((o) => (

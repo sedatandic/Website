@@ -1,0 +1,19 @@
+{
+  "summary": "Frontend-only regression of Mercator-recalibrated AnimatedOfficeMap on /about/global-presence and /contact. ALL review requirements PASSED. 27 markers rendered inside map bounding box (leftPct/topPct all within 0-100%); Doha (HQ) label visible (opacity 1). SVG contains 16 <path> and 8 <animateMotion>. All four framed cards render. 'Origination & Sourcing' heading verified (not 'Origins & Sourcing'). Origin card contents match spec: Black Sea = 'Ukraine · Russia · Moldova · Romania · Bulgaria', Central Asia = 'Kazakhstan · Uzbekistan', Americas = 'Canada · Brazil · USA · Argentina'. Contact page regression clean: 0 paths, 0 animateMotion, 11 markers (offices only, no destinations), legend shows Trading Office + Origination only, no Destination Market. Zero console/page errors on both routes.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "AnimatedOfficeMap.jsx still hardcodes offices/destinationMarkers/flowDefs coordinate arrays in-component; extracting to /src/data/geo.js (with lat/lon + a Mercator helper) would let future recalibrations be pure-data changes rather than hand-edited percentages.",
+    "Doha(HQ) at (64.3, 56.0) and Dubai at (65.4, 56.0) share the same top% and are only 1.1% apart horizontally — HQ label (positioned below the dot, top:10) may occlude the Dubai marker on smaller viewports; consider a small offset or auto-collision layout.",
+    "office-marker data-testid slug strips non-alpha chars, producing 'trkiye' (Türkiye) and 'srilanka' (Sri Lanka) — still unique here but a stable slug util (e.g. slugify) would be safer as new markers are added."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "seed_data_creation": "None (frontend-only visual regression run).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Mercator recalibration verified live: computed each marker's pixel center vs map bounding box on 1920x1080. Doha(HQ)=64.3/56.0, Dubai=65.4/56.0, Australia=87.1/77.2, Canada=22.3/39.7, Russia=60.4/39.2 — all inside. Doha label 'Doha (HQ)' opacity=1 (always-visible). SVG at /about/global-presence: 16 paths (2 per flow: dashed line + arrow shape) + 8 animateMotion (matches 8 flowDefs). Framed row testids: commodities-frame, map-legend-tradingoffices, map-legend-origination, map-legend-destinationmarkets — all render. Origin-card testids: origin-card-blacksea/centralasia/americas/africa/oceania/europe. /contact map correctly shows only 11 office markers, no SVG flow paths, and legend restricted to Trading Office + Origination. Zero console errors both pages. Screenshots at /app/global_presence.png and /app/contact.png.",
+  "rca of the issue": "N/A — validation only. The recalibration applies Mercator y%=66.72-23.41*ln(tan(45+lat/2)) so higher-latitude markers (Canada, Russia) stretch upward and Doha (~25°N) sits at ~56% top instead of the prior linear ~42.7%. Flow endpoint DOHA=[812.8,409.9] is consistent with 64.3%×12.64 = 812.8 and 56.0%×7.32 = 410.0."
+}
