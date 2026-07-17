@@ -66,7 +66,7 @@ const LogoTile = ({ p }) => {
 const MarqueeRow = ({ items, direction, duration }) => (
   <div className="overflow-hidden py-1.5" data-testid={`partners-marquee-${direction}`}>
     <div className="flex w-max" style={{ animation: `pa-marquee-${direction} ${duration}s linear infinite` }}>
-      {[...items, ...items].map((p, i) => <LogoTile key={i} p={p} />)}
+      {[...items, ...items].map((p, i) => <LogoTile key={`${p.name}-${i}`} p={p} />)}
     </div>
   </div>
 );

@@ -15,10 +15,13 @@ import time
 import uuid
 import pytest
 import requests
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
 BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://agritrade-preview.preview.emergentagent.com").rstrip("/")
-ADMIN_EMAIL = "admin@peninsula.com.qa"
-ADMIN_PASSWORD = "Peninsula@2026"
+ADMIN_EMAIL = os.environ["ADMIN_EMAIL"]
+ADMIN_PASSWORD = os.environ["ADMIN_PASSWORD"]
 
 # A tiny but valid PDF byte sequence so the server accepts the upload
 MINIMAL_PDF = (
