@@ -109,21 +109,22 @@ export default function PartnersPage() {
           {/* Intro text */}
           <FadeIn>
             <h2 className="text-2xl font-semibold mb-5" style={{ color: '#1f2937' }}>Our Partners</h2>
-            <div className="space-y-4 text-sm sm:text-base leading-relaxed max-w-4xl mb-12" style={{ color: '#4b5563' }}>
-              <p>Peninsula Agritrade LLC is a reliable partner in the international agri-commodity arena. Our team brings extensive expertise across physical trading, trade finance, shipping, and execution — ensuring tailored, professional service for every counterparty.</p>
-              <p>We work closely with government institutions, port and customs authorities, business chambers, independent surveyors, ship owners, shipping lines, cargo insurers, and trade-finance partners, delivering seamless coordination across the entire supply chain.</p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center mb-12">
+              <div className="lg:col-span-2 space-y-4 text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                <p>Peninsula Agritrade LLC is a reliable partner in the international agri-commodity arena. Our team brings extensive expertise across physical trading, trade finance, shipping, and execution — ensuring tailored, professional service for every counterparty.</p>
+                <p>We work closely with government institutions, port and customs authorities, business chambers, independent surveyors, ship owners, shipping lines, cargo insurers, and trade-finance partners, delivering seamless coordination across the entire supply chain.</p>
+              </div>
+              <div className="lg:border-l lg:pl-8" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
+                <div className="mb-3 tracking-[0.25em] leading-none select-none" style={{ color: '#8A1538', opacity: 0.4 }}>............................</div>
+                <p className="text-base sm:text-lg italic leading-relaxed" style={{ color: '#8A1538' }}>
+                  Trusted by 20+ banking, inspection &amp; logistics partners across 3 continents
+                </p>
+              </div>
             </div>
           </FadeIn>
 
           {/* Moving logo wall */}
           <FadeIn delay={0.1}>
-            <p
-              className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-6"
-              style={{ color: '#8A1538' }}
-              data-testid="partners-trusted-stat"
-            >
-              Trusted by 20+ banking, inspection &amp; logistics partners across 3 continents
-            </p>
             <div className="space-y-2" data-testid="partners-logo-wall">
               <MarqueeRow items={rows[0]} direction="left" duration={38} />
               <MarqueeRow items={rows[1]} direction="right" duration={44} />
