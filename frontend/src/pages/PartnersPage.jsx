@@ -117,6 +117,13 @@ export default function PartnersPage() {
 
           {/* Moving logo wall */}
           <FadeIn delay={0.1}>
+            <p
+              className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-6"
+              style={{ color: '#8A1538' }}
+              data-testid="partners-trusted-stat"
+            >
+              Trusted by 20+ banking, inspection &amp; logistics partners across 3 continents
+            </p>
             <div className="space-y-2" data-testid="partners-logo-wall">
               <MarqueeRow items={rows[0]} direction="left" duration={38} />
               <MarqueeRow items={rows[1]} direction="right" duration={44} />
