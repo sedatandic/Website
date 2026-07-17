@@ -116,7 +116,7 @@ export default function PartnersPage() {
               </div>
               <div className="lg:border-l lg:pl-8 flex items-center" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
                 <p className="text-sm sm:text-base italic font-bold leading-relaxed" style={{ color: '#8A1538' }}>
-                  &ldquo;Trusted by 20+ banking, inspection, certification, and logistics partners across three continents, delivering reliable financing, seamless vessel and container execution, and consistent quality assurance for global agricultural commodity&nbsp;supply&nbsp;chains.&rdquo;
+                  &ldquo;Trusted by 20+ banking, inspection, certification, and logistics partners across three continents, delivering reliable financing, seamless vessel and container execution, and consistent quality assurance for&nbsp;global&nbsp;agricultural&nbsp;commodity&nbsp;supply&nbsp;chains.&rdquo;
                 </p>
               </div>
             </div>
