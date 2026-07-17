@@ -116,7 +116,7 @@ export default function PartnersPage() {
               </div>
               <div className="lg:border-l lg:pl-8 flex items-center" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
                 <p className="text-base sm:text-lg italic font-bold leading-relaxed" style={{ color: '#8A1538' }}>
-                  Trusted by 20+ banking, inspection &amp; logistics partners across 3 continents
+                  Trusted by more than 20 banking, inspection, certification, and logistics partners across three continents, supporting end&#8209;to&#8209;end international agricultural commodity trading operations with reliable financing, vessel/container execution, quality assurance, and multi&#8209;market supply&#8209;chain continuity.
                 </p>
               </div>
             </div>
