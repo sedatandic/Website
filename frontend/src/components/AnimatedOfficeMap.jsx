@@ -129,7 +129,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
     </>
   );
   return (
-    <div className="flex flex-col h-full" data-testid="animated-office-map">
+    <div className={`flex flex-col ${fill ? 'h-full' : ''}`} data-testid="animated-office-map">
       {title && (
         <h3 className="text-xs font-bold tracking-wider uppercase mb-3" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>{title}</h3>
       )}

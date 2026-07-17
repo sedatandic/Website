@@ -97,7 +97,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4 mt-auto">
+                <div className="space-y-4 mt-2">
                   <AnimatedOfficeMap />
                   <div>
                     <h3 className="text-xs font-bold tracking-wider uppercase mb-2" style={{ color: '#1f2937', letterSpacing: '0.1em' }}>Trading Offices</h3>
