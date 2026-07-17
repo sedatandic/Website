@@ -47,7 +47,7 @@ const LogoTile = ({ p }) => {
       data-testid={`partner-logo-${p.name.toLowerCase().replace(/[^a-z]/g, '')}`}
     >
       {p.logo ? (
-        <img src={p.logo} alt={p.name} className="h-12 max-w-full object-contain" loading="lazy" />
+        <img src={p.logo} alt={p.name} className="max-h-16 max-w-[92%] object-contain" loading="lazy" />
       ) : (
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
