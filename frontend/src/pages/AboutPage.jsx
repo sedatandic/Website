@@ -36,13 +36,13 @@ const originRegions = [
   { region: 'Black Sea', places: 'Ukraine \u00b7 Russia \u00b7 Moldova \u00b7 Romania \u00b7 Bulgaria', commodities: 'Wheat, barley, corn, sunflower meal & oil' },
   { region: 'Central Asia', places: 'Kazakhstan \u00b7 Uzbekistan', commodities: 'Milling wheat, pulses' },
   { region: 'Americas', places: 'Canada \u00b7 Brazil \u00b7 USA \u00b7 Argentina', commodities: 'Pulses, wheat, oilseeds, corn, soybean, sugar' },
-  { region: 'Africa', places: 'East & West Africa', commodities: 'Sesame, pulses, cashew' },
+  { region: 'Africa', places: 'Sudan \u00b7 Ethiopia \u00b7 Tanzania', commodities: 'Sesame, pulses, cashew' },
   { region: 'Oceania', places: 'Australia', commodities: 'Wheat, barley, pulses' },
-  { region: 'Europe', places: 'EU origins', commodities: 'Feed grains, wheat, barley' },
+  { region: 'Europe', places: 'France \u00b7 Germany \u00b7 Romania', commodities: 'Feed grains, wheat, barley' },
 ];
 
 const destinationRegions = [
-  { region: 'Middle East & Levant', markets: 'Qatar, UAE, Lebanon, Syria, Türkiye' },
+  { region: 'Middle East & Levant', markets: 'Türkiye · Lebanon · Syria' },
   { region: 'North Africa', markets: 'Egypt, Tunisia, Algeria, Libya' },
   { region: 'South Asia', markets: 'India, Pakistan, Nepal, Bangladesh, Sri Lanka' },
   { region: 'Southeast Asia', markets: 'Indonesia, Vietnam, Malaysia, Philippines' },

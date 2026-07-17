@@ -48,6 +48,10 @@ Refine a professional, multi-page corporate website for "Peninsula Agritrade LLC
 - **Resume upload**: PDF/DOC/DOCX ≤10MB on job applications via Emergent object storage; admin download.
 - Verified: testing_agent iteration_10 — backend 29/29, frontend 100%.
 
+## Completed (2026-07-17)
+- Verified new **Our Partners** page (`/partners`): moving logo marquee (3 rows, alternating directions) using wordmark tiles as licensed-logo placeholders. No overflow / no console errors on desktop & mobile widths.
+- Global Presence tab, Mercator-calibrated `AnimatedOfficeMap`, header typography upscale — all confirmed live.
+
 ## Backlog (P1/P2)
 - (Optional) Tighten CORS origins for production (currently `*`).
 - Rate limiter is in-memory/single-process — move to MongoDB/Redis if scaled to multiple workers.
