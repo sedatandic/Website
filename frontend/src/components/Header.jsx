@@ -104,7 +104,7 @@ export default function Header() {
               >
                 <Link
                   to={link.path}
-                  className={`px-3.5 py-2 text-[13px] font-medium inline-flex items-center gap-1.5 transition-all duration-200 relative ${
+                  className={`px-4 py-2 text-[15px] font-medium inline-flex items-center gap-1.5 transition-all duration-200 relative ${
                     isActive(link.path) ? 'text-[#8A1538]' : 'text-gray-600 hover:text-[#8A1538]'
                   }`}
                   style={{ letterSpacing: '0.02em' }}
@@ -112,10 +112,10 @@ export default function Header() {
                 >
                   {link.name}
                   {link.dropdown && (
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
                   {isActive(link.path) && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] rounded-full" style={{ background: '#8A1538' }} />
+                    <span className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full" style={{ background: '#8A1538' }} />
                   )}
                 </Link>
 
