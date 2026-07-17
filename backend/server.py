@@ -24,6 +24,15 @@ from pdf_generator import generate_company_profile
 from auth import hash_password, verify_password, create_access_token, decode_token
 import storage
 
+from bson.errors import InvalidId
+
+
+def parse_object_id(item_id: str) -> ObjectId:
+    try:
+        return ObjectId(item_id)
+    except (InvalidId, TypeError):
+        raise HTTPException(status_code=404, detail="Not found")
+
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
 DB_NAME = os.environ.get("DB_NAME", "globalagri_db")
 
@@ -435,7 +444,7 @@ async def admin_inquiries(admin: dict = Depends(get_current_admin)):
 
 @app.get("/api/admin/inquiries/{item_id}/resume")
 async def admin_download_inquiry_resume(item_id: str, admin: dict = Depends(get_current_admin)):
-    rec = db.career_inquiries.find_one({"_id": ObjectId(item_id)})
+    rec = db.career_inquiries.find_one({"_id": parse_object_id(item_id)})
     if not rec or not rec.get("resume_path"):
         raise HTTPException(status_code=404, detail="Resume not found")
     data = None
@@ -465,7 +474,7 @@ async def admin_applications(admin: dict = Depends(get_current_admin)):
 
 @app.get("/api/admin/applications/{item_id}/resume")
 async def admin_download_resume(item_id: str, admin: dict = Depends(get_current_admin)):
-    rec = db.job_applications.find_one({"_id": ObjectId(item_id)})
+    rec = db.job_applications.find_one({"_id": parse_object_id(item_id)})
     if not rec or not rec.get("resume_path"):
         raise HTTPException(status_code=404, detail="Resume not found")
     data = None
