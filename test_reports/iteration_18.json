@@ -1,0 +1,19 @@
+{
+  "summary": "Verified marker recalibration fix on /about/global-presence and Contact page regression. All review requirements PASSED. 27 markers render fully inside map box, 16 SVG paths + 8 animateMotion elements present, all four framed cards render with correct Destination Markets contents (Philippines & Nepal present; Saudi Arabia/Kenya/Nigeria/The Philippines absent). Contact page regression clean (0 paths, 0 animateMotion, Destination Market legend absent, 16px gap map->Trading Offices heading). Zero console errors on both pages.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "AnimatedOfficeMap.jsx: office and destination coordinate arrays remain hardcoded in-component; extracting to /src/data/geo.js would ease future recalibration and avoid duplication with AboutPage destinationRegions (carry-over).",
+    "office-marker-* data-testid strips non-alpha, causing 'Sri Lanka' -> 'srilanka' and 'Türkiye' -> 'trkiye' — technically fine but slightly ambiguous; consider using a stable slug util.",
+    "Marker rendering: Doha (HQ) and Dubai overlap almost exactly (Doha 64.3/42.7 vs Dubai 65.4/42.7) — legible on desktop, but on smaller viewports HQ label may occlude Dubai marker. Not a functional bug, cosmetic only."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "seed_data_creation": "None (frontend-only visual regression run; no POSTs).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Marker recalibration verified: computed each marker's live pixel center relative to the map bounding box on a 1920x1080 viewport; all 27 markers reported left/top within 0-100% (Australia is the largest at 87.1%/77.0%, still inside). Trade-flow SVG contains 16 <path> (2 per flow: dashed line + arrow shape) and 8 <animateMotion>, matching the 8 flowDefs in AnimatedOfficeMap.jsx. Framed row on /about/global-presence contains commodities-frame, map-legend-tradingoffices, map-legend-origination, map-legend-destinationmarkets. Destination Markets card verified to include 'Philippines' and 'Nepal', and NOT include 'Saudi Arabia', 'Kenya', 'Nigeria', or 'The Philippines'. Contact page (/contact): map renders with legend below (Trading Office + Origination only), 0 paths and 0 animateMotion, gap from map bottom to 'Trading Offices' heading is 16px. Zero console/page errors on both routes. Screenshots saved at /app/global_presence.png and /app/contact.png for visual reference.",
+  "rca of the issue": "N/A — validation of prior fix. AnimatedOfficeMap.jsx now uses equirectangular top% values for the 1264x732 asset; the DOHA anchor (812.8, 312.6) matches Doha(HQ) at (64.3%, 42.7%) × (12.64, 7.32) ≈ (812.8, 312.6), consistent with the flow endpoint coords."
+}

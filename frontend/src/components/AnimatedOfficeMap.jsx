@@ -5,51 +5,51 @@ const MAP_URL = '/dotted-world-map.png';
 
 // left/top are % positions tuned to the dotted map (Antarctica cropped; aspect 1264/732)
 const offices = [
-  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 48.3, hq: true },
-  { name: 'Geneva', type: 'trading', left: 51.7, top: 36.5 },
-  { name: 'Istanbul', type: 'trading', left: 58.1, top: 39.7 },
-  { name: 'Dubai', type: 'trading', left: 65.4, top: 48.3 },
-  { name: 'Singapore', type: 'trading', left: 78.9, top: 59.4 },
-  { name: 'Canada', type: 'origination', left: 22.2, top: 32.5 },
-  { name: 'Ukraine', type: 'origination', left: 58.5, top: 33.7 },
-  { name: 'Russia', type: 'origination', left: 60.4, top: 29.5 },
-  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 33.2 },
-  { name: 'Brazil', type: 'origination', left: 38, top: 66.2 },
-  { name: 'Australia', type: 'origination', left: 86, top: 71.5 },
+  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 42.7, hq: true },
+  { name: 'Geneva', type: 'trading', left: 51.7, top: 28.4 },
+  { name: 'Istanbul', type: 'trading', left: 58.1, top: 31.9 },
+  { name: 'Dubai', type: 'trading', left: 65.4, top: 42.7 },
+  { name: 'Singapore', type: 'trading', left: 78.8, top: 59.1 },
+  { name: 'Canada', type: 'origination', left: 22.2, top: 22.3 },
+  { name: 'Ukraine', type: 'origination', left: 58.5, top: 25.4 },
+  { name: 'Russia', type: 'origination', left: 60.4, top: 21.8 },
+  { name: 'Kazakhstan', type: 'origination', left: 68.9, top: 27.1 },
+  { name: 'Brazil', type: 'origination', left: 36.1, top: 66.9 },
+  { name: 'Australia', type: 'origination', left: 87.2, top: 77.1 },
 ];
 
 const destinationMarkers = [
-  { name: 'Türkiye', type: 'destination', left: 59.0, top: 40.4 },
-  { name: 'Tunisia', type: 'destination', left: 52.6, top: 43.7 },
-  { name: 'Algeria', type: 'destination', left: 50.8, top: 46.9 },
-  { name: 'Lebanon', type: 'destination', left: 59.9, top: 43.8 },
-  { name: 'Syria', type: 'destination', left: 60.6, top: 43.2 },
-  { name: 'Pakistan', type: 'destination', left: 70.3, top: 43.9 },
-  { name: 'Libya', type: 'destination', left: 53.7, top: 44.3 },
-  { name: 'Malaysia', type: 'destination', left: 78.2, top: 58.6 },
-  { name: 'Sri Lanka', type: 'destination', left: 72.4, top: 56.4 },
-  { name: 'Philippines', type: 'destination', left: 83.6, top: 53.4 },
-  { name: 'Egypt', type: 'destination', left: 58.7, top: 45.9 },
-  { name: 'India', type: 'destination', left: 71.4, top: 46.6 },
-  { name: 'Nepal', type: 'destination', left: 73.7, top: 47.1 },
-  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 49.0 },
-  { name: 'Vietnam', type: 'destination', left: 79.4, top: 50.3 },
-  { name: 'Indonesia', type: 'destination', left: 79.7, top: 62.7 },
+  { name: 'Türkiye', type: 'destination', left: 59.1, top: 32.7 },
+  { name: 'Tunisia', type: 'destination', left: 52.6, top: 36.7 },
+  { name: 'Algeria', type: 'destination', left: 50.8, top: 38.1 },
+  { name: 'Lebanon', type: 'destination', left: 59.9, top: 36.8 },
+  { name: 'Syria', type: 'destination', left: 60.1, top: 37.1 },
+  { name: 'Pakistan', type: 'destination', left: 69.2, top: 39.4 },
+  { name: 'Libya', type: 'destination', left: 53.7, top: 37.5 },
+  { name: 'Malaysia', type: 'destination', left: 78.2, top: 57.9 },
+  { name: 'Sri Lanka', type: 'destination', left: 72.4, top: 54.6 },
+  { name: 'Philippines', type: 'destination', left: 83.6, top: 50.0 },
+  { name: 'Egypt', type: 'destination', left: 58.7, top: 39.4 },
+  { name: 'India', type: 'destination', left: 71.4, top: 40.4 },
+  { name: 'Nepal', type: 'destination', left: 73.7, top: 41.0 },
+  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 43.7 },
+  { name: 'Vietnam', type: 'destination', left: 79.4, top: 45.6 },
+  { name: 'Indonesia', type: 'destination', left: 79.7, top: 64.2 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
 
 // Trade-flow paths in the 1264x732 SVG space (left*12.64, top*7.32)
-const DOHA = [812.8, 353.6];
+const DOHA = [812.8, 312.6];
 const flowDefs = [
-  { from: [280.6, 237.9], to: DOHA, color: '#d9a441', dur: 6.5 },   // Canada -> Doha
-  { from: [739.4, 246.7], to: DOHA, color: '#d9a441', dur: 4.6 },   // Ukraine -> Doha
-  { from: [480.3, 484.6], to: DOHA, color: '#d9a441', dur: 7.0 },   // Brazil -> Doha
-  { from: [1087.0, 523.4], to: DOHA, color: '#d9a441', dur: 7.5 },  // Australia -> Doha
-  { from: DOHA, to: [745.8, 295.7], color: '#0B3C5D', dur: 3.8 },   // Doha -> Türkiye
-  { from: DOHA, to: [742.0, 336.0], color: '#0B3C5D', dur: 4.2 },   // Doha -> Egypt
-  { from: DOHA, to: [902.5, 341.1], color: '#0B3C5D', dur: 4.4 },   // Doha -> India
-  { from: DOHA, to: [1007.4, 458.9], color: '#0B3C5D', dur: 5.6 },  // Doha -> Indonesia
+  { from: [280.6, 163.2], to: DOHA, color: '#d9a441', dur: 6.5 },   // Canada -> Doha
+  { from: [739.4, 185.9], to: DOHA, color: '#d9a441', dur: 4.6 },   // Ukraine -> Doha
+  { from: [456.3, 489.7], to: DOHA, color: '#d9a441', dur: 7.0 },   // Brazil -> Doha
+  { from: [1102.2, 564.4], to: DOHA, color: '#d9a441', dur: 7.5 },  // Australia -> Doha
+  { from: DOHA, to: [747.0, 239.4], color: '#0B3C5D', dur: 3.8 },   // Doha -> Türkiye
+  { from: DOHA, to: [742.0, 288.4], color: '#0B3C5D', dur: 4.2 },   // Doha -> Egypt
+  { from: DOHA, to: [902.5, 295.7], color: '#0B3C5D', dur: 4.4 },   // Doha -> India
+  { from: DOHA, to: [1007.4, 469.9], color: '#0B3C5D', dur: 5.6 },  // Doha -> Indonesia
 ];
 
 const buildPath = ([x1, y1], [x2, y2]) => {
