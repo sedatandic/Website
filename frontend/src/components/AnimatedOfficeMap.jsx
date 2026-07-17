@@ -82,32 +82,44 @@ const TradeFlows = () => (
   </svg>
 );
 
-const Marker = ({ name, type, left, top, hq, index }) => {
+const Marker = ({ name, type, left, top, hq, active }) => {
   const color = COLORS[type];
   const dot = hq ? 14 : 10;
   const ring = hq ? 26 : 18;
+  const showLabel = hq || active;
   return (
     <div
       className="absolute -translate-x-1/2 -translate-y-1/2 group"
-      style={{ left: `${left}%`, top: `${top}%`, zIndex: hq ? 20 : 10 }}
+      style={{ left: `${left}%`, top: `${top}%`, zIndex: hq ? 20 : active ? 15 : 10 }}
       data-testid={`office-marker-${name.toLowerCase().replace(/[^a-z]/g, '')}`}
     >
-      {/* pulsing ring */}
-      <motion.span
-        className="absolute rounded-full"
-        style={{ width: ring, height: ring, left: -ring / 2, top: -ring / 2, background: color }}
-        initial={{ scale: 1, opacity: 0.55 }}
-        animate={{ scale: [1, 2.6, 2.6], opacity: [0.5, 0, 0] }}
-        transition={{ duration: 4.2, times: [0, 0.45, 1], repeat: Infinity, ease: 'easeOut', delay: index * 0.35 }}
-      />
+      {/* pulsing ring — only the currently active marker blinks */}
+      {active && !hq && (
+        <motion.span
+          className="absolute rounded-full"
+          style={{ width: ring, height: ring, left: -ring / 2, top: -ring / 2, background: color }}
+          initial={{ scale: 1, opacity: 0.55 }}
+          animate={{ scale: [1, 2.6], opacity: [0.55, 0] }}
+          transition={{ duration: 1.4, ease: 'easeOut' }}
+        />
+      )}
+      {hq && (
+        <motion.span
+          className="absolute rounded-full"
+          style={{ width: ring, height: ring, left: -ring / 2, top: -ring / 2, background: color }}
+          initial={{ scale: 1, opacity: 0.5 }}
+          animate={{ scale: [1, 2.6, 2.6], opacity: [0.5, 0, 0] }}
+          transition={{ duration: 4.2, times: [0, 0.45, 1], repeat: Infinity, ease: 'easeOut' }}
+        />
+      )}
       {/* solid dot */}
       <span
         className="relative block rounded-full ring-2 ring-white shadow-md"
         style={{ width: dot, height: dot, left: -dot / 2, top: -dot / 2, background: color }}
       />
-      {/* label: always visible for HQ, hover for others */}
+      {/* label: HQ always, active marker while blinking, or on hover */}
       <span
-        className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded text-[10px] font-bold text-white transition-opacity duration-200 pointer-events-none ${hq ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+        className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-0.5 rounded text-[10px] font-bold text-white transition-opacity duration-200 pointer-events-none ${showLabel ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
         style={{ background: color, top: hq ? 10 : -22 }}
       >
         {name}
@@ -118,6 +130,14 @@ const Marker = ({ name, type, left, top, hq, index }) => {
 
 export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, legendInside = false, showFlows = false, title = 'Global Presence' }) => {
   const markers = showDestinations ? [...offices, ...destinationMarkers] : offices;
+  const nonHq = markers.map((m, i) => i).filter((i) => !markers[i].hq);
+  const [activeStep, setActiveStep] = React.useState(0);
+  React.useEffect(() => {
+    if (nonHq.length === 0) return undefined;
+    const id = setInterval(() => setActiveStep((s) => (s + 1) % nonHq.length), 1600);
+    return () => clearInterval(id);
+  }, [nonHq.length]);
+  const activeMarkerIndex = nonHq[activeStep];
   const legend = (
     <>
       <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#374151' }}>
@@ -140,7 +160,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
       )}
       <div
         className={`relative w-full rounded-xl border overflow-hidden ${fill ? 'flex-1' : 'shrink-0'}`}
-        style={{ borderColor: '#e5e7eb', background: '#3f4248', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
+        style={{ borderColor: '#e5e7eb', background: '#5b6570', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
       >
         <img
           src={MAP_URL}
@@ -150,7 +170,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
         />
         {showFlows && <TradeFlows />}
         {markers.map((o, i) => (
-          <Marker key={o.name} {...o} index={i} />
+          <Marker key={o.name} {...o} active={i === activeMarkerIndex} />
         ))}
         {legendInside && (
           <div
