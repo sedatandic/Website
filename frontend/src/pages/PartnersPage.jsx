@@ -115,7 +115,7 @@ export default function PartnersPage() {
                 <p>We work closely with government institutions, port and customs authorities, business chambers, independent surveyors, ship owners, shipping lines, cargo insurers, and trade-finance partners, delivering seamless coordination across the entire supply chain.</p>
               </div>
               <div className="lg:border-l lg:pl-8 flex items-center" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
-                <p className="text-base sm:text-lg italic font-bold leading-relaxed" style={{ color: '#8A1538' }}>
+                <p className="text-sm sm:text-base italic font-bold leading-relaxed" style={{ color: '#8A1538' }}>
                   Trusted by 20+ banking, inspection, certification, and logistics partners across three continents, delivering reliable financing, seamless vessel and container execution, and consistent quality assurance for global agricultural commodity supply chains.
                 </p>
               </div>
