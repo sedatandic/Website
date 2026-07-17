@@ -321,6 +321,22 @@ class TestResumeE2E:
         r = requests.post(f"{BASE_URL}/api/jobs/apply", data=data, files=files, timeout=30)
         assert r.status_code == 422
 
+    def test_application_resume_nonexistent_id_returns_404(self, session, auth_headers):
+        # Valid-shaped but non-existent ObjectId
+        r = session.get(
+            f"{BASE_URL}/api/admin/applications/000000000000000000000000/resume",
+            headers=auth_headers,
+            timeout=15,
+        )
+        assert r.status_code == 404
+
+    def test_application_resume_requires_auth(self, session):
+        r = session.get(
+            f"{BASE_URL}/api/admin/applications/000000000000000000000000/resume",
+            timeout=15,
+        )
+        assert r.status_code == 401
+
 
 # ---------- CAREER INQUIRY (multipart) ----------
 class TestCareerInquiryMultipart:
@@ -404,4 +420,19 @@ class TestCareerInquiryMultipart:
         }
         r = requests.post(f"{BASE_URL}/api/careers/inquiry", data=data, files=files, timeout=30)
         assert r.status_code == 422
+
+    def test_inquiry_resume_nonexistent_id_returns_404(self, session, auth_headers):
+        r = session.get(
+            f"{BASE_URL}/api/admin/inquiries/000000000000000000000000/resume",
+            headers=auth_headers,
+            timeout=15,
+        )
+        assert r.status_code == 404
+
+    def test_inquiry_resume_requires_auth(self, session):
+        r = session.get(
+            f"{BASE_URL}/api/admin/inquiries/000000000000000000000000/resume",
+            timeout=15,
+        )
+        assert r.status_code == 401
 

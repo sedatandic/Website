@@ -438,6 +438,8 @@ async def admin_download_inquiry_resume(item_id: str, admin: dict = Depends(get_
     rec = db.career_inquiries.find_one({"_id": ObjectId(item_id)})
     if not rec or not rec.get("resume_path"):
         raise HTTPException(status_code=404, detail="Resume not found")
+    data = None
+    content_type = None
     try:
         data, content_type = storage.get_object(rec["resume_path"])
     except Exception as e:
@@ -466,6 +468,8 @@ async def admin_download_resume(item_id: str, admin: dict = Depends(get_current_
     rec = db.job_applications.find_one({"_id": ObjectId(item_id)})
     if not rec or not rec.get("resume_path"):
         raise HTTPException(status_code=404, detail="Resume not found")
+    data = None
+    content_type = None
     try:
         data, content_type = storage.get_object(rec["resume_path"])
     except Exception as e:
