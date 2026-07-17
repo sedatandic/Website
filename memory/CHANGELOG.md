@@ -1,5 +1,10 @@
 # Changelog — Peninsula Agritrade LLC
 
+## 2026-07-17 (Global Presence tab + Contact fixes)
+- **About → Global Presence** (new tab, before Memberships; added to header dropdown): animated dotted world map (Antarctica cropped, served at /dotted-world-map.png) with Trading Office / Origination / Destination markers, animated trade-flow vessels (16 paths / 8 vessels), Mercator-calibrated positions, slower pulse. Origins: Canada, Brazil, Ukraine, Russia, Kazakhstan, Australia. Destinations: Türkiye, Tunisia, Algeria, Lebanon, Syria, Pakistan, Libya, Malaysia, Sri Lanka, Philippines, Egypt, India, Nepal, Bangladesh, Vietnam, Indonesia. Right column intro (expanded copy) + four framed cards row (Commodities We Trade | Trading Offices | Origination | Destination Markets). Map bottom aligned to intro text.
+- **Header**: desktop nav font enlarged 13px→15px.
+- **Contact page fix**: removed large empty gap above Trading/Origination office lists (AnimatedOfficeMap root h-full made conditional on `fill`; removed mt-auto). Verified testing_agent iterations 15/16/17 (100% frontend).
+
 ## 2026-07-15 (content & layout refinements)
 - **Homepage stats band**: expanded to 6 metrics in one full-width row with icons (dollar/boxes/ship/sprout/globe/building) and vertical separators. Values show units: `250M+ USD`, `500K+ MTS`, `200+ VESSELS`, `25+ COMMODITIES`, `25+ DESTINATION`, `4 OFFICES & STAFF`. Descriptor lines below each. Removed redundant middle labels.
 - **About → Memberships**: added 4 logos (GAFTA, GPC, FOSFA, Qatar Chamber — replaced ICC) served from `/public/memberships/`; logos 2x size, name/full_name text removed. Seed + DB updated.
