@@ -114,9 +114,8 @@ export default function PartnersPage() {
                 <p>Peninsula Agritrade LLC is a reliable partner in the international agri-commodity arena. Our team brings extensive expertise across physical trading, trade finance, shipping, and execution — ensuring tailored, professional service for every counterparty.</p>
                 <p>We work closely with government institutions, port and customs authorities, business chambers, independent surveyors, ship owners, shipping lines, cargo insurers, and trade-finance partners, delivering seamless coordination across the entire supply chain.</p>
               </div>
-              <div className="lg:border-l lg:pl-8" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
-                <div className="mb-3 tracking-[0.25em] leading-none select-none" style={{ color: '#8A1538', opacity: 0.4 }}>............................</div>
-                <p className="text-base sm:text-lg italic leading-relaxed" style={{ color: '#8A1538' }}>
+              <div className="lg:border-l lg:pl-8 flex items-center" style={{ borderColor: '#e5e7eb' }} data-testid="partners-trusted-stat">
+                <p className="text-base sm:text-lg italic font-bold leading-relaxed" style={{ color: '#8A1538' }}>
                   Trusted by 20+ banking, inspection &amp; logistics partners across 3 continents
                 </p>
               </div>
