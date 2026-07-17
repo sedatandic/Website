@@ -35,6 +35,11 @@ const destinationMarkers = [
   { name: 'Bangladesh', type: 'destination', left: 75.1, top: 56.7 },
   { name: 'Vietnam', type: 'destination', left: 79.4, top: 57.9 },
   { name: 'Indonesia', type: 'destination', left: 79.7, top: 69.2 },
+  { name: 'China', type: 'destination', left: 80.5, top: 52.1 },
+  { name: 'Thailand', type: 'destination', left: 77.9, top: 61.3 },
+  { name: 'Qatar', type: 'destination', left: 64.6, top: 56.6 },
+  { name: 'Saudi Arabia', type: 'destination', left: 63.0, top: 56.4 },
+  { name: 'Morocco', type: 'destination', left: 47.9, top: 52.5 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
