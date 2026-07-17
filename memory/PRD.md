@@ -49,7 +49,9 @@ Refine a professional, multi-page corporate website for "Peninsula Agritrade LLC
 - Verified: testing_agent iteration_10 — backend 29/29, frontend 100%.
 
 ## Completed (2026-07-17)
-- Verified new **Our Partners** page (`/partners`): moving logo marquee (3 rows, alternating directions) using wordmark tiles as licensed-logo placeholders. No overflow / no console errors on desktop & mobile widths.
+- **Partners page — real logos added**: sourced & self-hosted 15 official partner logos in `frontend/public/partners/` (Commercial Bank, Dukhan Bank, Doha Bank, Ministry of Commerce, SGS, Control Union, GAFTA, FOSFA, GPC, Hamad Port/Mwani, QTerminals, Maersk, MSC, CMA CGM, Hapag-Lloyd). Wired into `PartnersPage.jsx` marquee. Verified 0 broken images.
+- Remaining 5 (QNB, CQUR Bank, Qatar Development Bank, Qatar Financial Centre, Qatar Chamber) still use styled wordmark tiles — their logos are bot-blocked from download; drop-in `logo:` path when licensed files are provided.
+- Verified new **Our Partners** page (`/partners`): moving logo marquee (3 rows, alternating directions). No overflow / no console errors.
 - Global Presence tab, Mercator-calibrated `AnimatedOfficeMap`, header typography upscale — all confirmed live.
 
 ## Backlog (P1/P2)

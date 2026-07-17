@@ -1,32 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Landmark, Anchor, Building2, ClipboardCheck, Container, Banknote } from 'lucide-react';
+import { ChevronRight, Landmark, Building2, Banknote } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 // Each partner supports an optional `logo` image URL. When present the image is
 // shown; otherwise a styled wordmark tile is rendered. Replace `logo` with your
 // licensed official logo files to display real logos.
 const rows = [
+  // Banks & trade finance
   [
     { name: 'QNB', icon: Banknote },
-    { name: 'Dukhan Bank', icon: Banknote },
-    { name: 'Doha Bank', icon: Banknote },
+    { name: 'Commercial Bank', sub: 'Qatar', logo: '/partners/commercial-bank.jpg' },
+    { name: 'Dukhan Bank', logo: '/partners/dukhan-bank.svg' },
+    { name: 'Doha Bank', logo: '/partners/doha-bank.png' },
     { name: 'CQUR Bank', icon: Banknote },
-    { name: 'Commercial Bank', sub: 'Qatar', icon: Banknote },
-  ],
-  [
     { name: 'Qatar Development Bank', icon: Landmark },
-    { name: 'Qatar Financial Centre', icon: Landmark },
-    { name: 'SGS', sub: 'Inspection', icon: ClipboardCheck },
-    { name: 'Cotecna', sub: 'Inspection', icon: ClipboardCheck },
-    { name: 'Control Union', sub: 'Inspection', icon: ClipboardCheck },
   ],
+  // Institutions & inspection
   [
-    { name: 'General Survey', sub: 'Inspection', icon: ClipboardCheck },
+    { name: 'Qatar Financial Centre', icon: Landmark },
+    { name: 'Ministry of Commerce', sub: 'Qatar', logo: '/partners/ministry-commerce.svg' },
     { name: 'Qatar Chamber', icon: Building2 },
-    { name: 'Hamad Port', icon: Anchor },
-    { name: 'QTerminals', icon: Container },
-    { name: 'Ministry of Commerce', sub: 'Qatar', icon: Landmark },
+    { name: 'SGS', sub: 'Inspection', logo: '/partners/sgs.png' },
+    { name: 'Control Union', sub: 'Inspection', logo: '/partners/control-union.svg' },
+    { name: 'GAFTA', sub: 'Trade Association', logo: '/partners/gafta.png' },
+  ],
+  // Ports, shipping lines & associations
+  [
+    { name: 'Hamad Port', logo: '/partners/hamad-port.png' },
+    { name: 'QTerminals', logo: '/partners/qterminals.png' },
+    { name: 'Maersk', logo: '/partners/maersk.png' },
+    { name: 'MSC', logo: '/partners/msc.png' },
+    { name: 'CMA CGM', logo: '/partners/cma-cgm.png' },
+    { name: 'Hapag-Lloyd', logo: '/partners/hapag-lloyd.png' },
+    { name: 'FOSFA', sub: 'Trade Association', logo: '/partners/fosfa.png' },
+    { name: 'GPC', sub: 'Global Pulse Confederation', logo: '/partners/gpc.png' },
   ],
 ];
 
@@ -39,7 +47,7 @@ const LogoTile = ({ p }) => {
       data-testid={`partner-logo-${p.name.toLowerCase().replace(/[^a-z]/g, '')}`}
     >
       {p.logo ? (
-        <img src={p.logo} alt={p.name} className="max-h-14 max-w-[85%] object-contain" />
+        <img src={p.logo} alt={p.name} className="max-h-16 max-w-[88%] object-contain" loading="lazy" />
       ) : (
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
