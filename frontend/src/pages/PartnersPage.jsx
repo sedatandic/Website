@@ -9,18 +9,18 @@ import { FadeIn } from '../components/FadeIn';
 const rows = [
   // Banks & trade finance
   [
-    { name: 'QNB', icon: Banknote },
+    { name: 'QNB', logo: '/partners/qnb.png' },
     { name: 'Commercial Bank', sub: 'Qatar', logo: '/partners/commercial-bank.jpg' },
     { name: 'Dukhan Bank', logo: '/partners/dukhan-bank.svg' },
     { name: 'Doha Bank', logo: '/partners/doha-bank.png' },
-    { name: 'CQUR Bank', icon: Banknote },
-    { name: 'Qatar Development Bank', icon: Landmark },
+    { name: 'CQUR Bank', logo: '/partners/cqur-bank.png' },
+    { name: 'Qatar Development Bank', logo: '/partners/qdb.png' },
   ],
   // Institutions & inspection
   [
-    { name: 'Qatar Financial Centre', icon: Landmark },
+    { name: 'Qatar Financial Centre', logo: '/partners/qfc.png' },
     { name: 'Ministry of Commerce', sub: 'Qatar', logo: '/partners/ministry-commerce.svg' },
-    { name: 'Qatar Chamber', icon: Building2 },
+    { name: 'Qatar Chamber', logo: '/partners/qatar-chamber.png' },
     { name: 'SGS', sub: 'Inspection', logo: '/partners/sgs.png' },
     { name: 'Control Union', sub: 'Inspection', logo: '/partners/control-union.svg' },
     { name: 'GAFTA', sub: 'Trade Association', logo: '/partners/gafta.png' },
