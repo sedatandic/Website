@@ -10,7 +10,7 @@ const rows = [
   // Banks & trade finance
   [
     { name: 'QNB', logo: '/partners/qnb.png' },
-    { name: 'Commercial Bank', sub: 'Qatar', logo: '/partners/commercial-bank.jpg' },
+    { name: 'Commercial Bank', sub: 'Qatar', logo: '/partners/commercial-bank.png' },
     { name: 'Dukhan Bank', logo: '/partners/dukhan-bank.svg' },
     { name: 'Doha Bank', logo: '/partners/doha-bank.png' },
     { name: 'CQUR Bank', logo: '/partners/cqur-bank.png' },
@@ -42,12 +42,12 @@ const LogoTile = ({ p }) => {
   const Icon = p.icon;
   return (
     <div
-      className="shrink-0 mx-3 w-48 h-24 rounded-xl border bg-white flex items-center justify-center text-center px-4 transition-shadow hover:shadow-md"
+      className="shrink-0 mx-3 w-52 h-24 rounded-xl border bg-white flex items-center justify-center text-center px-5 transition-shadow hover:shadow-md"
       style={{ borderColor: '#e5e7eb' }}
       data-testid={`partner-logo-${p.name.toLowerCase().replace(/[^a-z]/g, '')}`}
     >
       {p.logo ? (
-        <img src={p.logo} alt={p.name} className="max-h-16 max-w-[88%] object-contain" loading="lazy" />
+        <img src={p.logo} alt={p.name} className="h-12 max-w-full object-contain" loading="lazy" />
       ) : (
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
