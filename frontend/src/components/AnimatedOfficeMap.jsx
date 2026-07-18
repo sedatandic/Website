@@ -5,39 +5,39 @@ const MAP_URL = '/dotted-world-map.png';
 
 // left/top are % positions tuned to the dotted map (Antarctica cropped; aspect 1264/732)
 const offices = [
-  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 56.0, hq: true },
-  { name: 'Geneva', type: 'trading', left: 51.7, top: 45.4 },
-  { name: 'Istanbul', type: 'trading', left: 58.1, top: 48.3 },
-  { name: 'Dubai', type: 'trading', left: 65.4, top: 56.0 },
-  { name: 'Singapore', type: 'trading', left: 78.8, top: 66.2 },
-  { name: 'Canada', type: 'origination', left: 20.6, top: 41.1 },
-  { name: 'Ukraine', type: 'origination', left: 58.5, top: 42.2 },
-  { name: 'Russia', type: 'origination', left: 60.4, top: 38.4 },
-  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 41.7 },
-  { name: 'Brazil', type: 'origination', left: 36.1, top: 73.6 },
-  { name: 'Australia', type: 'origination', left: 87.2, top: 78.1 },
+  { name: 'Doha (HQ)', type: 'trading', left: 64.3, top: 53.4, hq: true },
+  { name: 'Geneva', type: 'trading', left: 51.7, top: 41.3 },
+  { name: 'Istanbul', type: 'trading', left: 58.1, top: 44.6 },
+  { name: 'Dubai', type: 'trading', left: 65.3, top: 53.5 },
+  { name: 'Singapore', type: 'trading', left: 78.8, top: 65.0 },
+  { name: 'Canada', type: 'origination', left: 20.6, top: 37.1 },
+  { name: 'Ukraine', type: 'origination', left: 58.5, top: 38.3 },
+  { name: 'Russia', type: 'origination', left: 60.4, top: 34.1 },
+  { name: 'Kazakhstan', type: 'origination', left: 69.8, top: 37.7 },
+  { name: 'Brazil', type: 'origination', left: 36.1, top: 72.8 },
+  { name: 'Australia', type: 'origination', left: 87.2, top: 77.7 },
 ];
 
 const destinationMarkers = [
-  { name: 'Tunisia', type: 'destination', left: 52.8, top: 50.3 },
-  { name: 'Algeria', type: 'destination', left: 50.9, top: 50.3 },
-  { name: 'Morocco', type: 'destination', left: 48.3, top: 52.7 },
-  { name: 'Libya', type: 'destination', left: 54.7, top: 52.7 },
-  { name: 'Egypt', type: 'destination', left: 58.6, top: 55.3 },
-  { name: 'Lebanon', type: 'destination', left: 59.9, top: 51.8 },
-  { name: 'Syria', type: 'destination', left: 60.8, top: 51.3 },
-  { name: 'Saudi Arabia', type: 'destination', left: 62.5, top: 56.6 },
-  { name: 'Pakistan', type: 'destination', left: 68.6, top: 56.2 },
-  { name: 'India', type: 'destination', left: 71.9, top: 57.5 },
-  { name: 'Nepal', type: 'destination', left: 73.3, top: 54.6 },
-  { name: 'Sri Lanka', type: 'destination', left: 72.2, top: 64.2 },
-  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 56.7 },
-  { name: 'China', type: 'destination', left: 78.6, top: 51.2 },
-  { name: 'Thailand', type: 'destination', left: 78.0, top: 60.7 },
-  { name: 'Vietnam', type: 'destination', left: 79.8, top: 60.2 },
-  { name: 'Malaysia', type: 'destination', left: 78.2, top: 65.8 },
-  { name: 'Philippines', type: 'destination', left: 83.6, top: 60.8 },
-  { name: 'Indonesia', type: 'destination', left: 82.7, top: 68.2 },
+  { name: 'Tunisia', type: 'destination', left: 52.8, top: 47.1 },
+  { name: 'Algeria', type: 'destination', left: 50.9, top: 47.2 },
+  { name: 'Morocco', type: 'destination', left: 48.3, top: 49.9 },
+  { name: 'Libya', type: 'destination', left: 54.7, top: 49.9 },
+  { name: 'Egypt', type: 'destination', left: 58.6, top: 52.7 },
+  { name: 'Lebanon', type: 'destination', left: 59.9, top: 48.8 },
+  { name: 'Syria', type: 'destination', left: 60.8, top: 48.3 },
+  { name: 'Saudi Arabia', type: 'destination', left: 62.5, top: 54.1 },
+  { name: 'Pakistan', type: 'destination', left: 68.6, top: 53.7 },
+  { name: 'India', type: 'destination', left: 71.9, top: 55.1 },
+  { name: 'Nepal', type: 'destination', left: 73.3, top: 51.9 },
+  { name: 'Sri Lanka', type: 'destination', left: 72.2, top: 62.4 },
+  { name: 'Bangladesh', type: 'destination', left: 75.1, top: 54.2 },
+  { name: 'China', type: 'destination', left: 78.6, top: 48.2 },
+  { name: 'Thailand', type: 'destination', left: 78.0, top: 58.6 },
+  { name: 'Vietnam', type: 'destination', left: 79.8, top: 58.1 },
+  { name: 'Malaysia', type: 'destination', left: 78.2, top: 64.2 },
+  { name: 'Philippines', type: 'destination', left: 83.6, top: 58.8 },
+  { name: 'Indonesia', type: 'destination', left: 82.7, top: 66.8 },
 ];
 
 const COLORS = { trading: '#8A1538', origination: '#d9a441', destination: '#0B3C5D' };
@@ -158,7 +158,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
       )}
       <div
         className={`relative w-full rounded-xl border overflow-hidden ${fill ? 'flex-1' : 'shrink-0'}`}
-        style={{ borderColor: '#e5e7eb', background: '#5b6570', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 732' }) }}
+        style={{ borderColor: '#e5e7eb', background: '#5b6570', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 666' }) }}
       >
         <img
           src={MAP_URL}
