@@ -136,17 +136,18 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
     return () => clearInterval(id);
   }, [nonHq.length]);
   const activeMarkerIndex = nonHq[activeStep];
+  const legendColor = legendInside ? '#e5e7eb' : '#374151';
   const legend = (
     <>
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#374151' }}>
-        <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.trading }} /> Trading Office
+      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: legendColor }}>
+        <span className="w-2.5 h-2.5 rounded-full ring-1 ring-white/40" style={{ background: COLORS.trading }} /> Trading Office
       </span>
-      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#374151' }}>
-        <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.origination }} /> Origination
+      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: legendColor }}>
+        <span className="w-2.5 h-2.5 rounded-full ring-1 ring-white/40" style={{ background: COLORS.origination }} /> Origination
       </span>
       {showDestinations && (
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: '#374151' }}>
-          <span className="w-2.5 h-2.5 rounded-full" style={{ background: COLORS.destination }} /> Destination Market
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium" style={{ color: legendColor }}>
+          <span className="w-2.5 h-2.5 rounded-full ring-1 ring-white/40" style={{ background: COLORS.destination }} /> Destination Market
         </span>
       )}
     </>
@@ -158,7 +159,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
       )}
       <div
         className={`relative w-full rounded-xl border overflow-hidden ${fill ? 'flex-1' : 'shrink-0'}`}
-        style={{ borderColor: '#e5e7eb', background: '#5b6570', ...(fill ? { minHeight: '340px' } : { aspectRatio: '1264 / 666' }) }}
+        style={{ borderColor: '#e5e7eb', background: '#5b6570', ...(fill ? { minHeight: '360px' } : { aspectRatio: '1264 / 666' }) }}
       >
         <img
           src={MAP_URL}
@@ -171,10 +172,7 @@ export const AnimatedOfficeMap = ({ showDestinations = false, fill = false, lege
           <Marker key={o.name} {...o} active={i === activeMarkerIndex} />
         ))}
         {legendInside && (
-          <div
-            className="absolute bottom-2.5 left-2.5 flex flex-wrap items-center gap-3 px-3 py-1.5 rounded-lg"
-            style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(4px)', border: '1px solid #e5e7eb' }}
-          >
+          <div className="absolute bottom-3 left-3 flex flex-wrap items-center gap-4">
             {legend}
           </div>
         )}
