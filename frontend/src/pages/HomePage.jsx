@@ -11,7 +11,7 @@ const slides = [
     image: 'https://images.unsplash.com/photo-1647252262017-582a7dbb73d0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     action: 'Connecting',
     headline: 'Qatar to the global agricultural value chain\nand supporting long-term national food security goals.',
-    subtext: "Qatar's first fully integrated agri-supply-chain manager and global trading platform, linking producers and consumers globally with seamless, efficient, end-to-end commodity flows.",
+    subtext: "Qatar\u2019s premier integrated agri\u2011supply\u2011chain manager and global trading platform, defining the national standard for seamless, end\u2011to\u2011end commodity flows between producers and consumers worldwide.",
   },
   {
     image: 'https://customer-assets-wrfwihn1.emergentagent.net/job_a46d9f4e-718c-4add-95f0-4ba36a75bba8/artifacts/53os6rjt_image.png',
