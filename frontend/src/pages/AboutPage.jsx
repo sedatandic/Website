@@ -100,7 +100,7 @@ function GlobalPresence() {
         {[
           { label: 'Trading Offices', color: '#8A1538', items: ['Doha (HQ)', 'Geneva', 'Istanbul', 'Dubai', 'Singapore'] },
           { label: 'Origination', color: '#d9a441', items: ['Canada', 'Brazil', 'Ukraine', 'Russia', 'Kazakhstan', 'Australia'] },
-          { label: 'Destination Markets', color: '#0B3C5D', items: ['Türkiye', 'Tunisia', 'Algeria', 'Lebanon', 'Syria', 'Pakistan', 'Libya', 'Malaysia', 'Sri Lanka', 'Philippines', 'Egypt', 'India', 'Nepal', 'Bangladesh', 'Vietnam', 'Indonesia', 'China', 'Thailand', 'Qatar', 'Saudi Arabia', 'Morocco'] },
+          { label: 'Destination Markets', color: '#0B3C5D', items: ['Tunisia', 'Algeria', 'Morocco', 'Libya', 'Egypt', 'Lebanon', 'Syria', 'Saudi Arabia', 'Pakistan', 'India', 'Nepal', 'Sri Lanka', 'Bangladesh', 'China', 'Thailand', 'Vietnam', 'Malaysia', 'Philippines', 'Indonesia'] },
         ].map((g) => (
           <div key={g.label} className="rounded-xl border p-5" style={{ borderColor: '#e5e7eb', background: '#fff' }} data-testid={`map-legend-${g.label.toLowerCase().replace(/[^a-z]/g, '')}`}>
             <div className="flex items-center gap-2 mb-3">
