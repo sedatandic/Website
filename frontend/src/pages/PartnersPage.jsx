@@ -27,7 +27,7 @@ const rows = [
   ],
   // Ports, shipping lines & associations
   [
-    { name: 'Hamad Port', logo: '/partners/hamad-port.png' },
+    { name: 'Invest Qatar', logo: '/partners/invest-qatar.png' },
     { name: 'QTerminals', logo: '/partners/qterminals.png' },
     { name: 'Maersk', logo: '/partners/maersk.png' },
     { name: 'MSC', logo: '/partners/msc.png' },
