@@ -100,7 +100,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           1. HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative w-full flex-1" style={{ minHeight: '420px' }} data-testid="hero-section">
+      <section className="relative w-full flex-1 min-h-[620px] sm:min-h-[460px]" data-testid="hero-section">
         <AnimatePresence mode="wait">
           <motion.div key={currentSlide} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
             <img src={slides[currentSlide].image} alt="" className="w-full h-full object-cover" />
@@ -109,10 +109,10 @@ export default function HomePage() {
         </AnimatePresence>
 
         <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 sm:pt-0">
             <AnimatePresence mode="wait">
               <motion.div key={currentSlide} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 1 }} className="max-w-7xl mx-auto text-center">
-                <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white leading-[1.14] tracking-tight whitespace-pre-line" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
+                <h1 className="text-[28px] sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight whitespace-pre-line" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
                   <span style={{ color: '#8A1538', textShadow: '0 1px 3px rgba(0,0,0,0.55), 0 2px 14px rgba(0,0,0,0.75)' }}>{slides[currentSlide].action}</span>{' '}{slides[currentSlide].headline}
                 </h1>
                 <p className="mt-6 text-base sm:text-lg italic text-white leading-relaxed max-w-4xl mx-auto whitespace-pre-line" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>{slides[currentSlide].subtext}</p>
