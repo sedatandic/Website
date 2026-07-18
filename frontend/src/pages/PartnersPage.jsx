@@ -19,8 +19,8 @@ const rows = [
   // Institutions & inspection
   [
     { name: 'Qatar Financial Centre', logo: '/partners/qfc.png' },
-    { name: 'Ministry of Commerce', sub: 'Qatar', logo: '/partners/ministry-commerce.svg' },
-    { name: 'Qatar Chamber', logo: '/partners/qatar-chamber.png' },
+    { name: 'Ministry of Commerce', sub: 'Qatar', logo: '/partners/ministry-commerce.svg', big: true },
+    { name: 'Qatar Chamber', logo: '/partners/qatar-chamber.png', big: true },
     { name: 'SGS', sub: 'Inspection', logo: '/partners/sgs.png' },
     { name: 'Control Union', sub: 'Inspection', logo: '/partners/control-union.svg' },
     { name: 'GAFTA', sub: 'Trade Association', logo: '/partners/gafta.png' },
@@ -42,12 +42,12 @@ const LogoTile = ({ p }) => {
   const Icon = p.icon;
   return (
     <div
-      className="shrink-0 mx-3 w-52 h-24 rounded-xl border bg-white flex items-center justify-center text-center px-5 transition-shadow hover:shadow-md"
+      className={`shrink-0 mx-3 w-52 h-24 rounded-xl border bg-white flex items-center justify-center text-center transition-shadow hover:shadow-md ${p.big ? 'px-2' : 'px-5'}`}
       style={{ borderColor: '#e5e7eb' }}
       data-testid={`partner-logo-${p.name.toLowerCase().replace(/[^a-z]/g, '')}`}
     >
       {p.logo ? (
-        <img src={p.logo} alt={p.name} className="max-h-[72px] max-w-[92%] object-contain" loading="lazy" />
+        <img src={p.logo} alt={p.name} className={`object-contain ${p.big ? 'max-h-[88px] max-w-full' : 'max-h-[72px] max-w-[92%]'}`} loading="lazy" />
       ) : (
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(138, 21, 56, 0.08)' }}>
