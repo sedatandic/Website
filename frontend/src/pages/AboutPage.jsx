@@ -51,10 +51,10 @@ const destinationRegions = [
 const commoditiesList = ['Wheat', 'Barley', 'Corn', 'Feed ingredients', 'Oilseeds', 'Pulses', 'Rice', 'Sugar', 'Coffee'];
 
 const keyFacts = [
-  { value: '25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
-  { value: '200+', label: 'Vessels', sub: 'CHARTERED ANNUALLY', icon: Ship },
   { value: '$250M+', label: 'Worth of', sub: 'ANNUAL TURNOVER', icon: Briefcase },
   { value: '600K+', label: 'MTS', sub: 'ANNUAL TRADE VOLUME', icon: Globe },
+  { value: '200+', label: 'Vessels', sub: 'CHARTERED ANNUALLY', icon: Ship },
+  { value: '25+', label: 'Different', sub: 'COMMODITIES TRADED', icon: TrendingUp },
   { value: '25+', label: 'Different', sub: 'COUNTRIES SERVED', icon: MapPin },
   { value: '7 Offices', label: 'Staff in', sub: '6 DIFFERENT COUNTRIES', icon: Building2 },
 ];
