@@ -304,7 +304,7 @@ export default function AboutPage() {
                   <Card key={m.id} className="border text-center h-full" style={{ borderColor: '#e5e7eb', borderRadius: '12px' }}>
                     <CardContent className="p-6 h-full flex flex-col items-center justify-center" style={{ minHeight: '190px' }}>
                       {m.logo ? (
-                        <img src={m.logo} alt={m.name} className={`w-full max-w-full object-contain px-2 ${m.name.includes('American Chamber') ? 'max-h-40 scale-125' : 'max-h-40'}`} data-testid={`membership-logo-${m.name}`} />
+                        <img src={m.logo} alt={m.name} className="w-full max-w-full object-contain px-2 max-h-40" data-testid={`membership-logo-${m.name}`} />
                       ) : (
                         <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: 'rgba(11, 60, 93, 0.08)' }}>
                           <Award className="w-6 h-6" style={{ color: 'var(--ga-navy)' }} />

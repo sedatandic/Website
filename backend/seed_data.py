@@ -228,7 +228,7 @@ def seed_database(db):
             {"name": "FOSFA International", "full_name": "Federation of Oils, Seeds and Fats Associations", "logo": "/memberships/fosfa.png"},
             {"name": "Qatar Chamber", "full_name": "Qatar Chamber of Commerce and Industry", "logo": "/memberships/qatar-chamber.jpg"},
             {"name": "US-Qatar Business Council", "full_name": "US-Qatar Business Council, Doha", "logo": "/memberships/usqbc.jpg"},
-            {"name": "American Chamber of Commerce Qatar", "full_name": "American Chamber of Commerce Qatar", "logo": "/memberships/amcham.png"},
+            {"name": "ICC Qatar", "full_name": "International Chamber of Commerce, Qatar", "logo": "/memberships/icc-qatar.png"},
         ]
         db.memberships.insert_many(memberships)
         print("Seeded memberships collection")
