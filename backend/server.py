@@ -128,8 +128,8 @@ def _set_auth_cookies(response: Response, token: str) -> str:
 
 
 def _clear_auth_cookies(response: Response) -> None:
-    response.delete_cookie(ACCESS_COOKIE, path="/")
-    response.delete_cookie(CSRF_COOKIE, path="/")
+    response.set_cookie(ACCESS_COOKIE, "", max_age=0, httponly=True, secure=True, samesite="lax", path="/")
+    response.set_cookie(CSRF_COOKIE, "", max_age=0, httponly=False, secure=True, samesite="lax", path="/")
 
 
 # ── Auth dependency ──
