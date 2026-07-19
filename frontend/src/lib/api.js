@@ -1,16 +1,25 @@
 import axios from 'axios';
 
 const API_BASE = process.env.REACT_APP_BACKEND_URL || '';
-export const TOKEN_KEY = 'pa_admin_token';
 
 const api = axios.create({
   baseURL: API_BASE,
   headers: { 'Content-Type': 'application/json' },
+  withCredentials: true,
 });
 
+function readCookie(name) {
+  const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+// Attach CSRF token (double-submit) on state-changing requests for cookie-based sessions
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem(TOKEN_KEY);
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  const method = (config.method || 'get').toLowerCase();
+  if (['post', 'put', 'patch', 'delete'].includes(method)) {
+    const csrf = readCookie('pa_csrf_token');
+    if (csrf) config.headers['X-CSRF-Token'] = csrf;
+  }
   return config;
 });
 
@@ -39,6 +48,7 @@ export const getMemberships = () => api.get('/api/memberships');
 
 // ── Auth ──
 export const adminLogin = (email, password) => api.post('/api/auth/login', { email, password });
+export const adminLogout = () => api.post('/api/auth/logout');
 export const adminMe = () => api.get('/api/auth/me');
 
 // ── Admin content CRUD ──

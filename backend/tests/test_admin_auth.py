@@ -38,7 +38,10 @@ def session():
 
 @pytest.fixture(scope="module")
 def admin_token(session):
-    r = session.post(
+    # Use a separate throwaway session for login so cookies do NOT leak into
+    # the shared `session` fixture used by "requires auth" negative tests.
+    login_sess = requests.Session()
+    r = login_sess.post(
         f"{BASE_URL}/api/auth/login",
         json={"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD},
         timeout=20,

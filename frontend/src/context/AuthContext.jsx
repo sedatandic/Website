@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { adminLogin, adminMe, TOKEN_KEY } from '../lib/api';
+import { adminLogin, adminMe, adminLogout } from '../lib/api';
 
 const AuthContext = createContext(null);
 
@@ -10,30 +10,24 @@ export function AuthProvider({ children }) {
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem(TOKEN_KEY);
-    if (!token) {
-      setUser(false);
-      setChecking(false);
-      return;
-    }
     adminMe()
       .then((res) => setUser(res.data))
-      .catch(() => {
-        localStorage.removeItem(TOKEN_KEY);
-        setUser(false);
-      })
+      .catch(() => setUser(false))
       .finally(() => setChecking(false));
   }, []);
 
   const login = useCallback(async (email, password) => {
     const res = await adminLogin(email, password);
-    localStorage.setItem(TOKEN_KEY, res.data.token);
     setUser(res.data.user);
     return res.data.user;
   }, []);
 
-  const logout = useCallback(() => {
-    localStorage.removeItem(TOKEN_KEY);
+  const logout = useCallback(async () => {
+    try {
+      await adminLogout();
+    } catch (e) {
+      // ignore network errors on logout
+    }
     setUser(false);
   }, []);
 

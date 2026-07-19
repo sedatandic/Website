@@ -104,20 +104,55 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Peninsula Agritrade API", lifespan=lifespan)
 
+_cors_env = os.environ.get("CORS_ORIGINS", "*")
+_cors_origins = ["*"] if _cors_env.strip() == "*" else [o.strip() for o in _cors_env.split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+ACCESS_COOKIE = "pa_access_token"
+CSRF_COOKIE = "pa_csrf_token"
+_COOKIE_MAX_AGE = 12 * 60 * 60
+
+
+def _set_auth_cookies(response: Response, token: str) -> str:
+    csrf = uuid.uuid4().hex
+    response.set_cookie(ACCESS_COOKIE, token, httponly=True, secure=True, samesite="lax", max_age=_COOKIE_MAX_AGE, path="/")
+    response.set_cookie(CSRF_COOKIE, csrf, httponly=False, secure=True, samesite="lax", max_age=_COOKIE_MAX_AGE, path="/")
+    return csrf
+
+
+def _clear_auth_cookies(response: Response) -> None:
+    response.delete_cookie(ACCESS_COOKIE, path="/")
+    response.delete_cookie(CSRF_COOKIE, path="/")
+
 
 # ── Auth dependency ──
-def get_current_admin(authorization: str = Header(None)):
-    if not authorization or not authorization.startswith("Bearer "):
+def get_current_admin(request: Request, authorization: str = Header(None)):
+    # Explicit Bearer header takes precedence (API clients / tests) — no CSRF required.
+    # Otherwise fall back to the httpOnly cookie session with CSRF double-submit.
+    from_cookie = False
+    token = None
+    if authorization and authorization.startswith("Bearer "):
+        token = authorization[7:]
+    else:
+        cookie_token = request.cookies.get(ACCESS_COOKIE)
+        if cookie_token:
+            token = cookie_token
+            from_cookie = True
+    if not token:
         raise HTTPException(status_code=401, detail="Not authenticated")
-    token = authorization[7:]
+    # CSRF: double-submit token check only for cookie-based, state-changing requests
+    if from_cookie and request.method in ("POST", "PUT", "PATCH", "DELETE"):
+        header_csrf = request.headers.get("X-CSRF-Token")
+        cookie_csrf = request.cookies.get(CSRF_COOKIE)
+        if not header_csrf or not cookie_csrf or header_csrf != cookie_csrf:
+            raise HTTPException(status_code=403, detail="CSRF token missing or invalid")
     try:
         payload = decode_token(token)
     except Exception:
@@ -163,15 +198,23 @@ async def health():
 
 # ── Auth ──
 @app.post("/api/auth/login")
-async def login(data: LoginRequest):
+async def login(data: LoginRequest, response: Response):
     user = db.users.find_one({"email": data.email.lower()})
     if not user or not verify_password(data.password, user.get("password_hash", "")):
         raise HTTPException(status_code=401, detail="Invalid email or password")
     token = create_access_token(str(user["_id"]), user["email"])
+    csrf = _set_auth_cookies(response, token)
     return {
         "token": token,
+        "csrf_token": csrf,
         "user": {"id": str(user["_id"]), "email": user["email"], "name": user.get("name", ""), "role": user.get("role", "")},
     }
+
+
+@app.post("/api/auth/logout")
+async def logout(response: Response):
+    _clear_auth_cookies(response)
+    return {"status": "ok"}
 
 
 @app.get("/api/auth/me")

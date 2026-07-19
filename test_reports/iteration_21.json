@@ -1,0 +1,42 @@
+{
+  "summary": "Verified security-hardened auth (httpOnly cookie + double-submit CSRF, tightened CORS, logout endpoint) end-to-end. Added 13 new pytest tests covering cookie/CSRF/logout behavior and reran the full 29-test regression suite — 42/42 backend tests green. Also completed a Playwright UI walk-through: login sets httpOnly pa_access_token + readable pa_csrf_token cookies, localStorage contains NO auth token, page refresh preserves the session (cookie-based), CRUD (create + delete insight) succeeds via the frontend CSRF header interceptor, and logout redirects to /admin/login with session invalidated (document.cookie no longer contains pa_csrf_token, /api/auth/me returns 401, /admin ProtectedRoute redirects to /admin/login).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "POST /api/auth/logout", "issue": "Response.delete_cookie emits Set-Cookie without the Secure attribute (source cookies were set with Secure). Chromium accepts the deletion (verified: document.cookie no longer contains pa_csrf_token and /api/auth/me returns 401), but strict UAs / RFC 6265bis recommend deletion cookies match the original SameSite/Secure attributes. Consider using response.set_cookie(name, '', max_age=0, path='/', secure=True, samesite='lax', httponly=True/False) instead of delete_cookie() for symmetry."},
+      {"endpoint": "get_current_admin()", "issue": "FIXED in this iteration. Previous logic preferred cookie over Bearer, so any client sending BOTH (e.g., the existing regression test suite whose session picked up cookies from an earlier login while still passing Authorization: Bearer) hit 403 CSRF on mutating requests. Per the review spec ('Bearer requests do NOT require a CSRF header'), Authorization: Bearer now takes precedence and skips the CSRF double-submit check; cookie-based sessions still enforce CSRF on POST/PUT/PATCH/DELETE."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_auth_cookies_csrf.py",
+    "/app/backend/tests/test_admin_auth.py",
+    "/app/test_reports/pytest/pytest_results_iter21.xml"
+  ],
+  "action_items": [
+    "OPTIONAL hardening (minor): switch /api/auth/logout to use response.set_cookie(..., '', max_age=0, secure=True, samesite='lax', ...) for both pa_access_token (httponly=True) and pa_csrf_token (httponly=False) so deletion Set-Cookie attributes mirror the login ones. Current delete_cookie works in Chromium but not attribute-symmetric."
+  ],
+  "critical_code_review_comments": [
+    "server.py get_current_admin() precedence: original implementation preferred cookie unconditionally, which silently ignored Authorization: Bearer whenever a cookie was also present and then enforced CSRF — a real backward-compat regression for API clients that reuse an HTTP session. Fixed to check Bearer first (skip CSRF), then cookie (require CSRF for state-changing methods). This matches the stated intent in the review request.",
+    "server.py cookie SameSite=lax on a cross-origin (preview.emergentagent.com) setup: works today because the frontend and backend share the same eTLD+1 host, so requests are same-site. If ever split across different domains, SameSite=lax would silently drop cookies on cross-site XHR — consider SameSite=None (with Secure) to be explicit and future-proof.",
+    "_COOKIE_MAX_AGE = 12h; the JWT `exp` claim (see auth.create_access_token) should ideally match or be shorter than the cookie lifetime — worth an audit to make sure they don't drift.",
+    "CORS_ORIGINS=* in code fallback: server.py sets allow_origins=['*'] if env is '*', but combined with allow_credentials=True this is an invalid CORS combination (browsers reject). Backend/.env currently pins CORS_ORIGINS to the preview URL so it's fine in prod-preview; but the fallback branch is a footgun.",
+    "Existing regression suite /app/backend/tests/test_admin_auth.py used a single module-scoped requests.Session for both login and 'requires auth' negative tests — cookies leaked. Fixed by giving admin_token fixture its own throwaway session, so the shared `session` fixture stays cookie-free and correctly exercises the 401 paths."
+  ],
+  "updated_files": [
+    "/app/backend/server.py (get_current_admin: Bearer takes precedence over cookie; cookie path enforces CSRF as before)",
+    "/app/backend/tests/test_admin_auth.py (admin_token fixture now uses its own throwaway session so login cookies don't leak into the shared `session` used by negative-auth tests)",
+    "/app/backend/tests/test_auth_cookies_csrf.py (NEW — 13 tests: login body/cookies/HttpOnly/Secure, cookie /me, cookie GET no-CSRF, cookie mutation CSRF 403/success, Bearer backward compat, logout clears session)"
+  ],
+  "success_rate": {"backend": "100% (42/42)", "frontend": "100% (9/9 flow steps)"},
+  "test_credentials": "admin@peninsula.com.qa / Peninsula@2026 (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "None persisted. New CSRF test creates/updates/deletes a throwaway insight within one test; leftover job_applications/career_inquiries from prior iterations are unchanged.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend regression suites are at /app/backend/tests/test_admin_auth.py (29 tests) and /app/backend/tests/test_auth_cookies_csrf.py (13 tests). Together they cover Bearer backward-compat and the new cookie+CSRF path. Login now returns {token, csrf_token, user} and sets pa_access_token (HttpOnly+Secure) + pa_csrf_token (readable+Secure). Frontend axios (with withCredentials:true) attaches X-CSRF-Token from the pa_csrf_token cookie on POST/PUT/PATCH/DELETE. Backend: Authorization: Bearer takes precedence over the cookie (no CSRF); cookie session enforces CSRF on mutating methods. Logout clears both cookies; document.cookie/pa_csrf_token gone and /api/auth/me returns 401 after logout. localStorage carries NO auth token (only PostHog analytics).",
+  "rca of the issue": "Original get_current_admin() unconditionally preferred the pa_access_token cookie over Authorization: Bearer, then enforced CSRF for state-changing cookie-based requests. Any existing test/session that logged in once and then set an Authorization header would still send BOTH the cookies (from the login response) and the Bearer header, but the server would use the cookie path and require X-CSRF-Token — which the backward-compat API clients don't send. Result: 100% of Bearer-based mutating regression tests failed with 403 'CSRF token missing or invalid'. Fix: check Authorization: Bearer first; only fall through to the cookie when no Bearer header is present. This aligns with the stated design ('Bearer requests do NOT require a CSRF header') and restores all 29 existing regression tests to green."
+}
